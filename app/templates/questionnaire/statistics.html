@@ -1,0 +1,31 @@
+<!-- 问卷详情统计 -->
+<div class="xx-modal-body">
+	<!-- models/questionnaire/statistics.scss -->
+	<div class="questionnaire-statistics-box">
+		{{if questionnaire.choices.length==0}}
+		<p class="text-xx-gray">无可统计项</p>
+		{{/if}}
+		{{each questionnaire.choices as choice i}}
+		<div class="box-row">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">{{choice.title}}</span>
+				{{if choice.required}}
+				<span class="required" title="必填项">必填项</span>
+				{{/if}}
+			</h4>
+
+			<ul class="choice-box">
+				{{each choice.options as option i}}
+				<li class="" data-value="{{option.id}}" title="{{option.name}}">
+					<div class="progress" data-value="{{option.total/questionnaire.total*520}}"></div>
+					<div class="ellipsis name">
+						<span>{{option.name}}</span>
+						<span class="percent">{{option.total||0}}/{{questionnaire.total||0}}</span>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+		{{/each}}
+	</div>
+</div>

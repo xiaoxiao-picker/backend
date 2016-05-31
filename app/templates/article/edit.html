@@ -1,0 +1,164 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">文章编辑</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="classficationManage">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">分类管理</span>
+		</button>
+		{{if organization.advertisementAuth}}
+		<button class="btn btn-xx-blue btn-xx-sm" data-xx-action="advertManage">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">文章广告</span>
+		</button>
+		{{/if}}
+	</div>
+</div>
+<div class="content-body article-edit-body">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<form id="ArticleEditForm" class="form-editor">
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+						<span class="xx-title">主题图片</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="avatar-wrapper">
+							<img class="article-avatar" id="ArticleAvatar" src="{{articleInfo.thumbnailUrl}}" onerror="this.src='images/default/article.jpg';" />
+						</div>
+						<div class="buttons">
+							<button class="btn btn-xx-green" data-xx-action="openImageSelector" data-toggle="tooltip" data-placement="right" title="建议上传海报比例 300*200！">
+								<span>选择海报</span>
+							</button>
+							<button class="btn btn-xx-green btn-cut {{if !articleInfo.thumbnailUrl}}hide{{/if}}" data-xx-action="openImageCrop">
+								<span>剪切</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+						<span class="xx-title">文章标题</span>
+					</h4>
+					<label>
+						<input class="xx-input-text xx-text-bounds" name="name" type="text" value="{{articleInfo.name}}" data-xx-change-action="checkTitle" data-xx-keyup-action="checkTitle" placeholder="请输入文章标题" />
+					</label>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+						<span class="xx-title">文章简介（简要概括文章主题，100字以内）</span>
+					</h4>
+					<div class="xx-inner-body">
+						<textarea class="xx-textarea xx-textarea-bounds-o" name="terse" type="text" value="{{articleInfo.terse}}" placeholder="请填写文章简介/主题内容" data-xx-change-action="terseValidate" data-xx-keyup-action="terseValidate">{{articleInfo.terse}}</textarea>
+						<p class="bottom-tips">
+							还可以输入<span id="TerseRemain">{{articleInfo.terse?100-articleInfo.terse.length:100}}</span>字。
+						</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+						<span class="xx-title">文章类型</span>
+						<button class="btn btn-xx-green btn-xx-sm" data-xx-action="openLabelModal">添加分类</button>
+					</h4>
+					<div>
+						<select style="width: 280px;" name="categoryId" id="ArticleCategories" data-xx-change-action="checkType">
+							<!-- select option 模板  app/templates/public/option -->
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix" style="width: 280px;">
+						<span class="xx-title">是否开启评论</span>
+						<div class="xx-right">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" id="CommentState" name="commentState" value="" {{if articleInfo.commentState=='OPEN'}}checked{{/if}} data-xx-change-action="checkCommentState"/>
+								<label class="xx-switch-label" for="CommentState">
+									<div class="xx-switch-inner">
+										<div class="xx-active">开启</div>
+										<div class="xx-inactive">关闭</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</div>
+					</h4>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title ">
+						<span class="xx-title">文章详情</span>
+					</h4>
+					<textarea id="Context" name="text" value={{articleInfo.text}}>{{articleInfo.text}}</textarea>
+				</div>
+				<div class="btn-xx-group left" style="padding: 15px 0;">
+					{{if articleInfo.id}}
+						{{if articleInfo.state=="UNPUBLISHED"}}
+					<button class="btn btn-xx-green" data-xx-action="publish" title="发布该文章">
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">发布</span>
+					</button>
+					<button class="btn btn-xx-green btn-save" data-xx-action="save" disabled title="保存修改">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+					</button>
+					<!-- 加入回收箱 -->
+					<button class="btn btn-xx-red" data-xx-action="moveToDustbin">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{else if articleInfo.state=="PUBLISHED"}}
+					<button class="btn btn-xx-green btn-save" data-xx-action="save" disabled title="保存修改">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+					</button>
+					<!-- <button class="btn btn-xx-red" data-xx-action="archive" title="下线该文章">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">下线</span>
+					</button> -->
+					<button class="btn btn-xx-red" data-xx-action="moveToDustbin" title="删除该文章">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{else if articleInfo.state=="RUBBISH"}}
+					<!-- 彻底删除 -->
+					<button class="btn btn-xx-red" data-xx-action="remove" title="删除该文章">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{/if}}
+					{{else}}
+					<button class="btn btn-xx-green btn-save" data-xx-action="publish" title="发布该文章" disabled>
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">发布</span>
+					</button>
+					<button class="btn btn-xx-hollow-gray-border btn-save" data-xx-action="save" title="保存该文章至草稿箱" disabled>
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">存草稿</span>
+					</button>
+					{{/if}}
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

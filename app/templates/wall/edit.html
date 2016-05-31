@@ -1,0 +1,140 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">上墙编辑</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="voteManage" title="绑定投票">绑定投票</button>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="lotteryManage" title="绑定抽奖">绑定抽奖</button>
+	</div>
+</div>
+<div class="content-body wall-edit form-edit">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+					<span class="xx-title">标题</span>
+					</h4>
+					<div class="xx-inner-content">
+						<input id="NameText" name="title" class="xx-input-text xx-text-bounds" type="text" placeholder="请输入标题" value="{{wall.title}}" data-xx-change-action="inputModify" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+					<span class="xx-title">时间</span>
+					</h4>
+					<div class="datetimepicker-group xx-inputs clearfix">
+						<div class="xx-input-group">
+							<span class="xx-input-group-addon">从</span>
+							<input id="StartDate" name="startDate" type="text" class=" datetimepicker min" placeholder="开始日期" value="{{wall.startDate | makedate:'yyyy/MM/dd hh:mm'}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" readonly/>
+						</div>
+						<div class="xx-input-group">
+							<span class="xx-input-group-addon">至</span>
+							<input id="EndDate" name="endDate" type="text" class=" datetimepicker max" placeholder="结束日期" value="{{wall.endDate | makedate:'yyyy/MM/dd hh:mm'}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" readonly/>
+						</div>
+					</div>
+				</div>
+				<!-- 报名成员是否需要绑定手机号 -->
+				<div class="form-group clearfix">
+					<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px; width:300px;">
+						<span class="xx-title"  title="是否需要上墙用户绑定手机号码">是否需要上墙用户绑定手机号码</span>
+						<div class="xx-right">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" id="CompulsivelyBindPhoneNumber" name="compulsivelyBindPhoneNumber" {{if wall.compulsivelyBindPhoneNumber}}checked{{/if}}  data-xx-change-action="modifyCheckBox"/>
+								<label class="xx-switch-label" for="CompulsivelyBindPhoneNumber">
+									<div class="xx-switch-inner">
+										<div class="xx-active" tooltip title="需要上墙用户绑定手机号码">是</div>
+										<div class="xx-inactive"  tooltip title="不需要上墙用户绑定手机号码">否</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</div>
+					</h4>
+					<div class="tips">
+						<p>如果上墙需要使用抽奖功能，建议开启【需要上墙用户绑定手机号码】。</p>
+						<p>未绑定手机用户由于身份不可识别不能参与上墙抽奖。</p>
+					</div>
+				</div>
+				
+				<div class="form-group wall-sponsor">
+					<h4 class="xx-inner-title"  style="margin: 0 0 10px; width:300px;">
+						<span class="xx-title"  title="是否添加赞助商海报">是否添加赞助商海报</span>
+						<div class="xx-right">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" id="SponsorSwitch" {{if wall.sponsor}}checked{{/if}}  data-xx-change-action="switchSponsor"/>
+								<label class="xx-switch-label" for="SponsorSwitch">
+									<div class="xx-switch-inner">
+										<div class="xx-active" tooltip >是</div>
+										<div class="xx-inactive"  tooltip >否</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</div>
+					</h4>
+					<div class="tips">
+						<p>上墙可添加赞助商海报，以供组织者宣传。</p>
+					</div>
+					<section class="xx-inner-content {{if !wall.sponsor}}hide{{/if}}">
+						<div class="poster-wrapper">
+							<img class="sponsor-poster" src="{{wall.sponsor}}" onerror="this.src='images/default/article.jpg';" />
+						</div>
+						<div class="buttons">
+							<button class="btn btn-xx-green" data-xx-action="selectWallSponsor" data-toggle="tooltip" data-placement="right" title="">
+								<span>选择</span>
+							</button>
+						</div>
+					</section>
+				</div>
+
+				<!-- 选择上墙主题 -->
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+					<span class="xx-title">主题</span>
+					</h4>
+					<div class="theme-main-container clearfix">
+						{{each themes as theme i}}
+						<div class="theme-container  {{ if wall.themeCode==theme.code}} active {{ /if }}" data-theme-code="{{theme.code}}">
+							<div data-xx-action="selectTheme">
+								<span class="theme-state"></span>
+								<img id="Profile_{{theme.code}}" class="skin-img"  src="{{theme.code=="CUSTOM"?wall.themeData.backgroundImageUrl:theme.profile}}{{if theme.code=="CUSTOM"}}@200w_150h_1e_1c{{/if}}" onerror='this.src="./images/default/event.jpg"'/>
+							</div>
+							<div class="theme-name">
+								<span class="theme-text clearfix" >{{theme.name}}</span>
+							</div>
+							<div class="operator">
+								{{if theme.code=="CUSTOM"}}
+								<button data-xx-action="openImageSelector" class="btn btn-xx-green">编辑</button>
+								{{/if}}
+								<button data-xx-action="previewTheme" class="btn btn-xx-green">预览</button>
+							</div>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<h4 class="xx-inner-title clearfix">
+				<span class="xx-title">公告</span>
+				</h4>
+				<label class="xx-inner-body textarea-box">
+					<textarea class="xx-textarea xx-textarea-bounds" name="text" value="{{wall.notice}}" data-xx-change-action="terseValidate" data-xx-keyup-action="terseValidate">{{wall.notice}}</textarea>
+					<p class="bottom-tips">
+						还可以输入<span id="TerseRemain">100</span>字。
+					</p>
+				</label>
+			</div>
+			<!-- 保存 -->
+			<div class="center buttons">
+				<button class="btn btn-xx-green" data-xx-action="save">
+				<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">保存</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

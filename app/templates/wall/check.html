@@ -1,0 +1,99 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">上墙审核</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body wall-check">
+	<div class="panel clearfix">
+		<div class="panel-header">
+			<div class="page-tips-container">
+				<div class="page-tpis ellipsis" title="在投影屏中使用浏览器打开该投影地址，按F11键全屏显示" tooltip>
+					<span>投影地址：</span>
+					<a class="link-info" href="{{wallInfoURL}}" target="_blank">{{wallInfoURL}}</a>
+				</div>
+				<div class="buttons">
+					<a class="btn btn-xx-hollow-green-border btn-xx-sm" href="{{wallInfoURL}}" target="_blank">打开投影页</a>
+					<a class="btn btn-xx-hollow-green-border btn-xx-sm" href="{{wallMessageURL}}" target="_blank">打开消息上墙页</a>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body clearfix">
+			<div id="UncheckedBox" class="box unchecked">
+				<div class="box-header">
+					<span>全部消息（<i id="MESSAGENUMBER">{{count}}</i>）</span>
+					<div class="buttons">
+						<span>自动播放</span>
+						<div class="xx-switch">
+							<input type="checkbox" id="AutoCheck" class="xx-switch-checkbox" {{if !wall.needCheck}} checked {{/if}} data-xx-action="autoCheck">
+							<label class="xx-switch-label" for="AutoCheck">
+								<div class="xx-switch-inner">
+									<div class="xx-active">开启</div>
+									<div class="xx-inactive">关闭</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="box-body">
+					<ul class="message-list unselect" id="MESSAGECONTAINER">
+						<!-- app/templates/wechatWall/check-message -->
+						{{include './check-message'}}
+					</ul>
+				</div>
+				<div class="box-footer">
+					<!-- 分页插件 -->
+				</div>
+				<div id="MESSAGESHADOW" class="{{if !wall.needCheck}}active{{/if}} center unselect">
+					<p class="selectable">已开启自动播放，消息无需审核直接上墙</p>
+					<div class="buttons">
+						<button class="btn btn-xx-danger btn-xx-sm" data-xx-action="openCheck">
+							<span class="inside-loading"> 
+								<strong>正在关闭</strong>
+								<i class="fa fa-spinner rolling"></i>
+							</span>
+							<span class="inside-text">
+								<strong>关闭自动播放</strong>
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="CheckedBox" class="box checked">
+				<div class="box-header">
+					<span>上墙队列</span>
+					<a href="javascript:void(0);" class="link-danger" data-xx-action="clearQueue">清空</a>
+					<div class="buttons {{if wall.wallState=="OPEN"}}playing{{/if}}">
+						<button class="pause" data-xx-action="closeWall">
+							<span class="inside-loading"> 
+								<span>正在播放</span>
+								<i class="fa fa-spinner rolling"></i>
+							</span>
+							<span class="inside-text">
+								<span>正在播放</span>
+								<span class="fa fa-pause"></span>
+							</span>
+						</button>
+						<button class="play" data-xx-action="openWall">
+							<span class="inside-loading"> 
+								<span>已暂停</span>
+								<i class="fa fa-spinner rolling"></i>
+							</span>
+							<span class="inside-text">
+								<span>已暂停</span>
+								<span class="fa fa-play"></span>
+							</span>
+						</button>
+					</div>
+				</div>
+				<div class="box-body">
+					<ul class="message-list unselect" id="CHECKEDMESSAGECONTAINER">
+						<!-- app/templates/wechatWall/check-message -->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

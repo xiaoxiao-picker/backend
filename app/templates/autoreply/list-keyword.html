@@ -1,0 +1,69 @@
+<table class="table middle center">
+	<thead class="xx-table-header">
+		<tr>
+			<th class="width-60">编号</th>
+			<th>关键词</th>
+			<th class="width-100">
+				匹配类型
+			</th>
+			<th class="width-160">
+				回复类型
+			</th>
+			<th class="width-200 xx-border-right">操作</th>
+		</tr>
+	</thead>
+	<tbody class="xx-table-body">
+		{{each replies as reply i}}
+		<tr>
+			<td>
+				{{i | index:pagination.page,pagination.limit}}
+			</td>
+			<td class="">
+				{{#reply.keyWord}}
+			</td>
+			<td>
+				{{if reply.matchType=="LIKE"}}
+				模糊匹配
+				{{else}}
+				完全匹配
+				{{/if}}
+			</td>
+			<td>
+				{{if reply.messageType=="TEXT"}}
+				文字回复
+				{{else if reply.messageType=="PICTURE"}}
+				图片回复
+				{{else if reply.messageType=="SINGLE_ARTICLE"}}
+				单图文回复
+				{{else if reply.messageType=="MULTIPLE_ARTICLE"}}
+				多图文回复
+				{{else if reply.messageType=="RELATION"}}
+				高级回复
+				{{/if}}
+			</td>
+			<td>
+				<!-- 内置回复不可操作 -->
+				{{if curMessageType.type=="BUILT_IN"}}
+				<span class="text-danger">内置回复不可操作</span>
+				{{else}}
+				<!-- 图文回复 -->
+				{{if reply.messageType=="SINGLE_ARTICLE" || reply.messageType=="MULTIPLE_ARTICLE"}}
+				<a class="btn btn-xx-green btn-xx-sm" href="#autoreply/{{replyType}}/ARTICLE/{{reply.id}}" {{if reply.keyWord=="yzwx"}}disabled{{/if}}>编辑</a>
+				<!-- 其他类型回复 -->
+				{{else}}
+				<a class="btn btn-xx-green btn-xx-sm" href="#autoreply/{{replyType}}/{{reply.messageType}}/{{reply.id}}" {{if reply.keyWord=="yzwx"}}disabled{{/if}}>编辑</a>
+				{{/if}}
+				<button class="btn btn-xx-red btn-xx-sm" data-value="{{reply.id}}" data-xx-action="remove" {{if reply.keyWord=="yzwx"}}disabled{{/if}}>
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-14"></i>
+				</span>
+				<span class="inside-text">
+					删除
+				</span>
+				</button>
+				{{/if}}
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

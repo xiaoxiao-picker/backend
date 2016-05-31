@@ -1,0 +1,399 @@
+.personalized-menu {
+        padding: 0 10px;
+
+        .xx-content {
+                .xx-input-text {
+                        background-color: #f2f2f2;
+                        background-color: rgba(255, 255, 255, 0.6);
+                        color: $xx-title-color;
+                        border: 1px solid #fff;
+                        padding: 6px 10px;
+                }
+        }
+
+        .box {
+                width: 33.33333%;
+                float: left;
+                padding: 10px 20px 10px;
+        }
+
+        .box2 {
+                .menus-box-wrapper {
+                        margin: 0 auto;
+
+                        .menus-inner-box {
+                                .phone {
+                                        .phone-footer {
+                                                user-select: none;
+
+                                                .menu {
+                                                        width: 87px;
+                                                        position: relative;
+                                                        cursor: pointer;
+
+                                                        &.menu-main {
+                                                                float: left;
+                                                                line-height: 40px;
+                                                                border-top: 1px solid #cdcdcd;
+                                                                background-color: #fff;
+                                                                border-right: 1px solid #cdcdcd;
+
+                                                                &.length-1 {
+                                                                        width: 33.33333%;
+                                                                }
+
+                                                                &.length-2 {
+                                                                        width: 50%;
+                                                                }
+
+                                                                &.length-3 {
+                                                                        width: 100%;
+                                                                }
+
+                                                                .main {
+                                                                        line-height: 40px;
+                                                                        height: 40px;
+                                                                        overflow: hidden;
+
+                                                                        .del, .moveRight, .moveLeft {
+                                                                                border-radius: 50%;
+                                                                                position: absolute;
+                                                                                cursor: pointer;
+                                                                                display: none;
+                                                                                text-align: center;
+                                                                                font-size: 15px;
+                                                                                width: 15px;
+                                                                                height: 15px;
+                                                                                background-color: #fff;
+                                                                        }
+
+                                                                        .del {
+                                                                                top: 13px;
+                                                                                right: 2px;
+                                                                                color: $red-color;
+
+                                                                                &:hover {
+                                                                                        color: $deep-red-color;
+                                                                                }
+                                                                        }
+
+                                                                        .moveLeft, .moveRight {
+                                                                                left: 2px;
+                                                                                color: $green-color;
+
+                                                                                &:hover {
+                                                                                        color: $deep-green-color;
+                                                                                }
+                                                                        }
+
+                                                                        .moveLeft {
+                                                                                top: 3px;
+                                                                        }
+
+                                                                        .moveRight {
+                                                                                top: 21px;
+                                                                        }
+                                                                }
+
+                                                                &:hover {
+                                                                        background-color: #eee;
+
+                                                                        .del, .moveRight, .moveLeft {
+                                                                                display: block;
+                                                                        }
+                                                                }
+                                                        }
+
+                                                        ul.menu-sub {
+                                                                display: none;
+                                                                margin: 0;
+                                                                padding: 0;
+                                                                position: absolute;
+                                                                left: 0px;
+                                                                bottom: 40px;
+                                                                border: 1px solid #ddd;
+                                                                width: 100%;
+
+                                                                li.sub {
+                                                                        .sub-wrapper {
+                                                                                position: relative;
+                                                                                height: 30px;
+
+                                                                                .ellipsis {
+                                                                                        line-height: 30px;
+                                                                                        overflow: hidden;
+                                                                                }
+
+                                                                                .del, .moveUp, .moveDown {
+                                                                                        border-radius: 50%;
+                                                                                        position: absolute;
+                                                                                        cursor: pointer;
+                                                                                        display: none;
+                                                                                        text-align: center;
+                                                                                        width: 15px;
+                                                                                        height: 15px;
+                                                                                        font-size: 15px;
+                                                                                        background-color: #fff;
+                                                                                }
+
+                                                                                .del {
+                                                                                        top: 10px;
+                                                                                        right: -7px;
+                                                                                        color: $red-color;
+
+                                                                                        &:hover {
+                                                                                                color: $deep-red-color;
+                                                                                        }
+                                                                                }
+
+                                                                                .moveUp, .moveDown {
+                                                                                        left: 2px;
+                                                                                        color: $green-color;
+
+                                                                                        &:hover {
+                                                                                                color: $deep-green-color;
+                                                                                        }
+                                                                                }
+
+                                                                                .moveUp {
+                                                                                        top: 1px;
+                                                                                }
+
+                                                                                .moveDown {
+                                                                                        top: 15px;
+                                                                                }
+                                                                        }
+                                                                }
+                                                        }
+
+                                                        &:hover, &.active {
+                                                                ul.menu-sub {
+                                                                        display: block;
+
+                                                                        li.sub {
+                                                                                background-color: #fff;
+
+                                                                                &:hover {
+                                                                                        background-color: #fafafa;
+
+                                                                                        .del, .moveUp, .moveDown {
+                                                                                                display: block;
+                                                                                        }
+                                                                                }
+                                                                        }
+                                                                }
+                                                        }
+                                                }
+                                        }
+
+                                        .inner-body {
+                                                width: 100%;
+                                                height: 377px;
+                                                position: absolute;
+                                                top: 50px;
+                                                left: 0;
+                                                background-color: #f2f2f2;
+
+                                                .chat-box {
+                                                        position: relative;
+                                                        width: 100%;
+                                                        height: 100%;
+                                                        overflow: auto;
+
+                                                        .row-box {
+                                                                .avatar-wrapper {
+                                                                        width: 70px;
+                                                                        height: auto;
+                                                                        padding: 10px;
+
+                                                                        img {
+                                                                                width: 50px;
+                                                                                height: 50px;
+                                                                                border-radius: 50%;
+                                                                                box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+                                                                        }
+                                                                }
+
+                                                                .info-wrapper {
+                                                                        padding-top: 15px;
+
+                                                                        h5 {
+                                                                                line-height: 20px;
+                                                                                font-size: 14px;
+                                                                                margin: 5px 0;
+                                                                                color: #666;
+                                                                        }
+
+                                                                        p {
+                                                                                text-align: left;
+                                                                                padding: 7px 5px;
+                                                                                background-color: #fff;
+                                                                                border-radius: 3px;
+                                                                                font-size: 12px;
+                                                                                color: $default-gray-color;
+                                                                                margin-bottom: 5px;
+                                                                                box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
+                                                                        }
+                                                                }
+
+                                                                &.left {
+                                                                        .avatar-wrapper {
+                                                                                float: left;
+                                                                        }
+
+                                                                        .info-wrapper {
+                                                                                margin-left: 70px;
+                                                                                padding-right: 10px;
+                                                                        }
+                                                                }
+
+                                                                &.right {
+                                                                        .avatar-wrapper {
+                                                                                float: right;
+                                                                        }
+
+                                                                        .info-wrapper {
+                                                                                margin-right: 70px;
+                                                                                padding-left: 10px;
+                                                                        }
+                                                                }
+                                                        }
+                                                }
+                                        }
+                                }
+
+                                .btn-add-menu {
+                                        color: #5bd18b;
+                                        width: 100%;
+                                        cursor: pointer;
+                                        padding: 0;
+                                        margin: 0;
+                                }
+                        }
+                }
+        }
+
+        .box3 {
+                .menu-setting-box {
+                        background-color: #fff;
+                        background-color: rgba(255, 255, 255, 0.8);
+                        padding: 10px 10px;
+                        min-height: 590px;
+                        border-radius: $default-border-radius;
+
+                        .tips {
+                                padding: 10px 0;
+                                color: #5bd18b;
+                                text-align: center;
+                        }
+
+                        .form-row {
+                                margin-bottom: 10px;
+                        }
+
+                        .buttons {
+                                position: relative;
+                                text-align: center;
+
+                                .btn-binded {
+                                        height: 30px;
+                                        line-height: 30px;
+                                        color: $green-color;
+
+                                        .pk {
+                                                margin-bottom: -5px;
+                                        }
+                                }
+
+                                .btn-rebind {
+                                        position: absolute;
+                                        top: 6px;
+                                        right: 0px;
+                                        text-decoration: underline;
+                                        color: $default-gray-color;
+                                }
+                        }
+                }
+
+                .module-edit-wrapper {
+                        height: 420px;
+                        overflow: hidden;
+                        position: relative;
+
+                        .module {
+                                height: 100%;
+                                overflow: hidden;
+
+                                img {
+                                        width: 100%;
+                                }
+                        }
+
+                        .module-text {
+                                color: #fff;
+                                background-color: #45c779;
+                                background-color: rgba(69, 199, 121, 0.9);
+                                padding: 10px;
+                                line-height: 20px;
+                                text-align: left;
+                                position: absolute;
+                                left: 0;
+                                bottom: 0;
+                                width: 100%;
+                        }
+                }
+
+                #MenuEditorBox {
+                        position: relative;
+
+                        .shadow {
+                                position: absolute;
+                                z-index: 9;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
+                        }
+                }
+
+                .button-wrapper {
+                        position: relative;
+
+                        .buttons {
+                                position: absolute;
+                                top: 0px;
+                                right: 0px;
+                                margin: 0;
+                                height: 100%;
+
+                                .btn-inner-input {
+                                        outline: none;
+                                        border: 1px solid #fff;
+                                        border-left: 1px solid #e6e6e6;
+                                        background-color: #fff;
+                                        margin: 0;
+                                        color: #5bd18b;
+                                        height: 100%;
+                                        border-radius: 0px !important;
+
+                                        .inside-text {
+                                                display: none;
+                                                line-height: none;
+                                        }
+
+                                        &.update {
+                                                .update-text {
+                                                        display: inline-block;
+                                                }
+                                        }
+
+                                        &.edit {
+                                                .edit-text {
+                                                        display: inline-block;
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
+}

@@ -1,0 +1,27 @@
+.CustomFormBox {
+        .form-group {
+                margin-bottom: 10px;
+        }
+        .xx-inner-title {
+                margin-bottom: 5px;
+        }
+        .xx-inner-body {
+                padding: 2px 0;
+        }
+        .form-type-container {
+                label {
+                        width: 30%;
+                        display: inline-block;
+                        margin-bottom: 10px;
+                }
+        }
+        .image-uploader {
+                line-height: 40px;
+                border: 1px dashed $xx-theme-color;
+                text-align: center;
+                color: $xx-theme-color;
+                >span {
+                        font-size: 30px;
+                }
+        }
+}

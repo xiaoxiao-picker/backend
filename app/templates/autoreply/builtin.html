@@ -1,0 +1,67 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation">
+			<a href="#autoreply/KEYWORD/list">
+				用户自定关键词
+			</a>
+		</li>
+		<li role="presentation" class="active">
+			<a href="#autoreply/KEYWORD/builtin">
+				系统预设关键词
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body autoreply-body">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title">
+				<span class="xx-title">总数（{{count||0}}）</span>
+				<!-- 内置回复添加说明 -->
+				<span class="text-xx-green">预设关键词回复为系统默认关键字回复，用户可新建同名关键字回复以覆盖此类关键字回复。</span>
+			</h3>
+		</header>
+		<div class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th>关键词</th>
+						<th class="width-100">
+							匹配类型
+						</th>
+						<th class="width-160">
+							回复类型
+						</th>
+						<th class="width-200 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each replies as reply i}}
+					<tr>
+						<td>
+							{{(i+1) < 10 ? "0" + (i+1) : (i+1)}}
+						</td>
+						<td>
+							{{#reply.keyWord}}
+						</td>
+						<td>
+							{{if reply.keyWords&&reply.keyWords[0].matchType=="LIKE"}}
+							模糊匹配
+							{{else}}
+							完全匹配
+							{{/if}}
+						</td>
+						<td>
+							<span>单图文回复</span>
+						</td>
+						<td>
+							<span class="text-xx-red">预设关键词回复不可操作</span>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

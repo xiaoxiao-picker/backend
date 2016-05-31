@@ -1,0 +1,185 @@
+// win8
+.temp-win8 {
+        min-height: 100%;
+        width: 280px;
+        .temp-header, .temp-body {
+                width: 240px;
+                margin-left: 10px;
+                position: relative;
+        }
+        .temp-header {
+                margin-bottom: 10px;
+                margin-top: 10px;
+                box-shadow: 1px 1px 1px #fff;
+                background-color: #ffffff;
+                background-color: rgba(255, 255, 255, 0.8);
+                box-shadow: 1px 1px 1px  #888;
+                border-radius: 1px;
+                overflow: hidden;
+                .focus, .info {
+                        height: 70px;
+                }
+                .focus {
+                        float: left;
+                        width: 70px;
+                        img {
+                                width: 100%;
+                                height: 100%;
+                        }
+                }
+                .info {
+                        width: auto;
+                        margin-left: 80px;
+                        h3.info-header {
+                                font-size: 15px;
+                                height: 30px;
+                                line-height: 30px;
+                                margin: 0;
+                                border-bottom: 1px solid #e4e4e4;
+                                color: #555;
+                        }
+                        ul.info-list {
+                                width: 100%;
+                                margin: 5px 0 0;
+                                padding: 0;
+                                >li {
+                                        float: left;
+                                        width: 33.3333333333%;
+                                        text-align: center;
+                                        font-size: 12px;
+                                        color: #777;
+                                        position: relative;
+                                        &.divider {
+                                                width: 0;
+                                                span {
+                                                        width: 1px;
+                                                        height: 12px;
+                                                        background-color: #888;
+                                                        display: inline-block;
+                                                        margin-top: 12px;
+                                                }
+                                        }
+                                        >dl {
+                                                margin: 0;
+                                        }
+                                }
+                        }
+                }
+        }
+        .temp-body {
+                .menus {
+                        margin: 0 -5px;
+                        .menu {
+                                float: left;
+                                border-radius: 1px;
+                                color: #fff;
+                                margin: 5px;
+                                position: relative;
+                                cursor: pointer;
+                                border: 1px solid rgba(255, 255, 255, 0.7);
+                                &:hover {
+                                        .buttons {
+                                                display: block;
+                                        }
+                                }
+                                &.add {
+                                        background-color: #959595;
+                                        background-color: rgba(250, 250, 250, 0.6);
+                                        border: 2px dashed #fff;
+                                        height: 60px;
+                                        .menu-name {
+                                                font-size: 20px;
+                                                line-height: 60px !important;
+                                        }
+                                        &:hover {
+                                                background-color: #b1b1b1;
+                                                background-color: rgba(250, 250, 250, 0.8);
+                                        }
+                                }
+                                .menu-name {
+                                        line-height: 60px;
+                                        height: 60px;
+                                        overflow: hidden;
+                                        text-align: center;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                        padding: 0 2px;
+                                        font-size: 12px;
+                                        img.menu-icon {
+                                                width: 36px;
+                                                height: 36px;
+                                                line-height: 36px;
+                                                vertical-align: middle;
+                                        }
+                                        .text-name {
+                                                overflow: hidden;
+                                                vertical-align: middle;
+                                                margin-bottom: 0;
+                                                padding: 0 2px;
+                                                margin: 0;
+                                        }
+                                }
+                                &.times1 {
+                                        .menu-name {
+                                                line-height: 40px;
+                                                img.menu-icon {
+                                                        width: 36px;
+                                                        height: 36px;
+                                                        line-height: 36px;
+                                                }
+                                                .text-name {
+                                                        position: absolute;
+                                                        display: block;
+                                                        width: 100%;
+                                                        left: 0;
+                                                        bottom: 0;
+                                                        line-height: 20px;
+                                                        font-size: 12px;
+                                                }
+                                        }
+                                }
+                                &.times2 {
+                                        .menu-name {
+                                                img.menu-icon {
+                                                        width: 36px;
+                                                        height: 36px;
+                                                        line-height: 36px;
+                                                }
+                                                .text-name {
+                                                        font-size: 12px;
+                                                        display: inline-block;
+                                                }
+                                        }
+                                }
+                                &.times3 {
+                                        .menu-name {
+                                                img.menu-icon {
+                                                        width: 36px;
+                                                        height: 36px;
+                                                        line-height: 36px;
+                                                }
+                                                .text-name {
+                                                        font-size: 14px;
+                                                        display: inline-block;
+                                                }
+                                        }
+                                }
+                                .buttons {
+                                        line-height: 0;
+                                        display: none;
+                                        position: absolute;
+                                        top: -12px;
+                                        right: -12px;
+                                        button.btn-minus-circle {
+                                                .fa-minus-circle {
+                                                        width: 17px;
+                                                        height: 17px;
+                                                        background-color: #fff;
+                                                        border-radius: 50%;
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
+}

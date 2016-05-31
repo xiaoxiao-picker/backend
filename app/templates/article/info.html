@@ -1,0 +1,86 @@
+<!-- 文章预览 模板-->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">文章预览</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#article/{{articleId}}/edit">编辑</a>
+		<a class="btn btn-xx-green btn-xx-sm" href="#article/categories?from=info&targetId={{articleId}}">分类管理</a>
+		{{if organization.advertisementAuth}}
+		<a class="btn btn-xx-blue btn-xx-sm" href="#advertisement/ARTICLE/{{articleId}}/info?from=info">文章广告</a>
+		{{/if}}
+	</div>
+</div>
+<div class="content-body article-preview">
+	<!-- models/event/info.scss -->
+	<div class="preview-wrapper">
+		<div>
+			<div class="box box1">
+				<div class="qrcode-box">
+					<div class="form-group">
+						<div class="xx-inner-title clearfix">
+							<div class="xx-title">
+								文章二维码
+							</div>
+						</div>
+						<div class="qrcode-wrapper">
+							<img src="{{articleQRcode}}" alt="{{articleUrl}}" onerror="this.src='./images/empty.png';" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="xx-inner-title clearfix">
+							<div class="xx-title">
+								文章链接地址
+							</div>
+						</div>
+						<div class="addr">
+							{{articleUrl}}
+						</div>
+					</div>
+					<div class="buttons"> 
+						<button id="CopyUrl" class="btn btn-xx-white" data-clipboard-text="{{articleUrl}}">复制</button>
+					</div>
+				</div>
+			</div>
+			<div class="box box2">
+				<div class="phone-box">
+					<div class="inner-phone-box">
+						<div class="phone">
+							<div class="phone-header center">
+								<span>文章预览效果</span>
+							</div>
+							<div class="phone-body">
+								{{include './preview'}}
+							</div>
+							<div class="phone-submit">
+								<i class="pk pk-gray"></i>
+							</div>
+							{{if article.state != 'PUBLISHED'}}
+							<div class="publish-btn-fixed" data-xx-action="showPublishOverlay">
+								<span class="pk pk-white-publish"></span>
+							</div>
+							{{/if}}
+						</div>
+						{{if article.state != 'PUBLISHED'}}
+						<div class="phone-overlay">
+							<div class="btn-wrapper">
+								<p>
+								<button class="btn btn-xx-green" data-xx-action="publish">
+									<span class="inside-loading">
+										<i class="fa fa-spinner rolling font-14"></i>
+									</span>
+									<span class="inside-text">立即发布</span>
+								</button>
+								</p>
+								<p><a class="link-white" href="javascript:void(0);" data-xx-action="hidePublishOverlay">以后再说</a></p>
+							</div>
+						</div>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

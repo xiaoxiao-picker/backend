@@ -1,0 +1,22 @@
+.category-selector {
+        position: fixed;
+        min-width: 150px;
+
+        .categories {
+                border: 1px solid #ccc;
+                background-color: #fff;
+                background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .category {
+                cursor: pointer;
+                padding: 5px 5px;
+                font-size: 12px;
+                color: #666;
+                transition: all 0.2s;
+
+                &:hover {
+                        background-color: #cacaca;
+                }
+        }
+}

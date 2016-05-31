@@ -1,0 +1,38 @@
+<div class="xx-inner-title org-title-wrapper clearfix">
+	<span class="xx-title"><strong>{{category.name}}</strong>&nbsp;（{{count}}）</span>
+	{{if category.id}}
+	<div class="xx-right">
+		<button class="btn btn-xx-hollow-green-border btn-xx-sm" data-xx-action="moveToCategory" data-category-id="{{category.id}}" data-category-name="{{category.name}}">
+			<i class="fa fa-plus"></i>移动至该分组
+		</button>
+	</div>
+	{{/if}}
+</div>
+<!-- global/options.scss -->
+<div class="options clearfix">
+	{{each orgs as org i}}
+	<div class="option member-option">
+		<div class="member-info clearfix" data-xx-action="showOrgInfo" {{if org.relateOrgId}}data-relation="true" data-value="{{org.relateOrgId}}"{{else}}data-relation="false" data-value="{{org.id}}"{{/if}}>
+			<img src="{{org.thumbnailUrl | imageUrl:'@60w_60h_1e_1c'}}" onerror="this.src='./images/default/org.jpg';" />
+			<span class="remark ellipsis">
+				{{org.name||"未命名"}}
+			</span>
+		</div>
+		<div class="buttons">
+			<button data-xx-action="remove" data-name="{{org.name||"未命名"}}" data-value="{{org.id}}">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">
+				<i class="fa fa-times"></i>
+			</span>
+			</button>
+		</div>
+	</div>
+	{{/each}}
+	{{if !count}}
+	<div class="center text-gray">
+		该分类暂无组织
+	</div>
+	{{/if}}
+</div>

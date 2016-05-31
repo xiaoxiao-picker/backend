@@ -1,0 +1,150 @@
+.e-members {
+	.xx-inner-title {
+		.buttons {
+			position: absolute;
+			right: 10px;
+			bottom: 0px;
+		}
+	}
+}
+
+.member-comment-modal {
+	.modal-header {
+        display: none;
+    }
+    .modal-content {
+        padding: 0;
+    }
+}
+
+// 弹出层
+.member-comment-wrapper {
+	padding: 20px;
+	.comments {
+		max-height: 300px;
+		overflow: auto;
+		padding: 10px;
+		margin-right: -10px;
+	}
+	.comment {
+		border-bottom: 1px dotted #e2e2e2;
+		position: relative;
+		padding: 10px 0;
+
+		&:hover {
+			.buttons {
+				display: inline-block;
+			}
+		}
+		&.open {
+			.context-wrapper {
+				max-height: none;
+			}
+			.oper {
+				.open1 {
+					display: none;
+				}
+				.close1 {
+					display: inline;
+				}
+			}
+		}
+		.user-wrapper {
+			float: left;
+			width: 100px;
+			text-align: center;
+
+			.avatar {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+			}
+			.name {
+				line-height: 30px;
+				margin: 0;
+			}
+		}
+		.context-wrapper {
+			margin-left: 100px;
+			width: auto;
+			max-height: 80px;
+			overflow: hidden;
+			line-height: 20px;
+			transition: all .5s;
+
+			.context {
+				margin-bottom: 10px;
+			}
+		}
+		.date {
+			position: absolute;
+			left: 100px;
+			bottom: 15px;
+			color: #888;
+		}
+		.buttons {
+			position: absolute;
+			right: 0;
+			top: 10px;
+			display: none;
+
+			button {
+				border-radius: 50px;
+				text-align: center;
+				width: 25px;
+				height: 25px;
+				line-height: 20px;
+			}
+		}
+		.oper {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			background-color: #fff;
+
+			>span {
+				font-size: 14px;
+				cursor: pointer;
+				color: #888;
+
+				&:hover {
+					color: #444;
+				}
+			}
+			.open1 {
+				display: inline;
+			}
+			.close1 {
+				display: none;
+			}
+		}
+	}
+}
+.member-comment-footer {
+	text-align: center;
+	padding: 0 20px 20px;
+
+	.context {
+		text-align: left;
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+		height: 40px;
+		line-height: 20px;
+		border: 1px solid #f2f2f2;
+		border-radius: 2px;
+		transition: all .5s;
+		outline: none;
+		padding: 6px 10px;
+		color: #888;
+
+		&:focus {
+			height: 100px;
+			border-color: #d2d2d2;
+			color: #444;
+		}
+	}
+	.buttons {
+		margin: 20px auto 0;
+	}
+}

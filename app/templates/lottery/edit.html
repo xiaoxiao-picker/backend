@@ -1,0 +1,150 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">
+				编辑抽奖
+			</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body lottery-edit-container">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<form id="LotteryForm">
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">抽奖名称</span>
+					</h4>
+					<div class="xx-inner-content">
+						<input name="name" class="form-control" type="text" placeholder="请输入大转盘名称" value="{{lottery.name}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">抽奖简介</span>
+					</h4>
+					<div class="xx-inner-content">
+						<label class="xx-inner-body" style="padding:0;">
+							<textarea class="xx-textarea xx-textarea-bounds-o" name="description" placeholder="简介不得超过200个字" data-xx-change-action="descriptionModify" data-xx-keyup-action="descriptionModify">{{lottery.description}}</textarea>
+							<p class="bottom-tips">
+								还可以输入<span id="DescriptionRemain">{{lottery.description?200-lottery.description.length:200}}</span>字。
+							</p>
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">抽奖时间</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-inputs clearfix">
+							<div class="xx-input-group">
+								<span class="xx-input-group-addon">从</span>
+								<input id="StartTime" name="startDate" type="text" class="datetimepicker" data-type="DATETIME" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" placeholder="开始时间" value="{{lottery.startDate | makedate:'yyyy/MM/dd hh:mm'}}" data-targetId="EndTime" data-compare-rule="less" data-compare-tips="开始时间不能大于结束时间" readonly/>
+							</div>
+							<div class="xx-input-group">
+								<span class="xx-input-group-addon">至</span>
+								<input id="EndTime" name="endDate" type="text" class="datetimepicker" data-type="DATETIME" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" placeholder="结束时间" value="{{lottery.endDate | makedate:'yyyy/MM/dd hh:mm'}}"  data-targetId="StartTime" data-compare-rule="more" data-compare-tips="开始时间不能大于结束时间" readonly/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">抽奖频率（每人每&nbsp;<span class="text-xx-red">/天</span>&nbsp;能抽&nbsp;<span class="text-xx-red">/次</span>，若天数为抽奖持续天数则表示总共能抽x次）</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-inputs clearfix">
+							<div class="xx-input-group">
+								<input type="text" class="first" name="cycle" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" data-type="INT" value="{{lottery.cycle}}" placeholder="抽奖周期" />
+								<div class="xx-input-group-addon">天</div>
+							</div>
+							<div class="xx-input-group">
+								<input type="text" class="first" name="frequency" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" data-type="INT" value="{{lottery.frequency}}" placeholder="抽奖次数" />
+								<div class="xx-input-group-addon">次</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">联系人</span>
+					</h4>
+					<div class="xx-inner-content">
+						<input name="contactMan" class="form-control" type="text" placeholder="请输入联系人" value="{{lottery.contactMan}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">联系方式</span>
+					</h4>
+					<div class="xx-inner-content">
+						<input name="contactPhoneNumber" class="form-control" type="text" placeholder="请输入联系方式" value="{{lottery.contactPhoneNumber}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">联系地址</span>
+					</h4>
+					<div class="xx-inner-content">
+						<input name="contactLocation" class="form-control" type="text" placeholder="请输入联系地址" value="{{lottery.contactLocation}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">中奖者所需信息</span>
+					</h4>
+					<div class="xx-inner-content">
+						<h4 class="xx-inner-title clearfix" style="margin-left:10px;">
+						<span class="xx-title" style="border: none; padding: 0;">基础资料</span>
+						</h4>
+						<div id="SignupNeedContainer" class="xx-tag-group unselect clearfix" style="margin: 0;">
+							{{include './../public/require-info/base-infos' lottery}}
+						</div>
+						<h4 class="xx-inner-title clearfix" style="margin-left:10px;">
+						<span class="xx-title" style="border: none; padding: 0;">自定义资料</span>
+						</h4>
+						<div id="RequireElseInfoContainer" class="xx-tag-group unselect clearfix" style="margin: 0;">
+							{{include './../public/require-info/else-infos' lottery}}
+						</div>
+						<label class="label-input">
+							<input type="checkbox" class="xx-option-input xx-checkbox" name="forceAttention" value="" data-xx-change-action="checkboxModify" data-xx-keyup-action="checkboxModify" {{if lottery.forceAttention}}checked{{/if}}/>
+							开启强制关注后抽奖
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">奖品设置</span>
+					<button class="btn btn-xx-green btn-xx-sm btn-award-add" data-xx-action="addAward">+奖品</button>
+					</h4>
+					<div class="xx-inner-content tips">
+						<p>1、奖项数量3<=奖项数量<=8；</p>
+						<p>2、所有奖项中奖概率之和=100%；</p>
+						<p>3、存在奖品数量【无上限】的奖项，且该奖项有且仅有1项；</p>
+						<p>4、该奖品中奖概率 = 该奖品数量/预估参与人数；</p>
+					</div>
+					<div class="xx-inner-content">
+						<div class="awards-wrapper clearfix">
+							
+						</div>
+					</div>
+				</div>
+				<p class="btn-xx-group left">
+					<button class="btn btn-xx-green btn-save" data-xx-action="save">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">保存</span>
+					</button>
+					<button class="btn btn-xx-red btn-remove" data-xx-action="remove">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">删除</span>
+					</button>
+				</p>
+			</form>
+		</div>
+	</div>
+</div>

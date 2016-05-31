@@ -1,0 +1,17 @@
+.auth-wechat-modal {
+	position: relative;
+	img {
+		display: block;
+		margin: auto;
+	}
+	.buttons {
+		position: absolute;
+		left: 0;
+		bottom: 40px;
+		width: 100%;
+		text-align: center;
+		.btn {
+			padding: 10px 22px;
+		}
+	}
+}

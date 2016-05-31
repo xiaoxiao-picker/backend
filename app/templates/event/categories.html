@@ -1,0 +1,88 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">
+				分类管理
+			</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="create">新建分类</button>
+	</div>
+</div>
+<div class="content-body category-list">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{result.length||0}}）</span>
+			</h3>
+		</header>
+		<section class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th>
+							分类名
+						</th>
+						<th class="width-80">二维码</th>
+						<th class="width-150">
+							创建时间
+						</th>
+						<th class="width-160 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each result as label i}}
+					<tr class="">
+						<td>
+							{{(i+1) < 10 ? "0"+(i+1) : (i+1)}}
+						</td>
+						<td class="left">
+							{{label.name}}
+						</td>
+						<td>
+							<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{label.name}}" data-source-name="{{label.name}}" data-source-id="{{label.id}}" data-source-type="EVENT_CATEGORY">
+								<span class="fa fa-qrcode"></span>
+								<span></span>
+							</a>
+						</td>
+						<td>
+							{{label.createDate | makedate:'yyyy-MM-dd hh:mm'}}
+						</td>
+						<td class="center width-160">
+							<button class="btn btn-xx-green btn-xx-sm" data-value="{{label.id}}" data-name="{{label.name}}" data-xx-action="openLabelModal">
+							编辑
+							</button>
+							<button class="btn btn-xx-red btn-xx-sm" data-value="{{label.id}}" data-name="{{label.name}}" data-xx-action="removeLabel">
+							<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-14"></i>
+							</span>
+							<span class="inside-text">
+								删除
+							</span>
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if !result.length}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+			
+			<!--/global/main.scss-->
+			<div class="list-back">
+				{{if from == "list"}}
+				<a class="btn btn-xx-green btn-xx-sm" href="#events"><span class="fa fa-angle-double-left">&nbsp;</span>活动管理</a>
+				{{else if from == "info"}}
+				<a class="btn btn-xx-green btn-xx-sm" href="#event/{{targetId}}/info"><span class="fa fa-angle-double-left">&nbsp;</span>活动预览</a>
+				{{else if from == "edit"}}
+				<a class="btn btn-xx-green btn-xx-sm" href="#event/{{targetId}}/edit"><span class="fa fa-angle-double-left">&nbsp;</span>活动编辑</a>
+				{{/if}}
+			</div>
+		</section>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#list">现有组织</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#categories" title="组织分类">组织分类</a>
+		<a class="btn btn-xx-green btn-xx-sm" href="#search" title="添加组织">添加组织</a>
+	</div>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body org-list-container" style="padding: 0 !important;">
+			<!-- global/group.scss -->
+			<div class="xx-groups" id="GroupContainer">
+				{{include './category-orgs'}}
+			</div>
+		</div>
+	</div>
+</div>

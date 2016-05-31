@@ -1,0 +1,41 @@
+<!-- 时间段编辑 模板 -->
+<div class="xx-modal-body">
+	<form class="modal-form">
+		<div class="datetimepicker-group">
+			<div class="form-group">
+				<div class="xx-inner-title">
+					<span class="xx-title">开始时间</span>
+				</div>
+				<input type="text" id="SIGN_START_TIME" class="form-control datetimepicker min" value="{{timeInfo.startDate | makedate:'yyyy/MM/dd hh:mm'}}" placeholder="请选择开始时间" readonly/>
+			</div>
+			<div class="form-group">
+				<div class="xx-inner-title">
+					<span class="xx-title">结束时间</span>
+				</div>
+				<input type="text" id="SIGN_END_TIME" class="form-control datetimepicker max" value="{{timeInfo.endDate | makedate:'yyyy/MM/dd hh:mm'}}" placeholder="请选择结束时间" readonly/>
+			</div>
+		</div>
+		<!-- 是否限制报名人数 -->
+		<div class="form-group">
+			<div class="xx-inner-title">
+				<span class="xx-title">限制人数（不填为不限制人数）</span>
+			</div>
+			<input type="text" class="form-control signup-limit" value="{{timeInfo.numberOfLimit}}" placeholder="请输入报名限制人数"/>
+		</div>
+		<!-- 是否只允许本组织内部成员报名 -->
+		<div class="form-group">
+			<label class="sign-input-item">
+				<input type="checkbox" class="xx-option-input xx-checkbox" name="onlyAllowMembersToSignUp" value="true"  {{if timeInfo.onlyAllowMembersToSignUp}}checked{{/if}} />
+				仅允许组织成员报名
+			</label>
+		</div>
+		<div class="center">
+			<button class="btn btn-xx-green btn-save">
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">确定</span>
+			</button>
+		</div>
+	</form>
+</div>

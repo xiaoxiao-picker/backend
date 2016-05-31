@@ -1,0 +1,18 @@
+<!-- 加入组织所需资料模板 -->
+{{each requireInfos as option i}}
+	{{if option.type=="base"}}
+	<div class="xx-tag-wrapper  {{if option.selected}}xx-blue{{else}}{{/if}}" data-value="{{option.value}}"  data-xx-action="{{if !option.must}}switchBaseInfo{{/if}}">
+		<label class="xx-tag" >{{option.name}}</label>
+	</div>
+	{{else if option.type=="else"}}
+		<div class="xx-tag-wrapper xx-blue">
+			<label class="xx-tag" data-value="{{option.value}}"  >{{option.name}}</label>
+			<span class="xx-tag-btn xx-tag-del" data-xx-action="removeElseInfo" data-value="{{option.value}}"> <i class="fa fa-minus-circle"></i>
+			</span>
+		</div>
+	{{/if}}
+{{/each}}
+
+<div class="xx-tag-wrapper" data-xx-action="openTargetModel">
+	<label class="xx-tag">+自定义</label>
+</div>

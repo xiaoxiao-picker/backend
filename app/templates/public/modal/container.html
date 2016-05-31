@@ -1,0 +1,27 @@
+<!-- Modal -->
+<div class="modal-backdrop" style="z-index:{{zIndex}};">
+	<div class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-inner modal-shadow"></div>
+		<div class="modal-inner modal-dialog {{className}}" {{if width}}style="width:{{width}};"{{/if}}>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4>{{title}}</h4>
+			</div>
+			<div class="modal-content content">
+				{{if loading}}
+				<div class="spinner">
+					<div class="rect1"></div>
+					<div class="rect2"></div>
+					<div class="rect3"></div>
+					<div class="rect4"></div>
+					<div class="rect5"></div>
+				</div>
+				{{/if}}
+
+				{{if message}}<p class="text-xx-gray unselect center">{{message}}</p>{{/if}}
+			</div>
+		</div>
+	</div>
+</div>

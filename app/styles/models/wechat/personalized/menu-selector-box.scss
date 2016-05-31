@@ -1,0 +1,120 @@
+.modules-wrapper {
+        width: 100%;
+        position: relative;
+        padding-bottom: 10px;
+        border-radius: $default-border-radius;
+        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        .module-item {
+                float: left;
+                width: 33.333333%;
+                height: 93px;
+                margin-top: 20px;
+                text-align: center;
+                font-size: 12px;
+                color: $xx-title-color;
+
+                img {
+                        width: 80%;
+                        height: 75px;
+                        cursor: pointer;
+                }
+
+                span {
+                        display: block;
+                        padding-top: 5px;
+                }
+        }
+
+        .module {
+                position: relative;
+                text-align: center;
+
+                img {
+                        width: 100%;
+                        height: auto;
+                }
+
+                .img-width-90 {
+                        width: 90%;
+                }
+        }
+
+        .module-text {
+                color: #fff;
+                background-color: rgba(69, 199, 121, 0.9);
+                padding: 10px;
+                line-height: 20px;
+                text-align: left;
+        }
+
+        .binded {
+                padding-top: 14px;
+
+                .icon {
+                        display: inline-block;
+                }
+
+                .text {
+                        margin-left: 3px;
+                        color: $green-color;
+                        line-height: 22px;
+                }
+
+                a {
+                        font-size: 12px;
+                        float: right;
+                        color: $default-gray-color;
+                        text-decoration: underline;
+                        margin-right: 20px;
+
+                        &:hover {
+                                text-decoration: underline;
+                        }
+                }
+        }
+}
+
+.box-container {
+        width: 100%;
+
+        .box {
+                float: left;
+                padding: 0 5px;
+                margin: 0;
+                overflow: hidden;
+                cursor: pointer;
+                position: relative;
+
+                .preview-img {
+                        width: 100%;
+                }
+
+                .footer {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        padding: 0 5px;
+
+                        .title {
+                                background-color: #888;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                color: #fff;
+                                padding: 5px;
+                                text-align: center;
+                                font-size: 14px;
+                                margin: 0;
+                        }
+                }
+
+                &.box-4 {
+                        width: 33.33%;
+                }
+
+                &.box-6 {
+                        width: 50%;
+                }
+        }
+}

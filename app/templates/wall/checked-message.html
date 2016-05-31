@@ -1,0 +1,28 @@
+{{each messages as message i}}
+<li class="message-box" data-value="{{message.id}}">
+	<div class="message clearfix">
+		<div class="message-avatar">
+			<img class="avatar" data-user-id="{{message.user.id}}" data-xx-action="checkUser" src="{{message.user.portraitUrl}}" onerror="this.src='/images/default/avatar.jpg';" />
+		</div>
+		<div class="message-body">
+			<p class="nickname">
+				{{message.user.nickname||message.user.tel||"匿名"}}
+			</p>
+			<p class="content">
+				{{message.text}}
+			</p>
+		</div>
+		<div class="message-footer">
+			<span class="rolling-2 fa fa-repeat"></span>
+		</div>
+	</div>
+	<!-- <div class="operation clearfix">
+		<div class="danger">
+			删除
+		</div>
+		<div class="success">
+			上墙
+		</div>
+	</div> -->
+</li>
+{{/each}}

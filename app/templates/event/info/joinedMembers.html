@@ -1,0 +1,37 @@
+<!-- 活动预览页面 报名人列表 -->
+<div>
+	<!--global/inner.scss-->
+	<div class="xx-inner-title clearfix">
+		<span class="xx-title">报名人数（{{count}}）</span>
+		<button class="btn btn-xx-sm btn-xx-green" data-source-type="EVENT" data-source-id="{{eventId}}" data-export-file-name="活动报名结果导出" data-xx-action="exportReport">
+			<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-14"></i>
+			</span>
+			<span class="inside-text">
+				下载名单
+			</span>
+		</button>
+	</div>
+	<div class="members">
+		{{if count==0}}
+			<div class="center">
+				暂无报名人员
+			</div>
+		{{else}}
+			{{each members as member i}}
+			<div class="member clearfix" data-user-id="{{member.id}}" data-xx-action="checkUser">
+				<div class="avatar">
+					<img class="user-avatar-{{member.id}}" src="{{member.portraitUrl}}" onerror="this.src='./images/default/avatar.jpg';" alt="{{member.name}}" />
+				</div>
+				<div class="info">
+					<span class="name user-name-{{member.id}}">{{member.name||member.nickname||member.phoneNumber||"无备注"}}</span>
+					<span class="sex">{{["密","男","女"][member.gender]}}</span>
+				</div>
+			</div>
+			{{/each}}
+		{{/if}}
+	</div>
+	<div class="page-container">
+		<!-- 分页 -->
+	</div>
+</div>

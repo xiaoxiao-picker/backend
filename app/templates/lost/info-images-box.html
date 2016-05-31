@@ -1,0 +1,14 @@
+<div class="lost-images-box">
+    <div class="swiper-wrapper">
+        {{each lost.picUrls as url i}}
+        <div class="swiper-slide">
+            <img class="poster" src="{{url | imageUrl:'@250h_1e_1l'}}" />
+        </div>
+        {{/each}}
+    </div>
+    <!-- 前/后一页控制器 -->
+    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="swiper-button-next swiper-button-white"></div>
+    <!-- 分页容器 -->
+    <div class="swiper-pagination"></div>
+</div>

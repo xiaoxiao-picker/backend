@@ -1,0 +1,66 @@
+.wechat-info {
+        .wechat-authority-box, .wechat-qrcode {
+                position: absolute;
+                top: 30px;
+        }
+
+        .wechat-qrcode {
+                left: 20px;
+                width: 300px;
+                text-align: center;
+
+                .qrcode {
+                        width: 200px;
+                        height: 200px;
+                }
+
+                .tips {
+                        color: #888;
+                }
+        }
+
+        .wechat-authority-box {
+                left: 700px;
+
+                .authorities {
+                        color: #aaa;
+                        margin-left: 10px;
+                }
+
+                .authority {
+                        margin: 5px 0;
+                        cursor: default;
+                }
+        }
+}
+
+.wechat-info-wrapper {
+        width: 280px;
+        margin: 0 auto;
+        min-height: 400px;
+
+        .xx-inner-title {
+                padding: 15px 0 5px;
+        }
+
+        .xx-content {
+                padding-left: 10px;
+                color: $default-gray-color;
+                min-height: 15px;
+        }
+}
+
+.wechat-info-buttons {
+        text-align: center;
+        margin-top: 20px;
+}
+
+.wechat-logo-wrapper {
+        margin: 60px auto 0;
+        text-align: center;
+}
+
+.no-Wechat {
+        margin: 150px auto 0;
+        text-align: center;
+}

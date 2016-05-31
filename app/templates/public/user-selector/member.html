@@ -1,0 +1,8 @@
+{{each members as member i}}
+<li class="member user-{{member.id}} clearfix" title="{{member.user.phoneNumber}}">
+	<label class="label-input" for="{{member.id}}">
+		<input type="checkbox" class="xx-option-input xx-checkbox name ellipsis" id="{{member.id}}" name="member" data-value="{{member.id}}" />
+		{{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber||"未知"}}
+	</label>
+</li>
+{{/each}}

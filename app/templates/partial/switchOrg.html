@@ -1,0 +1,50 @@
+<!--switch organization modal begin-->
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true">&times;</span>
+		<span class="sr-only">Close</span>
+	</button>
+	<h4 class="modal-title">切换组织</h4>
+</div>
+<div class="modal-body switch-org">
+	<div class="orgs clearfix">
+		<div class="org-wrapper">
+			<div class="org active">
+				<div class="avatar">
+					<img src="{{currentOrg.logoUrl}}@100w_100h_1c_1e" onerror="this.src='./images/default/org.jpg';" alt="{{currentOrg.name}}" />
+				</div>
+				<div class="name"> <strong>当前组织：</strong>
+					<span>{{currentOrg.name}}</span>
+				</div>
+			</div>
+		</div>
+		{{each orgs as org i}}
+		{{if currentOrg.id!=org.id}}
+		<div class="org-wrapper">
+			<div class="org" data-value="{{org.id}}" data-xx-action="switchOrg">
+				<div class="avatar">
+					<img src="{{org.logoUrl}}@100w_100h_1c_1e" onerror="this.src='./images/default/org.jpg';" alt="{{org.name}}" />
+				</div>
+				<div class="name">
+					<span>{{org.name}}</span>
+				</div>
+			</div>
+			<div class="buttons">
+				<button class="btn-remove" data-value="{{org.id}}" data-xx-action="removeOrg" title="删除"><i class="fa fa-times"></i></button>
+			</div>
+		</div>
+		{{/if}}
+		{{/each}}
+		<div class="org-wrapper">
+			<div class="org" data-xx-action="createOrg">
+				<div class="avatar">
+					<img src="./images/default/org.jpg" alt="新建组织" />
+				</div>
+				<div class="name"> <strong><i class="fa fa-plus"></i>
+						新建组织</strong> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- switch organization modal end-->

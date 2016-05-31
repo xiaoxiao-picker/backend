@@ -1,0 +1,205 @@
+<div class="sidebar-box unselect">
+	<div class="sidebar">
+		<div class="sidebar-neck" >
+			<div class="neck-header">
+				<a class="btn btn-xx-sm btn-xx-green neck-label" href="./guide.html">切换组织</a>
+			</div>
+			<div class="neck-body">
+				<a href="#index">
+					<img class="neck-avatar org-avatar-{{organization.id}}" src="{{organization.info.logoUrl | imageUrl:'@70w_70h_1e_1c'}}" alt="{{organization.info.name}} 组织logo" onerror="this.src='./images/default/org.jpg';" />
+				</a>
+			</div>
+			<div class="neck-footer">
+				<a href="#index">
+					<span class="org-name-{{organization.id}}">{{organization.info.name||"未命名"}}</span>
+				</a>
+			</div>
+		</div>
+		<ul class="sidebar-nav level1">
+			<li>
+				<div class="menu-title" data-value="1">
+					<span class="pk pk-menu-setting"></span>
+					公众号设置
+					<a href="#funcGuide/WECHAT">
+						<!-- <span class="fa fa-question-circle"></span> -->
+					</a>
+				</div>
+				<ul class="level2">
+					<li class="WechatBind">
+						<a href="#wechat/info">绑定公众号</a>
+					</li>
+					<li class="Personalized">
+						<a href="#wechat/guide">个性化公众号</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu-title" data-value="3">
+					<span class="pk pk-menu-auto"></span>
+					自定义回复
+					<a href="#funcGuide/AUTOREPLY">
+						<!-- <span class="fa fa-question-circle"></span> -->
+					</a>
+				</div>
+				<ul class="level2">
+					<li class="KEYWORD">
+						<a href="#autoreply/KEYWORD/list">关键词自动回复</a>
+					</li>
+					<li class="DEFAULT">
+						<a href="#autoreply/DEFAULT/list">消息自动回复</a>
+					</li>
+					<li class="SUBSCRIBE">
+						<a href="#autoreply/SUBSCRIBE/list">关注自动回复</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu-title" data-value="6">
+					<span class="pk pk-menu-resource"></span>
+					素材管理
+					<a href="#funcGuide/RESOURCE">
+						<!-- <span class="fa fa-question-circle"></span> -->
+					</a>
+				</div>
+				<ul class="level2">
+					<!-- <li class="ResourceImageManage">
+						<a href="#resource/image/list">图片管理</a>
+					</li>
+					<li class="ResourceMusicManage">
+						<a href="#resource/music/list">音乐管理</a>
+					</li>
+					<li class="ResourceFileManage">
+						<a href="#resource/file/list">文件管理</a>
+					</li> -->
+					<li class="XiaoxiaoResource">
+						<a href="#resource/image/list">校校素材库</a>
+					</li>
+					<li class="WeixinResource">
+						<a href="#resource/weixin/graphic/list">微信素材库</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu-title" data-value="6">
+					<span class="pk pk-menu-manage"></span>
+					活动功能
+					<a href="#funcGuide/EVENT">
+						<!-- <span class="fa fa-question-circle"></span> -->
+					</a>
+				</div>
+				<ul class="level2">
+					<li class="Event">
+						<a href="#events">活动管理
+							{{if organization.advertisementAuth}}
+							<span class="label label-advert" tooltip title="支持广告功能">广告</span>
+							{{/if}}
+						</a>
+					</li>
+					<li class="Ticket">
+						<a href="#tickets">电子票管理</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu-title" data-value="6">
+					<span class="pk pk-menu-star"></span>
+					互动功能
+					<a href="#funcGuide/INTERACTION">
+						<!-- <span class="fa fa-question-circle"></span> -->
+					</a>
+				</div>
+				<ul class="level2">
+					<li class="Wall">
+						<a href="#walls">微信上墙</a>
+					</li>
+					<li class="Vote">
+						<a href="#vote/guide">投票管理</a>
+					</li>
+					<li class="Lottery">
+						<a href="#lotteries">抽奖管理</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu-title" data-value="6">
+					<span class="pk pk-menu-resume"></span>
+					成员功能
+					<a href="#funcGuide/MEMBER">
+						<!-- <span class="fa fa-question-circle"></span> -->
+					</a>
+				</div>
+				<ul class="level2">
+					<li class="Member">
+						<a href="#members">成员管理</a>
+					</li>
+					<li class="Notice">
+						<a href="#notices">公告发布</a>
+					</li>
+					<li class="Resume">
+						<a href="#Emembers">成员简历</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="menu-title" data-value="6">
+					<span class="pk pk-menu-relation"></span>
+					拓展功能
+					<a href="#funcGuide/EXPAND">
+						<!-- <span class="fa fa-question-circle"></span> -->
+					</a>
+				</div>
+				<ul class="level2">
+					<li class="Questionnaire">
+						<a href="#questionnaires">问卷表单</a>
+					</li>
+					<li class="Article">
+						<a href="#articles">文章管理</a>
+					</li>
+					<li class="Proposal">
+						<a href="#proposals">提案管理</a>
+					</li>
+					
+					<li class="Lost">
+						<a href="#losts">失物管理</a>
+					</li>
+					<li class="List">
+						<a href="#organization/list">组织风采</a>
+					</li>
+					<li class="Organizations">
+						<a href="#relation/list">关联组织</a>
+					</li>
+					<li class="MengXiaoZhu">
+						<a href="#mengxiaozhu">查课表/查成绩</a>
+					</li>
+					<li class="Link">
+						<a href="#links">功能链接</a>
+					</li>
+				</ul>
+			</li>
+			{{if organization.advertisementAuth}}
+			<li>
+				<div class="menu-title" data-value="8">
+					<a href="#wallet/info">
+						<span class="pk pk-menu-wallet"></span>
+						校校钱包
+					</a>
+					<a href="#funcGuide/WALLET">
+						<span class="fa fa-question-circle"></span>
+					</a>
+				</div>
+			</li>
+			{{/if}}
+			<li>
+				<div class="menu-title" data-value="7">
+					<a href="#feedbacks">
+						<span class="pk pk-menu-link"></span>
+						意见反馈
+						<a href="#funcGuide/FEEDBACK">
+							<!-- <span class="fa fa-question-circle"></span> -->
+						</a>
+					</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

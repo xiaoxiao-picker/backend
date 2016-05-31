@@ -1,0 +1,16 @@
+{{if notification}}
+	<div class="avatar-header">
+		<img class="avatar-img" src="{{notification.source&&notification.source.portraitUrl}}" onerror='this.src="/images/default/avatar.jpg"'>
+		<h4>{{notification.source.nickname||notification.source.name||notification.source.tel}}</h4>
+		<span class="label label-xx-yellow">提案管理</span>
+	</div>
+	<div class="content-wrapper">
+		<div>
+			{{each notification.text.split('\n') as desc i}}
+			<p>{{desc}}</p>
+			{{/each}}
+		</div>
+		<a class="link-green underline btn-jump" href="javascript:void(0);">查看详细</a>
+	</div>
+	<div class="detail-body"></div>
+{{/if}}

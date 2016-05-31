@@ -1,0 +1,94 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">{{accountId=="add"?"添加账户":"修改账户"}}</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body article-edit-body">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<form id="WallletAccountEditForm" class="form-editor">
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">账户类型</span>
+					</h4>
+					<div class="xx-inner-body">
+						
+						<div class="type-container">
+							<label class="">
+								<input type="radio" class=""  name="accountType" value="ALIPAY" {{if accountInfo.type=='ALIPAY'}}checked{{/if}} {{if accountId=="add"}} data-xx-change-action="selectAccountType"{{else}}disabled{{/if}} />支付宝
+							</label>
+							<label class="">
+								<input type="radio" class="" name="accountType" value="BANK" {{if accountInfo.type=='BANK'}}checked{{/if}} {{if accountId=="add"}}data-xx-change-action="selectAccountType"{{else}}disabled{{/if}} />银行卡
+							</label>
+						</div>
+						<div class="bank-container {{if accountInfo.type=='ALIPAY'}}hide{{/if}}">
+							<ul class="bank-list clearfix">
+								{{each banks as bank i}}
+								<li class="" data-bank-code="{{bank.code}}" data-xx-action="selectBank">
+									<div class="bank  {{bank.active?'active':''}} " tooltip title="{{bank.name}}">
+										<div class="bank-logo {{bank.className}}"></div>
+									</div>
+								</li>
+								{{/each}}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">账户姓名</span>
+					</h4>
+					<div class="xx-inner-body">
+						<input class="form-control userName" type="text" placeholder="请填写账户姓名" value="{{accountInfo.userName}}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title" id="accountTitle">{{if accountInfo.type=='ALIPAY'}}支付宝账号{{else}}银行账号{{/if}}</span>
+					</h4>
+					<div class="xx-inner-body">
+						<input class="form-control account" type="text" placeholder="请填写账户" value="{{accountInfo.account}}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">相关证明</span>
+					</h4>
+					<div class="xx-inner-body">
+						<div class="image-tips">
+							<p>相关证明包括以下内容：</p>
+							<p>1、身份证证件正反两面照片；</p>
+							<p>2、学生证证件照片；</p>
+							<p>3、其他可证明身份的证件照片。</p>
+						</div>
+						<div class="images clearfix">
+							{{each accountInfo.images as image i}}
+							<div class="image">
+								<img src="{{image | imageUrl:'@200w_120h_1e_1l'}}" />
+								<button class="btn-close" data-xx-action="removeImage" data-image-url="{{image}}">
+									<span class="fa fa-close"></span>
+								</button>
+							</div>
+							{{/each}}
+				
+							<div class="image add" data-xx-action="addImage">
+								<span class="fa fa-plus"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="btn-xx-group left" style="padding: 15px 0;">
+					<button class="btn btn-xx-green btnSave" data-xx-action="save">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling"></i>
+						</span>
+						<span class="inside-text">{{if accountId=="add"}}保存{{else}}更新{{/if}}</span>
+					</button>
+					<a class="btn btn-xx-red" href="#wallet/accounts">取消</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

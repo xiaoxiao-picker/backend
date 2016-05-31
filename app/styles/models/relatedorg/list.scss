@@ -1,0 +1,62 @@
+.org-list-container {
+	.xx-groups .xx-group {
+		margin-top: 20px;
+	}
+	.option.member-option {
+		position: relative;
+		padding-right: 25px;
+		width: 20%;
+		// margin-right: 20px;
+		&:hover {
+			.buttons {
+				display: block;
+			}
+		}
+		.member-info {
+			cursor: pointer;
+			img {
+				float: left;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
+			.remark {
+				display: block;
+				padding-left: 5px;
+				color: $xx-title-color;
+				width: 95px;
+				height: 50px;
+				line-height: 50px;
+				overflow: hidden;
+			}
+			&:hover {
+				img {
+					box-shadow: 1px 2px 2px #888;
+				}
+			}
+		}
+		.buttons {
+			position: absolute;
+			right: 15px;
+			top: 35px;
+			display: none;
+			button {
+				height: 20px;
+				width: 20px;
+				border-radius: 50%;
+				background-color: $red-color;
+				color: #fff;
+				line-height: 16px;
+				padding: 2px;
+				font-size: 12px;
+				text-align: center;
+				&:hover {
+					background-color: $deep-red-color;
+				}
+			}
+		}
+	}
+}
+.org-title-wrapper {
+	margin: 30px 0 0;
+}

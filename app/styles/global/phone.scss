@@ -1,0 +1,56 @@
+.phone-box {
+	background-size: 100%;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-image: url('./../images/phone_03.png');
+	width: 285px;
+	height: 599px;
+	position: relative;
+	.inner-phone-box {
+		position: absolute;
+		top: 60px;
+		left: 10px;
+		width: 265px;
+		height: 470px;
+		background-color: #fff;
+		border: 1px solid #cdcdcd;
+		.phone {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			.phone-header {
+				width: 100%;
+				background-color: #1f2424;
+				line-height: 50px;
+				height: 50px;
+				color: #fff;
+				font-size: 15px;
+				font-weight: normal;
+				margin:0;
+				padding-left: 10px;
+				padding-right: 10px;
+				overflow: hidden;
+			}
+			.phone-body {
+				
+			}
+			.phone-footer {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				text-align: center;
+			}
+			.phone-submit {
+				position: absolute;
+				bottom: -55px;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				button.submit{
+
+				}
+			}
+		}
+	}
+}

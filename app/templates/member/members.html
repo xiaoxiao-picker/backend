@@ -1,0 +1,37 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#members">现有成员</a>
+		</li>
+		<li role="presentation">
+			<a href="#members/applied">新成员申请</a>
+			{{if appliedMembersCount>0}}
+			<span class="bubble" title="有{{appliedMembersCount}}个新申请成员" tooltip>{{appliedMembersCount}}</span>
+			{{/if}}
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#member/groups" title="分组管理">分组管理</a>
+		<a class="btn btn-xx-green btn-xx-sm" href="#notice/add/edit">新建公告</a>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addMember">添加成员</button>
+		<button class="btn btn-xx-sm btn-xx-green" data-source-type="MEMBERS" data-source-id="{{orgId}}" data-export-file-name="组织成员列表" data-xx-action="exportReport">
+			<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-14"></i>
+			</span>
+			<span class="inside-text">
+				导出列表
+			</span>
+		</button>
+	</div>
+</div>
+<div class="content-body members">
+	<div class="panel clearfix">
+		<div class="panel-body" style="padding: 0 !important;">
+			<!-- global/group.scss -->
+			<div class="xx-groups" id="GroupContainer">
+				<!-- app/templates/member/groupMembers -->
+				{{include './groupMembers'}}
+			</div>
+		</div>
+	</div>
+</div>

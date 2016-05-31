@@ -1,0 +1,82 @@
+.comment-box {
+        .comment-list {
+                // border-bottom: 1px solid $default-border-color;
+
+                &.disabled {
+                        .btnCommentReply {
+                                display: none;
+                        }
+                }
+
+                .comment {
+                        margin: 10px 0;
+                        border-bottom: 1px solid $default-border-color;
+                        color: #555;
+                        position: relative;
+
+                        &:last-child {
+                                border: none;
+                        }
+
+                        .user-info {
+                                .date {
+                                        color: #bbb;
+                                        font-size: 12px;
+                                        float: right;
+                                }
+                        }
+
+                        .avatar {
+                                width: 30px;
+                                height: 30px;
+                                margin-right: 10px;
+                                vertical-align: middle;
+                        }
+
+                        .comment-context {
+                                margin: 15px 150px 15px 40px;
+                                font-size: 13px;
+                                color: #888;
+                        }
+
+                        .comment-ops {
+                                position: absolute;
+                                right: 0;
+                                bottom: 15px;
+                                display: none;
+                        }
+
+                        .at {
+                                font-size: 12px;
+                                margin: 0 15px;
+                        }
+
+                        .user-name.target {
+                                font-size: 13px;
+                        }
+
+                        .avatar.target {
+                                width: 25px;
+                                height: 25px;
+                                margin-right: 5px;
+                        }
+
+                        &:hover {
+                                .comment-ops {
+                                        display: block;
+                                }
+                        }
+                }
+        }
+
+        .comment-footer {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: $green-color;
+                text-align: center;
+
+                .btnLoadMoreComments {
+                        float: right;
+                }
+        }
+}

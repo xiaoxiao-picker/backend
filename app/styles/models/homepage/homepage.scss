@@ -1,0 +1,322 @@
+.modal-backdrop .modal-dialog.modal-module-selector {
+        width: 640px;
+}
+
+.personalized-homepage {
+        position: relative;
+
+        .box {
+                float: left;
+                margin-left: 30px;
+                margin-top: 10px;
+
+                &.box1 {
+                        left: 30px;
+                        width: 200px;
+
+                        .address-info {
+                                color: #fff;
+                                padding-left: 10px;
+                                word-break: break-all;
+                        }
+
+                        .qrcode-wrapper {
+                                width: 200px;
+                                height: 200px;
+                                border-radius: 3px;
+                                background-color: #fff;
+                                overflow: hidden;
+                                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+                        }
+                }
+
+                &.box2 {
+                        left: 260px;
+                        width: 300px;
+                        height: 600px;
+                        padding: 0 10px;
+
+                        .phone-header {
+                                padding-right: 53px;
+                        }
+
+                        .phone-body {
+                                position: absolute;
+                                top: 50px;
+                                height: 420px;
+                                width: 100%;
+                                overflow: auto;
+                                background-color: #fff;
+
+                                #TemplateContainer {
+                                        height: 100%;
+                                        overflow-x: hidden;
+                                }
+
+                                .template {
+                                        min-height: 100%;
+                                        border-top: 1px solid #000;
+                                }
+                        }
+
+                        .select-template-box {
+                                padding-top: 120px;
+                                text-align: center;
+                        }
+                }
+
+                &.box3 {
+                        left: 600px;
+                        width: 300px;
+                        overflow: hidden;
+
+                        .menu-setting-box {
+                                background-color: #fff;
+                                background-color: rgba(255, 255, 255, 0.8);
+                                padding: 10px;
+                                min-height: 590px;
+                                border-radius: $default-border-radius;
+
+                                .tips {
+                                        padding: 10px 0;
+                                        color: #5bd18b;
+                                        text-align: center;
+                                }
+
+                                .form-row {
+                                        margin-bottom: 15px;
+                                }
+
+                                .info-box {
+                                        float: left;
+                                        height: 30px;
+                                        line-height: 28px;
+                                        text-align: center;
+
+                                        &.menu-icon, &.menu-back-color {
+                                                width: 30px;
+                                                border: 1px solid #aaa;
+                                                margin-right: 10px;
+                                                background-color: #aaa;
+                                        }
+
+                                        &.menu-back-image {
+                                                width: 30px;
+                                                margin-right: 10px;
+                                                color: #888;
+                                        }
+
+                                        &.carousel-image {
+                                                width: 56px;
+                                        }
+
+                                        &.color-value {
+                                                color: #888888;
+                                        }
+
+                                        .icon {
+                                                width: 20px;
+                                                height: 20px;
+                                                vertical-align: middle;
+                                        }
+                                }
+
+                                .xx-content {
+                                        .xx-input-text {
+                                                background-color: #f7f7f7;
+                                                color: #444;
+                                                padding: 5px 10px;
+                                                border: 1px solid #e6e6e6;
+                                        }
+
+                                        .xx-input-text[disabled] {
+                                                background-color: #f1f1f1;
+                                        }
+                                }
+
+                                .buttons {
+                                        position: relative;
+                                        text-align: center;
+
+                                        .btn-binded {
+                                                height: 30px;
+                                                line-height: 30px;
+                                                color: $green-color;
+
+                                                .pk {
+                                                        margin-bottom: -5px;
+                                                }
+                                        }
+
+                                        .btn-rebind {
+                                                position: absolute;
+                                                top: 6px;
+                                                right: 0px;
+                                                text-decoration: underline;
+                                                color: $default-gray-color;
+                                        }
+                                }
+
+                                .modules-wrapper {
+                                        height: 430px;
+                                        overflow: auto;
+                                        position: relative;
+                                        background-color: #fff;
+                                        background-color: rgba(255, 255, 255, 0.5);
+                                }
+
+                                .module-edit-wrapper {
+                                        height: 340px;
+                                        overflow: hidden;
+                                        position: relative;
+
+                                        .module {
+                                                height: 100%;
+                                                overflow: hidden;
+
+                                                img {
+                                                        width: 100%;
+                                                }
+                                        }
+
+                                        .module-text {
+                                                color: #fff;
+                                                background-color: $xx-theme-color;
+                                                background-color: rgba(69, 199, 121, 0.9);
+                                                padding: 10px;
+                                                line-height: 20px;
+                                                text-align: left;
+
+                                                .module-tips {
+                                                        margin-bottom: 0;
+                                                }
+                                        }
+
+                                        .module-footer {
+                                                position: absolute;
+                                                left: 0;
+                                                bottom: 0;
+                                                width: 100%;
+                                        }
+                                }
+                        }
+
+                        #MenuName {
+                                padding-right: 100px;
+                        }
+
+                        .button-wrapper {
+                                position: relative;
+
+                                .buttons {
+                                        position: absolute;
+                                        top: 0px;
+                                        right: 0px;
+                                        margin: 0;
+
+                                        .btn-inner-input {
+                                                outline: none;
+                                                border-left: 1px solid #e6e6e6;
+                                                background-color: #fff;
+                                                margin: 0;
+                                                color: #5bd18b;
+
+                                                .inside-text {
+                                                        display: none;
+                                                }
+
+                                                &.update {
+                                                        .update-text {
+                                                                display: inline-block;
+                                                        }
+                                                }
+
+                                                &.edit {
+                                                        .edit-text {
+                                                                display: inline-block;
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
+                }
+
+                .inner-box {
+                        margin-bottom: 20px;
+                }
+
+                .phone-header {
+                        overflow: auto;
+
+                        .buttons {
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+
+                                .btn-edit {
+                                        margin-right: 10px;
+                                        margin-top: -4px;
+                                        padding: 0;
+                                        color: #e2e2e2;
+                                        font-size: 17px;
+                                        vertical-align: middle;
+
+                                        &:hover {
+                                                color: #fff;
+                                        }
+                                }
+
+                                .btn-nav {
+                                        position: relative;
+                                        overflow: visible;
+                                        display: inline-block;
+                                        margin-right: 5px;
+                                        vertical-align: middle;
+
+                                        &:hover {
+                                                .inner-nav {
+                                                        display: block;
+                                                }
+                                        }
+
+                                        img {
+                                                width: 18px;
+                                                height: 18px;
+                                        }
+
+                                        .inner-nav {
+                                                position: absolute;
+                                                right: 10px;
+                                                top: 30px;
+                                                display: none;
+                                                width: 100px;
+                                                z-index: 99;
+                                                padding: 0;
+                                                z-index: 999;
+                                                text-align: center;
+                                                border-radius: 2px;
+                                                background-color: #fafafa;
+                                                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+
+                                                li {
+                                                        width: 100%;
+                                                        line-height: 28px;
+                                                        font-size: 14px;
+                                                        color: #666;
+                                                        cursor: pointer;
+
+                                                        &:hover {
+                                                                color: $xx-theme-color;
+                                                        }
+
+                                                        &.divider {
+                                                                height: 1px;
+                                                                background-color: #eaeaea;
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
+}

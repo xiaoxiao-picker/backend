@@ -1,0 +1,27 @@
+<!-- 个性化微首页 地址信息模板 -->
+<div class="">
+	<div class="inner-box">
+		{{if sourceId!="add"}}
+		<h4 class="xx-inner-title white">
+		<span class="xx-title">微首页二维码</span>
+		</h4>
+		<div class="qrcode-wrapper">
+			<img src="{{qrcode}}" alt=" 微首页二维码" />
+		</div>
+		{{/if}}
+	</div>
+	<div class="inner-box">
+		<h4 class="xx-inner-title white">
+		<span class="xx-title">微首页地址</span>
+		</h4>
+		{{if sourceId=="add"}}
+		<p class="address-info">当前微首页尚未保存！</p>
+		{{else}}
+		<p class="address-info user-select">{{url}}</p>
+		<div class="buttons">
+			<button id="CopyUrl" class="btn btn-xx-white" data-clipboard-text="{{url}}">复制</button>
+		</div>
+		{{/if}}
+		
+	</div>
+</div>

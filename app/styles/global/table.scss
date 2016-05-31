@@ -1,0 +1,77 @@
+table {
+        width: 100%;
+}
+
+.table-main {
+        width: 100%;
+        th {
+                border: 1px solid $default-table-border-color;
+                padding: 10px 6px;
+        }
+        td {
+                border-bottom: 1px solid $default-table-border-color;
+                padding: 6px 6px;
+                &.left {
+                        text-align: left;
+                }
+        }
+        &.center {
+                th {
+                        text-align: center;
+                }
+        }
+}
+
+.table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        .xx-table-header {
+                color: #222;
+                tr {
+                        th {
+                                text-align: center;
+                                border-top: 2px solid $xx-theme-color !important;
+                                border-bottom: 1px solid $default-border-color;
+                                border-left: 1px solid $default-border-color;
+                                padding: 10px 0;
+                                font-weight: normal;
+                                &.xx-border-right {
+                                        border-right: 1px solid $default-border-color;
+                                }
+                        }
+                }
+        }
+        .xx-table-body {
+                color: #444;
+                tr {
+                        td {
+                                padding: 12px 0;
+                                border-bottom: 1px solid $default-border-color;
+                                .button-right {
+                                        float: right;
+                                }
+                        }
+                }
+        }
+        a {
+                text-decoration: underline;
+        }
+        a.btn {
+                text-decoration: none;
+        }
+        .xx-switch {
+                text-align: center;
+                margin: 0 auto;
+        }
+        .btn {
+                min-width: 70px;
+        }
+        p {
+                margin-bottom: 1px;
+        }
+        &.middle {
+                > thead > tr > th, > thead > tr > td, > tbody > tr > th, > tbody > tr > td, > tfoot > tr > th, > tfoot > tr > td {
+                        vertical-align: middle;
+                }
+        }
+}

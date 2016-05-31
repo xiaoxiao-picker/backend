@@ -1,0 +1,43 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" {{if state=="UNCHECKED" }} class="active" {{/if}}>
+			<a href="#vote/ugc/{{voteId}}/options?state=UNCHECKED">未审核</a>
+			{{if state=="APPROVE" && unclickedCount > 0}}
+			<span class="bubble" title="" tooltip style="top: 8px; right: 15px;">{{unclickedCount}}</span>
+			{{/if}}
+		</li>
+		<li role="presentation" {{if state=="APPROVE" }} class="active" {{/if}}>
+			<a href="#vote/ugc/{{voteId}}/options?state=APPROVE">已通过</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body vote-options-container">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（<span id="Total">{{count||"0"}}</span>）</span>
+			</h3>
+		</header>
+		<section class="panel-body">
+			{{if state != 'UNCHECKED'}}
+			<div class="options-box">
+				<!-- app/templates/vote/ugc/rows -->
+			</div>
+			<div class="more-container center">
+				<button class="btn btn-load-more" data-xx-action="loadMore">
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">
+					加载更多内容
+				</span>
+				</button>
+			</div>
+			{{else}}
+			<div class="option-box">
+				<!-- app/templates/vote/ugc/row-unclicked -->
+			</div>
+			{{/if}}
+		</section>
+	</div>
+</div>

@@ -1,0 +1,88 @@
+<div class="lottery-award-modal clearfix">
+	<div class="images-wrapper">
+		{{if award.type!='SYSTEM'}}
+		<div class="form-group">
+			<div class="logo">
+				<img id="AwardImage" src="{{award.portraitUrl}}" onerror="this.src='./images/default/avatar.jpg';" />
+			</div>
+			<div class="buttons center">
+				<button class="btn btn-xx-green BtnAvatarUpload">
+					<span>选择奖品图片</span>
+				</button>
+			</div>
+		</div>
+		{{/if}}
+		<div class="form-group">
+			<div class="logo">
+				<img id="AwardIcon" src="{{award.portraitLotteryUrl}}" onerror="this.src='./images/default/avatar.jpg';" />
+			</div>
+			<div class="buttons center">
+				<button class="btn btn-xx-green BtnIconUpload">
+					<span>大转盘显示图片</span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="content-wrapper">
+		<div class="form-group">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">奖品等级</span>
+			</h4>
+			<input class="form-control" type="text" name="name" placeholder="请填写奖品等级" value="{{award.name}}" />
+		</div>
+		{{if award.type!='SYSTEM'}}
+		<div class="form-group">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">奖品名称</span>
+			</h4>
+			<input class="form-control" type="text" name="description" placeholder="请填写奖品名称" value="{{award.description}}" />
+		</div>
+		<div class="form-group">
+			<h4 class="xx-inner-title clearfix">
+				<span class="xx-title">奖品数量</span>
+				<label class="label-input pull-right">
+					<input type="checkbox" class="xx-option-input xx-checkbox" name="unlimit" value="" {{if award.unlimit}}checked{{/if}}/>
+					无上限
+				</label>
+			</h4>
+			<input class="form-control" type="text" name="max" placeholder="请填写奖项数量" value="{{award.max}}" {{if award.unlimit}}readonly{{/if}}/>
+		</div>
+		<div class="form-group">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">中奖概率</span><span class="text-tips">（0.01% 至 100%）</span>
+			</h4>
+			<div class="probability clearfix {{if award.unlimit}}hide{{/if}}">
+				<input class="form-control" type="text" name="probability" placeholder="请填写中奖概率" value="{{award.probability||0}}" />
+				<span>%</span>
+			</div>
+			<h4 class="unlottery-text text-xx-gray {{if !award.unlimit}}hide{{/if}}">当抽奖者未抽到其他奖项时，将会中此奖，中奖概率为：100%减去其余自定义奖项中奖概率之和</h4>
+		</div>
+		<div class="form-group">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">奖品链接</span><span class="text-tips">(可选，正确格式应为 http:// 或 https:// 开头)</span>
+			</h4>
+			<input class="form-control" type="text" name="lotteryTicketUrl" placeholder="请填写奖品链接" value="{{award.lotteryTicketUrl}}" />
+		</div>
+		{{else}}
+		<div class="form-group tips">
+			<p>1.【奖项说明】此奖项为系统默认安慰奖项；</p>
+			<p>2.【中奖概率】当抽奖者未抽到其他奖项时，将会中此奖，中奖概率为：100%-其余自定义奖项中奖概率之和；</p>
+			<p>3.【奖品数量】无上限，当某一个自定义奖项数量设置为【无上限】时，此默认安慰奖项会被其替换并失效。</p>
+		</div>
+		{{/if}}
+	</div>
+</div>
+<footer class="footer-wrapper center">
+	<button class="btn btn-xx-green btn-save">
+		<span class="inside-loading"> 
+			<i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">保存</span>
+	</button>
+	<button class="btn btn-xx-red btn-close">
+		<span class="inside-loading"> 
+			<i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">取消</span>
+	</button>
+</footer>

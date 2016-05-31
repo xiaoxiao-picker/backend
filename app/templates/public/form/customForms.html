@@ -1,0 +1,73 @@
+<!-- lib/notice/customForm.scss -->
+<div class="xx-modal-body CustomFormBox unselect" id="CustomFormBox">
+	<form class="modal-form ">
+		<div class="form-group">
+			<div class="xx-inner-title">
+				<span class="xx-title">标题</span>
+			</div>
+			<div class="xx-inner-body">
+				<input type="text"  id="FormName" class="form-control" value="{{formInfo.title}}" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="xx-inner-title">
+				<span class="xx-title">是否必填</span>
+			</div>
+			<div class="xx-inner-body">
+				<label>
+					<input type="radio"  name="FormRequire" class="" value="yes"  {{if formInfo.required}}checked{{/if}} />
+					是
+				</label>
+				<label>
+					<input type="radio"  name="FormRequire" class="" value="no" {{if !formInfo.required}}checked{{/if}} />
+					否
+				</label>
+			</div>
+		</div>
+		<div class="form-group form-type-container">
+			<div class="xx-inner-title">
+				<span class="xx-title">类型</span>
+			</div>
+			<div class="xx-inner-body">
+				{{each formInfo.types as type i}}
+				<label>
+					{{if type=="TEXT"}}
+					<input type="radio" name="FormType" value="TEXT" checked  />
+					单行文本框
+					{{else if type=="TEXTAREA"}}
+					<input type="radio" name="FormType" value="TEXTAREA" {{if formInfo.type=="TEXTAREA"}}checked{{/if}} />
+					多行文本框
+					{{else if type=="RADIO"}}
+					<input type="radio" name="FormType" value="RADIO" {{if formInfo.type=="RADIO"}}checked{{/if}} />
+					单项选择框
+					{{else if type=="CHECKBOX"}}
+					<input type="radio" name="FormType" value="CHECKBOX" {{if formInfo.type=="CHECKBOX"}}checked{{/if}} />
+					多项选择框
+					{{else if type=="DATE"}}
+					<input type="radio" name="FormType" value="DATE" {{if formInfo.type=="DATE"}}checked{{/if}} />
+					日期选择框
+					{{else if type=="IMAGE"}}
+					<input type="radio" name="FormType" value="IMAGE" {{if formInfo.type=="IMAGE"}}checked{{/if}} />
+					图片上传
+					{{/if}}
+				</label>
+				{{/each}}
+			</div>
+		</div>
+		
+		<div id="FormContainer">
+			<!-- 单行输入框 app/templates/public/form/TextBox -->
+			<!-- 多行输入框 app/templates/public/form/TextArea -->
+			<!-- 单项选择框 app/templates/public/form/Radio -->
+			<!-- 多项选择框 app/templates/public/form/ChechBox -->
+			<!-- 图片上传 app/templates/public/form/ImageBox -->
+		</div>
+		<div class="form-group center">
+			<button class="btn btn-xx-green btn-save">
+				<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">确定</span>
+			</button>
+		</div>
+	</form>
+</div>

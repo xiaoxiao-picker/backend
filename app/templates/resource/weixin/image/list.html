@@ -1,0 +1,50 @@
+<header class="content-header resource-weixin-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation">
+			<a href="#resource/weixin/graphic/list">图文消息</a>
+		</li>
+		<li role="presentation" class="active">
+			<a href="#resource/weixin/image/list">图片</a>
+		</li>
+		<li role="presentation">
+			<a href="#resource/weixin/voice/list">语音</a>
+		</li>
+		<!-- <li role="presentation">
+			<a href="#resource/weixin/video/list">视频</a>
+		</li> -->
+	</ul> 
+</header>
+<section class="content-body resource-weixin-image-content unselect">
+	<section class="panel clearfix">
+		<header class="panel-header">
+			<div>
+				<label class="unselect label-select-all">
+					<input type="checkbox" id="Checkbox_All_Select" class="xx-option-input" name="weixin-image-select-all" data-xx-change-action="makeAllSelectRange" />
+					全选
+				</label>
+				<button class="btn btn-xx-sm btn-xx-danger btn-delete-selected-image" disabled data-xx-action="removeSelectedImages">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling"></i>
+					</span>
+					<span class="inside-text">删除</span>
+				</button>
+			</div>
+			<div class="buttons">
+				<div class="btn-upload-wrap">
+					<input type="file" class="button-upload" id="UploadInput" />
+				</div>
+				<button class="btn btn-xx-sm btn-xx-green" data-xx-action="update">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling"></i>正在同步
+					</span>
+					<span class="inside-text">同步图片</span>
+				</button>
+				
+			</div>
+		</header>
+		<section class="panel-body clearfix">
+			
+		</section>
+		<footer class="panel-footer"></footer>
+	</section>
+</section>

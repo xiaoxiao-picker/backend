@@ -1,0 +1,71 @@
+<!-- 成员管理-E青年卡-组织评价 -->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active" >
+			<a href="#Emembers">成员简历</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body e-members">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{count||0}}）</span>
+			</h3>
+		</header>
+		<section class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th class="width-160">备注/真实名称</th>
+						<th class="width-120">手机号码</th>
+						<th class="width-60">性别</th>
+						<th class="width-100">二维码</th>
+						<th>个人简历</th>
+						<th>第二课堂简历</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each members as member i}}
+					<tr>
+						<td>{{i+1}}</td>
+						<td class="left">
+							<a class="underline" href="javascript:void(0);" title="{{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber}}" data-xx-action="openUserModal" data-member-id="{{member.id}}">{{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber}}</a>
+						</td>
+						<td>{{member.user.phoneNumber}}</td>
+						<td>
+							{{#["密","男","女"][member.user.gender]}}
+						</td>
+						<td>
+							<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber}}" data-source-name="{{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber}}" data-source-id="{{member.user.id}}" data-source-type="E_MEMBER">
+								<span class="fa fa-qrcode"></span>
+								<span></span>
+							</a>
+						</td>
+						<td>
+							<a class="underline" href="{{frontRoot}}/index.html#organization/{{orgId}}/user/{{member.user.id}}/resume" target="_blank"   title="查看 {{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber}} 的简历" data-value="{{member.user.id}}">
+								<span>查看</span>
+							</a>
+						</td>
+						<td>
+							<a class="underline" href="javascript:void(0);" data-value="{{member.id}}" data-xx-action="checkComment">
+							{{if member.commentCount}}
+								{{member.commentCount}} 条
+							{{else}}
+								去添加
+							{{/if}}
+							</a>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</section>
+	</div>
+</div>

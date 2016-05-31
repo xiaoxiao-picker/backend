@@ -1,0 +1,51 @@
+<!--投票选手编辑-->
+<div class="row no-margin vote-player-wrapper clearfix">
+		<div class="avatar-wrapper">
+			<div class="logo">
+				<img id="ActiveOptionAvatar" src="{{option.imgUrl}}" onerror="this.src='./images/default/avatar.jpg';" />
+			</div>
+			<div class="buttons center">
+				<button class="btn btn-xx-green BtnAvatarUpload">
+				<span>选择图片</span>
+				</button>
+			</div>
+		</div>
+	<div class="option-wrapper">
+		<div class="form-group">
+			<h4 class="xx-inner-title">
+			<span class="xx-title">选手姓名</span>
+			</h4>
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="name" placeholder="请填写选手名称" value="{{option.name}}"  />
+		</div>
+		<div class="form-group">
+			<h4 class="xx-inner-title">
+			<span class="xx-title">选手介绍</span>
+			</h4>
+		</div>
+		<div class="form-group">
+			<textarea class="form-control" name="description" rows="6" placeholder="好的选手介绍可以让人更容易记住他（她，它）" >{{option.description}}</textarea>
+		</div>
+		<div class="form-group">
+			<h4 class="xx-inner-title">
+			<span class="xx-title">作品地址（正确地址格式应为：http://或https:// 开头）</span>
+			</h4>
+		</div>
+		<div class="form-group">
+			<input class="form-control" type="text" name="videoUrl" placeholder="请填写选手作品地址" value="{{option.videoUrl}}"/>
+		</div>
+		<div class="form-group center">
+			<button class="btn btn-xx-green BtnSave">
+				<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">保存</span>
+			</button>
+			<button class="btn btn-xx-red btn-close">
+				<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">取消</span>
+			</button>
+		</div>
+	</div>
+</div>

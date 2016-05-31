@@ -1,0 +1,72 @@
+<!-- rotate 风格的 个性化微首页模板 -->
+{{include './header'}}
+<div class="phone-body">
+	<div id="TemplateContainer">
+		<div id="Template" class="template back-image temp-rotate" style="{{if page.json.backColor}}background-color:{{page.json.backColor}};{{else if page.json.backImage}}background-image:url({{page.json.backImage}}){{/if}}">
+			{{if  9>menus.length}}
+			<div class="menu-add-container">
+				<div class="menu-add" data-xx-action="createMenu"> <i class="fa fa-plus"></i>
+				</div>
+			</div>
+			{{/if}}
+			<div id="FlowerBox" class="temp-body open">
+				<div class="wrapper xx-table">
+					<div class="xx-table-row">
+						<div class="xx-table-cell middle">
+							<div class="circle --rolling3">
+								<div class="ring">
+									{{each menus as menu i}}
+									{{if i > 2}}
+									<a href="javascript:void(0);" class="menuItem" style="left:{{menu.left}}; top:{{menu.top}};" data-xx-action="checkMenu" data-index="{{i}}">
+										<dl>
+											<dt class="back-image" >
+												<div class="icon back-image" style="{{if menu.backImage}}background-image:url({{menu.backImage}});{{/if}}">
+													<div style="{{if menu.backColor}}background-color:{{menu.backColor}}{{/if}};">
+														<img src="{{menu.icon}}" alt="{{menu.name}}"/>
+													</div>
+												</div>
+												<div class="buttons">
+													<button class=" btn-minus-circle" data-xx-action="removeMenu" data-index="{{i}}">
+														<span class="fa fa-minus-circle"></span>
+													</button>
+												</div>
+											</dt>
+											<dd>{{menu.name}}</dd>
+										</dl>
+									</a>
+									{{/if}}
+									{{/each}}
+								</div>
+								<div class="center" data-xx-action="toggle">
+									<img src="{{orgInfo.logoUrl}}@70w_70h_1r_1e" onerror="this.src='./../images/default/org.jpg';" alt="{{orgInfo.name}}" />
+								</div>
+								<h4 class="name">{{orgInfo.name}}</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tips">点击LOGO有惊喜哦！</div>
+			</div>
+			<div class="temp-footer">
+				<ul class="footer-tabs">
+					{{each menus as menu i}}
+					{{if i< 3}}
+					<li>
+						<a href="javascript:void(0);" data-xx-action="checkMenu" data-index="{{i}}">
+							<div class="back-image">
+								<div class="nav-icon back-image" style="{{if menu.backImage}}background-image:url({{menu.backImage}});{{/if}}">
+									<div style="{{if menu.backColor}}background-color:{{menu.backColor}}{{/if}};">
+										<img src="{{menu.icon}}" alt="{{menu.name}}"/>
+									</div>
+								</div>
+								<div class="title">{{menu.name}}</div>
+							</div>
+						</a>
+					</li>
+					{{/if}}
+					{{/each}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

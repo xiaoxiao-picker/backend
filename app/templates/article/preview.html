@@ -1,0 +1,11 @@
+<div class="article-preview">
+	<div class="article-info-header">
+		<div class="title font-16">
+			<strong>{{article.name}}</strong>
+		</div>
+		<div class="subTitle font-12">
+			{{article.org?article.org.name:""}}发布&nbsp;&nbsp;{{article.category?article.category.name:"未分类"}}&nbsp;&nbsp;{{article.createDate}}
+		</div>
+	</div>
+	<div class="article-info-desc">{{#article.text}}</div>
+</div>

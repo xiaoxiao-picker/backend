@@ -1,0 +1,103 @@
+<!-- 提案详情 -->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">提案详情</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body proposal-info">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			{{if proposal.report.length}}
+			<!-- models/member/list.scss -->
+			<div class="setting-condition-wrapper">
+				<div class="setting red_bg reports">
+					<p>该提案被举报为： {{each proposal.report as report i}}
+						<span data-value="{{report.id}}">{{report}}</span> {{/each}}
+					</p>
+					<div class="buttons">
+						<span class="label">建议删除提案或移除举报信息</span>
+					</div>
+				</div>
+				<div class="setting">
+					<button class="btn-xx-link" data-xx-action="removeReports">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">举报无效，移除举报信息</span>
+					</button>
+				</div>
+			</div>
+			{{/if}}
+			<div class="proposal-info-container clearfix">
+				<div class="user-info-wrapper" >
+					<img class="user-avatar user-avatar-15" src="{{proposal.user.portraitUrl}}" onerror="this.src='/images/default/avatar.jpg';" data-user-id="{{proposal.user.id}}" data-xx-action="checkUser" />
+					
+					<h4 class="user-name">
+					<span data-user-id="{{proposal.user.id}}" data-xx-action="checkUser">
+						{{proposal.user.name||proposal.user.nickname||proposal.user.phoneNumber}}
+					</span>
+					</h4>
+					<span class="date">提案提交于：{{proposal.createDate | makedate:'yyyy-MM-dd hh:mm'}}</span>
+				</div>
+				<div class="proposal-wrapper">
+					<h4 class="proposal-name">{{proposal.title}}</h4>
+					<div class="proposal-context">
+						<div class="images-wrapper clearfix">
+							{{each proposal.thumbnailUrls as thumbnailUrl i}}
+							<img class="" src="{{thumbnailUrl}}" />
+							{{/each}}
+						</div>
+						{{if proposal.text}}
+						{{each proposal.text.split('\n') as text i}}
+						<p>{{#text}}</p>
+						{{/each}}
+						{{/if}}
+					</div>
+					<div class="buttons">
+						<button class="btn btn-xx-danger" data-value="{{proposal.id}}" data-xx-action="remove">
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除此提案</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<hr class="line" />
+			<!-- 管理员回复模块 -->
+			<section class="form-group" id="SystemReplyContainer">
+				<h4 class="xx-inner-title clearfix">
+				<span class="xx-title">管理员回复</span>
+				<div class="buttons">
+					<button class="btn btn-xx-sm btn-xx-green" title="添加回复，该回复会被置顶" tooltip data-xx-action="addAdminReply">添加回复</button>
+				</div>
+				</h4>
+				<section class="xx-inner-body">
+					<!-- app/templates/proposal/info-system-reply.html -->
+				</section>
+			</section>
+			<hr class="line" />
+			<!-- 评论模块 -->
+			<section class="form-group" id="CommentContainer">
+				<h4 class="xx-inner-title clearfix">
+				<span class="xx-title">提案评论</span>
+				<div class="buttons">
+					<div class="xx-switch">
+						<input type="checkbox" class="xx-switch-checkbox" id="CommentState" name="commentState" value="" {{if proposal.commentState=="OPEN"}}checked{{/if}} data-xx-change-action="commentState" />
+						<label class="xx-switch-label" for="CommentState">
+							<div class="xx-switch-inner">
+								<div class="xx-active">开启</div>
+								<div class="xx-inactive">关闭</div>
+							</div>
+							<div class="xx-switching"></div>
+						</label>
+					</div>
+				</div>
+				</h4>
+				<section class="xx-inner-body commentList {{proposal.commentState=='OPEN'?'':'disabled'}}">
+					<!-- app/templates/public/comment/box.html -->
+				</section>
+			</section>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,50 @@
+<div class="content-body">
+	<div class="info-background-wrapper">
+		<div class="info-wrapper">
+			<img class="org-avatar-{{baseInfo.id}}" src="{{baseInfo.logoUrl | imageUrl:'@90w_90h_1e_1c'}}" onerror="this.src='./images/default/org.jpg';">
+			<div class="org-info">
+				<div class="title">{{baseInfo.name||"未命名"}}</div>
+				<div class="subTitle">
+					联系人：<span data-xx-action="checkMember" data-member-id="{{baseInfo.director?baseInfo.director.id:''}}">{{baseInfo.director?(baseInfo.director.user.name||baseInfo.director.user.nickname||"无昵称"):"暂无"}}</span>
+				</div>
+				<div class="subTitle">邮&nbsp;&nbsp;箱&nbsp;：{{baseInfo.email||"暂无"}}</div>
+				<div class="subTitle">学&nbsp;&nbsp;校&nbsp;：{{baseInfo.school?baseInfo.school.name:"暂无"}}</div>
+			</div>
+			<a class="btn btn-xx-sm btn-xx-translucent-white-border btn-org-edit" href="#edit">编辑</a>
+		</div>
+	</div>
+	<div class="xx-inner-body info-content-wrapper">
+		<div class="info-content">{{#baseInfo.description||"暂无组织简介"}}</div>
+		<div class="info-total clearfix">
+			<div class="item-number">
+				<div>成员</div>
+				<div class="number-bold">{{extendInfo.memberCount||"0"}}</div>
+			</div>
+			<div class="item-number">
+				<div>活动</div>
+				<div class="number-bold">{{extendInfo.eventCount||"0"}}</div>
+			</div>
+			<div class="item-number">
+				<div>公告</div>
+				<div class="number-bold">{{extendInfo.announceCount||"0"}}</div>
+			</div>
+			<div class="item-number attention">
+				<div>公众号关注人数</div>
+				<div id="WechAtattentionNumber" class="number-bold">{{extendInfo.wechatFollowerCount||"0"}}</div>
+			</div>
+		</div>
+		<div class="info-total center">
+			{{if !wechat.id}}
+			<a href="#wechat/info" class="btn btn-xx-green">组织尚未绑定微信公众号，立即绑定<i class="fa fa-arrow-right"></i></a>
+			{{else}}
+			<button class="btn btn-xx-green" data-xx-action="wechatSync" title="同步微信粉丝数">
+				<span class="inside-loading">
+					正在同步微信数据
+					<i class="fa fa-spinner rolling font-14"></i>
+				</span>
+				<span class="inside-text">同步微信粉丝数</span>
+			</button>
+			{{/if}}
+		</div>
+	</div>
+</div>

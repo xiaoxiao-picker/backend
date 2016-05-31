@@ -1,0 +1,53 @@
+.switch-org {
+	.orgs {
+		max-height: 500px;
+		overflow: auto;
+		.org-wrapper {
+			float: left;
+			width: 155px;
+			height: 160px;
+			margin: 10px;
+			text-align: center;
+			position: relative;
+			.org {
+				cursor: pointer;
+				&.active {
+					cursor: not-allowed;
+				}
+				.avatar {
+					img {
+						width: 120px;
+						height: 120px;
+						border-radius: 50%;
+					}
+				}
+				.name {
+					margin-top: 10px;
+					font-size: 14px;
+				}
+			}
+			.buttons{
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				display: none;
+				.btn-remove{
+					font-size: 20px;
+					border:none;
+					background-color: transparent;
+					color: #ff0000;
+					font-weight: bold;
+					outline: none;
+					&:hover{
+						color: #e51616;
+					}
+				}
+			}
+			&:hover{
+				.buttons{
+					display: block;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,52 @@
+<table class="table middle">
+	<thead class="xx-table-header">
+		<tr>
+			<th class="width-120">日期</th>
+			<th class="width-150">广告类型</th>
+			<th>绑定文章/活动</th>
+			<th class="width-80">总浏览量</th>
+			<th class="width-80">有效浏览量</th>
+			<th class="width-80">总点击量</th>
+			<th class="width-80">有效点击量</th>
+			<th class="width-80">收益/元</th>
+			<!-- <th class="xx-border-right width-90">操作</th> -->
+		</tr>
+	</thead>
+	<tbody class="xx-table-body center">
+		{{each logs as log i}}
+		<tr>
+			<td>
+				{{log.date | makedate:'yyyy-MM-dd'}}
+			</td>
+			<td>
+				<div class="ellipsis width-150" title="{{log.advertisement&&log.advertisement.classes}}" tooltip>
+					{{log.advertisement&&log.advertisement.classes}}
+				</div>
+			</td>
+			<td>
+				<a href="{{log.advertisement.source.url}}" class=" underline ellipsis" title="{{log.advertisement.source.title}}" tooltip>
+					{{log.advertisement.source.title}}
+				</a>
+			</td>
+			<td class="text-xx-yellow">
+				{{log.views}}
+			</td>
+			<td class="text-xx-green">
+				{{log.effectiveViews}}
+			</td>
+			<td class="text-xx-blue">
+				{{log.clicks}}
+			</td>
+			<td class="text-xx-purple">
+				{{log.effectiveClicks}}
+			</td>
+			<td class="text-xx-red">
+				{{(log.viewsMoney+log.clicksMoney)}}
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{if logs.length == 0}}
+<p class="center text-gray" style="padding:30px 0;">暂无数据！</p>
+{{/if}}

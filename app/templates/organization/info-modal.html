@@ -1,0 +1,48 @@
+<!-- org info modal begin -->
+<div class="orgInfo-header-wrapper">
+	<div class="content-wrapper">
+		<img class="orgInfo-avatar" src="{{if isExtend}}{{orgInfo.logoUrl | imageUrl:'@100w_100h_1e_1c'}}{{else}}{{orgInfo.thumbnailUrl | imageUrl:'@100w_100h_1e_1c'}}{{/if}}" onerror="this.src='images/default/org.jpg';">
+		<div class="orgInfo-info">
+			<div class="org-name">{{orgInfo.name||"未命名"}}</div>
+			{{if orgInfo.director}}
+			<div>联系人：{{orgInfo.director.user?orgInfo.director.user.name||orgInfo.director.user.nickname||orgInfo.director.user.phoneNumber:""}}</div>
+			{{/if}}
+			<div>邮箱：{{orgInfo.email||"暂无"}}</div>
+			<div>组织类型：{{orgInfo.orgType}}</div>
+			<div>所属学校：{{orgInfo.school ? orgInfo.school.name : "暂无"}}</div>
+		</div>
+		{{if !isExtend}}
+		<a class="btn btn-xx-sm btn-xx-translucent-white-border" href="#exhibition/{{orgInfo.id}}/edit">
+			<span>编辑资料</span>
+		</a>
+		{{/if}}
+	</div>
+</div>
+<div class="orgInfo-body-wrapper">
+	<div class="desc {{if !orgInfo.description}}center{{/if}}">
+		{{#orgInfo.description||"暂无组织详情"}}
+	</div>
+	{{if isExtend}}
+	<div class="xx-table extend-info">
+		<div class="xx-table-row">
+			<div class="xx-table-cell">
+				<div class="title">成员</div>
+				<div class="count">{{extendInfo.memberCount}}</div>
+			</div>
+			<div class="xx-table-cell">
+				<div class="title">活动</div>
+				<div class="count">{{extendInfo.eventCount}}</div>
+			</div>
+			<div class="xx-table-cell">
+				<div class="title">公告</div>
+				<div class="count">{{extendInfo.announceCount}}</div>
+			</div>
+			<div class="xx-table-cell">
+				<div class="title">微粉</div>
+				<div class="count">{{extendInfo.wechatFollowerCount}}</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</div>
+<!-- org info modal end -->

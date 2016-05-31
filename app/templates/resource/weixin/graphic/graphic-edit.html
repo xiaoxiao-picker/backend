@@ -1,0 +1,80 @@
+<!-- 图文编辑模板 -->
+<div class="appmsg-editor" data-current-index="{{index}}"> <i class="arrow arrow-out"></i> <i class="arrow arrow-in"></i>
+	<div class="inner">
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">标题</span>
+			</h4>
+			<div class="">
+				<input id="Name" class="xx-input-text" type="text" value="{{article.title}}" data-index="{{index}}" data-xx-keyup-action="modifyTitle" data-xx-change-action="modifyTitle" />
+			</div>
+		</div>
+		<div id="AuthorContainer" class="inner-item {{if article.articleType=="CUSTOMIZE"}}hide{{/if}}">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">
+					作者
+					<i>（选填）</i>
+				</span>
+			</h4>
+			<div class="">
+				<input id="Author" class="xx-input-text" type="text" value="{{article.author}}" data-index="{{index}}" data-xx-keyup-action="modifyAuthor" data-xx-change-action="modifyAuthor" />
+			</div>
+		</div>
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">
+					封面
+					<i>（大图片建议尺寸：900像素 * 500像素）</i>
+				</span>
+			</h4>
+			<div class="xx-inner-content">
+				<div class="avatar-wrapper">
+					<img id="Image" class="avatar" src="{{article.picUrl}}" width="300" height="160" />
+				</div>
+				<div class="buttons">
+					<button class="btn btn-xx-green" data-xx-action="openImageSelector">
+						<span>选择封面</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<label class="label-input">
+					<input type="checkbox" class="xx-option-input xx-checkbox" {{if article.show_cover_pic}}checked{{/if}} data-xx-change-action="modifyShowCoverPic"/>
+						封面图片显示在正文中
+				</label>
+			</h4>
+		</div>
+		<!-- 单图文消息增加[摘要]一项 -->
+		{{if count == 1}}
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">摘要</span>
+			</h4>
+			<div class="">
+				<textarea id="Description" class="xx-textarea xx-input-text" rows="4" data-xx-keyup-action="modifyDescription" data-xx-change-action="modifyDescription">{{article.digest}}</textarea>
+			</div>
+		</div>
+		{{/if}}
+		
+		<div id="ArticleContent" class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">正文</span>
+			</h4>
+			<div class="">
+				<textarea id="Context">
+				{{article.content}}
+				</textarea>
+			</div>
+		</div>
+		<div id="CustomizeUrl" class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">原文链接</span>
+			</h4>
+			<div>
+				<input class="xx-input-text" type="text" value="{{article.content_source_url}}" placeholder="http:// 或 https://" data-xx-change-action="modifyContentSourceUrl" />
+			</div>
+		</div>
+	</div>
+</div>

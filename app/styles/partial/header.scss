@@ -1,0 +1,227 @@
+.nav-fixed-top {
+        width: 100%;
+        height: $header-height;
+        margin-bottom: 0;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 0;
+        background-color: #fff;
+
+        .main-container {
+                background-color: #fff;
+        }
+
+        .inner-logo {
+                padding: 15px;
+        }
+
+        .nav-right {
+                line-height: $header-height;
+                min-width: 300px;
+                margin-left: $sidebar-left-width;
+                text-align: right;
+
+                .nav-handler {
+                        display: block;
+                        float: left;
+                        height: $header-height;
+                        text-align: center;
+
+                        &.nav-mailbox {
+                                font-size: 14px;
+                                position: relative;
+                                padding: 0 10px;
+                                cursor: pointer;
+                                color: $default-gray-color;
+                                transition: all 1s;
+
+                                &:hover {
+                                        color: #666;
+                                }
+
+                                .remark {
+                                        font-size: 12px;
+                                        line-height: 20px;
+                                        width: 20px;
+                                        height: 20px;
+                                        margin: 0;
+                                        padding: 0;
+                                        text-align: center;
+                                        color: #fff;
+                                        border-radius: 50%;
+                                        background-color: #ff7979;
+                                        display: inline-block;
+                                }
+                        }
+
+                        &.nav-logout {
+                                font-size: 20px;
+                                position: relative;
+                                padding-right: 20px;
+                                cursor: pointer;
+
+                                .fa {
+                                        &.red {
+                                                color: #f90c0c;
+
+                                                &:hover {
+                                                        color: #ca0303;
+                                                }
+                                        }
+
+                                        &.gray {
+                                                color: $default-gray-color;
+
+                                                &:hover {
+                                                        color: #666;
+                                                }
+                                        }
+                                }
+                        }
+
+                        &.nav-separate {
+                                border-right: 0 solid #d2d7d8;
+
+                                .dropdown-menu:before {
+                                        position: absolute;
+                                        top: -10px;
+                                        left: 145px;
+                                        display: inline-block;
+                                        content: ' ';
+                                        border-right: 10px solid transparent;
+                                        border-bottom: 10px solid #24aa98;
+                                        border-left: 10px solid transparent;
+                                }
+
+                                .dropdown-menu {
+                                        right: -110px;
+                                        left: initial;
+                                        min-width: 300px;
+                                        border: 1px solid #24aa98;
+
+                                        .mailbox-menu-header {
+                                                line-height: 40px;
+                                                color: #fff;
+                                                background-color: #24aa98;
+                                        }
+
+                                        .mailbox-menu-body {
+                                                .mailbox-cell {
+                                                        float: left;
+                                                        width: 100%;
+                                                        padding: 5px 10px;
+                                                        border-bottom: 1px solid #dbddde;
+
+                                                        .message {
+                                                                line-height: 30px;
+                                                                text-align: left;
+                                                        }
+
+                                                        .date {
+                                                                font-size: 12px;
+                                                                line-height: 15px;
+                                                                float: right;
+
+                                                                span {
+                                                                        margin-right: 5px;
+                                                                }
+                                                        }
+                                                }
+                                        }
+
+                                        .mailbox-menu-footer {
+                                                line-height: 40px;
+                                                height: 40px;
+
+                                                button {
+                                                        color: #24aa98;
+                                                }
+                                        }
+                                }
+                        }
+
+                        &:hover {
+                                .nav-avatar {
+                                        box-shadow: 0 0 3px #888;
+                                }
+                        }
+
+                        .mailbox-handler {
+                                position: relative;
+
+                                .fa {
+                                        font-size: 25px;
+                                        line-height: $header-height;
+                                        color: #798999;
+
+                                        &:hover {
+                                                color: #000;
+                                        }
+                                }
+
+                                .mail-bubble {
+                                        font-size: 12px;
+                                        line-height: 20px;
+                                        position: absolute;
+                                        top: 10px;
+                                        left: 12px;
+                                        width: 20px;
+                                        height: 20px;
+                                        color: white;
+                                        border-radius: 50%;
+                                        background-color: #f44d59;
+                                }
+                        }
+
+                        &.nav-user {
+                                padding: 0 20px 0 10px;
+
+                                > img {
+                                        float: left;
+                                        margin: 5px;
+                                }
+
+                                > span {
+                                        float: left;
+                                }
+                        }
+                }
+
+                a.inner-handler,
+                .dropdown-toggle {
+                        display: block;
+                        padding: 0 20px;
+                        cursor: pointer;
+                        color: #666;
+
+                        &:hover {
+                                text-decoration: none;
+                                color: #444;
+                        }
+                }
+        }
+
+        .nav-avatar {
+                width: 40px;
+                height: 40px;
+                border: 0 solid #fff;
+                border-radius: 50%;
+        }
+
+        .main-container {
+                position: relative;
+
+                .nav-loading {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                }
+        }
+}
+
+.notification-open {
+        .nav-mailbox {
+                background-color: #efefef;
+        }
+}

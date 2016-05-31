@@ -1,0 +1,47 @@
+<!-- 个性化微首页 第三方菜单选择编辑 -->
+<div class="form-row">
+	{{include './menu-editor-header'}}
+</div>
+<div class="form-row">
+	<h4 class="xx-inner-title">
+		<span class="xx-title">绑定功能</span>
+	</h4>
+	<!-- models/wechat/personalized/menu_selector_box -->
+	<div class="module-edit-wrapper clearfix" {{if menu.code == "articles"||menu.code == "events"}}style="height:280px;"{{/if}}>
+		<div class="module">
+			<img src="{{menuSource.poster}}" />
+		</div>
+
+		<div class="module-footer">
+			<div class="module-text">
+				<div> <strong>{{menuSource.name}}</strong>
+					<span id="TIPS"></span>
+				</div>
+				<div class="font-12">功能说明: {{menuSource.content}}</div>
+				<p class="module-tips">注：切换功能模块需重新绑定</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="form-row">
+	<div class="buttons">
+		{{if menu.url}}
+		<button class="btn-binded" data-xx-action="">
+			<span class="pk pk-tick"></span>
+			<span class="text">已绑定</span>
+		</button>
+		<button class="btn-rebind" data-xx-action="resetMenu">重新绑定</button>
+		{{else}}
+		<button class="btn btn-xx-green" data-xx-action="updateMenu">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">确定</span>
+		</button>
+		<button class="btn btn-xx-danger" data-xx-action="resetMenu">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">取消</span>
+		</button>
+		{{/if}}
+	</div>
+</div>

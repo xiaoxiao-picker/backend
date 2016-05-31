@@ -1,0 +1,97 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#autoreply/{{replyType}}/list">
+				{{if replyType=='KEYWORD'}}
+				用户自定关键词
+				{{else if replyType=='SUBSCRIBE'}}
+				关注回复
+				{{else}}
+				消息回复
+				{{/if}}
+			</a>
+		</li>
+		{{if replyType=='KEYWORD'}}
+		<li role="presentation" >
+			<a href="#autoreply/KEYWORD/builtin">
+				系统预设关键词
+			</a>
+		</li>
+		{{/if}}
+	</ul>
+	<div class="buttons">
+		<div class="btn-group">
+			<div class="dropdown-group" dropdown tabindex="-1" style="padding-top: 6px;">
+				<button class="btn btn-xx-green btn-xx-sm dropdown-toggle">
+					新建回复
+					<span class="fa fa-caret-down"></span>
+				</button>
+				<ul class="dropdown-menu autoreply-menu" role="menu">
+					<li>
+						<a href="#autoreply/{{replyType}}/RELATION/add">高级回复</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#autoreply/{{replyType}}/TEXT/add">文字回复</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#autoreply/{{replyType}}/PICTURE/add">图片回复</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="#autoreply/{{replyType}}/ARTICLE/add">图文回复</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="content-body autoreply-body">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title">
+				<span class="xx-title">总数&nbsp;(&nbsp;{{count||"0"}}&nbsp;)</span>
+				<!-- 内置回复添加说明 -->
+				{{if curMessageType.type=="RELATION"}}
+				<span class="text-xx-green">高级回复可绑定 活动、文章、投票、提案、表格、问卷 等功能！</span>
+				{{/if}}
+				
+			</h3>
+			<div class="buttons">
+				<div class="btn-group left">
+					<div class="dropdown-group" dropdown tabindex="-1">
+						<button class="btn btn-xx-green btn-xx-sm dropdown-toggle">
+							{{curMessageType.value}}
+							<span class="fa fa-caret-down"></span>
+						</button>
+						<ul class="dropdown-menu autoreply-menu" role="menu">
+							{{each messageTypes as messageType i}}
+							<li>
+								<a href="javascript:void(0);" data-value="{{messageType.type}}" data-xx-action="switchMessageType">{{messageType.value}}</a>
+							</li>
+							{{if i < messageTypes.length - 1}}
+							<li class="divider"></li>
+							{{/if}}
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="panel-body">
+			{{if replyType=='KEYWORD'}}
+				{{include './list-keyword'}}
+			{{else}}
+				{{include './list-default'}}
+			{{/if}}
+
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</section>
+		<footer class="panel-footer"></footer>
+	</div>
+</div>

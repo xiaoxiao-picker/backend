@@ -1,0 +1,141 @@
+.ly-message-box-container {
+        position: fixed;
+        z-index: 20000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./../images/default/bg.png");
+        background-color: rgba(0, 0, 0, 0.2);
+        background-repeat: repeat;
+        background-position: 0 0;
+        animation: alertShadowFadeIn .2s ease-in-out 1 alternate;
+        animation-fill-mode: both;
+        text-align: center;
+
+        .ly-message-mid {
+                height: 100%;
+                display: inline-block;
+                vertical-align: middle;
+        }
+
+        .ly-message-box {
+                font-size: 14px;
+                overflow: hidden;
+                width: 350px;
+                height: auto;
+                margin: -200px auto;
+                padding: 0;
+                border: 0 #5bd18b solid;
+                border-radius: $default-border-radius;
+                background-color: #fff;
+                box-shadow: 1px 1px 4px #ddd;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+                display: inline-block;
+                vertical-align: middle;
+
+                &.scale {
+                        animation: alertScale .2s ease-in-out 1 alternate;
+                }
+
+                &.rotate {
+                        animation: alertRotate .6s ease-in-out 1 alternate;
+                }
+
+                .ly-message-box-header {
+                        font-size: 16px;
+                        padding: 10px 0;
+                        text-align: center;
+                        color: #fff;
+                        border-bottom: 1px solid #f2f2f2;
+                        background-color: #5bd18b;
+                        user-select: none;
+                }
+
+                .ly-message-box-body {
+                        line-height: 20px;
+                        height: auto;
+                        padding: 30px;
+                        text-align: center;
+                        color: #393b3c;
+                }
+
+                .ly-message-box-footer {
+                        padding-bottom: 20px;
+                        text-align: center;
+
+                        .ly-btn {
+                                font-size: 14px;
+                                margin: 0 10px;
+                                cursor: pointer;
+                                color: #fff;
+                                border: 0;
+                                border-radius: 2px;
+                                outline: none;
+                                background-color: #fff;
+
+                                &:hover {
+                                        background-color: #fafafa;
+                                }
+
+                                &.ly-btn-yes {
+                                        background-color: #48d07f;
+
+                                        &:hover {
+                                                background-color: #35c66f;
+                                        }
+                                }
+
+                                &.ly-btn-no {
+                                        background-color: #ff7979;
+
+                                        &:hover {
+                                                background-color: #f24f4f;
+                                        }
+                                }
+
+                                &.width-p-100 {
+                                        width: 100%;
+                                }
+
+                                &.width-p-50 {
+                                        width: 50%;
+                                }
+                        }
+                }
+        }
+}
+
+@keyframes alertScale {
+        from {
+                transform: scale(0.1, 0.1);
+                opacity: .5;
+        }
+
+        to {
+                transform: scale(1, 1);
+                opacity: 1;
+        }
+}
+
+@keyframes alertRotate {
+        from {
+                transform: rotate(360deg);
+                opacity: .5;
+        }
+
+        to {
+                transform: rotate(0deg);
+                opacity: 1;
+        }
+}
+
+@keyframes alertShadowFadeIn {
+        from {
+                background-color: rgba(0, 0, 0, 0);
+        }
+
+        to {
+                background-color: rgba(0, 0, 0, 0.2);
+        }
+}

@@ -1,0 +1,46 @@
+<!-- ATM -->
+<section class="atm-box">
+	<ol class="tips-box">
+		<li>1、取款金额必须为整百。</li>
+		<li>2、收款账户必须为`已通过`状态。</li>
+	</ol>
+	<div class="account-container">
+		<div class="xx-inner-title">
+			<span class="xx-title">选择收款账户</span>
+		</div>
+		<div class="xx-inner-content">
+			<ul class="account-box ">
+				{{each walletAccounts as account i}}
+				<li class="clearfix">
+					<label class="clearfix">
+						<div class="type">
+							<input type="radio" name="walletAccount" value="{{account.id}}" {{if account.active&&account.state=="APPROVED"}}checked{{/if}} {{if account.state!="APPROVED"}}disabled{{/if}} />
+							{{account.type | walletAccountType:account.name}}
+						</div>
+						<div class="name">{{account.userName}}</div>
+						<div class="account">{{if account.type=="BANK"}}{{account.account | bankAccount}}{{else}}{{account.account}}{{/if}}</div>
+						<div class="state">
+							<span class='label label-sm {{{UNDEALED:"",APPROVED:"label-success",REJECTED:"label-danger"}[account.state]||""}}'>{{{UNDEALED:"待审核",APPROVED:"已通过",REJECTED:"已拒绝"}[account.state]||"未知"}}</span>
+						</div>
+					</label>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="xx-inner-title">
+			<span class="xx-title">{{name}}</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-control input" value="{{value}}" placeholder="{{placeholder}}" autofocus />
+	</div>
+	<div class="center">
+		<button class="btn btn-xx-green btnSubmit">
+		<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+		</span>
+		<span class="inside-text">确定</span>
+		</button>
+	</div>
+</section>

@@ -1,0 +1,19 @@
+{{each resources as resource i}}
+<div class="resource-wrap clearfix">
+	<div class="poster-wrap">
+		<img src="{{resource.contents[0].xiaoxiaoUrl |imageUrl:'@100w_100h_1e_1c'}}" />
+	</div>
+	<ul class="articles">
+		{{each resource.contents as article j}}
+		<li>
+			<a href="{{article.url}}" target="_blank">{{j+1}}. {{article.title}}</a>
+		</li>
+		{{/each}}
+	</ul>
+	<div class="ops-wrap">
+		<!-- <a href="#resource/weixin/graphic/{{resource.id}}/edit" class="btn btn-xx-sm btn-xx-green">编辑</a> -->
+		<!-- <button class="btn btn-xx-sm btn-xx-green" data-resource-id="{{resource.id}}" data-xx-action="edit">编辑</button> -->
+		<button class="btn btn-xx-sm btn-xx-danger" data-resource-id="{{resource.id}}" data-xx-action="remove">删除</button>
+	</div>
+</div>
+{{/each}}

@@ -1,0 +1,106 @@
+.image-browser-box {
+	position: relative;
+	height: 100%;
+	text-align: center;
+	.btn-close {
+		position: absolute;
+		top: 100px;
+		right: 25%;
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: $red-color;
+		color: #fff;
+		font-size: 18px;
+		line-height: 35px;
+		box-shadow: 0px 1px 3px 0px rgba(0,0,0,.3);
+		z-index: 1000;
+	}
+	.box-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		.image-box {
+			position: relative;
+			max-width: 80%;
+			height: 100%;
+			vertical-align: middle;
+			margin: auto;
+			.img-wrapper {
+				max-width: 100%;
+				max-height: 700px;
+				display: none;
+				margin: auto;
+			}
+			.loading-img {
+				width: 100px;
+				display: block;
+				margin: auto;
+			}
+			&.load {
+				.img-wrapper {
+					display: block;
+				}
+				.loading-img {
+					display: none;
+				}
+			}
+		}
+	}
+	.page-text {
+		position: fixed;
+		left: 0;
+		bottom: 220px;
+		width: 100%;
+		text-align: center;
+		color: #999;
+		>span {
+			background-color: #fff;
+			background-color: rgba(255,255,255,.7);
+			padding: 8px 20px;
+			font-size: 16px;
+			border-radius: 20px;
+		}
+		
+	}
+	.menu-box {
+		position: fixed;
+		left: 0;
+		bottom: 120px;
+		width: 100%;
+		z-index: 1000;
+		.menus {
+			margin: auto;
+			display: inline-block;
+			border-radius: 30px;
+			overflow: hidden;
+			>li {
+				float: left;
+				cursor: pointer;
+				text-align: center;
+				color: #fff;
+				font-size: 30px;
+				padding: 10px 30px;
+				background-color: #000;
+				background-color: rgba(0, 0, 0, .6);
+				&:hover {
+					color: #b5b5b5;
+				}
+				&.btn-page {
+					&.disabled {
+						color: #b5b5b5;
+						cursor: not-allowed;
+					}
+				}
+				.btn-download {
+					color: #fff;
+					&:hover {
+						color: #b5b5b5;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,88 @@
+{{if events.length>0}}
+<table class="table-main">
+	<tbody>
+		{{each events as event i}}
+		<tr>
+			<td class="width-130 padding-20">
+				<div class="image-wrapper">
+					<img src="{{event.thumbnailUrl | imageUrl:'@300w_200h_1e_1c_80Q_1x'}}" onerror="this.src='images/default/event.jpg';"/>
+					<div class="classification">{{event.category?event.category.name:"未分类"}}</div>
+				</div>
+			</td>
+			<td class="top padding-20 event-cell-info">
+				<h4 class="title">
+					<!-- 活动是否有电子票 -->
+					{{if event.ticketSourceCount}}
+					<span class="pk pk-ticket"></span>
+					{{/if}}
+					<!-- 活动是否有投票 -->
+					{{if event.totalVotes}}
+					<span class="pk pk-vote"></span>
+					{{/if}}
+					<!-- 活动是否被删除 -->
+					{{if event.state=="RUBBISH"}}
+					<span class="font-16">{{event.name}}</span>
+					{{else}}
+					<a class="font-16" href="#event/{{event.id}}/info">{{event.name}}</a>
+					{{/if}}
+				</h4>
+				<div class="eventDate font-12">{{event.startDate | makedate:'yyyy/MM/dd hh:mm'}} 至 {{event.endDate | makedate:'yyyy/MM/dd hh:mm'}}</div>
+				<div class="content font-14">{{event.terse}}</div>
+			</td>
+			<td class="width-300 padding-20 event-cell-btns">
+				<div class="btn-xx-group right">
+					{{if event.state&&event.state!="RUBBISH"}}
+					<!-- 预览/查看按钮 -->
+					<a class="btn btn-xx-sm btn-xx-green" href="#event/{{event.id}}/info">{{event.state=="UNPUBLISHED"?"预览":"查看"}}</a>
+					<!-- 编辑按钮 -->
+					<a class="btn btn-xx-sm btn-xx-green" href="#event/{{event.id}}/edit">编辑</a>
+					{{/if}}
+					<!-- 活动未上线 -->
+					{{if event.state=="UNPUBLISHED"}}
+					<button class="btn btn-xx-sm btn-xx-red" data-value="{{event.id}}" data-xx-action="moveToDustbin">
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					<!-- 活动已上线 -->
+					{{else if event.state=="PUBLISHED"}}
+					<button class="btn btn-xx-sm btn-xx-red" data-value="{{event.id}}" data-xx-action="archive">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">下线</span>
+					</button>
+					<!-- 活动已下线 -->
+					{{else if event.state=="ARCHIVED"}}
+					<button class="btn btn-xx-sm btn-xx-red" data-value="{{event.id}}" data-xx-action="moveToDustbin">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					<!-- 活动已删除 -->
+					{{else if event.state=="RUBBISH"}}
+					<button class="btn btn-xx-sm btn-xx-green" data-value="{{event.id}}" data-xx-action="recover">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">放回原处</span>
+					</button>
+					<button class="btn btn-xx-sm btn-xx-red" data-value="{{event.id}}" data-xx-action="remove">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{/if}}
+				</div>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{else}}
+<div class="list-empty">
+	<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+</div>
+{{/if}}

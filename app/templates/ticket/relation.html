@@ -1,0 +1,90 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">
+				{{if sourceType=='EVENT'}}
+				活动电子票管理
+				{{else if sourceType=="WALL"}}
+				微信墙电子票管理
+				{{/if}}
+			</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addTicket" title="新建电子票，请手动关联">新建电子票</button>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="bindTicket" title="关联已有电子票">关联已有电子票</button>	
+	</div>
+</div>
+<div class="content-body vote-list">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<h3 class="xx-inner-title clearfix">
+				<div class="xx-title">总数&nbsp;(&nbsp;{{count||"0"}}&nbsp;)</div>
+			</h3>
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th>名称</th>
+						<th class="width-150">当前状态</th>
+						<th class="width-150">下载名单</th>
+						<th class="width-150 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each tickets as ticket i}}
+					<tr>
+						<td>
+							{{(i+1) < 10 ? "0"+(i+1) : (i+1)}}
+						</td>
+						<td class="left">
+							{{ticket.name}}
+						</td>
+						<td class="center">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" name="{{ticket.id}}" id="Ticket{{ticket.id}}" data-value="{{ticket.id}}" data-xx-change-action="switch" {{if ticket.state=="OPENED"}} checked {{/if}}>
+								<label class="xx-switch-label" for="Ticket{{ticket.id}}">
+									<div class="xx-switch-inner">
+										<div class="xx-active">开启</div>
+										<div class="xx-inactive">关闭</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</td>
+						<td>
+							<button class="btn btn-xx-sm btn-xx-green" data-source-type="TICKET" data-source-id="{{ticket.id}}" data-export-file-name="电子票-{{ticket.name}}-结果" data-xx-action="exportReport">
+								<span class="inside-loading">
+									<i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">
+									下载名单
+								</span>
+							</button>
+						</td>
+						<td>
+							<button class="btn btn-xx-red btn-xx-sm" data-value="{{ticket.id}}" data-xx-action="remove">
+								<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">
+									解除关联
+								</span>
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+			<!--/global/main.scss-->
+			<div class="list-back">
+				<a class="btn btn-xx-green btn-xx-sm" data-xx-action="goBack" title="返回活动">返回活动</a>
+			</div>
+		</div>
+	</div>
+</div>

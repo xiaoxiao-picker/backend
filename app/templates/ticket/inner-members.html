@@ -1,0 +1,14 @@
+<div id="TicketMembers">
+{{each result as people i}}
+	<div class="ticket-item">
+		<a class="ticket-item-avatar" href="javascript:void(0);" data-value="{{people.userId}}" data-xx-action="getUserInfo">
+			<img src="{{people.userPortraitUrl}}@60w_60h_1e_1c_80Q.jpg" onerror="this.src='images/default/3.png';"/>
+		</a>
+		<div class="ticket-item-content">
+			<a href="javascript:void(0);" data-value="{{people.userId}}" data-xx-action="getUserInfo">{{people.userName||"未知"}}</a>
+			<br>
+			<span class="text-gray">{{people.createDate | makedate:'MM/dd hh:mm'}}</span>
+		</div>
+	</div>
+{{/each}}
+</div>

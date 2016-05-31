@@ -1,0 +1,90 @@
+<!-- 图文编辑模板 -->
+<div class="appmsg-editor"> <i class="arrow arrow-out"></i> <i class="arrow arrow-in"></i>
+	<div class="inner">
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">标题</span>
+			</h4>
+			<div class="">
+				<input id="Name" class="xx-input-text" type="text" value="{{article.title}}" data-index="{{index}}" data-xx-keyup-action="modifyTitle" data-xx-change-action="modifyTitle" />
+			</div>
+		</div>
+		<div id="AuthorContainer" class="inner-item {{if article.articleType=="CUSTOMIZE"}}hide{{/if}}">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">
+					作者
+					<i>（选填）</i>
+				</span>
+			</h4>
+			<div class="">
+				<input id="Author" class="xx-input-text" type="text" value="{{article.author}}" data-index="{{index}}" data-xx-keyup-action="modifyAuthor" data-xx-change-action="modifyAuthor" />
+			</div>
+		</div>
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">
+					封面
+					<i>（大图片建议尺寸：900像素 * 500像素）</i>
+				</span>
+			</h4>
+			<div class="xx-inner-content">
+				<div class="avatar-wrapper">
+					<img id="Image" class="avatar" src="{{article.picUrl}}" width="300" height="160" />
+				</div>
+				<div class="buttons">
+					<button class="btn btn-xx-green" data-xx-action="openImageSelector">
+						<span>选择海报</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- 单图文消息增加[摘要]一项 -->
+		{{if count == 1}}
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">摘要</span>
+			</h4>
+			<div class="">
+				<textarea id="Description" class="xx-textarea xx-input-text" rows="4" data-xx-keyup-action="modifyDescription" data-xx-change-action="modifyDescription">{{article.description}}</textarea>
+			</div>
+		</div>
+		{{/if}}
+		<div class="inner-item">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">
+					类型
+				</span>
+			</h4>
+			<div class="xx-option-input-group">
+				<label class="label-input">
+					<input type="radio" class="xx-option-input xx-radio" name="articleType" value="ARTICLE" {{if article.articleType!="CUSTOMIZE"}}checked{{/if}} data-xx-keyup-action="modifyArticleType" data-xx-change-action="modifyArticleType"/>
+						文章
+				</label>
+				<label class="label-input">
+					<input type="radio" class="xx-option-input xx-radio" name="articleType" value="CUSTOMIZE" {{if article.articleType=="CUSTOMIZE"}}checked{{/if}} data-xx-keyup-action="modifyArticleType" data-xx-change-action="modifyArticleType"/>
+						超链接
+				</label>
+			</div>
+		</div>
+		<!-- 文章富文本编辑器 -->
+		<div id="ArticleContent" class="inner-item {{if article.articleType=="CUSTOMIZE"}}hide{{/if}}">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">正文</span>
+			</h4>
+			<div class="">
+				<textarea id="Context">
+				{{article.content}}
+				</textarea>
+			</div>
+		</div>
+		<!-- 文章超链接 -->
+		<div id="CustomizeUrl" class="inner-item {{if article.articleType!="CUSTOMIZE"}}hide{{/if}}">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">访问网址</span>
+			</h4>
+			<div>
+				<input id="Url" class="xx-input-text" type="text" {{if article.articleType=="CUSTOMIZE"}}value="{{article.content}}"{{else}}value=""{{/if}} placeholder="http:// 或 https://"/>
+			</div>
+		</div>
+	</div>
+</div>

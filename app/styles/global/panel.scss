@@ -1,0 +1,39 @@
+.panel {
+        box-shadow: none;
+        padding-bottom: 50px;
+        margin-left: 0 !important;
+        padding: 0 30px;
+        height: 100%;
+        overflow: visible;
+
+        .panel-header, .panel-body, .panel-footer {
+                margin: 10px 0;
+        }
+
+        .panel-header {
+                height: 30px;
+                padding: 0 !important;
+                position: relative;
+
+                h3 {
+                        line-height: 30px;
+                        font-weight: normal;
+                }
+
+                .buttons {
+                        position: absolute;
+                        right: 0;
+                        top: 4px;
+
+                        &.search-group {
+                                padding: 3px 0;
+                        }
+                }
+        }
+
+        .panel-footer {
+                padding: 30px 0;
+                background-color: #fff;
+                border: none;
+        }
+}

@@ -1,0 +1,38 @@
+<!-- 个性化公众号个性化微首页 模板-->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">个性化微首页</a>
+		</li>
+		<div class="buttons btn-xx-group right">
+			{{if sourceId!="add"}}
+			<a class="btn btn-xx-green btn-xx-sm" href="#homepage/add">新建微首页主题</a>
+			{{/if}}
+			<a class="btn btn-xx-green btn-xx-sm" href="#homepage/list">我的主题</a>
+		</div>
+	</ul>
+</div>
+<div class="content-body">
+	<!-- models/wechat/personalized/global.scss -->
+	<div class="personalized-wrapper">
+		<!-- models/wechat/personalized/homepage.scss -->
+		<div class="personalized personalized-homepage clearfix">
+
+			<div class="box box1">
+				{{include './addressInfo'}}
+				<!-- 微首页相关信息模板 app/templates/wechat/personalized/homepage/addressInfo -->
+			</div>
+			<div class="box box2">
+				{{include './phoneBox'}}
+				<!-- 微首页效果展示模板 app/templates/wechat/personalized/homepage/phoneBox -->
+				<!-- 微首页效果展示模板 app/templates/wechat/personalized/homepage/templates/win8 -->
+			</div>
+			<div class="box box3" id="MenuEditorContainer">
+				<div id="MenuSettingBox" class="menu-setting-box">
+					<!-- {{include './emptyMenu'}} -->
+					<!-- 微首页菜单编辑模板 app/templates/wechat/personalized/homepage/menuEditor -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

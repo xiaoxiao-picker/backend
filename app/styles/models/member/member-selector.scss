@@ -1,0 +1,27 @@
+.member-selector {
+        .tips {
+                color: #aaa;
+        }
+
+        .member {
+                width: 25%;
+                float: left;
+                margin-bottom: 15px;
+
+                .checkbox {
+                        display: block;
+                        height: 30px;
+                        padding: 5px 3px;
+
+                        > input[type=checkbox] {
+                                float: left;
+                        }
+
+                        > span {
+                                display: block;
+                                height: 20px;
+                                line-height: 20px;
+                        }
+                }
+        }
+}

@@ -1,0 +1,27 @@
+<!-- models/public/guide.scss -->
+<div class="func-guide-container">
+	<div class="options clearfix len-{{options.length}}">
+		{{each options as option i}}
+			<div class="option option-{{i+1}}">
+				<a href="{{option.url}}">
+					<div class="index">
+						<span>{{i+1}}</span>
+					</div>
+					<div class="info">
+						<h4 class="title">{{option.name}}</h4>
+						<article class="content">{{#option.description}}</article>
+					</div>
+				</a>
+			</div>
+		{{/each}}
+	</div>
+	{{if options.length>0}}
+	<div class="center">
+		<a class="btn btn-xx-green" href="{{options[0].url}}">立即体验</a>
+	</div>
+	{{else}}
+	<div class="list-empty">
+		<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+	</div>
+	{{/if}}
+</div>

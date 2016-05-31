@@ -1,0 +1,287 @@
+<!-- 校校官网模版 -->
+<div class="index-container">
+	<div class="section section1">
+		<div class="inner-section">
+			<img class="logo-img" src="./../images/index/section-1-1.png"/>
+			<img class="light-img move" src="./../images/index/section-1-2.png"/>
+			<img class="cloud-img" src="./../images/index/section-1-3.png"/>
+			<img class="cloud-small-img" src="./../images/index/section-1-4.png"/>
+			<!-- 账号登陆／注册容器 -->
+			<div class="container">
+				<!-- 已登陆 -->
+				<div class="login-box login">
+					<div class="box-wrapper">
+						<div class="form-row clearfix border-bottom">
+							<span>当前账号</span>
+							<span>{{user.phoneNumber}}</span>
+						</div>
+					</div>
+					<div class="login-footer">
+						<a href="/guide.html" class="btn btn-xx-light-green">
+							直接登录&nbsp;<span class="fa fa-arrow-up"></span>
+						</a>
+						<ul class="clearfix">
+							<li>
+								<a href="javascript:void(0);" data-xx-action="relogin">
+									切换账户
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 未登陆 -->
+				<div class="login-box not-login">
+					<form id="LoginForm" class="box-wrapper">
+						<label class="form-row clearfix border-bottom" for="userName">
+							<span class="label">手机</span>
+							<div class="input-wrapper">
+								<input id="userName" type="text" class="" placeholder="" />
+							</div>
+						</label>
+						<label class="form-row clearfix border-bottom" for="password">
+							<span class="label">密码</span>
+							<div class="input-wrapper">
+								<input id="password" type="password" class="" placeholder="" />
+							</div>
+						</label>
+						<div class="login-footer clearfix">
+							<button class="btn btn-xx-light-green" data-xx-action="login">
+							<span class="inside-loading">
+								正在登陆&nbsp;
+								<i class="fa fa-spinner rolling"></i>
+							</span>
+							<span class="inside-text font-14">
+								立即登录&nbsp;<i class="fa fa-arrow-up"></i>
+							</span>
+							</button>
+							<ul class="clearfix">
+								<li class="border-right">
+									<a href="javascript:void(0);" data-xx-action="showSignup">注册</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" data-xx-action="retrievePasswordModal">忘记密码</a>
+								</li>
+							</ul>
+						</div>
+					</form>
+				</div>
+				<!-- 注册 -->
+				<div class="sign-up-box signup">
+					<form id="SignupForm" class="box-wrapper">
+						<label class="form-row clearfix border-bottom" for="UserName">
+							<span class="label">手机号</span>
+							<div class="input-wrapper">
+								<input id="UserName" type="tel" placeholder="" />
+							</div>
+						</label>
+						<label class="form-row clearfix border-bottom" for="Captcha">
+							<span class="label">图片字符串</span>
+							<div class="input-wrapper code-wrapper clearfix">
+								<input id="Captcha" type="text" placeholder="" />
+								<img class="captcha-image" id="CaptchaImage" src="" data-xx-action="refreshCaptcha">
+							</div>
+						</label>
+						<label class="form-row clearfix border-bottom" for="AuthCode">
+							<span class="label">验证码</span>
+							<div class="input-wrapper code-wrapper clearfix">
+								<input id="AuthCode" type="text" placeholder="" />
+								<button class="btn code-btn" data-xx-action="getSignupAuthCode" data-captcha-type="message">
+								<span class="inside-loading">
+									<i class="fa fa-spinner rolling"></i>
+								</span>
+								<span class="inside-text font-14">获取验证码</span>
+								<span class="inside-else" id="Waiting"></span>
+								</button>
+							</div>
+						</label>
+						<div class="form-row voice-box">
+							<span>*由于通信运营商的限制政策，请无法收到【短信验证码】的用户尝试</span>
+							<button class="btn-voice-auth" data-xx-action="getSignupAuthCode" data-captcha-type="voice" >
+								<span class="inside-text">获取语音验证码</span>
+								<span class="inside-loading"> 
+									正在请求
+									<span class="iconfont icon-loading rolling"></span>
+								</span>
+								<span id="Waiting" class="inside-else"></span>
+							</button>
+						</div>
+						<label class="form-row clearfix border-bottom" for="Password">
+							<span class="label">设置密码</span>
+							<div class="input-wrapper">
+								<input id="Password" type="password" placeholder="" />
+							</div>
+						</label>
+						<label class="form-row clearfix border-bottom" for="Repassword">
+							<span class="label">确认密码</span>
+							<div class="input-wrapper">
+								<input id="Repassword" type="password" placeholder="" />
+							</div>
+						</label>
+						<div class="login-footer clearfix">
+							<button class="btn btn-xx-light-green" data-xx-action="signup">
+							<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-24"></i>
+							</span>
+							<span class="inside-text font-14">
+								立即注册&nbsp;<i class="fa fa-check"></i>
+							</span>
+							</button>
+							<ul class="clearfix">
+								<li>
+									<a href="javascript:void(0);" data-xx-action="showLogin">返回</a>
+								</li>
+							</ul>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="wave wave-back"></div>
+		<div class="wave wave-front"></div>
+	</div>
+	<div class="section section2">
+		<div class="inner-section">
+			<!-- 登陆按钮 -->
+			<div class="buttons">
+				<a class="btn-enter" href="javascript:void(0);" data-xx-action="showLogin">
+					<img src="./../images/index/index-button.png">
+				</a>
+			</div>
+			<!-- 菜单栏 -->
+			<div class="nav-box">
+				<div id="NavTabs" class="nav-tabs show-animated">
+					<ul >
+						<li>
+							<a href="javascript:void(0);" data-index="0" data-xx-action="switchTabs">产品功能</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-index="1" data-xx-action="switchTabs">合作案例</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-index="2" data-xx-action="switchTabs">合作院校</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-index="3" data-xx-action="switchTabs">联系我们</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<img class="title-img" src="./../images/index/section-3-1.png">
+			<!-- 产品功能 -->
+			<div class="content-box">
+				<div class="options clearfix">
+					{{each options as option i}}
+					<div class="option">
+						<dl>
+							<dt>
+							<span class="function {{option.icon}}"></span>
+							</dt>
+							<dd>
+							<img src="./../images/index/{{option.title}}">
+							</dd>
+							<dd>
+							<span>{{option.content}}</span>
+							</dd>
+						</dl>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 合作案例 -->
+	<div class="section section3">
+		<div class="inner-section">
+			<img class="title-img" src="./../images/index/section-4-1.png">
+			<div class="case-box">
+				{{each examples as example i}}
+				<div class="case-option">
+					<div class="phone-wrapper">
+						<img class="move-animated" src="./../images/index/{{example.image}}">
+					</div>
+					<div class="content">
+						<p class="title">{{example.title}}</p>
+						<p class="subTitle">{{example.subTitle}}</p>
+					</div>
+					<div class="qrcode-wrapper">
+						<div class="qrcode-box">
+							<i class="arrow arrow-out"></i>
+							<i class="arrow arrow-in"></i>
+							<img src="{{example.qrcode}}">
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	<!-- 合作院校 -->
+	<div class="section section4">
+		<div class="inner-section">
+			<img class="title-img" src="/images/index/section-5-1.png">
+			<div class="schools-box clearfix">
+				{{each schools as school i}}
+				<div class="school-option">
+					<img class="animated" src="/images/index/{{school.logo}}">
+				</div>
+				{{/each}}
+			</div>
+			
+		</div>
+	</div>
+	<div class="section section5">
+		<div class="inner-section">
+			<img class="hill-img" src="./../images/index/section-6-1.png">
+			<img class="balloon-img animated" src="./../images/index/section-6-2.png">
+		</div>
+	</div>
+	<!-- 联系我们 -->
+	<div class="section section6">
+		<div class="inner-section">
+			<div class="content">
+				<p>校校是一个专注高校，服务高校，专业的高校微信公众服务平台，为高校的学生会、社团、班级及其它类型的学生组织提供免费的微信公众号平台建设服务。</p>
+				<p>1）校校定制高校专属功能，为高校提供个性化微首页建设，让你的微信公众号与众不同；</p>
+				<p>2）发布学校活动、精彩美文，同时开启线上报名与抢票、投票通道，及时获取校园信息；</p>
+				<p>3）社团管理无纸化，成员短信免费发，意见反馈即时回复，移动办公效率高。</p>
+				<p>酷炫、清新、精彩，告别单调，为自己代言。校校，就是这么任性!</p>
+			</div>
+			<p class="friendship">
+				友情链接：
+				<a href="http://weibo.com/u/3930102303">校校微博</a>
+				<a href="https://www.mengxiaozhu.cn">萌小助</a>
+			</p>
+			<div>
+				<ul class="info clearfix">
+					<li>TEL：(021)64160955</li>
+					<li class="border-left">Email：<a href="mailto:service@xiaoxiao.la">service@xiaoxiao.la</a></li>
+				</ul>
+			</div>
+			<div>
+				<ul class="copy-right">
+					<li>@2013 校校 All rights reserved 沪ICP备13047520号-1</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 右侧悬浮菜单 -->
+	<div class="menu-options">
+		<div class="option option-top" data-xx-action="backToTop">
+			<span class="fa fa-angle-up"></span>
+			<p>返回顶部</p>
+		</div>
+		<div class="option option-wechat show">
+			<span class="fa fa-weixin"></span>
+			<p>官方微信</p>
+			<div class="qrcode-box">
+				<i class="arrow arrow-out"></i>
+				<i class="arrow arrow-in"></i>
+				<img src="./images/index/xiaoxiao.jpg" alt="校校" title="校校">
+			</div>
+		</div>
+		<!-- <div class="option option-service">
+							<span class="fa fa-qq"></span>
+							<p>在线客服</p>
+							<div></div>
+		</div> -->
+	</div>
+</div>

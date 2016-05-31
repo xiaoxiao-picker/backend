@@ -1,0 +1,13 @@
+<!-- 加入组织所需资料模板 -->
+{{each requireElseInfos as option i}}
+	<div class="xx-tag-wrapper TagBox xx-blue">
+		<label class="xx-tag"  data-value="{{option.title}}" data-xx-action="checkElseInfo">{{option.title}}</label>
+		<span class="xx-tag-btn xx-tag-del" data-xx-action="removeElseInfo" data-value="{{option.title}}"> 
+			<i class="fa fa-minus-circle"></i>
+		</span>
+	</div>
+{{/each}}
+
+<div class="xx-tag-wrapper" data-xx-action="addElseInfo">
+	<label class="xx-tag">+自定义</label>
+</div>

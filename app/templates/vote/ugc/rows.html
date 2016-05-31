@@ -1,0 +1,13 @@
+{{each options as option i}}
+<div class="card-box" id="{{option.id}}">
+	<div class="wrapper" data-value="{{option.id}}" data-xx-action="openOptionModal">
+		<img src="{{option.imageUrls | imageUrl:'@160w_1e_1c'}}" onerror="this.src='images/default/avatar.jpg';" />
+		<span class="praise">赞：{{option.totalVotes||0}}</span>
+	</div>
+</div>
+{{/each}}
+{{if count == 0}}
+<div class="list-empty">
+    <img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+</div>
+{{/if}}

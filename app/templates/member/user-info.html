@@ -1,0 +1,36 @@
+<!-- member info modal begin -->
+<div class="member-header-wrapper">
+	<div class="content-wrapper">
+		<img class="member-avatar" src="{{user.portraitUrl |imageUrl:'@100w_100h_1e_1c'}}" onerror="this.src='images/default/avatar.jpg';">
+		<div class="member-info">
+			<div class="user-name">{{user.name||user.nickname||"无备注"}}</div>
+			<div>邮箱：{{user.email||"暂无"}}</div>
+			<div>手机：{{user.phoneNumber||"暂无"}}</div>
+		</div>
+	</div>
+</div>
+<div class="member-info-wrapper">
+	<div class="xx-table">
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">真名：{{user.name}}</div>
+			<div class="xx-table-cell middle width-half">
+				性别：{{["保密","男","女"][user.gender]}}
+			</div>
+		</div>
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">现居：{{user.address}}</div>
+			<div class="xx-table-cell middle width-half">家乡：{{user.hometown}}</div>
+		</div>
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">
+				入学：{{user.grade | makedate:'yyyy-MM-dd'}}
+			</div>
+			<div class="xx-table-cell middle width-half">学号：{{user.studentId}}</div>
+		</div>
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">学校：{{user.school}}</div>
+			<div class="xx-table-cell middle width-half">校区：{{user.schoolZone}}</div>
+		</div>
+	</div>
+</div>
+<!-- member info modal end -->

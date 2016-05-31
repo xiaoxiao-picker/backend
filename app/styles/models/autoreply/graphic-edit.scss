@@ -1,0 +1,377 @@
+.appmsg-main {
+        padding-top: 1px;
+        margin-top: 20px;
+
+        .media-preview-area {
+                float: left;
+                width: 320px;
+
+                .appmsg {
+                        border: 1px solid #f2f2f2;
+
+                        // single
+                        .appmsg-content {
+                                padding: 0 10px;
+                                color: #8d8d8d;
+
+                                .appmsg-title {
+                                        font-weight: 400;
+                                        font-style: normal;
+                                        font-size: 16px;
+                                        height: 20px;
+                                        line-height: 20px;
+                                        max-height: 40px;
+                                        overflow: hidden;
+                                        word-wrap: break-word;
+                                        word-break: break-all;
+                                        margin: 10px 0;
+
+                                        a {
+                                                font-size: 16px;
+
+                                                &:hover {
+                                                        text-decoration: underline;
+                                                }
+                                        }
+                                }
+
+                                .appmsg-info {
+                                        height: 160px;
+                                        overflow: hidden;
+
+                                        .appmsg-thumb {
+                                                display: none;
+                                                text-align: center;
+                                                width: 100%;
+
+                                                &.default {
+                                                        display: block;
+                                                        background-color: #ececec;
+                                                        line-height: 160px;
+                                                        font-style: normal;
+                                                        font-size: 18px;
+                                                        color: #8d8d8d;
+                                                }
+                                        }
+
+                                        .appmsg-desc {
+                                                padding: 5px 0 10px;
+                                        }
+                                }
+                        }
+
+                        // multiple
+                        .mul-appmsg-content {
+                                width: 100%;
+                                position: relative;
+                                border-top: 1px solid #e7e7eb;
+                                padding: 20px 14px;
+
+                                .appmsg-title {
+                                        height: 60px;
+                                        overflow: hidden;
+                                        float: left;
+                                        width: 180px;
+                                        line-height: 30px;
+                                        word-break: break-all;
+                                        font-weight: normal;
+                                        font-size: 14px;
+                                        color: #8d8d8d;
+                                        word-wrap: break-word;
+                                        word-break: break-all;
+                                }
+
+                                .appmsg-info {
+                                        overflow: hidden;
+                                        text-align: center;
+                                        width: auto;
+                                        margin-left: 200px;
+                                        height: 80px;
+
+                                        .appmsg-thumb {
+                                                height: 100%;
+                                                line-height: 80px;
+                                                display: block;
+                                                background-color: #ececec;
+                                                font-style: normal;
+                                                color: #8d8d8d;
+                                        }
+                                }
+
+                                .appmsg-edit-mask {
+                                        display: none;
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        text-align: center;
+                                        background-color: rgba(210, 210, 210, 0.8);
+
+                                        .back {
+                                                position: absolute;
+                                                left: 0;
+                                                top: 0;
+                                                width: 100%;
+                                                height: 100%;
+                                        }
+
+                                        .buttons {
+                                                position: absolute;
+                                                top: 0;
+                                                left: 130px;
+                                                width: 60px;
+                                                margin-top: 50px;
+
+                                                button {
+                                                        .fa {
+                                                                color: #7c7a7a;
+                                                        }
+
+                                                        &:hover {
+                                                                .fa {
+                                                                        color: #000;
+                                                                }
+                                                        }
+                                                }
+                                        }
+
+                                        &.mask-0 {
+                                                .buttons {
+                                                        margin-top: 80px;
+                                                }
+                                        }
+                                }
+
+                                &:hover {
+                                        .appmsg-edit-mask {
+                                                display: block;
+                                        }
+                                }
+
+                                &.content-0 {
+                                        border: none;
+
+                                        .appmsg-title {
+                                                position: absolute;
+                                                bottom: 20px;
+                                                left: 14px;
+                                                background-color: rgba(0, 0, 0, 0.8);
+                                                color: #fff;
+                                                padding: 0 10px;
+                                                line-height: 40px;
+                                                max-height: 40px;
+                                                overflow: hidden;
+                                                margin: 0;
+                                                width: 290px;
+                                        }
+
+                                        .appmsg-info {
+                                                text-align: center;
+                                                width: 100%;
+                                                height: 160px;
+                                                margin: 0;
+
+                                                .appmsg-thumb {
+                                                        width: 100%;
+                                                        line-height: 160px;
+                                                        display: block;
+                                                        background-color: #ececec;
+                                                        font-style: normal;
+                                                        color: #8d8d8d;
+                                                }
+                                        }
+                                }
+                        }
+                }
+
+                .appmsg-add {
+                        line-height: 60px;
+                        margin-top: 20px;
+                        border: 4px dotted #A1A1A5;
+                        text-align: center;
+                        color: #A1A1A5;
+                        cursor: pointer;
+
+                        &:hover {
+                                border-color: #7d7b7b;
+                                color: #7d7b7b;
+                        }
+                }
+        }
+
+        .media-edit-area {
+                width: auto;
+                margin-left: 360px;
+
+                .appmsg-editor {
+                        position: relative;
+
+                        &.editor-o {
+                                .arrow.arrow-in {
+                                        border-right-color: #fafafa;
+                                }
+
+                                .inner {
+                                        background-color: #fafafa;
+                                }
+                        }
+                }
+
+                .arrow {
+                        position: absolute;
+
+                        &.arrow-out {
+                                display: block;
+                                width: 0;
+                                height: 0;
+                                border-width: 12px;
+                                border-style: dashed;
+                                border-color: transparent;
+                                border-left-width: 0;
+                                border-right-color: #e7e7eb;
+                                border-right-style: solid;
+                                top: 44px;
+                                left: -11px;
+                        }
+
+                        &.arrow-in {
+                                display: block;
+                                width: 0;
+                                height: 0;
+                                border-width: 12px;
+                                border-style: dashed;
+                                border-color: transparent;
+                                border-left-width: 0;
+                                border-right-color: #f4f5f9;
+                                border-right-style: solid;
+                                top: 44px;
+                                left: -10px;
+                        }
+                }
+
+                .inner {
+                        border: 1px solid #e7e7eb;
+                        background-color: #f4f5f9;
+                        padding: 20px;
+
+                        .inner-item {
+                                margin: 0 0 10px;
+                        }
+
+                        .xx-input-text {
+                                width: 100%;
+                        }
+
+                        .xx-title {
+                                i {
+                                        color: #aeaeae;
+                                }
+                        }
+
+                        .avatar {
+                                margin-bottom: 10px;
+                        }
+
+                        .appmsg-tabs {
+                                margin-bottom: 20px;
+                                overflow: hidden;
+
+                                > li {
+                                        float: left;
+                                        background-color: #fafafa;
+                                        border: 1px solid $green-color;
+                                        width: 16.8%;
+                                        text-align: center;
+                                        line-height: 28px;
+                                        margin-right: -1px;
+
+                                        a {
+                                                display: block;
+                                                width: 100%;
+                                                height: 100%;
+                                                color: $green-color;
+                                        }
+
+                                        &.active {
+                                                background-color: $green-color;
+
+                                                a {
+                                                        color: #fff;
+                                                }
+                                        }
+                                }
+                        }
+
+                        .appmsg-box {
+                                margin-top: 10px;
+
+                                .list-empty {
+                                        img {
+                                                margin: 40px 0;
+                                        }
+                                }
+
+                                .appmsg-option {
+                                        height: 42px;
+                                        line-height: 40px;
+                                        background-color: #f2f2f2;
+                                        border: 1px solid $default-border-color;
+                                        border-bottom: none;
+
+                                        &.option-o {
+                                                margin-bottom: 10px;
+                                                border-bottom: 1px solid $default-border-color;
+                                                padding: 0 10px;
+
+                                                .content {
+                                                        height: 40px;
+                                                        width: 470px;
+                                                        color: $xx-title-color;
+                                                }
+                                        }
+
+                                        .label-option {
+                                                display: block;
+                                                width: 100%;
+                                                height: 100%;
+                                                margin: 0;
+                                                cursor: pointer;
+                                                padding: 0 10px;
+
+                                                .title {
+                                                        float: left;
+                                                        height: 40px;
+                                                        width: 430px;
+                                                        color: $xx-title-color;
+                                                }
+
+                                                > input {
+                                                        float: right;
+                                                        margin-top: 12px;
+                                                }
+                                        }
+                                }
+                                .xx-pagination {
+                                        margin-top: 15px;
+                                }
+                        }
+                }
+
+                .center .pagination {
+                        margin: 20px 0 0;
+                }
+
+                .avatar-wrapper {
+                        width: 100%;
+                        height: auto;
+                }
+        }
+}
+
+.appmsg-footer, .media-footer-area {
+        border-top: 1px solid #e7e7eb;
+        padding-top: 20px;
+        margin-top: 20px;
+        text-align: center;
+}

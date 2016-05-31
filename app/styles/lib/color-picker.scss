@@ -1,0 +1,40 @@
+// 颜色选择器
+
+#BackgroundSettingBox {
+	&.xx-groups{
+		.xx-group{
+			border: none;
+			margin-bottom: 20px;
+			.xx-inner-title{
+				margin-bottom: 10px;
+			}
+		}
+	}
+	.colors-box {
+		padding-left: 15px;
+		.color-row{
+			.color{
+				float: left;
+				width: 30px;
+				height: 30px;
+				border: 1px solid #f2f2f2;
+				cursor: pointer;
+				&.active{
+					border-color:#444;
+				}
+			}
+		}
+	}
+	.buttons{
+		margin-top: 20px;
+	}
+	#LabelOpacity{
+		color: $xx-theme-color;
+	}
+}
+
+.modal-dialog.RGB{
+	.opacity-box{
+		display:none;
+	}
+}

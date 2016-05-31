@@ -1,0 +1,24 @@
+{{each signUpTimes as signUpTime i}}
+<div class="time-box">
+	<div class="wrapper" data-index="{{i}}" data-xx-action="updateSignUpTime">
+		<span class="text-xx-blue limit">
+		{{if signUpTime.numberOfLimit}}
+			{{signUpTime.numberOfLimit+"人"}}
+		{{else}}
+			不限
+		{{/if}}
+		</span>
+		<div>{{signUpTime.startDate | makedate:'yyyy/MM/dd hh:mm'}} - {{signUpTime.endDate | makedate:'yyyy/MM/dd hh:mm'}}</div>
+		<div>
+		{{if signUpTime.onlyAllowMembersToSignUp}}
+		<span class="text-xx-red">只允许组织成员参与</span>
+		{{else}}
+		<span class="text-xx-gray">允许所有人参与</span>
+		{{/if}}
+		</div>
+	</div>
+	<span class="btn-del" data-value="{{signUpTime.id}}" data-xx-action="removeSignUpTime">
+		<i class="fa fa-minus-circle"></i>
+	</span>
+</div>
+{{/each}}

@@ -1,0 +1,76 @@
+{{if articles.length==0}}
+<div class="list-empty">
+	<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+</div>
+{{else}}
+<table class="table-main">
+	<tbody>
+		{{each articles as article i}}
+		<tr>
+			<td class="width-130 padding-20">
+				<div class="image-wrapper">
+					<img src="{{article.thumbnailUrl | imageUrl:'@300w_200h_1e_1c'}}" onerror="this.src='./images/default/article.jpg';" />
+					<span class="classification">{{article.category?article.category.name:"未分类"}}</span>
+				</div>
+			</td>
+			<td class="top padding-20">
+				<div class="article-content">
+					<h4 class="article-title">
+						{{if state=="RUBBISH"}}
+						<span class="font-16">{{article.name}}</span>
+						{{else}}
+						<a class="font-16" href="#article/{{article.id}}/info">{{article.name}}</a>
+						{{/if}}
+					</h4>
+					<div class="article-assist text-gray">发布时间：{{article.createDate |makedate:'yyyy年MM月dd日'}}</div>
+					<div class="article-context">{{article.terse}}</div>
+				</div>
+			</td>
+			<td class="width-300 padding-20 event-cell-btns">
+				<div class="btn-xx-group right">
+					{{if state != "RUBBISH"}}
+					<!-- 预览/查看按钮 -->
+					<a class="btn btn-xx-sm btn-xx-green" href="#article/{{article.id}}/info">{{state=="UNPUBLISHED" ? "预览" : "查看"}}</a>
+					<!-- 编辑按钮 -->
+					<a class="btn btn-xx-sm btn-xx-green" href="#article/{{article.id}}/edit">编辑</a>
+					{{/if}}
+					{{if state=="UNPUBLISHED"}}
+					<button class="btn btn-xx-sm btn-xx-red" data-value="{{article.id}}" data-xx-action="moveToDustbin">
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{else if state=="PUBLISHED"}}
+					<!-- <button class="btn btn-xx-sm btn-xx-red" data-value="{{article.id}}" data-xx-action="archive">
+						<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">下线</span>
+					</button> -->
+					<button class="btn btn-xx-sm btn-xx-red" data-value="{{article.id}}" data-xx-action="moveToDustbin">
+						<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{else if state=="RUBBISH"}}
+					<button class="btn btn-xx-sm btn-xx-green" data-value="{{article.id}}" data-xx-action="recover">
+						<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">放回原处</span>
+					</button>
+					<button class="btn btn-xx-sm btn-xx-red" data-value="{{article.id}}" data-xx-action="remove">
+						<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{/if}}
+				</div>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{/if}}

@@ -1,0 +1,39 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">编辑回复</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<form>
+			<div class="panel-body xx-border-bottom">
+				{{if replyType=='KEYWORD'}}
+					{{include './public/keyword-box'}}
+				{{/if}}
+				<h4 class="xx-inner-title clearfix">
+					<span class="xx-title">回复内容</span>
+				</h4>
+				<div style="margin-bottom: 30px;">
+					<div class="appmsg-main clearfix">
+						<div id="MediaPreviewArea" class="media-preview-area">
+							<!-- app/templates/autoreply/public/graphic-preview -->
+						</div>
+						<div id="MediaEditArea" class="media-edit-area">
+							<!-- app/templates/autoreply/public/relation-selector -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer center">
+				<button class="btn btn-xx-green" data-xx-action="save">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">保存</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

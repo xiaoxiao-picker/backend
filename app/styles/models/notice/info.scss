@@ -1,0 +1,27 @@
+.notice-info {
+        .notice-body {
+                position: relative;
+
+                img {
+                        float: left;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                }
+
+                .notice-info {
+                        margin-left: 60px;
+                        margin-top: 5px;
+                        font-size: 14px;
+                        line-height: 20px;
+
+                        .date {
+                                padding-top: 10px;
+                        }
+                }
+        }
+
+        .xx-tag-group {
+                margin: 0;
+        }
+}

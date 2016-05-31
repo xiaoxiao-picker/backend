@@ -1,0 +1,17 @@
+<div class="form-group">
+	<div class="xx-inner-title">
+		<span class="xx-title">编辑选项内容</span>
+	</div>
+	{{each formInfo.options as option i}}
+	<div  class="input-item">
+		<input type="text" name="FormOption" class="form-control" value="{{option.name}}" data-value="{{i}}"/>
+		<div class="buttons">
+			<button class="btn-option-remove" data-value="{{i}}"> <i class="fa fa-minus-circle"></i>
+			</button>
+		</div>
+	</div>
+	{{/each}}
+	<div  class="input-item add-item">
+		<button class="btn-option-add">+</button>
+	</div>
+</div>

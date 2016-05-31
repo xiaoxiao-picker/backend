@@ -1,0 +1,36 @@
+<!-- member comments modal begin -->
+<div class="member-header-wrapper">
+	<div class="content-wrapper">
+		<img class="member-avatar" src="{{member.user.portraitUrl | imageUrl:'@100w_100h_1e_1c'}}" onerror="this.src='./images/default/avatar.jpg';">
+		<div class="member-info">
+			<div class="user-name">
+				{{member.remark||member.user.name||member.user.nickname||"无备注"}}
+			</div>
+			<div>邮箱：{{member.user.email||"暂无"}}</div>
+			<div>手机：{{member.user.phoneNumber||"暂无"}}</div>
+		</div>
+	</div>
+</div>
+<!-- models/member/e-members -->
+<div class="member-comment-wrapper">
+	<div id="CommentContainer">
+		{{include './list'}}
+	</div>
+</div>
+<div class="member-comment-footer">
+	<h4 class="xx-inner-title">
+		<span class="xx-title">添加第二课堂简历</span>
+	</h4>
+	<div class="context-wrapper">
+		<textarea id="CommentContext" class="context" rows="10" placeholder="第二课堂简历内容不能为空！"></textarea>
+	</div>
+	<div class="buttons">
+		<button class="btn btn-xx-green btn-add-resume">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">添加</span>
+		</button>
+		<button class="btn btn-xx-danger btn-close">取消</button>
+	</div>
+</div>
+<!-- member info modal end -->

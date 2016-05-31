@@ -1,0 +1,62 @@
+.organization-edit {
+        .form-control, .input-group {
+                width: 260px;
+        }
+}
+
+.avatar-wrapper {
+        position: relative;
+        width: 150px;
+        height: 150px;
+
+        .logo, .upload {
+                width: 100%;
+                height: 100%;
+                background-color: #e6e6e6;
+                border-radius: 50%;
+                text-align: center;
+                color: #fff;
+        }
+
+        .logo {}
+
+        .upload {
+                line-height: 150px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                background-color: rgba(31, 31, 31, 0.5);
+
+                // cursor: pointer;
+                > a {
+                        color: #fff;
+                        text-decoration: underline;
+
+                        &:hover, &:focus {
+                                color: #eee;
+                                text-decoration: underline;
+                        }
+                }
+        }
+
+        &:hover {
+                .upload {
+                        display: block;
+                }
+        }
+}
+
+.bind-footer {
+        border-top: 1px solid #dbddde;
+}
+
+.prompt-window {
+        border: 1px solid #dbddde;
+        background-color: #fef8a8;
+        padding: 10px 10px 0;
+        margin: 10px 0;
+        font-size: 12px;
+        line-height: 15px;
+        box-shadow: 2px 2px 2px #dbddde;
+}

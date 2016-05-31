@@ -1,0 +1,86 @@
+.lost-list {
+        td {
+                .btn {
+                        margin: 0 5px;
+                        min-width: 70px;
+                }
+        }
+}
+
+.lost-info-modal {
+        .modal-header {
+                display: none;
+        }
+
+        .modal-content {
+                padding: 0;
+        }
+}
+
+.lostInfo-header-wrapper {
+        padding-top: 1px;
+        background-color: $green-color;
+        overflow: hidden;
+        padding: 15px;
+
+        h4 {
+                text-align: center;
+                color: #fff;
+        }
+
+        .content-wrapper {
+                height: 270px;
+        }
+}
+
+.lostInfo-body-wrapper {
+        position: relative;
+        text-align: left;
+        padding: 20px;
+
+        > div {
+                margin-bottom: 5px;
+        }
+
+        .content {
+                line-height: 24px;
+                font-size: 16px;
+                margin-bottom: 10px;
+                color: $xx-title-color;
+        }
+}
+
+.lostInfo-footer-wrapper {
+        padding: 0 20px 20px;
+
+        .lost-result {
+                padding: 10px 20px;
+                color: $green-color;
+                border: 1px dashed $green-color;
+                font-size: 16px;
+        }
+}
+
+.lost-images-box {
+        position: relative;
+        height: 270px;
+        text-align: center;
+
+        .swiper-slide {
+                line-height: 270px;
+        }
+
+        .poster {
+                display: inline-block;
+                margin: auto;
+                vertical-align: middle;
+        }
+
+        &.swiper-container-horizontal > .swiper-pagination {
+                bottom: 5px;
+        }
+
+        .swiper-pagination-bullet, .swiper-pagination-bullet-active {
+                background: #fff;
+        }
+}

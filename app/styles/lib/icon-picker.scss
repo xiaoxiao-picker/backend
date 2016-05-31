@@ -1,0 +1,65 @@
+// 图标选择层
+
+.Icon-selector {
+	.modal-content {
+		background-image: url('./../images/bg_03.jpg');
+	}
+	.modal-header.xx-modal-header {
+		background-color: #fff;
+		background-color: transparent;
+		border: none;
+
+		h4 >span {
+			font-size: 20px;
+		}
+	}
+	.modal-body.Icon-selector-body {
+		text-align: center;
+		padding-top: 0;
+		min-height: 300px;
+
+		.group-container {
+			width: 100%;
+
+			.group-name {
+				float: left;
+				cursor: pointer;
+				color: #fff;
+				font-weight: bold;
+				line-height: 40px;
+				font-size: 18px;
+				border: 1px solid #fff;
+				margin-right: -1px;
+
+				&.active, &:hover {
+					color: $xx-theme-color;
+					background-color: rgba(255, 255, 255, .7);
+				}
+			}
+		}
+		.Icon-container {
+			margin-top: 20px;
+
+			.Icon-box {
+				float: left;
+				width: 40px;
+				line-height: 35px;
+				border: 1px solid transparent;
+
+				&:hover {
+					border-color: #fff;
+					cursor: pointer;
+				}
+				.icon {
+					width: 25px;
+					height: 25px;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+	.modal-footer.xx-modal-footer {
+		margin-top: 0px;
+		border: none;
+	}
+}

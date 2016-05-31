@@ -1,0 +1,26 @@
+#Footer {
+    width: 100%;
+    padding: 50px 0;
+    .footer-container {
+        font-size: 12px;
+        ul.footer-nav {
+            line-height: 30px;
+            width: 400px;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            li {
+                width: 100px;
+                float: left;
+                a {
+                    display: block;
+                }
+            }
+        }
+        p {
+            text-align: center;
+            line-height: 30px;
+            color: #888;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+.user-modal {
+    .modal-header {
+        display: none;
+    }
+    .modal-content {
+        padding: 0;
+    }
+}
+
+.member-header-wrapper {
+    height: 150px;
+    background-color: $success-color;
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    .close {
+        color: #fff;
+        opacity: 1.0;
+        position:absolute;
+        top:10px;
+        right:10px;
+        font-size:20px;
+        width:20px;
+        &:hover {
+            color: #666;
+        }
+    }
+    .content-wrapper {
+        position: relative;
+        .member-avatar {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background-color: #fff;
+        }
+        .member-info {
+            position: absolute;
+            top: 40px;
+            color: #fff;
+            margin-left: 160px;
+            line-height: 20px;
+            .user-name {
+                font-size: 18px;
+                line-height: 25px;
+            }
+        }
+    }
+}
+
+.member-info-wrapper {
+    padding: 0px 40px;
+    .xx-table-cell {
+        color: #757778;
+        height: 50px;
+        border-bottom: 1px solid #dbddde;
+        select,input {
+            display: inline-block;
+        }
+    }
+    .info-row {
+        padding: 10px 0;
+        border-bottom: 1px solid #dbddde;
+        .control-label {
+            padding: 0;
+            width: 50px;
+            float: left;
+        }
+        .control-content {
+            margin-left: 50px;
+        }
+    }
+    .input-remark{
+        padding:8px 10px;
+        border-radius:2px;
+    }
+}
+
+.member-info-footer {
+    padding: 20px 40px;
+    .buttons {
+        text-align:right;
+    }
+}

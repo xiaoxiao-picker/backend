@@ -1,0 +1,42 @@
+<!-- 颜色背景选择器 -->
+<div id="BackgroundSettingBox" class="xx-groups">
+	<div class="xx-group">
+		<h5 class="xx-inner-title">
+		<span class="xx-title">选择颜色</span>
+		</h5>
+		<div class="colors-box">
+			{{each groups as group i}}
+			<div class="color-row clearfix">
+				{{each group.colors as gcolor j}}
+				<div class="color {{if gcolor.r==color.R&&gcolor.g==color.G&&gcolor.b==color.B}}active{{/if}}" style="background-color:rgb({{gcolor.r}},{{gcolor.g}},{{gcolor.b}});" data-r="{{gcolor.r}}" data-g="{{gcolor.g}}" data-b="{{gcolor.b}}"></div>
+				{{/each}}
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	<div class="xx-group opacity-box">
+		<h5 class="xx-inner-title">
+		<span class="xx-title">不透明度</span>
+		<span>（</span>
+		<span id="LabelOpacity">{{color.O}}%</span>
+		<span>）</span>
+		</h5>
+		<div class="opacity-box">
+			<input type="range" value="{{color.O}}" min="0" max="100" placeholder="请输入0-100之间的数字"  />
+		</div>
+	</div>
+	<div class="xx-group">
+		<div class="buttons center"> 
+			<button class="btn btn-xx-green BtnSubmit">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+			</span>
+			<span class="inside-text">确定</span>
+			</button>
+			<button class="btn btn-xx-danger BtnCancel">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+			</span>
+			<span class="inside-text">取消</span>
+			</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,107 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">{{title}}</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button id="RemoveBtn" class="btn btn-xx-red btn-xx-sm hide" data-xx-action="remove">删除</button>
+		<!-- <button class="btn btn-xx-green btn-xx-sm" data-xx-action="showMarket">广告商城</button> -->
+	</div>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<div class="form-group">
+				<div class="back-image advert-image"></div>
+			</div>
+			<div class="form-group">
+				<div class="setting-condition-wrapper">
+					<div class="setting left green_bg">
+						<h4>特别说明：</h4>
+						<p>1. 广告价格：1000次浏览量{{advertConfig.viewPrice*1000}}元，1次点击{{advertConfig.clickPrice}}元；</p>
+						<p>2. 广告投放：校校推送的广告，采用先进和智能内容识别技术，依托腾讯大数据，不需要人工选择广告分类，就能实现自动精准的广告推送。</p>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="xx-inner-title clearfix">
+					<span class="xx-title" style="float: left;">广告开启状态</span>
+					<div class="xx-switch" style="float: left; margin-top: -2px;">
+						<input type="checkbox" class="xx-switch-checkbox" id="AdvertState" name="state" {{if advert.state=="OPEN" }}checked{{/if}} data-xx-action="switchState" />
+						<label class="xx-switch-label" for="AdvertState">
+							<div class="xx-switch-inner">
+								<div class="xx-active">开启</div>
+								<div class="xx-inactive">关闭</div>
+							</div>
+							<div class="xx-switching"></div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="xx-inner-title">
+					<span class="xx-title">广告数据统计</span>
+				</div>
+				<div class="form-group">
+					<div class="total-container clearfix">
+						<div class="item yellow-bg">
+							<div>总浏览量</div>
+							<div class="count">{{totalAdvertData.views}}</div>
+						</div>
+						<div class="item green-bg">
+							<div>有效浏览量</div>
+							<div class="count">{{totalAdvertData.effectiveViews}}</div>
+						</div>
+						<div class="item blue-bg">
+							<div>总点击量</div>
+							<div class="count">{{totalAdvertData.clicks}}</div>
+						</div>
+						<div class="item purple-bg">
+							<div>有效点击量</div>
+							<div class="count">{{totalAdvertData.effectiveClicks}}</div>
+						</div>
+						<div class="item red-bg">
+							<div>总收益/元</div>
+							<div class="count"><span class="currency">{{(totalAdvertData.viewsMoney + totalAdvertData.clicksMoney) | formatCurrency}}</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="chart-container">
+					<div class="chart-header clearfix">
+						<div class="options-group clearfix">
+							<span class="text-xx-yellow"><i class="fa fa-line-chart"></i>浏览量</span>
+							<span class="text-xx-green"><i class="fa fa-line-chart"></i>有效浏览量</span>
+							<span class="text-xx-blue"><i class="fa fa-line-chart"></i>点击量</span>
+							<span class="text-xx-purple"><i class="fa fa-line-chart"></i>有效点击量</span>
+						</div>
+						<div class="advert-search-box clearfix">
+							<button class="btn btn-xx-green btn-xx-sm btnTimeLine" data-value="7"  data-xx-action="switchTimeBucket">近7天</button>
+							<button class="btn btn-xx-green btn-xx-sm btnTimeLine" data-value="14" data-xx-action="switchTimeBucket">近14天</button>
+							<button class="btn btn-xx-green btn-xx-sm btnTimeLine" data-value="30"  data-xx-action="switchTimeBucket">近30天</button>
+							<form class="search-form">
+								<input type="text" class="datetime" placeholder="开始时间" readonly id="StartDate" data-targetId="EndDate" data-compare-rule="less" data-compare-tips="开始时间不能大于结束时间" />
+								<input type="text" class="datetime" placeholder="结束时间" readonly id="EndDate" data-targetId="StartDate" data-compare-rule="more" data-compare-tips="结束时间不能小于开始时间" />
+								<button class="btn btn-xx-green btn-xx-sm btnConfirm width-50" data-xx-action="search">
+								<span class="inside-loading">
+									<i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">确定</span>
+								</button>
+							</form>
+						</div>
+					</div>
+					<div id="ChartBody" class="chart-body"></div>
+				</div>
+				<div class="form-group">
+					<div id="TimeListContainer"></div>
+				</div>
+				<!-- app/templates/advertisement/statistics -->
+			</div>
+			<!--/global/main.scss-->
+			<div class="list-back">
+				<a class="btn btn-xx-green btn-xx-sm" href="{{back.url}}"><span class="fa fa-angle-double-left">&nbsp;</span>{{back.title}}</a>
+			</div>
+		</div>
+	</div>
+</div>

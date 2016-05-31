@@ -1,0 +1,159 @@
+// image buttons named by pk
+.pk {
+	display: inline-block;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	background-size: cover;
+	&.pk-face {
+		background-image:url('./../images/buttons/face.png');
+		width: 16px;
+		height: 16px;
+		// 兼容IE678不支持background-size:100%;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../images/buttons/face.png', sizingMethod='scale');
+	}
+	&.pk-link {
+		background-image:url('./../images/buttons/link.png');
+		width: 16px;
+		height: 16px;
+	}
+	&.pk-menu-setting {
+		background-image:url('./../images/buttons/menu-setting.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-auto {
+		background-image:url('./../images/buttons/menu-auto-reply.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-manage {
+		background-image:url('./../images/buttons/menu-manage.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-relation {
+		background-image:url('./../images/buttons/menu-relation.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-link {
+		background-image:url('./../images/buttons/menu-link.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-wallet {
+		background-image:url('./../images/buttons/menu-wallet.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-resume {
+		background-image:url('./../images/buttons/menu-resume.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-resource {
+		background-image:url('./../images/buttons/menu-resource.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-menu-star {
+		background-image:url('./../images/buttons/menu-star.png');
+		width: 20px;
+		height: 20px;
+	}
+	&.pk-submit {
+		background-image:url('./../images/phone_07.png');
+		width: 40px;
+		height: 40px;
+	}
+	&.pk-gray {
+		background-image:url('./../images/phone_gray.png');
+		width: 40px;
+		height: 40px;
+	}
+
+
+	// vote label
+	&.pk-vote{
+		background-image:url('./../images/buttons/vote.png');
+		width: 24px;
+		height: 16px;
+		// 兼容IE678不支持background-size:100%;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../images/buttons/vote.png', sizingMethod='scale');
+	}
+	// ticket label
+	&.pk-ticket{
+		background-image:url('./../images/buttons/ticket.png');
+		width: 24px;
+		height: 16px;
+		// 兼容IE678不支持background-size:100%;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../images/buttons/ticket.png', sizingMethod='scale');
+	}
+
+	&.pk-gray-vote {
+		background-image:url('./../images/buttons/praise-gray.png');
+		width: 20px;
+		height: 18px;
+	}
+	&.pk-orange-vote {
+		background-image:url('./../images/buttons/praise-orange.png');
+		width: 20px;
+		height: 18px;
+	}
+	&.pk-gray-vote {
+		background-image:url('./../images/buttons/tag-gray.png');
+		width: 18px;
+		height: 18px;
+	}
+	&.pk-green-ticket {
+		background-image:url('./../images/buttons/tag-green.png');
+		width: 18px;
+		height: 18px;
+	}
+
+	//发布
+	&.pk-white-publish {
+		background-image:url('./../images/buttons/publish_white.png');
+		width: 20px;
+		height: 20px;
+	}
+
+	&.pk-white-empty-heart{
+		background-image:url('./../images/buttons/heart_white_empty.png');
+		width: 16px;
+		height: 14px;
+	}
+	&.pk-empty-flag{
+		background-image:url('./../images/buttons/flag_empty.png');
+		width: 14px;
+		height: 16px;
+	}
+	&.pk-user{
+		background-image:url('./../images/buttons/user.svg');
+		width: 14px;
+		height: 14px;
+	}
+	&.pk-clock{
+		background-image:url('./../images/buttons/clock.svg');
+		width: 14px;
+		height: 14px;
+	}
+	&.pk-pin{
+		background-image:url('./../images/buttons/pin.svg');
+		width: 14px;
+		height: 14px;
+	}
+	&.pk-tags{
+		background-image:url('./../images/buttons/tags.svg');
+		width: 14px;
+		height: 14px;
+	}
+
+	&.pk-tick {
+		background-image:url('./../images/buttons/tick_green.png');
+		width: 20px;
+		height: 20px;
+	}
+}

@@ -1,0 +1,37 @@
+<div class="image-browser-box unselect">
+	<span class="btn-close">
+		<i class="fa fa-close"></i>
+	</span>
+	<div class="box-bg">
+		<table class="image-box load">
+			<tr>
+				<td>
+					<img id="ImageWrapper" class="img-wrapper" src="{{picture.url}}" alt="" />
+					<img id="ImageLoad" class="loading-img" src="./images/spinner.gif" alt="加载中" />
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="page-text">
+		<span>
+			<i id="CurrentPage">{{currenIndex+1}}</i>
+			/
+			<i>{{count}}</i>
+		</span>
+	</div>
+	<div class="menu-box">
+		<ul class="menus clearfix">
+			<li class="btn-page btn-last {{if currenIndex==0}}disabled{{/if}}" title="查看上一个">
+				<span class="fa fa-chevron-left"></span>
+			</li>
+			<li class="btn-page btn-next {{if currenIndex==count-1}}disabled{{/if}}" title="查看下一个">
+				<span class="fa fa-chevron-right"></span>
+			</li>
+			<li title="下载图片">
+				<a class="btn-download" href="{{picture.url}}" target="_blank">
+					<span class="fa fa-download"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

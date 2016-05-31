@@ -1,0 +1,82 @@
+.link-info {
+        color: #fff;
+        text-decoration: underline;
+
+        &:hover {
+                color: #eee;
+        }
+}
+
+.link-danger {
+        color: #fc4141;
+        text-decoration: underline;
+
+        &:hover {
+                color: #e50b0b;
+                text-decoration: underline;
+        }
+}
+
+.link-success, .link-theme {
+        color: $xx-theme-color;
+        text-decoration: underline;
+
+        &:hover {
+                color: $xx-theme-deep-color;
+                text-decoration: underline;
+        }
+}
+
+.ui-link {
+        text-decoration: underline;
+        color: #5bd18b;
+        font-size: 14px;
+
+        &:hover {
+                color: #20b35d;
+        }
+
+        span.inside-text {
+                text-decoration: underline;
+        }
+}
+
+.link-blue {
+        color: $blue-color;
+        text-decoration: underline;
+
+        &:hover, &:focus {
+                color: $deep-blue-color;
+                text-decoration: underline;
+        }
+}
+
+.link-red {
+        color: $red-color;
+        text-decoration: underline;
+
+        &:hover, &:focus {
+                color: $deep-red-color;
+                text-decoration: underline;
+        }
+}
+
+.link-green {
+        color: $green-color;
+        text-decoration: underline;
+
+        &:hover, &:focus {
+                color: $deep-green-color;
+                text-decoration: underline;
+        }
+}
+
+.link-white {
+        color: #fff;
+        text-decoration: underline;
+
+        &:hover, &:focus {
+                color: #ddd;
+                text-decoration: underline;
+        }
+}

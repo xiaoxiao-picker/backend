@@ -1,0 +1,37 @@
+<!-- 申请加入条件设置 -->
+<div class="modal fade xx-modal" id="JoinConditionSettingModal" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header xx-modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4 class="modal-title">{{title}}</h4>
+			</div>
+			<div class="modal-body xx-modal-body join-condition-modal">
+				<div class="form-group">
+					<div class="condition-wrapper">
+						<h4 class="xx-inner-title clearfix">
+							<span class="xx-title">所需资料</span>
+						</h4>
+						<div id="JoinConditionContainer" class="xx-tag-group clearfix">
+							{{include './../public/require_user_info'}}
+							<!-- 加入组织所需资料 app/templates/public/require_user_info -->
+						</div>
+					</div>
+
+				</div>
+				<!-- 动态设置事件行为 -->
+				<p class="center">
+					<button class="btn btn-xx-green" data-xx-action="{{action}}">
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text font-14">确定</span>
+					</button>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 申请加入条件设置 -->

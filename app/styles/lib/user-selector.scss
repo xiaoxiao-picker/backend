@@ -1,0 +1,44 @@
+.user-selector {
+	text-align: left;
+
+	.members {
+		height: 300px;
+		border:1px solid #f2f2f2;
+		padding:10px 5px;
+	}
+	.member {
+		float: left;
+		width: 145px;
+		margin: 0 10px 10px 0;
+		cursor: pointer;
+		transition: all .5s;
+		padding: 2px;
+
+		.avatar-wrap {
+			width: 40px;
+			float: left;
+			text-align: center;
+
+			.avatar {
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+			}
+		}
+		&:hover {
+			background-color: rgba(234, 234, 234, .5);
+
+			.avatar-wrap {
+				.avatar {
+					box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, .2);
+				}
+			}
+		}
+		.member-info {
+			.name {
+				line-height: 30px;
+				font-size: 12px;
+			}
+		}
+	}
+}

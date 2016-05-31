@@ -1,0 +1,72 @@
+<!-- win8 风格的 个性化微首页模板 -->
+{{include './header'}}
+<div class="phone-body">
+	<div id="TemplateContainer">
+		<div id="Template" class="template back-image temp-win8" style="{{if page.json.backColor}}background-color:{{page.json.backColor}};{{else if page.json.backImage}}background-image:url({{page.json.backImage}}){{/if}}">
+			<div class="temp-header clearfix">
+				<div class="focus">
+					<img src="{{orgInfo.logoUrl}}" alt="{{orgInfo.name}}" onerror="this.src='./images/default/org.jpg';" />
+				</div>
+				<div class="info">
+					<h3 class="info-header ellipsis">
+						<span>{{orgInfo.name}}</span>
+					</h3>
+					<ul class="info-list clearfix">
+						<li>
+							<dl>
+								<dt>现有成员</dt>
+								<dd>{{orgInfo.extend.memberCount}}</dd>
+							</dl>
+						</li>
+						<li class="divider">
+							<span></span>
+						</li>
+						<li>
+							<dl>
+								<dt>历史活动</dt>
+								<dd>{{orgInfo.extend.eventCount}}</dd>
+							</dl>
+						</li>
+						<li class="divider">
+							<span></span>
+						</li>
+						<li>
+							<dl>
+								<dt>粉丝</dt>
+								<dd>{{orgInfo.extend.wechatFollowerCount}}</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="temp-body">
+				<div class="menus clearfix">
+					{{each menus as menu i}}
+					{{if menu.action&&menu.action=="createMenu"}}
+					<div class="menu add {{menu.className}}" style="width:{{menu.width}}px;">
+						<div class="menu-name" data-xx-action="{{menu.action}}" data-index="{{i}}" title="{{menu.name}}"> <i class="fa fa-plus"></i>
+							<span></span>
+						</div>
+					</div>
+					{{else}}
+					<div class="menu back-image {{menu.className}}" style="{{if menu.backImage}}background-image:url({{menu.backImage}});{{/if}}width:{{menu.width}}px;">
+						<div class="" style="{{if menu.backColor}}background-color:{{menu.backColor}}{{/if}};">
+							<div class="menu-name" data-xx-action="{{menu.action}}" data-index="{{i}}" title="{{menu.name}}">
+								<img class="menu-icon" src="{{menu.icon}}" alt="{{menu.name}}" onerror="" />
+								<p class="text-name ellipsis">{{menu.name}}</p>
+							</div>
+
+							<div class="buttons">
+								<button class=" btn-minus-circle" data-xx-action="removeMenu" data-index="{{i}}">
+									<span class="fa fa-minus-circle"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					{{/if}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

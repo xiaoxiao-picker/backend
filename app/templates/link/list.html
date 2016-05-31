@@ -1,0 +1,60 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#links">官方链接</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body lost-list">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{count||0}}）</span>
+			</h3>
+		</header>
+		<div class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th class="width-160">名称</th>
+						<th>链接（右键可复制链接）</th>
+						<th class="width-100">二维码</th>
+						<th class="width-120 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each links as link i}}
+					<tr>
+						<td>
+							{{(i+1)< 10 ? "0" + (i+1) : (i+1)}}
+						</td>
+						<td>
+							{{link.name}}
+						</td>
+						<td class="left">
+							<a href="{{link.url}}" target="_blank" class="ellipsis width-500" style="display: block;" title="{{link.url}}">{{link.url}}</a>
+						</td>
+						<td>
+							<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{link.name}}" data-source-name="{{link.name}}" data-source-url="{{link.url}}" data-source-type="LINK">
+								<span class="fa fa-qrcode"></span>
+								<span></span>
+							</a>
+						</td>
+						<td>     
+							<button class="btn btn-xx-sm btn-xx-green btn-clipboard" data-clipboard-text="{{link.url}}">
+								复制
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</div>

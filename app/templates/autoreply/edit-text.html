@@ -1,0 +1,48 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">编辑回复</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<form id="AutoreplyTextEdtor">
+			<div class="panel-body xx-border-bottom">
+				{{if replyType=='KEYWORD'}}
+					{{include './public/keyword-box'}}
+				{{/if}}
+				<h4 class="xx-inner-title">
+					<span class="xx-title">回复文字内容（600字以内）</span>
+				</h4>
+				<div class="xx-inner-body" style="padding:0;">
+					<textarea id="Content" class="xx-textarea" name="content" rows="10" data-xx-change-action="textModify" data-xx-keyup-action="textModify">{{content}}</textarea>
+					<p class="bottom-tips">
+						还可以输入
+						<span id="TerseRemain">{{content?600 - content.length : 600}}</span>
+						字。
+					</p>
+				</div>
+				<div class="icon-buttons clearfix">
+					<div class="icon">
+						<button data-xx-action="openFaces">
+							<span class="pk pk-face"></span>
+						</button>
+					</div>
+					<div class="icon">
+						<button data-xx-action="openLink">
+							<span class="pk pk-link"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<button class="btn btn-xx-green" data-xx-action="save">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">保存</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>

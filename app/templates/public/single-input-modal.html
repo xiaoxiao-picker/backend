@@ -1,0 +1,19 @@
+<!-- 单个文本框模态编辑 模板 -->
+<!-- 以后尽量用这个模板 -->
+<form class="modal-form">
+	<div class="form-group">
+		<div class="xx-inner-title">
+			<span class="xx-title">{{name}}</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-control input" value="{{value}}" placeholder="{{placeholder}}" autofocus />
+	</div>
+	<div class="center">
+		<button class="btn btn-xx-green btn-save" data-value="{{id}}">
+		<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">确定</span>
+		</button>
+	</div>
+</form>

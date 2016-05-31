@@ -1,0 +1,86 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:(0);">{{title}}</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body lost-edit-container">
+			<form class="">
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<div class="xx-title">{{subTitle}}名称</div>
+					</div>
+					<input name="title" class="xx-input-text xx-text-bounds" type="text" placeholder="" value="{{lost.title}}" data-xx-change-action="titleModify" data-xx-keyup-action="titleModify" />
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<div class="xx-title">{{subTitle}}地点</div>
+					</div>
+					<input name="location" class="xx-input-text xx-text-bounds" type="text" placeholder="" value="{{lost.location}}" data-xx-change-action="locationModify" data-xx-keyup-action="locationModify" />
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<div class="xx-title">{{subTitle}}时间</div>
+					</div>
+					<input name="eventDate" class="xx-input-text xx-text-bounds datetimepicker" type="text" placeholder="" value="{{lost.eventDate | makedate:'yyyy/MM/dd hh:mm'}}" data-compare-rule="less" data-xx-change-action="eventDateModify" data-xx-keyup-action="eventDateModify" readonly />
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix terse-container">
+					<span class="xx-title">{{subTitle}}简介</span>
+					</h4>
+					<textarea class="xx-textarea xx-textarea-bounds" name="text" data-xx-change-action="textModify" data-xx-keyup-action="textModify">{{lost.text}}</textarea>
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<div class="xx-title">联系人</div>
+					</div>
+					<input name="name" class="xx-input-text xx-text-bounds" type="text" placeholder="" value="{{lost.contactInfo&&lost.contactInfo.name}}" data-xx-change-action="nameModify" data-xx-keyup-action="nameModify" />
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<div class="xx-title">联系方式<span class="tips">（手机号码）</span></div>
+					</div>
+					<input name="phone" class="xx-input-text xx-text-bounds" type="text" placeholder="" value="{{lost.contactInfo&&lost.contactInfo.phone}}" data-xx-change-action="phoneModify" data-xx-keyup-action="phoneModify" />
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<div class="xx-title">QQ</div>
+					</div>
+					<input name="QQ" class="xx-input-text xx-text-bounds" type="text" placeholder="" value="{{lost.contactInfo&&lost.contactInfo.QQ}}" data-xx-change-action="qqModify" data-xx-keyup-action="qqModify" />
+				</div>
+				{{if type=="LOST"}}
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<span class="xx-title">拾物照片</span>
+						<button class="btn btn-xx-green btn-xx-sm" data-xx-action="openImageSelector">
+							<span>+照片</span>
+						</button>
+					</div>
+					<div class="photos-box clearfix">
+						{{include './edit-photos'}}
+					</div>
+				</div>
+				{{/if}}
+				<div class="btn-xx-group left">
+					<button class="btn btn-xx-green btn-save" disabled data-xx-action="save">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+					</button>
+					{{if lostId}}
+					<button class="btn btn-xx-red btn-remove" data-xx-action="remove">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{/if}}
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

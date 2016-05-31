@@ -1,0 +1,39 @@
+<div class="box-wrapper">
+	{{each subjects as subject i}}
+	<div class="box-row">
+		<h4 class="xx-inner-title">
+			<span class="xx-title">{{subject.title}}</span>
+			{{if subject.required}}
+			<span class="required" title="必填项">必填项</span>
+			{{/if}}
+		</h4>
+		{{if subject.type=="TEXT"||subject.type=="DATE"}}
+		<div>
+			<span class="content">{{subject.value}}</span>
+		</div>
+		{{else if subject.type=="TEXTAREA"}}
+		<div>
+			<span class="content">{{subject.value}}</span>
+		</div>
+		{{else if subject.type=="IMAGE"}}
+		<div class="images-wrapper clearfix">
+			{{each subject.value as image j}}
+			<div class="img-wrapper">
+				<img src="{{image | imageUrl:'@120w_160h_1e_1c'}}" onerror="this.src='./images/default/article.jpg';"/>
+			</div>
+			{{/each}}
+		</div>
+		{{else if subject.type=="RADIO"||subject.type=="CHECKBOX"}}
+		<ul class="choice-box">
+			{{each subject.options as option i}}
+			<li class="{{if option.selected}}active{{/if}} ellipsis" data-value="{{option.id}}" title="{{option.name}}">
+				<span>{{option.name}}</span>
+				{{if option.selected}} <i class="fa fa-check"></i>
+				{{/if}}
+			</li>
+			{{/each}}
+		</ul>
+		{{/if}}
+	</div>
+	{{/each}}
+</div>

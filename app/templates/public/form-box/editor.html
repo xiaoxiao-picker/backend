@@ -1,0 +1,92 @@
+<div class="form-editor-box" data-value="{{index}}"> <i class="arrow arrow-out"></i> <i class="arrow arrow-in"></i>
+	<div class="xx-inner-title">
+		<span class="xx-title">{{title}}项标题</span>
+	</div>
+	<div class="form-group">
+		<input class="xx-input-text" type="text" data-value="{{index}}"  value="{{form.title}}" placeholder="请输入{{title}}标题" data-xx-keyup-action="modifyFormTitle" data-xx-change-action="modifyFormTitle"></div>
+	<div class="xx-inner-title">
+		<span class="xx-title">{{title}}项类型</span>
+	</div>
+	<div>
+		<div class="margin-bottom-10">
+			<label class="label-input">
+				<input type="radio" class="xx-option-input xx-radio" name="FormType" value="TEXT" data-xx-change-action="modifyFormType" {{if form.type=="TEXT"}}checked{{/if}}>
+				单行输入
+				<span class="text-xx-gray">（只能填写一行内容）</span>
+			</label>
+		</div>
+		<div class="margin-bottom-10">
+			<label class="label-input">
+				<input type="radio" class="xx-option-input xx-radio" name="FormType" value="TEXTAREA" data-xx-change-action="modifyFormType" {{if form.type=="TEXTAREA"}}checked{{/if}} />
+				多行输入
+				<span class="text-xx-gray">（可以填写多行内容）</span>
+			</label>
+		</div>
+		<div class="margin-bottom-10">
+			<label class="label-input">
+				<input type="radio" class="xx-option-input xx-radio" name="FormType" value="DATE" data-xx-change-action="modifyFormType" {{if form.type=="DATE"}}checked{{/if}} />
+				时间选择
+				<span class="text-xx-gray">（只能通过时间控件选择时间）</span>
+			</label>
+		</div>
+		<div class="margin-bottom-10">
+			<label class="label-input">
+				<input type="radio" class="xx-option-input xx-radio" name="FormType" value="IMAGE" data-xx-change-action="modifyFormType" {{if form.type=="IMAGE"}}checked{{/if}} />
+				图片上传
+				<span class="text-xx-gray">（只能从手机上传多张）</span>
+			</label>
+		</div>
+		<div class="margin-bottom-10">
+			<label class="label-input">
+				<input type="radio" class="xx-option-input xx-radio" name="FormType" value="RADIO" data-xx-change-action="modifyFormType" {{if form.type=="RADIO"}}checked{{/if}} />
+				单项选择
+				<span class="text-xx-gray">（只能选择单项）</span>
+			</label>
+		</div>
+		<div class="margin-bottom-10">
+			<label class="label-input">
+				<input type="radio" class="xx-option-input xx-radio" name="FormType" value="CHECKBOX" data-xx-change-action="modifyFormType" {{if form.type=="CHECKBOX"}}checked{{/if}} />
+				多项选择
+				<span class="text-xx-gray">（可选择多项）</span>
+			</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<h4 class="xx-inner-title">
+			<span class="xx-title">{{title}}项填写</span>
+		</h4>
+		<div class="margin-bottom-10">
+			<label>
+				<input type="radio" value="yes" name="FormRequire" class="xx-option-input xx-radio" checked data-xx-change-action="modifyFormRequired" />
+				必填
+			</label>
+			<label>
+				<input type="radio" value="no" name="FormRequire" class="xx-option-input xx-radio" {{if !form.required}}checked{{/if}} data-xx-change-action="modifyFormRequired" />
+				选填
+			</label>
+		</div>
+	</div>
+	{{if form.type=="RADIO" || form.type=="CHECKBOX"}}
+	<div class="options">
+		<h4 class="xx-inner-title">
+			<span class="xx-title">{{title}}选项编辑</span>
+		</h4>
+		<div class="option-wrapper margin-bottom-10">
+			{{each form.options as option i}}
+			<div class="option-row">
+				<input type="text" class="xx-input-text" value="{{option.name}}" placeholder="请填写该{{title}}选项" data-value="{{i}}" data-xx-change-action="modifyFormOption" data-xx-keyup-action="modifyFormOption" />
+				<div class="buttons">
+					<button class="btn-minus-circle" data-value="{{i}}" data-xx-action="removeFormOption" title="删除该选项">
+						<i class="fa fa-minus-circle"></i>
+					</button>
+				</div>
+			</div>
+			{{/each}}
+			<div class="box-add" data-xx-action="addFormOption">
+				<span class="fa fa-plus"></span>
+				添加选项
+			</div>
+		</div>
+	</div>
+	{{/if}}
+</div>

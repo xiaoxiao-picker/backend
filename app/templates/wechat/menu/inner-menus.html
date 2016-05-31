@@ -1,0 +1,62 @@
+{{each menus as menu i}}
+<div class="menu menu-main length-{{[2,1,1][menus.length-1]}} {{if activeMainMenuId==menu.info.guid}}active{{/if}}">
+	<div class="main d-menu" data-menu-id="{{menu.info.guid}}" data-xx-action="checkMenu" title="{{menu.name}}">
+		{{menu.name||"主菜单"}}
+		<span class="del fa fa-minus-circle" data-xx-action="removeMenu" data-menu-id="{{menu.info.guid}}"  title="删除菜单及其子菜单"></span>
+		{{if menus.length > 1}}
+		<span class="moveLeft fa fa-chevron-circle-left" data-xx-action="moveLeft" data-menu-id="{{menu.info.guid}}"  title="将该菜单左移"></span>
+		<span class="moveRight fa fa-chevron-circle-right" data-xx-action="moveRight" data-menu-id="{{menu.info.guid}}"  title="将该菜单右移"></span>
+		{{/if }}
+	</div>
+	<ul class="menu-sub">
+		{{if menu.subMenus && menu.subMenus.length > 0}}
+		{{if 5 > menu.subMenus.length}}
+		<li class="sub">
+			<button class="btn-add-menu" data-parent-id="{{menu.info.guid}}" data-xx-action="createMenu">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">
+				<i class="fa fa-plus"></i>
+				子菜单
+			</span>
+			</button>
+		</li>
+		{{/if}}
+		{{each menu.subMenus as subMenu j}}
+		<li class="sub d-menu" data-menu-id="{{subMenu.info.guid}}" data-parent-id="{{subMenu.info.parentId}}" data-xx-action="checkMenu">
+			<div class="sub-wrapper">
+				<div class="ellipsis" title="{{subMenu.name}}">{{subMenu.name||"子菜单"}}</div>
+				<span class="del fa fa-minus-circle" data-xx-action="removeMenu"  title="删除该菜单"></span>
+				{{if menu.subMenus.length > 1}}
+				<span class="moveUp fa fa-chevron-circle-up" data-xx-action="moveUp"  title="将该菜单上移"></span>
+				<span class="moveDown fa fa-chevron-circle-down" data-xx-action="moveDown"  title="将该菜单下移"></span>
+				{{/if}}
+			</div>
+		</li>
+		{{/each}}
+		
+		{{else}}
+		<li class="sub">
+			<button class="btn-add-menu" data-parent-id="{{menu.info.guid}}" data-xx-action="createMenu">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">
+				<i class="fa fa-plus"></i>
+				子菜单
+			</span>
+			</button>
+		</li>
+		{{/if}}
+	</ul>
+</div>
+{{/each}}
+{{if menus.length < 3}}
+<div class="menu menu-main length-{{3 - menus.length}}">
+	<button class="btn-add-menu" data-xx-action="createMenu" title="添加主菜单">
+	<i class="fa fa-plus"></i>
+	<span>主菜单</span>
+	</button>
+</div>
+{{/if}}

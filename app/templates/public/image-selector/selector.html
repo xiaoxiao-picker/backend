@@ -1,0 +1,57 @@
+<div class="image-selector-body unselect">
+	<div id="Group">
+		{{include './group'}}
+	</div>
+	<div id="Images" class="images-box">
+		<div class="box-header clearfix">
+			<div class="right" style="width:auto; float:right;" tooltip tooltip-zIndex="1050" title="上传大小不超过2MB（格式：bmp，png，jpeg，jpg，gif）">
+				<input type="file" class="button-upload" id="Modal_ImageUpload" />
+			</div>
+		</div>
+		<div class="box-body">
+			<div class="images-wrapper clearfix">
+				
+			</div>
+			<div class="more-wrapper hide">
+				<button class="btn btn-lg btn-large btn-xx-green btn-load-more">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">加载更多图片</span>
+				</button>
+			</div>
+			<div class="list-empty hide">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer image-selector-footer">
+	<div class="option-text">
+		已选
+		<span id="OptionCount" class="text-xx-red">0</span>
+		个，可选
+		<span id="OptionLimit">{{optionLimit}}</span>
+		个
+	</div>
+	<button class="btn btn-xx-green btn-confirm" disabled>
+		<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-14"></i>
+		</span>
+		<span class="inside-text">{{if optionLimit==1&&canCrop}}使用原图{{else}}确定{{/if}}</span>
+	</button>
+	<button class="btn btn-xx-green btn-cut" disabled>
+		<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-14"></i>
+		</span>
+		<span class="inside-text">剪切</span>
+	</button>
+	{{if canEmpty}}
+	<button class="btn btn-xx-red btn-empty">
+		<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-14"></i>
+		</span>
+		<span class="inside-text">空图</span>
+	</button>
+	{{/if}}
+</div>

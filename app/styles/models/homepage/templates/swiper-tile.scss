@@ -1,0 +1,52 @@
+.temp-swiper-tile {
+        .wrapper {
+                position: relative;
+                height: 100%;
+                .buttons {
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        display: none;
+                }
+                &:hover {
+                        .buttons {
+                                display: block;
+                        }
+                }
+        }
+        .menu {
+                color: #fff;
+                width: 100%;
+                text-align: center;
+                height: 67px;
+                margin-bottom: 5px;
+                cursor: pointer;
+                &.add {
+                        line-height: 67px;
+                        font-size: 16px;
+                        color: $green-color;
+                        border: 2px dashed #888;
+                        background-color: rgba(255, 255, 255, 0.3);
+                        .menu-wrapper {
+                                width: 100%;
+                        }
+                }
+        }
+        .menu-wrapper {
+                width: 50%;
+                height: 100%;
+        }
+        .menu-icon {
+                width: 36px;
+                height: 36px;
+                margin: 6px 0 0;
+        }
+        .menu-name {
+                margin: 0;
+                margin-top: -4px;
+                height: 23px;
+                line-height: 23px;
+                padding: 0 5px;
+                white-space: nowrap;
+        }
+}

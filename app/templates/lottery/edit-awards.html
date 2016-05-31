@@ -1,0 +1,24 @@
+{{each awards as award i}}
+<div class="wrapper {{if award.probability=='0.00' && !award.id}}disabled{{/if}}">
+    <span class="remark">已失效</span>
+    <div class="award-box" data-value="{{award.id}}" {{if !award.probability && !award.id}}{{else}}data-xx-action="editAward"{{/if}}>
+        <header class="img-wrapper">
+            <img src="{{award.portraitUrl}}" />
+        </header>
+        <footer class="content">
+            <h4 class="ellipsis center">
+                {{award.name}}
+                {{if award.description}}({{award.description}}){{/if}}
+            </h4>
+            <div class="clearfix">
+            	<span>中奖概率：{{award.probability}}%</span>
+            	<span class="pull-right">数量：{{if award.max>=0}}{{award.max}}{{else}}无上限{{/if}}</span>
+            </div>
+        </footer>
+    </div>
+    {{if award.id}}
+    <span class="btn-remove" data-value="{{award.id}}" data-xx-action="removeAward"><i class="fa fa-times-circle"></i></span>
+    {{/if}}
+</div>
+{{/each}}
+

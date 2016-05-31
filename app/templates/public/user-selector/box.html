@@ -1,0 +1,26 @@
+<!-- 用户选择器 -->
+<!-- lib/user-selector -->
+<div class="user-selector">
+	<div class="form-group clearfix">
+		<input class="xx-input-text" type="search" name="search" value="" placeholder="快速查找" />
+		{{if limit!=1}}
+		<label class="label-input" style="margin-left: 15px">
+			<input type="checkbox" class="xx-option-input xx-checkbox" name="checkedAll" value=""/>
+			全选
+		</label>
+		{{/if}}
+	</div>
+	<ul id="USMEMBERCONTAINER" class="members clearfix">
+		<!-- app/templates/public/user-selector/member -->
+	</ul>
+	<div class="center" style="margin-top: 20px;">
+		<button class="btn btn-xx-green btn-confirm">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling font-18"></i>
+			</span>
+			<span class="inside-text">
+				确定
+			</span>
+		</button>
+	</div>
+</div>

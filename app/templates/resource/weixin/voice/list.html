@@ -1,0 +1,64 @@
+<header class="content-header resource-weixin-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation">
+			<a href="#resource/weixin/graphic/list">图文消息</a>
+		</li>
+		<li role="presentation">
+			<a href="#resource/weixin/image/list">图片</a>
+		</li>
+		<li role="presentation" class="active">
+			<a href="#resource/weixin/voice/list">语音</a>
+		</li>
+		<!-- <li role="presentation">
+			<a href="#resource/weixin/video/list">视频</a>
+		</li> -->
+	</ul> 
+</header>
+<section class="content-body resource-weixin-voice-content unselect">
+	<section class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（<span id="TotalCount">{{total||0}}</span>）</span>
+			</h3>
+			<div class="buttons">
+				<audio id="Audio" src="" preload="true"></audio>
+			</div>
+			<div class="buttons buttons-upload">
+				<span class="text unselect">格式支持mp3、wma、wav、amr，文件大小不超过5M，语音时长不超过60秒 </span>
+				<input type="file" id="MusicUploadInput" />
+				<button class="btn btn-xx-danger btn-cancel btn-xx-sm hide" id="BtnUploadCancel">
+					取消
+				</button>
+			</div>
+			<div class="buttons">
+				<button class="btn btn-xx-sm btn-xx-green" data-xx-action="update">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling"></i>同步中
+					</span>
+					<span class="inside-text">同步语音</span>
+				</button>
+				<!-- <button class="btn btn-xx-sm btn-xx-green" data-xx-action="add">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling"></i>
+					</span>
+					<span class="inside-text">添加语音</span>
+				</button> -->
+			</div>
+		</header>
+		<section class="panel-body clearfix">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">序号</th>
+						<th>名称</th>
+						<th class="width-120">时间</th>
+						<th class="width-200  xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+				</tbody>
+			</table>
+		</section>
+		<footer class="panel-footer"></footer>
+	</section>
+</section>

@@ -1,0 +1,25 @@
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		{{if page.json.carousels.length==0}}
+		<div class="swiper-slide">
+			<img class="poster" src="" />
+			<p class="name">请创建轮播图</p>
+		</div>
+		{{/if}}
+		{{each page.json.carousels as carousel i}}
+		<div class="swiper-slide">
+			<img class="poster" src="{{carousel.backImage}}" />
+			<p class="name">{{carousel.name}}</p>
+			<div class="buttons">
+				<button class="btn btn-xx-green btn-xx-sm" data-xx-action="checkCarousel" data-value="{{i}}" title="编辑轮播图"><span class="fa fa-pencil"></span></button>
+				<button class="btn btn-xx-danger btn-xx-sm" data-xx-action="removeCarousel" data-value="{{i}}"  title="删除轮播图"><span class="fa fa-times"></span></button>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	<!-- 前/后一页控制器 -->
+	<div class="swiper-button-prev swiper-button-white"></div>
+	<div class="swiper-button-next swiper-button-white"></div>
+	<!-- 分页容器 -->
+	<div class="swiper-pagination"></div>
+</div>

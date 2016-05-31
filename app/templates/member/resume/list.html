@@ -1,0 +1,46 @@
+<!-- member comments modal begin -->
+
+<h4 class="xx-inner-title">
+	<span class="xx-title">第二课堂简历&nbsp;(&nbsp;{{comments.length||"0"}}&nbsp;)</span>
+</h4>
+<div class="comments">
+	{{if comments.length==0}}
+	<div class="center">
+		<span class="text-xx-gray">暂未添加第二课堂简历</span>
+	</div>
+	{{/if}}
+	{{each comments as comment i}}
+	<div class="comment clearfix">
+		<div class="user-wrapper">
+			<img class="avatar user-avatar user-{{comment.operatorUser.id}}" src="{{comment.operatorUser.portraitUrl | imageUrl:'@100w_100h_1c_1e'}}" onerror="this.src='./images/default/avatar.jpg';" />
+			<p class="name">{{comment.operatorUser.name||'匿名'}}</p>
+		</div>
+		<div class="context-wrapper">
+			<div class="context">
+				{{each comment.text.split('/n') as text i}}
+				<p>{{text}}</p>
+				{{/each}}	
+			</div>	
+		</div>
+		<div class="date">{{comment.createDate | makedate:'yyyy-MM-dd hh:mm'}}</div>
+		<div class="buttons">
+			<button class="btn-xx-danger btn-remove-resume" data-value="{{comment.id}}">
+				<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+				</span>
+				<span class="inside-text"> 
+					<i class="fa fa-times"></i>
+				</span>
+			</button>
+		</div>
+		<div class="oper">
+			<span class="open1">
+				展开 <i class="fa fa-caret-down"></i>
+			</span>
+			<span class="close1">
+				收起 <i class="fa fa-caret-up"></i>
+			</span>
+		</div>
+	</div>
+	{{/each}}
+</div>
+<!-- member info modal end -->

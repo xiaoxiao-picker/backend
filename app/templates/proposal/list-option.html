@@ -1,0 +1,78 @@
+<section class="panel-body">
+	<!-- models/member/list.scss -->
+	<div id="ReportedTipsContainer">
+		<!-- 被举报提案个数提示 -->
+		<!-- app/templates/proposal/list-report-tips -->
+	</div>
+		<table class="table middle center">
+			<thead class="xx-table-header">
+				<tr>
+					<th class="width-60">编号</th>
+					<th>主题</th>
+					<th class="width-100">
+						分类
+					</th>
+					<th class="width-100">
+						创建时间
+					</th>
+					<th class="width-60">状态</th>
+					<th class="width-80">二维码</th>
+					<th class="xx-border-right width-180">操作</th>
+				</tr>
+			</thead>
+			<tbody class="xx-table-body">
+				{{each proposals as proposal i}}
+				<tr>
+					<td>
+						{{i | index:pagination.page,pagination.limit}}
+					</td>
+					<td class="left">
+						<a class="underline" href="#proposal/{{proposal.id}}/info">{{proposal.title}}</a>
+					</td>
+					<td>
+						{{if proposal.category}}
+						<span class="text-xx-success" title="{{proposal.category.name}}">{{proposal.category.name}}</span>
+						{{else}}
+						<span class="text-xx-danger">未分类</span>
+						{{/if}}
+					</td>
+					<td>
+						{{#proposal.createDate | makedateSpan:'MM-dd hh:mm','yyyy-MM-dd hh:mm'}}
+					</td>
+					<td>
+						{{if proposal.reported}}
+						<span class="text-xx-danger">被举报</span>
+						{{else}}
+						<span class="text-xx-success">正常</span>
+						{{/if}}
+					</td>
+					<td>
+						<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{proposal.title}}" data-source-name="{{proposal.title}}" data-source-id="{{proposal.id}}" data-source-type="PROPOSAL">
+							<span class="fa fa-qrcode"></span>
+							<span></span>
+						</a>
+					</td>
+					<td>
+						<button class="btn btn-xx-sm btn-xx-green {{if proposal.top==true}}sticked{{/if}}" data-proposal-id="{{proposal.id}}" data-xx-action="stick">
+							<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+							</span>
+							<span class="inside-text">{{if proposal.top}}取消置顶{{else}}置顶{{/if}}</span>
+						</button>
+						<button class="btn btn-xx-danger btn-xx-sm" data-value="{{proposal.id}}" data-xx-action="remove">
+							<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+							</span>
+							<span class="inside-text">删除</span>
+						</button>
+					</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+
+		{{if proposals.length==0}}
+		<div class="list-empty">
+			<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+		</div>
+		{{/if}}
+</section>
+<footer class="panel-footer"></footer>

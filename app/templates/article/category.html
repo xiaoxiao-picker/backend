@@ -1,0 +1,3 @@
+{{each categories as category i}}
+<option value="{{category.id}}" {{if category.id==currentCategory}}selected{{/if}}>{{category.name}}</option>
+{{/each}}

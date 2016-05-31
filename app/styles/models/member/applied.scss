@@ -1,0 +1,29 @@
+// 新申请成员列表
+.applied-members {
+	.member-list {
+		width: 100%;
+		.member-item {
+			float: left;
+			width: 50%;
+			padding: 20px 0;
+			border-bottom:1px solid #f2f2f2;
+			.avatar-wrapper {
+				float: left;
+				width: 70px;
+				height: auto;
+				.avatar {
+					width: 50px;
+					height: 50px;
+					border-radius: 50%;
+				}
+			}
+			.member-item-content {
+				width: auto;
+				margin-left: 70px;
+				.member-name{
+					padding: 6px 0;
+				}
+			}
+		}
+	}
+}

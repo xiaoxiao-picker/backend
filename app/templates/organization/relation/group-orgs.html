@@ -1,0 +1,30 @@
+<!-- global/inner.scss -->
+<div class="xx-group" id="{{"Group_" + groupOrg.index}}">
+	<div class="xx-inner-title org-title-wrapper clearfix">
+		<span class="xx-title"><strong>{{groupOrg.type}}</strong>&nbsp;(&nbsp;{{groupOrg.orgs.length}}&nbsp;)</span>
+	</div>
+	<!-- global/options.scss -->
+	<div class="options clearfix">
+		<!-- modules/member/list.scss -->
+		{{each groupOrg.orgs as org i}}
+		<div class="option member-option">
+			<div class="member-info clearfix" data-xx-action="showOrgInfo" data-value="{{org.id}}">
+				<img src="{{org.logoUrl | imageUrl:'@60w_60h_1e_1c'}}" onerror="this.src='./images/default/org.jpg';" />
+				<span class="remark ellipsis" tooltip title="{{org.name||'未命名'}}">
+					{{org.name||"未命名"}}
+				</span>
+			</div>
+			<div class="buttons">
+				<button data-xx-action="remove" data-value="{{org.id}}" data-type="{{groupOrg.type}}" data-name="{{org.name}}">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling"></i>
+					</span>
+					<span class="inside-text">
+						<i class="fa fa-times"></i>
+					</span>
+				</button>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>

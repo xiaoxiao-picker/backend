@@ -1,0 +1,42 @@
+.notice-vote-modal,.CustomFormBox {
+	.form-control {
+		width: 93%;
+		padding: 8px 10px;
+	}
+	.input-item {
+		position: relative;
+		&:hover {
+			.buttons {
+				display: block;
+			}
+		}
+		.buttons {
+			display: none;
+			position: absolute;
+			right: 0;
+			top: 0;
+			line-height: 35px;
+			button {
+				font-size: 18px;
+				color: $red-color;
+				&:hover {
+					color: $deep-red-color;
+				}
+			}
+		}
+	}
+	.add-item {
+		button {
+			width: 93%;
+			line-height: 30px;
+			font-size: 30px;
+			text-align: center;
+			color: $default-border-color;
+			border: 1px dashed $default-border-color;
+			&:hover {
+				color: $default-border-deep-color;
+				border-color: $default-border-deep-color;
+			}
+		}
+	}
+}

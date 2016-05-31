@@ -1,0 +1,30 @@
+<!-- 组织选择器 （多选） -->
+<section class="member-selector">
+	{{if organizations.length==0}}
+	<p class="tips">
+		暂无可操作组织
+	</p>
+	{{else}}
+	<div class="form-group">
+		<ul class="members clearfix">
+			{{each organizations as organization i}}
+			<li class="clearfix member">
+				<label class="checkbox clearfix ellipsis" tooltip title="{{organization.name||'未命名'}}" tooltip-zindex="1050">
+					<input type="checkbox" class name="organization" value="{{organization.id}}"/>
+					<span class="ellipsis">{{organization.name||"未命名"}}</span>
+				</label>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+	<!-- 动态设置事件行为 -->
+	<p class="center">
+		<button class="btn btn-xx-green btn-save">
+		<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text font-14">确定</span>
+		</button>
+	</p>
+	{{/if}}
+</section>
+<!-- 人员选择器 -->

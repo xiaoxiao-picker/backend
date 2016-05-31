@@ -1,0 +1,45 @@
+<!-- 投票选择器 -->
+<!-- lib/vote-selector -->
+<div class="xx-modal-body vote-selector">
+	<div class="form-group clearfix">
+		<form class="search-box" style="float:right;">
+			<input class="input-search" type="search" name="search" value="" placeholder="快速查找" />
+			<button class="btn-search"> 
+				<span class="inside-loading"> 
+					<i class="fa fa-spinner rolling"></i>
+				</span> 
+				<span class="inside-text"> 
+					<i class="fa fa-search"></i> 
+				</span> 
+			</button>
+		</form>
+	</div>
+	<div class="votes clearfix">
+		<table class="table middle center">
+			<thead class="xx-table-header">
+				<tr>
+					<th class="width-80" style="border-left:none;">选择</th>
+					<th>投票名称</th>
+					<th class="width-240">投票时间</th>
+				</tr>
+			</thead>
+			<tbody id="VOTESCONTAINER" class="xx-table-body">
+				<!-- app/templates/public/vote-selector/list -->
+			</tbody>
+		</table>
+	</div>
+	<div class="footer clearfix">
+		<div class="vote-count unselect">
+			<span id="VoteCount">已加载 0 / 0 </span>
+		</div>
+		<button class="btn btn-xx-hollow-green-border btn-xx-sm btn-more">
+			<span class="inside-loading"> 
+				请求中
+				<i class="fa fa-spinner rolling"></i>
+			</span> 
+			<span class="inside-text"> 
+				加载更多
+			</span> 
+		</button>
+	</div>
+</div>

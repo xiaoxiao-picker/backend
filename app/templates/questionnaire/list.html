@@ -1,0 +1,105 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#questionnaires">问卷表单</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#questionnaire/add/edit">新建问卷表单</a>
+	</div>
+</div>
+<div class="content-body questionnaire-list">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{count||0}}）</span>
+			</h3>
+			<div class="buttons search-group">
+				<form class="search-box ">
+					<input type="text" class="input-search keyword-name" placeholder="请输入关键字" value="{{keyword}}" />
+					<button class="btn-search" data-xx-action="search">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling"></i>
+						</span>
+						<span class="inside-text">
+							<i class="fa fa-search"></i>
+						</span>
+					</button>
+				</form>
+			</div>
+		</header>
+		<section class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th>标题</th>
+						<th class="width-170">回复</th>
+						<th class="width-100">创建时间</th>
+						<th class="width-100">状态</th>
+						<th class="width-60">二维码</th>
+						<th class="width-160 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each questionnaires as questionnaire i}}
+					<tr>
+						<td>
+							{{i | index:pagination.page,pagination.limit}}
+						</td>
+						<td class="left">
+							<a href="#questionnaire/{{questionnaire.id}}/info" title="{{questionnaire.title}}">{{questionnaire.title}}</a>
+						</td>
+						<td>
+							<span class="reply-number">{{questionnaire.replyCount||0}}</span>
+							<a href="#questionnaire/{{questionnaire.id}}/info" class="link-green" title="查看 {{questionnaire.title}} 详情">详情</a>
+							<a href="javascript:void(0);" class="link-green" title="查看 {{questionnaire.title}} 统计" data-xx-action="checkStatistics" data-value="{{questionnaire.id}}">统计</a>
+							<button class="ui-link" data-source-type="QUESTIONNAIRE" data-source-id="{{questionnaire.id}}" data-export-file-name="问卷-{{questionnaire.title}}-结果" data-xx-action="exportReport">
+								<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">
+									下载
+								</span>
+							</button>
+						</td>
+						<td>{{#questionnaire.createDate | makedateSpan:'MM-dd hh:mm','yyyy-MM-dd hh:mm'}}</td>
+						<td>
+							<div class="xx-switch">
+								<input type="checkbox" id="Questionnaire{{questionnaire.id}}" class="xx-switch-checkbox" name="{{questionnaire.id}}" data-value="{{questionnaire.id}}" data-xx-action="switchState" {{if questionnaire.state=="OPEN"}} checked {{/if}}>
+								<label class="xx-switch-label" for="Questionnaire{{questionnaire.id}}">
+									<div class="xx-switch-inner">
+										<div class="xx-active">开启</div>
+										<div class="xx-inactive">关闭</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</td>
+						<td>
+							<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{questionnaire.title}}" data-source-name="{{questionnaire.title}}" data-source-id="{{questionnaire.id}}" data-source-type="QUESTIONNAIRE">
+								<span class="fa fa-qrcode"></span>
+								<span></span>
+							</a>
+						</td>
+						<td>
+							<a class="btn btn-xx-green btn-xx-sm" href="#questionnaire/{{questionnaire.id}}/edit">编辑</a>
+							<button class="btn btn-xx-red btn-xx-sm" data-value="{{questionnaire.id}}" data-xx-action="remove">
+								<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">删除</span>
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</section>
+		<footer class="panel-footer"></footer>
+	</div>
+</div>

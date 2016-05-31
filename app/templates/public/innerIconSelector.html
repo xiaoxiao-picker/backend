@@ -1,0 +1,17 @@
+<!-- 图标列表 -->
+<ul class="Icon-cates-container clearfix">
+	{{each icons as icon i}}
+	<li class="Icon-cate {{if icon.type==iconType}}active{{/if}}" style="width:{{100/icons.length}}%; {{if !i}}border-left: 1px solid #fff;{{/if}}">
+		<h4 data-xx-action="switchToIcons" data-value="{{icon.type}}">
+		<span>{{icon.name}}</span>
+		</h4>
+		<div id="{{icon.name}}" class="Icon-box-container clearfix {{if icon.type==iconType}}active{{/if}}">
+			{{each icon.icons as sub_icon j}}
+			<div class="Icon-box" data-value="{{sub_icon.url}}" data-xx-action="selectedIcon">
+				<img class="icon" src="./{{sub_icon.url}}" />
+			</div>
+			{{/each}}
+		</div>
+	</li>
+	{{/each}}
+</ul>

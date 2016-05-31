@@ -1,0 +1,23 @@
+.vote-guide {
+    .menus {
+    	width: 350px;
+    	margin: 180px auto 0;
+        a {
+            display: block;
+            padding: 40px 0;
+        }
+        img {
+            float: left;
+        }
+        .content {
+        	margin-left: 90px;
+        	padding: 15px;
+        }
+        h4 {
+        	font-size: 18px;
+        }
+        p {
+        	color: $default-gray-color;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<div class="detail-container">
+	<div class="avatar-header">
+		<img class="avatar-img" src="./images/logo.jpg" onerror='this.src="/images/default/avatar.jpg"'>
+		<h4>校校</h4>
+		<span class="label label-xx-red">系统公告</span>
+	</div>
+	<div class="content-wrapper">
+		{{each notification.text.split('\n') as desc i}}
+		<p>{{desc}}</p>
+		{{/each}}
+	</div>
+</div>

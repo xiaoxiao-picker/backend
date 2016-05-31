@@ -1,0 +1,61 @@
+.temp-swiper-note {
+	.menus {
+		padding: 2px;
+	}
+	.wrapper {
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+
+		.buttons {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			display: none;
+		}
+		&:hover {
+			.buttons {
+				display: block;
+			}
+		}
+	}
+	.menu {
+		float: left;
+		width: 50%;
+		height: 140px;
+		cursor: pointer;
+		text-align: center;
+		color: #fff;
+		padding: 2px;
+
+		&.add {
+			font-size: 16px;
+			line-height: 116.5px;
+			color: #444;
+
+			.wrapper {
+				width: 100%;
+				background-color: rgba(255, 255, 255, .7);
+			}
+		}
+	}
+	.menu-wrapper {
+		width: 100%;
+		height: 100%;
+		position: relative;
+	}
+	.menu-icon {
+		width: 100%;
+		height: 100%;
+	}
+	.menu-name {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 36px;
+		line-height: 36px;
+		font-size: 15px;
+		margin-bottom:0;
+	}
+}

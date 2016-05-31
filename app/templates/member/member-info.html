@@ -1,0 +1,68 @@
+<!-- member info modal begin -->
+<div class="member-header-wrapper">
+	<div class="content-wrapper">
+		<img class="member-avatar" src="{{member.user.portraitUrl |imageUrl:'@100w_100h_1e_1c'}}" onerror="this.src='images/default/avatar.jpg';">
+		<div class="member-info">
+			<div class="user-name">{{member.user.remark||member.user.name||member.user.nickname||"无备注"}}</div>
+			<div>邮箱：{{member.user.email||"暂无"}}</div>
+			<div>手机：{{member.user.phoneNumber||"暂无"}}</div>
+		</div>
+	</div>
+	<button type="button" class="close" data-dismiss="modal"> 
+		<span aria-hidden="true">×</span> 
+	</button>
+</div>
+<div class="member-info-wrapper">
+	<div class="xx-table">
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">真名：{{member.user.name}}</div>
+			<div class="xx-table-cell middle width-half">
+				性别：{{["保密","男","女"][member.user.gender]}}
+			</div>
+		</div>
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">现居：{{member.user.address}}</div>
+			<div class="xx-table-cell middle width-half">家乡：{{member.user.hometown}}</div>
+		</div>
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">
+				入学：{{member.user.grade | makedate:'yyyy-MM-dd'}}
+			</div>
+			<div class="xx-table-cell middle width-half">学号：{{member.user.studentId}}</div>
+		</div>
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">学校：{{member.user.school}}</div>
+			<div class="xx-table-cell middle width-half">校区：{{member.user.schoolZone}}</div>
+		</div>
+		<div class="xx-table-row">
+			<div class="xx-table-cell middle width-half">角色：{{{"100":"创建者","1":"管理员","0":"成员"}[member.rank]}}</div>
+			<div class="xx-table-cell middle width-half">
+				备注：
+				{{if !readonly}}
+				<input type="text" id="remark" class="xx-input-text width-180" value="{{member.remark}}"  />
+				{{else}}
+					{{member.remark}}
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>
+{{if !readonly}}
+<div class="member-info-footer">
+	<div class="buttons">
+		<button class="btn btn-xx-green btn-save">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+			</span>
+			<span class="inside-text">保存</span>
+		</button>
+		{{if !isSelf}}
+		<button class="btn btn-xx-red btn-remove">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+			</span>
+			<span class="inside-text">删除成员</span>
+		</button>
+		{{/if}}
+	</div>
+</div>
+{{/if}}
+<!-- member info modal end -->

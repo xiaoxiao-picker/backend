@@ -1,0 +1,25 @@
+<div id="replysContainer">
+	<div class="xx-inner-title clearfix">
+		<div class="xx-title">已回复人数&nbsp;(&nbsp;{{count}}&nbsp;)</div>
+	</div>
+</div>
+<div class="xx-table">
+	{{each replys as reply i}}
+	<div class="xx-table-row">
+		<div class="xx-table-cell width-90 center xx-border-bottom padding-10 line-height-25">
+			<div class="xx-tag-wrapper xx-green" data-user-id="{{reply.user.id}}" data-xx-action="checkUser">
+				<label class="xx-tag">{{reply.member.remark||reply.user.name||reply.user.nickname||reply.user.tel||"无备注"}}</label>
+			</div>
+		</div>
+		<div class="xx-table-cell width-90 center font-14 text-green xx-border-bottom padding-10 line-height-25">
+			已确认回复
+		</div>
+		<div class="xx-table-cell font-14 xx-border-bottom padding-10 line-height-25" style="padding-left: 15px">
+			{{reply.text}}
+		</div>
+		<div class="xx-table-cell width-200 right font-14 xx-border-bottom padding-10 line-height-25">
+			{{reply.createDate | makedate:'yyyy/MM/dd hh:mm'}}
+		</div>
+	</div>
+	{{/each}}
+</div>

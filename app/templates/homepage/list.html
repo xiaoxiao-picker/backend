@@ -1,0 +1,89 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#homepage/list">
+				我的主题
+			</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#homepage/add" title="新建微首页主题">新建微首页主题</a>
+	</div>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{count||0}}）</span>
+			</h3>
+		</header>
+		<div class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-90">编号</th>
+						<th>主题名称</th>
+
+						<th class="width-100">
+							主微首页
+						</th>
+						<th class="width-120">
+							主题模板
+						</th>
+						<th class="width-80">二维码</th>
+						<th class="width-160 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each sources as source i}}
+					<tr>
+						<td>
+							{{(i+1) < 10 ? "0"+(i+1) : (i+1)}}
+						</td>
+						<td class="left">
+							<a href="#homepage/{{source.id}}" title="{{source.name}}">
+							{{source.name}}
+							</a>
+						</td>
+						<td>
+							<div>
+								<input type="radio" class="xx-option-input xx-radio" data-value="{{source.id}}" data-name="{{source.name}}" name="{{source.id}}" id="Module{{source.id}}" data-xx-change-action="toggle" {{if source.isActive}}checked{{/if}}/>
+							</div>
+						</td>
+						<td>
+							{{source.template}}
+						</td>
+						<td>
+							<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{source.name}}" data-source-name="{{source.name}}" data-source-id="{{source.id}}" data-source-type="HOMEPAGE">
+								<span class="fa fa-qrcode"></span>
+								<span></span>
+							</a>
+						</td>
+						<td class="left clearfix">
+							<a class="btn btn-xx-green btn-xx-sm" href="#homepage/{{source.id}}">
+							编辑
+							</a>
+							<button class="btn btn-xx-red btn-xx-sm button-right" data-value="{{source.id}}" data-name="{{source.name}}" data-xx-action="remove" {{if source.isActive}}disabled tooltip title="主微首页不可删除" {{/if}}>
+								<span class="inside-loading">
+									<i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">
+								删除
+								</span>
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+			<!-- <div class="center" style="margin: 30px;">
+				<a class="btn btn-xx-green" href="#wechat/personalized/homepage/guide">确认</a>
+			</div> -->
+		</div>
+	</div>
+</div>

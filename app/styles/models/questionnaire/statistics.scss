@@ -1,0 +1,62 @@
+.questionnaire-statistics-box {
+        .box-row {
+                padding: 10px;
+                border-bottom: 1px solid #cdcdcd;
+        }
+
+        .xx-inner-title {
+                padding-bottom: 5px;
+                border-bottom: 1px solid #ddd;
+
+                .required {
+                        position: absolute;
+                        font-size: 12px;
+                        right: 10px;
+                        top: 3px;
+                        color: $xx-theme-color;
+                }
+        }
+
+        .choice-box {
+                text-align: left;
+
+                li {
+                        position: relative;
+                        margin-bottom: 1px;
+                        background-color: #f2f2f2;
+                        height: 25px;
+
+                        .progress {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                height: 100%;
+                                background-color: $xx-theme-color;
+                                margin-bottom: 0;
+                                border-radius: 0;
+                                transition: all 1s;
+                                width: 0;
+                        }
+
+                        .name {
+                                height: 100%;
+                                line-height: 25px;
+                                padding: 0 10px;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+
+                                .percent {
+                                        position: absolute;
+                                        right: 10px;
+                                        top: 0px;
+                                        font-size: 14px;
+
+                                        // color: #fff;
+                               
+                                }
+                        }
+                }
+        }
+}

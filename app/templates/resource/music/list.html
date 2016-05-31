@@ -1,0 +1,76 @@
+<div class="content-header resource-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation">
+			<a href="#resource/image/list">图片</a>
+		</li>
+		<li role="presentation"  class="active">
+			<a href="#resource/music/list">音乐</a>
+		</li>
+		<li role="presentation">
+			<a href="#resource/file/list">文件</a>
+		</li>
+	</ul>
+	<!-- models/resource/music/list -->
+	<div class="buttons" tooltip title="音乐文件最大不能超过5M">
+		<input type="file" id="MusicUploadInput" />
+		<button class="btn btn-xx-danger btn-cancel btn-xx-sm hide" id="BtnUploadCancel">
+			取消
+		</button>
+	</div>
+</div>
+<div class="content-body music-list">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{count||0}}）</span>
+			</h3>
+			<div class="buttons">
+				<audio id="Audio" src="" preload="true" loop></audio>
+			</div>
+		</header>
+		<div class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">序号</th>
+						<th>音乐名称</th>
+						<th class="width-120">上传时间</th>
+						<th class="width-200  xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each resources as resource i}}
+					<tr>
+						<td class="index"> <i class="fa fa-music"></i>
+							{{i | index:pagination.page,pagination.limit}}
+						</td>
+						<td class="left">
+							<a class="" target="_blank" href="{{'frontRoot' | application}}/posters/music-player/index.html?oid={{'organizationId' | application}}&musicURL={{resource.url | encode}}" data-value="{{resource.url}}" title="{{resource.fileName}}">{{resource.fileName}}</a>
+						</td>
+						<td class="">{{#resource.createDate | makedateSpan:'MM-dd hh:mm','yyyy-MM-dd hh:mm'}}</td>
+						<td class="">
+							<button class="btn btn-xx-green btn-xx-sm btn-play" data-value="{{resource.url}}" data-xx-action="play">
+								<i class="fa fa-play"></i>
+							</button>
+							<button class="btn btn-xx-green btn-xx-sm btn-pause" data-value="{{resource.url}}" data-xx-action="pause">
+								<i class="fa fa-pause"></i>
+							</button>
+							<button class="btn btn-xx-red btn-xx-sm" data-value="{{resource.id}}" data-xx-action="remove">
+								<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">删除</span>
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</div>
+		<footer class="panel-footer"></footer>
+	</div>
+</div>

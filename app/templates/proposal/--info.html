@@ -1,0 +1,143 @@
+<!-- 提案详情 -->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">提案详情</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body proposal-info">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			{{if proposal.report.length}}
+			<!-- models/member/list.scss -->
+			<div class="setting-condition-wrapper">
+				<div class="setting red_bg reports">
+					<p>该提案被举报为： {{each proposal.report as report i}}
+						<span data-value="{{report.id}}">{{report}}</span> {{/each}}
+					</p>
+					<div class="buttons">
+						<span class="label label-xx-yellow">建议删除提案或移除举报信息</span>
+					</div>
+				</div>
+				<div class="setting">
+					<button class="btn-xx-link" data-xx-action="removeReports">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">举报无效，移除举报信息</span>
+					</button>
+				</div>
+			</div>
+			{{/if}}
+			<div class="proposal-info-container clearfix">
+				<div class="user-info-wrapper" >
+					<img class="user-avatar user-avatar-15" src="{{proposal.user.portraitUrl}}" onerror="this.src='/images/default/avatar.jpg';" data-user-id="{{proposal.user.id}}" data-xx-action="checkUser" />
+	
+					<h4 class="user-name">
+						<span data-user-id="{{proposal.user.id}}" data-xx-action="checkUser">
+							{{proposal.user.name||proposal.user.nickname||proposal.user.phoneNumber}}
+						</span>
+					</h4>
+					<span class="date">提案提交于：{{proposal.createDate | makedate:'yyyy-MM-dd hh:mm'}}</span>
+				</div>
+				<div class="proposal-wrapper">
+					<h4 class="proposal-name">{{proposal.title}}</h4>
+					<div class="proposal-context">
+						<div class="images-wrapper clearfix">
+							{{each proposal.thumbnailUrls as thumbnailUrl i}}
+							<img class="" src="{{thumbnailUrl}}" /> 
+							{{/each}}
+						</div>
+						{{if proposal.text}} 
+							{{each proposal.text.split('\n') as text i}}
+							<p>{{#text}}</p>
+							{{/each}} 
+						{{/if}}
+					</div>
+					<div class="buttons">
+						<button class="btn btn-xx-danger" data-value="{{proposal.id}}" data-xx-action="remove">
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+						</span>
+						<span class="inside-text">删除此提案</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			{{if proposal.proposalState == 'UNSOLVED'}}
+			<div class="form-group" style="width: 600px;">
+				<h4 class="xx-inner-title clearfix">
+				<span class="xx-title">回复</span><span class="text-xx-gray">（回复后提案归入已解决）</span>
+				</h4>
+				<textarea id="Context"></textarea>
+			</div>
+			<div class="buttons btn-xx-group left">
+				<button class="btn btn-xx-green" data-xx-action="reply">
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-14"></i>
+				</span>
+				<span class="inside-text">确定</span>
+				</button>
+			</div>
+			{{/if}}
+			<div id="SystemReply">
+			</div>
+			<div class="form-group" style="margin-top: 20px;">
+				<div class="xx-inner-title clearfix" style="width: 180px;">
+					<span class="xx-title">是否开启评论</span>
+					<div class="xx-right">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="CommentState" name="commentState" value="" {{if proposal.commentState}}checked{{/if}} data-xx-change-action="commentState" />
+							<label class="xx-switch-label" for="CommentState">
+								<div class="xx-switch-inner">
+									<div class="xx-active">开启</div>
+									<div class="xx-inactive">关闭</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="RepliesContainer" class="hide">
+				<!-- app/template/proposal/info-replies -->
+			</div>
+			<div id="ReplyContainer" class="hide">
+				<h4 class="xx-inner-title">
+				<span class="xx-title">评论</span>
+				</h4>
+				<div class="reply-context xx-inner-body">
+					<textarea id="ReplyContext" class="xx-textarea" rows="6" data-xx-change-action="commentValidate" data-xx-keyup-action="commentValidate"></textarea>
+					<p class="bottom-tips">
+						还可以输入
+						<span id="TerseRemain">{{text?100-text.length:100}}</span> 字。
+					</p>
+				</div>
+				<div class="buttons comment-btns">
+					<button class="btn btn-xx-green" data-xx-action="comment">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">评论</span>
+					</button>
+				</div>
+				<div class="buttons btn-xx-group left reply-btns hide">
+					<button class="btn btn-xx-green" data-xx-action="comment">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">回复</span>
+					</button>
+					<button class="btn btn-xx-red" data-xx-action="cancel">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">取消</span>
+					</button>
+				</div>
+			</div>
+			<div id="EmptyReply" class="center text-xx-gray hide">
+				<span>未开启评论功能</span>
+			</div>
+		</div>
+	</div>
+</div>

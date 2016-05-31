@@ -1,0 +1,14 @@
+<!-- 电子票开启时间段 -->
+{{each times as time i}}
+<div class="time-box">
+	<div class="wrapper" data-index="{{i}}" data-xx-action="updateTimeModal">
+		<span class="text-xx-blue limit">
+			{{time.numberOfLimit+"票"}}
+		</span>
+		<div>{{time.startDate | makedate:'yyyy/MM/dd hh:mm'}} - {{time.endDate | makedate:'yyyy/MM/dd hh:mm'}}</div>
+	</div>
+	<span class="btn-del" data-value="{{time.id}}" data-xx-action="removeTime" title="删除该时间段">
+		<i class="fa fa-minus-circle"></i>
+	</span>
+</div>
+{{/each}}

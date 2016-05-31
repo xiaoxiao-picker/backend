@@ -1,0 +1,95 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">校校钱包</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#wallet/accounts">账户设置</a>
+	</div>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<div class="form-group">
+				<div class="assets-container clearfix">
+					<div class="item yellow-bg">
+						<div class="title">总收益/元</div>
+						<div class="count">
+							<span class="currency">
+								{{wallet.totalMoney | formatCurrency}}
+							</span>
+						</div>
+					</div>
+					<div class="item light-red-bg">
+						<div class="title">钱包余额/元</div>
+						<div id="Balance" class="count">
+							<span class="currency">
+								{{wallet.money | formatCurrency}}
+							</span>
+						</div>
+					</div>
+					<div class="item red-bg">
+						<a class="link-red" href="javascript:void(0);" data-xx-action="openDraw">
+							<span class=""></span>我要取款
+						</a>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top: 50px;">
+				<div class="">
+					<div class="advert-search-box clearfix" id="SearchBox">
+						<button class="btn btn-xx-green btn-xx-sm btnTimeLine" data-value="7"  data-xx-action="switchTimeBucket">近7天</button>
+						<button class="btn btn-xx-green btn-xx-sm btnTimeLine" data-value="14" data-xx-action="switchTimeBucket">近14天</button>
+						<button class="btn btn-xx-green btn-xx-sm btnTimeLine" data-value="30"  data-xx-action="switchTimeBucket">近30天</button>
+						<form class="search-form">
+							<input type="text" class="datetime datetime-min" placeholder="开始时间" readonly id="ChartStartDate" data-targetId="ChartEndDate" data-compare-rule="less" data-compare-tips="开始时间不能大于结束时间" />
+							<input type="text" class="datetime datetime-max" placeholder="结束时间" readonly id="ChartEndDate" data-targetId="ChartStartDate" data-compare-rule="more" data-compare-tips="结束时间不能小于开始时间" />
+							<button class="btn btn-xx-green btn-xx-sm btnConfirm width-60" data-xx-action="search">
+							<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-14"></i>
+							</span>
+							<span class="inside-text">确定</span>
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<span class="xx-title">收益数据统计</span>
+					</div>
+					<div class="chart-container">
+						<div class="chart-header clearfix">
+							<div class="options-group clearfix">
+								<span class="text-xx-yellow"><i class="fa fa-line-chart"></i>浏览量</span>
+								<span class="text-xx-green"><i class="fa fa-line-chart"></i>有效浏览量</span>
+								<span class="text-xx-blue"><i class="fa fa-line-chart"></i>点击量</span>
+								<span class="text-xx-purple"><i class="fa fa-line-chart"></i>有效点击量</span>
+							</div>
+						</div>
+						<div id="ChartBody" class="chart-body"></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title">
+						<span class="xx-title">收支明细</span>
+						<div class="xx-right">
+							<div class="advert-search-box clearfix" id="RecordSearchBox">
+								<label>
+									<input type="radio" name="record-type" checked data-xx-change-action="switchIncomeAndExpenses" value="IN" />收入明细
+								</label>
+								<label>
+									<input type="radio" name="record-type" data-xx-change-action="switchIncomeAndExpenses" value="OUT" />支出明细
+								</label>
+							</div>
+						</div>
+					</div>
+					<div id="WalletListContainer">
+						<!-- 收入明细: wallet/innerIncomeList -->
+						<!-- 支出明细: wallet/innerSpendList -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

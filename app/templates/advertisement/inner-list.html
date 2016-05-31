@@ -1,0 +1,43 @@
+<table class="table middle">
+	<thead class="xx-table-header">
+		<tr>
+			<th>日期</th>
+			<th>浏览量</th>
+			<th>有效浏览量</th>
+			<th>点击量</th>
+			<th>有效点击量</th>
+			<th class="xx-border-right">收益/元</th>
+		</tr>
+	</thead>
+	<tbody class="xx-table-body center">
+		{{each returns as record i}}
+		<tr>
+			<td>
+				{{if i==0}}{{record.date}}{{else}}{{record.date | makedate: 'yyyy-MM-dd'}}{{/if}}
+			</td>
+			<td>
+				{{record.views}}
+			</td>
+			<td>
+				{{record.effectiveViews}}
+			</td>
+			<td>
+				{{record.clicks}}
+			</td>
+			<td>
+				{{record.effectiveClicks}}
+			</td>
+			<td>
+				<span class="currency">{{(record.viewsMoney + record.clicksMoney) | formatCurrency}}</span>
+			</td>
+		</tr>
+		{{/each}}
+		{{if returns.length==0}}
+		<tr>
+			<td colspan="6" class="center">
+				无广告收益记录
+			</td>
+		</tr>
+		{{/if}}
+	</tbody>
+</table>

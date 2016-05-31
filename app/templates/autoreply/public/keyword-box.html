@@ -1,0 +1,18 @@
+<!-- 关键词回复编辑 关键词模版 -->
+<h4 class="xx-inner-title clearfix">
+	<span class="xx-title">关键词</span>
+	<button class="btn btn-xx-green btn-xx-sm" data-xx-action="openKeywordModel">+关键词</button>
+</h4>
+<div id="keywordContainer" class="form-group xx-tag-group clearfix"></div>
+<div style="margin-bottom: 10px;">
+	<label class="label-input">
+		<input type="radio" class="xx-option-input xx-radio" name="matchType" value="EQUAL" checked/>
+		完全匹配
+	</label>
+</div>
+<div style="margin-bottom: 10px;">
+	<label class="label-input">
+		<input type="radio" class="xx-option-input xx-radio" name="matchType" value="LIKE"  {{if matchType=="LIKE"}}checked{{/if}} />
+		模糊匹配
+	</label>
+</div>

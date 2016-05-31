@@ -1,0 +1,14 @@
+<div class="">
+	<h5 class="xx-inner-title">
+		<span class="xx-title">选择颜色</span>
+	</h5>
+	<div class="colors-box">
+		{{each groups as group i}}
+		<div class="color-row clearfix">
+			{{each group.colors as gcolor j}}
+			<div class="color {{if gcolor.r==color.R&&gcolor.g==color.G&&gcolor.b==color.B}}active{{/if}}" style="background-color:rgb({{gcolor.r}},{{gcolor.g}},{{gcolor.b}});" data-r="{{gcolor.r}}" data-g="{{gcolor.g}}" data-b="{{gcolor.b}}" ></div>
+			{{/each}}
+		</div>
+		{{/each}}
+	</div>
+</div>

@@ -1,0 +1,113 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">问卷调查编辑</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body questionnaire-edit form-edit">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<div class="xx-border-bottom">
+				<div class="form-group post-img-container">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">问卷海报</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="avatar-wrapper">
+							<img id="QuestionnaireAvatar" class="event-avatar"  src="{{questionnaire.thumbnail}}" onerror="this.src='images/default/event.jpg';"/>
+						</div>
+						<div class="buttons">
+							<button class="btn btn-xx-green" data-xx-action="openImageSelector" data-toggle="tooltip" data-placement="right" title="建议上传海报比例 300*200！">
+								<span>选择海报</span>
+							</button>
+							<button class="btn btn-xx-green btn-cut {{if !questionnaire.thumbnail}}hide{{/if}}" data-xx-action="openImageCrop">
+								<span>剪切</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">标题</span>
+					</h4>
+					<div class="xx-inner-content">
+						<input name="name" class="form-control" type="text" placeholder="请输入标题" value="{{questionnaire.title}}" data-xx-change-action="modifyQTitle" data-xx-keyup-action="modifyQTitle" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">时间</span>
+					</h4>
+					<div class="datetimepicker-group xx-inputs clearfix">
+						<div class="xx-input-group">
+							<span class="xx-input-group-addon">从</span>
+							<input id="StartDate"  name="startDate" type="text" class=" datetimepicker min" placeholder="开始日期" value="{{questionnaire.startDate | makedate:'yyyy/MM/dd hh:mm'}}"  readonly/>
+						</div>
+						<div class="xx-input-group">
+							<span class="xx-input-group-addon">至</span>
+							<input id="EndDate" name="endDate" type="text" class=" datetimepicker max" placeholder="结束日期" value="{{questionnaire.endDate | makedate:'yyyy/MM/dd hh:mm'}}"  readonly/>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="form-group terse-container">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">问卷简介（简要概括本次问卷调查，100字以内）</span>
+					</h4>
+					<div class="xx-inner-body">
+						<textarea class="xx-textarea xx-textarea-bounds-o" name="terse" data-validate-rule="require" data-tips="简介不能为空" data-xx-change-action="terseValidate" data-xx-keyup-action="terseValidate">questionnaire.terse</textarea>
+						<p class="bottom-tips">
+							还可以输入
+							<span id="TerseRemain">questionnaire.terse?100-questionnaire.terse.length:100</span>
+							字。
+						</p>
+					</div>
+				</div> -->
+				<!-- 报名成员是否需要绑定手机号 -->
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px; width:270px;">
+						<span class="xx-title"  title="是否需要用户绑定手机号码">是否需要用户绑定手机号码</span>
+						<div class="xx-right">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" id="CompulsivelyBindPhoneNumber" name="compulsivelyBindPhoneNumber" {{if questionnaire.compulsivelyBindPhoneNumber}}checked{{/if}}  data-xx-change-action="modifyCheckBox"/>
+								<label class="xx-switch-label" for="CompulsivelyBindPhoneNumber">
+									<div class="xx-switch-inner">
+										<div class="xx-active" tooltip title="需要用户绑定手机号码">是</div>
+										<div class="xx-inactive"  tooltip title="不需要用户绑定手机号码">否</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</div>
+					</h4>
+				</div>
+				<div class="form-group rich-container">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">问卷调查详情</span>
+					</h4>
+					<textarea id="Context">{{questionnaire.text}}</textarea>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">问卷选项编辑</span>
+					</h4>
+					<div class="form-editor-container clearfix">
+						<div id="PreviewContainer" class="media-preview-area">
+							<!-- app/templates/questionnaire/edit/rows -->
+						</div>
+						<div id="EditorContainer" class="media-editor-area">
+							<!-- app/templates/questionnaire/edit/editor -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="center buttons" style="margin-top: 20px;">
+				<button class="btn btn-xx-green" data-xx-action="save">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">保存</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

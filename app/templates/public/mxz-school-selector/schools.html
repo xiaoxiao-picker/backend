@@ -1,0 +1,8 @@
+{{each schools as school i}}
+<li class="school ellipsis">
+	<label class="label-input" title="{{school.name}}" tooltip tooltip-zindex="1050">
+		<input type="checkbox" class="xx-option-input xx-checkbox name ellipsis" name="school" data-id="{{school.id}}" data-name="{{school.name}}"  />
+		{{school.name}}
+	</label>
+</li>
+{{/each}}

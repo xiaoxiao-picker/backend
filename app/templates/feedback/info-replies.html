@@ -1,0 +1,26 @@
+<!-- 反馈 -->
+<h4 class="xx-inner-title">
+	<span class="xx-title">
+		当前反馈（<i id="TotalReplyCount">{{count||0}}</i>）
+	</span>
+</h4>
+<div class="xx-inner-body">
+	{{each replies as reply i}}
+	<div class="reply-box">
+		<h5 class="user-name">
+			<a href="javascript:void(0);" data-user-id="{{user.id}}" data-xx-action="checkUser">
+			{{user.nickname||user.phoneNumber||"匿名"}}
+			{{if user.id==directorId}}
+			<span class="label label-xx-sm label-xx-red" title="官方回复">官方</span>
+			{{/if}}
+			</a>
+		</h5>
+		<div class="reply-context">
+			{{reply.text}}
+		</div>
+		<div class="reply-extend-info">
+			<span class="date">{{reply.createDate | makedate:'yyyy-MM-dd hh:mm'}}</span>
+		</div>
+	</div>
+	{{/each}}
+</div>

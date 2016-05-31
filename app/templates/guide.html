@@ -1,0 +1,48 @@
+{{include './partial/header2'}}
+<div class="section">
+	<div class="main-container guide-container image-back">
+		<div class="guide">
+			<div class="guide-header">
+				<img src="./images/welcome.png"></div>
+			<div class="options-wrapper">
+				<div class="options clearfix" id="ORGANIZATIONCONTAINER">
+					{{each orgs as org i}}
+					<div class="option-wrapper">
+						<div class="option" data-value="{{org.id}}" data-xx-action="select" title="{{org.info.name||'未命名'}}">
+							<div class="avatar">
+								<img src="{{org.info.logoUrl | imageUrl:'@70w_70h_1c_1e'}}" onerror="this.src='./images/default/org.jpg';" alt="{{org.info.name}}" />
+							</div>
+							<div class="name ellipsis">
+								<span>{{org.info.name||"未命名"}}</span>
+							</div>
+						</div>
+						<div class="buttons">
+							<button class="btn-remove xx-btn" data-value="{{org.id}}" data-xx-action="remove" title="删除">
+								<span class="inside-text"> <i class="fa fa-times"></i>
+								</span>
+								<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+								</span>
+							</button>
+						</div>
+					</div>
+					{{/each}}
+					<div class="option-wrapper">
+						<div class="option" data-xx-action="create">
+							<div class="avatar avatar-plus">
+								<span class="fa fa-plus"></span>
+							</div>
+							<button class="name create">
+								<span class="inside-loading">
+									<i class="fa fa-spinner rolling"></i>
+								</span>
+								<span class="inside-text">新建组织</span>
+							</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{include './partial/footer'}}

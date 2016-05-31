@@ -1,0 +1,24 @@
+<!-- 微首页容器 -->
+<div class="phone-box unselect">
+	<div class="inner-phone-box">
+		<div class="phone">
+			<div  id="HomePageContainer">
+				<!-- 微首页模板 -->
+				<!-- app/templates/wechat/personalized/homepage/templates/win8 -->
+				<!-- app/templates/wechat/personalized/homepage/templates/rotate -->
+				<!-- app/templates/wechat/personalized/homepage/templates/selectTemplate -->
+				{{include './templates/selectTemplate'}}
+			</div>
+			
+			<div class="phone-submit">
+				<button class="submit" data-xx-action="saveHomePage" data-toggle="tooltip" data-placement="top" title="点击保存，启用之后就可查看最新微首页啦！">
+					<span class="inside-loading font-30"> <i class="fa fa-spinner rolling"></i>
+					</span>
+					<span class="inside-text">
+						<i class="pk pk-submit"></i>
+					</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

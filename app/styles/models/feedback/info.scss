@@ -1,0 +1,74 @@
+.feedback-info-container {
+	.info-wrapper {
+		tbody tr td {
+			padding: 0 0 15px;
+
+			.avatar {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
+			.title {
+				line-height: 25px;
+				color: $xx-title-color;
+			}
+			.content {
+				font-size: 14px;
+				line-height: 20px;
+				color: #b3b3b3;
+			}
+			.date {
+				font-size: 12px;
+				padding-top: 10px;
+				color: $xx-title-color;
+			}
+		}
+	}
+	.feedback-text {
+		&.xx-inner-body {
+			padding: 0;
+		}
+	}
+	#RepliesContainer {
+		padding-bottom: 15px;
+		.xx-inner-body{
+			padding:0;
+		}
+		.reply-box {
+			position: relative;
+			padding: 10px;
+			border-bottom: 1px solid $default-border-color;
+			.user-name {
+				margin: 5px 0;
+				a {
+					color: $xx-theme-color;
+					&:hover {
+						color: $xx-theme-deep-color;
+					}
+				}
+			}
+			.reply-context {
+				p {
+					margin-bottom: 5px;
+				}
+			}
+			.reply-extend-info {
+				margin: 5px 0;
+				span {
+					color: #aaa;
+					margin-right: 20px;
+					font-size: 14px;
+				}
+			}
+			.buttons {
+				position: absolute;
+				bottom: 20px;
+				right: 10px;
+
+				.btn {
+					min-width: 60px;
+				}
+			}
+		}
+	}
+}

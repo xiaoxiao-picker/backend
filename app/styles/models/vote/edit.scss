@@ -1,0 +1,182 @@
+.vote-list {
+        td {
+                .btn {
+                        margin: 0 1px;
+                        min-width: 50px !important;
+                }
+        }
+
+        .xx-switch {
+                margin: 0 auto;
+        }
+}
+
+.vote-subTitle {
+        color: $xx-title-color;
+        font-size: 14px;
+        padding-bottom: 10px;
+}
+
+.vote-count-result {
+        color: $xx-title-color;
+        padding-left: 10px;
+
+        .number {
+                display: inline-block;
+                border-radius: $default-border-radius;
+                font-size: 12px;
+                padding: 0 3px;
+                background-color: $green-color;
+                color: #fff;
+                height: 20px;
+                line-height: 20px;
+                min-width: 20px;
+                text-align: center;
+        }
+
+        .operator {
+                font-size: 18px;
+                color: $green-color;
+        }
+}
+
+.vote-target-group {
+        margin: 0 10px;
+
+        .vote-target-wrapper {
+                margin-right: 20px;
+                margin-bottom: 15px;
+        }
+}
+
+.vote-target-wrapper {
+        position: relative;
+        display: inline-block;
+        background-color: #fff;
+        height: 95px;
+        width: 70px;
+        border: 1px solid $default-border-color;
+
+        &:hover {
+                .target-btn {
+                        display: inline-block;
+                }
+        }
+
+        .target {
+                cursor: pointer;
+                margin: 0;
+                color: $default-gray-color;
+                text-align: center;
+
+                // line-height: 20px;
+                font-size: 12px;
+
+                .avatar {
+                        width: 100%;
+                        height: 70px;
+                        background-size: 100%;
+                        overflow: hidden;
+                        background-color: $main-background-color;
+                }
+
+                .title {
+                        padding: 0 3px;
+                        overflow: hidden;
+                }
+        }
+
+        .target-btn {
+                border-radius: 50%;
+                position: absolute;
+                cursor: pointer;
+                display: none;
+                width: 16px;
+                height: 16px;
+                text-align: center;
+                font-size: 16px;
+                background-color: #fff;
+        }
+
+        .target-del {
+                right: -8px;
+                top: -12px;
+                color: $red-color;
+
+                &:hover {
+                        color: $deep-red-color;
+                }
+        }
+}
+
+.vote-player-wrapper {
+        .avatar-wrapper {
+                float: left;
+                width: 30%;
+                padding-right: 10px;
+        }
+
+        .option-wrapper {
+                float: left;
+                width: 70%;
+                padding-left: 10px;
+        }
+
+        .avatar-wrapper {
+                height: auto;
+
+                .logo {
+                        position: relative;
+                        background-color: #fff;
+                        border-radius: 4px;
+                        margin-bottom: 10px;
+
+                        img {
+                                width: 100%;
+                                max-height: 300px;
+                                border-radius: 4px;
+                        }
+
+                        .upload {
+                                position: absolute;
+                                width: 26px;
+                                height: 26px;
+                                text-align: center;
+                                font-size: 18px;
+                                display: inline-block;
+                                border-radius: 50%;
+                                right: 2px;
+                                bottom: 2px;
+                                background-color: #ffffff;
+                                cursor: pointer;
+
+                                .fa {
+                                        color: #999;
+                                }
+
+                                &:hover {
+                                        .fa {
+                                                //color: $theme-color;
+                                       
+                                        }
+                                }
+                        }
+                }
+        }
+
+        .prompt {
+                margin-top: 50px;
+        }
+
+        .row {
+                margin-bottom: 10px;
+        }
+}
+
+.vote-rules-box {
+        padding: 10px;
+        border: 1px dashed $red-color;
+        color: $red-color;
+        line-height: 20px;
+        width: 500px;
+}

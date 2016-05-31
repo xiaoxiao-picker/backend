@@ -1,0 +1,42 @@
+<!-- SWIPERNOTE 风格的 个性化微首页模板 -->
+{{include './header'}}
+<div class="phone-body">
+	<div id="TemplateContainer">
+		<div id="Template" class="template back-image temp-swiper temp-swiper-note" style="{{if page.json.backColor}}background-color:{{page.json.backColor}};{{else if page.json.backImage}}background-image:url({{page.json.backImage}}){{/if}}">
+			<header class="temp-header clearfix">
+				{{include './swiper-container'}}
+				<div class="add-buttons">
+					<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addCarousel"  title="添加轮播图"><span class="fa fa-plus"></span></button>
+				</div>
+			</header>
+			<section class="temp-body">
+				<div class="menus clearfix">
+					{{each menus as menu i}}
+					<div class="menu">
+						<div class="wrapper" data-xx-action="checkMenu" data-index="{{i}}" title="{{menu.name}}">
+							<div class="menu-wrapper" >
+								<div class="menu-icon back-image" style="{{if menu.backImage}}background-image:url({{menu.backImage}});{{/if}}"></div>
+								<p class="menu-name ellipsis" style="{{if menu.backColor}}background-color:{{menu.backColor}}{{/if}};">{{menu.name}}</p>
+							</div>
+
+							<div class="buttons">
+								<button class=" btn-minus-circle" data-xx-action="removeMenu" data-index="{{i}}">
+									<span class="fa fa-minus-circle"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+					<div class="menu add">
+						<div class="wrapper">
+							<div class="menu-wrapper" data-xx-action="createMenu" title="创建新菜单"> 
+								<i class="fa fa-plus"></i>
+								<span>创建菜单</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

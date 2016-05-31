@@ -1,0 +1,9 @@
+<!-- 关键词集合 -->
+{{each targets as target i}}
+<div class="xx-tag-wrapper">
+	<label class="xx-tag" data-value="{{target}}" id="target"  data-xx-action="removeTag">{{target}}</label>
+	<span class="xx-tag-btn xx-tag-del">
+	<i class="fa fa-minus-circle" data-value="{{target}}" data-xx-action="removeKeyword"></i>
+	</span>
+</div>
+{{/each}}

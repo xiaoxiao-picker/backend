@@ -1,0 +1,18 @@
+{{each pictures as picture i}}
+<div class="wrapper">
+	<div class="image-box" title="{{picture.name||picture.fileName}}" data-value="{{picture.url}}">
+		<div class="img-wrapper">
+			{{if code=='ICON_FLAT'||code=='ICON_REAL'}}
+			<img class="picture" src="{{picture.url}}">
+			{{else}}
+			<img class="picture" src="{{picture.url | imageUrl:'@110w_120h_1e_1l'}}" alt="">
+			{{/if}}
+			<img class="load-img" src="./images/spinner.gif"/>
+		</div>
+		<div class="title-wrapper ellipsis">{{picture.name||picture.fileName}}</div>
+		<div class="confirm-overlay">
+			<span class="fa fa-check"></span>
+		</div>
+	</div>
+</div>
+{{/each}}

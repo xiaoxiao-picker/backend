@@ -1,0 +1,108 @@
+/**
+ *	选项集合样式
+ */
+
+.xx-tag-group {
+	//clear: both;
+}
+
+/**
+ *	使用方式：
+ *	<div class="xx-tag-wrapper">
+ *		<label class="xx-tag"></label>
+ *		<span class="xx-tag-btn xx-tag-del">
+ *			<i class="fa fa-minus-circle"></i>
+ *		</span>
+ *	</div>
+ */
+.xx-tag-wrapper {
+	position: relative;
+	display: block;
+	float: left;
+	background-color: #fff;
+	font-size: 12px;
+	min-width: 70px;
+	line-height: 25px;
+	color: $default-gray-color;
+	text-align: center;
+	border-radius: $default-border-radius;
+	border: 1px solid #e6e6e6;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	cursor: pointer;
+
+	&.xx-blue {
+		background-color: $blue-color;
+		border-color: $blue-color;
+
+		.xx-tag {
+			color: #fff;
+		}
+		&:hover {
+			background-color: $deep-blue-color;
+		}
+	}
+	&.xx-red {
+		background-color: $red-color;
+		border: none;
+
+		.xx-tag {
+			color: #fff;
+		}
+		&:hover {
+			background-color: $deep-red-color;
+		}
+	}
+	&.xx-green {
+		background-color: $green-color;
+		border: none;
+
+		.xx-tag {
+			color: #fff;
+		}
+		&:hover {
+			background-color: $deep-green-color;
+		}
+	}
+	&:hover {
+		.xx-tag-btn {
+			display: inline-block;
+		}
+	}
+	.xx-tag {
+		cursor: pointer;
+		margin: 0;
+		font-weight: normal;
+		display: inline-block;
+		width: 100%;
+		padding: 0 5px;
+	}
+	.xx-tag-btn {
+		border-radius: 50%;
+		position: absolute;
+		cursor: pointer;
+		display: none;
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		text-align: center;
+		font-size: 16px;
+		background-color: #fff;
+	}
+	.xx-tag-del {
+		right: -8px;
+		top: -8px;
+		color: $red-color;
+
+		&:hover {
+			color: $deep-red-color;
+		}
+	}
+}
+.xx-tag-group {
+	margin: 0 10px;
+
+	&.xx-tag-group-o {
+		margin: 0;
+	}
+}

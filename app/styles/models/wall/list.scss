@@ -1,0 +1,26 @@
+.wall-list {
+        .btn-group {
+                display: inline-block;
+
+                .dropdown-group {
+                        .dropdown-menu {
+                                width: 100px;
+                                min-width: 100px;
+
+                                .btn-remove {
+                                        color: $danger-color;
+
+                                        &:hover {
+                                                color: $deep-danger-color;
+                                        }
+                                }
+                        }
+                }
+        }
+
+        .xx-table-body {
+                .btn {
+                        min-width: 50px !important;
+                }
+        }
+}

@@ -1,0 +1,14 @@
+<div class="ticket-list-label">
+	已抢名单（{{count}}）
+	<br>
+	<a class="btn btn-success btn-sm" href="/api/event/{{eventId}}/export/ticketlist?ticketSourceId={{sourceId}}" target="_blank">导出名单</a>
+</div>
+<div class="ticket-list">
+	{{if count > 0}}
+	{{include '../event/ticket/innerTicketMembers'}}
+	{{else}}
+	<div class="ticket-item">
+		暂无人员抢票
+	</div>
+	{{/if}}
+</div>

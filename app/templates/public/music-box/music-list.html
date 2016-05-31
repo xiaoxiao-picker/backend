@@ -1,0 +1,32 @@
+<table class="table middle">
+	<tbody >
+		<!-- 如果暂无音乐素材，提示添加 -->
+		{{if resources.length==0}}
+		<tr>
+			<td class="center unselect">哟，还没音乐素材呢，赶紧上传一个尝尝鲜！</td>
+		</tr>
+		{{else if emptyMessage}}
+		<tr>
+			<td class="center index"> <i class="fa fa-music"></i>
+				<input type="radio" id="music_none" name="musicbox" data-value="" value="" checked />
+			</td>
+			<td colspan="2">
+				<label for="music_none">不设置背景音乐</label>
+			</td>
+		</tr>
+		{{/if}}
+		
+		{{each resources as resource i}}
+		<tr>
+			<td class="center index"> <i class="fa fa-music"></i>
+				<input type="radio" name="musicbox" data-value="{{resource.url}}" value="{{resource.url}}" {{if resource.url==url}}checked{{/if}} />
+			</td>
+			<td>
+				{{i+1}} .
+				<a class="music btn-play" data-value="{{resource.url}}" href="javascript:void(0);">{{resource.fileName}}</a>
+			</td>
+			<td class="width-150">{{resource.createDate | makedate:'yyyy-MM-dd hh:mm'}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

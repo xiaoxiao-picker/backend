@@ -1,0 +1,26 @@
+.panel {
+	.panel-header {
+		.page-tips-container {
+			background-color: #5bd18b;
+			position: relative;
+			padding: 10px 5px;
+			color: #fff;
+			border-radius: 2px;
+			margin-top: 20px;
+
+			.page-tips {
+				a{
+
+				}
+			}
+			.buttons {
+				position: absolute;
+				top: 7px;
+				right: 10px;
+
+				.btn {
+				}
+			}
+		}
+	}
+}

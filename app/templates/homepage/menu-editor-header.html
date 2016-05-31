@@ -1,0 +1,23 @@
+<h4 class="xx-inner-title">
+	{{if type=="MENU"}}
+	<span class="xx-title">图标/背景色/背景图</span>
+	{{else}}
+	<span class="xx-title">轮播图图片</span>
+	{{/if}}
+</h4>
+<div class="clearfix">
+	{{if type=="MENU"}}
+	{{if template!="SWIPERNOTE"}}
+	<div class="info-box menu-icon" data-xx-action="openIconSelector" title="选择菜单图标">
+		<img class="icon" src="{{menu.icon}}" />
+	</div>
+	{{/if}}
+	<div class="info-box menu-back-color" style="background-color:{{menu.backColor}};" data-xx-action="openColorPicker" title="选择菜单背景颜色">	
+	</div>
+	{{if template!="SWIPERSUDOKU"}}
+	<img class="info-box menu-back-image" alt="无" src="{{menu.backImage}}" data-xx-action="openBackImage" title="选择菜单背景图片" />
+	{{/if}}
+	{{else}}
+	<img class="info-box carousel-image" alt="无" src="{{menu.backImage}}" data-xx-action="openBackImage" title="选择轮播图图片" />
+	{{/if}}
+</div>

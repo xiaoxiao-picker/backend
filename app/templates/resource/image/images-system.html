@@ -1,0 +1,16 @@
+{{each pictures as picture i}}
+<div class="wrapper">
+	<div class="image-box">
+		<div class="img-wrapper" data-id="{{picture.id}}" data-xx-action="checkImage">
+			{{if code=='ICON_FLAT'||code=='ICON_REAL'||code=='ICON_LOTTERY'}}
+			<img class="picture" src="{{picture.url}}" />
+			{{else}}
+			<img class="picture" src="{{picture.url | imageUrl:'@170w_150h_1e_1l'}}" />
+			{{/if}}
+		</div>
+		<div class="title-wrapper ellipsis" title="{{picture.name||picture.fileName}}" style="border: none;">
+			{{picture.name||picture.fileName}}
+		</div>
+	</div>
+</div>
+{{/each}}

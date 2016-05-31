@@ -1,0 +1,61 @@
+
+{{if !(menu.subMenus&&menu.subMenus.length>0)}}
+	<div class="form-row">
+		<h4 class="xx-inner-title">
+			<span class="xx-title">绑定功能</span>
+		</h4>
+		<div class="module-edit-wrapper" {{if source.code == "articles"||source.code == "events"||source.code == "proposal"||source.code=="home"||source.code=="orgs"}}style="height:360px;"{{/if}}>
+			<div class="module" >
+				<img src="{{source.poster}}" />
+			</div>
+			<div class="module-text">
+				<div id="ModuleTitle"> <strong>{{source.name}}</strong>
+				</div>
+				<div id="ModuleContent" class="font-12">功能说明: {{source.content}}</div>
+			</div>
+		</div>
+	</div>
+	{{if source.code == "articles"||source.code == "events"||source.code == "proposal"||source.code=="orgs"}}
+	<div class="form-row">
+		<h4 class="xx-inner-title">
+			<span class="xx-title">对应分类</span>
+		</h4>
+		<div >
+			<select class="width-p-100" id="Categories" data-xx-change-action="changedCategory">
+				<!-- select option 模板  app/templates/public/option -->
+			</select>
+		</div>
+	</div>
+	{{else if source.code=="home"}}
+	<div class="form-row">
+		<h4 class="xx-inner-title">
+			<span class="xx-title">选择对应微首页</span>
+		</h4>
+		<div >
+			<!-- 微首页模板选择 -->
+			<select class="width-p-100" id="HOMETEMPLATES" data-xx-change-action="changeHomepage">
+				<!-- select option 模板  app/templates/public/option -->
+			</select>
+		</div>
+	</div>
+	{{/if}}
+
+	<div class="form-row">
+		<div class="buttons">
+			{{if menu.content}}
+			<button class="btn-binded">
+				<span class="pk pk-tick"></span>
+				<span class="text">已绑定</span>
+			</button>
+			<button class="btn-rebind" data-xx-action="resetBind">重新绑定</button>
+			{{else}}
+			<button id="BtnSave" class="btn btn-xx-green" data-xx-action="saveMenu">
+				<span class="inside-text">绑定</span>
+			</button>
+			<button class="btn btn-xx-danger" data-xx-action="cancel">取消</button>
+			{{/if}}
+		</div>
+	</div>
+{{/if}}
+
+

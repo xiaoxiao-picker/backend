@@ -1,0 +1,29 @@
+<!-- 个性化公众号 自定义菜单 -->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">个性化公众号</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<!-- models/wechat/personalized/guide.scss -->
+	<div class="personalized-wrapper">
+		<div class="personalized personalized-menu">
+			<!-- <div class="box box1"></div>-->
+			<div class="box box2">
+				<div id="MenusBox">
+					<!-- 菜单显示模板 app/templates/wechat/personalized/menus-->
+				</div>
+			</div>
+			<div class="box box3">
+				<div id="MenuSettingBox" class="menu-setting-box">
+					{{include '../menu/emptyMenu'}}
+					<!-- 未选择菜单时提示信息模板 app/templates/wechat/personalized/emptyMenu -->
+					<!-- 自定义菜单模板 app/templates/wechat/personalized/customMenu -->
+					<!-- 校校木块菜单模板 app/templates/wechat/personalized/moduleMenu -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

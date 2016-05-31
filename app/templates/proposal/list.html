@@ -1,0 +1,39 @@
+<!-- 提案列表 -->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" {{if state=="UNSOLVED"}}class="active"{{/if}}>
+			<a href="#proposals?state=UNSOLVED">未解决</a>
+		</li>
+		<li role="presentation" {{if state=="SOLVED"}}class="active"{{/if}}>
+			<a href="#proposals?state=SOLVED">已解决</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#proposal/categories">分类管理</a>
+		<!-- <button class="btn btn-sm btn-xx-green" data-xx-action="setProposalTitle">设置提案标题</button> -->
+	</div>
+</div>
+<div class="content-body proposal-list">
+	<div class="panel clearfix" id="proposalContent">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（<span id="Count">{{count||0}}</span>）</span>
+			</h3>
+			<div class="buttons search-group">
+				<form class="search-box ">
+					<input type="text" class="input-search dropdown" data-xx-action="selectCategory" placeholder="提案分类" readonly="true" />
+					<input type="text" class="input-search keyword-name" placeholder="请输入关键字" value="{{keyword}}" />
+					<button class="btn-search" data-xx-action="search">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling"></i>
+						</span>
+						<span class="inside-text">
+							<i class="fa fa-search"></i>
+						</span>
+					</button>
+				</form>
+			</div>
+		</header>
+
+	</div>
+</div>

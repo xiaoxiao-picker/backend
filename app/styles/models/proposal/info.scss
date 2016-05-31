@@ -1,0 +1,135 @@
+.proposal-info {
+        .setting-condition-wrapper {
+                .setting.reports {
+                        // padding-right: 200px;
+
+                        p {
+                                margin: 0;
+                        }
+                }
+
+                .buttons {
+                        font-size: 12px;
+                }
+        }
+
+        .proposal-info-container {
+                margin-bottom: 20px;
+
+                .user-info-wrapper {
+                        position: relative;
+
+                        img {
+                                width: 40px;
+                                height: 40px;
+                                border-radius: 50%;
+                                float: left;
+                        }
+
+                        .user-name {
+                                line-height: 20px;
+                                font-size: 16px;
+                                font-weight: normal;
+                                margin-left: 50px;
+                                line-height: 40px;
+                        }
+
+                        .date {
+                                position: absolute;
+                                right: 0;
+                                top: 11px;
+                                color: #888;
+                        }
+                }
+
+                .proposal-wrapper {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        position: relative;
+
+                        .proposal-name {
+                                line-height: 25px;
+                                font-size: 18px;
+                                font-weight: bold;
+                                margin: 10px 0;
+                        }
+
+                        .proposal-context {
+                                line-height: 20px;
+                                font-size: 14px;
+                                font-weight: normal;
+
+                                img {
+                                        display: block;
+                                        float: left;
+                                        max-width: 100%;
+                                        max-height: 250px;
+                                        margin-right: 20px;
+                                }
+
+                                > p {
+                                        margin: 10px 0;
+                                }
+                        }
+
+                        .proposal-extend-info {
+                                margin: 5px 0;
+                        }
+
+                        .buttons {
+                                position: absolute;
+                                right: 10px;
+                                bottom: 10px;
+                        }
+                }
+        }
+
+        #SystemReplyContainer, #CommentContainer {
+                position: relative;
+                margin: 15px 0;
+
+                .buttons {
+                        position: absolute;
+                        right: 10px;
+                        top: 1px;
+                }
+        }
+
+        .admin-replies {
+                > li {
+                        color: $default-gray-color;
+                        padding: 10px;
+                        border-bottom: 1px solid $default-border-color;
+                        margin-bottom: 10px;
+
+                        &:hover {
+                                .buttons {
+                                        display: block;
+                                }
+                        }
+
+                        &:last-child {
+                                border-bottom: none;
+                        }
+
+                        .content {
+                                margin-bottom: 10px;
+                        }
+
+                        .footer {
+                                position: relative;
+
+                                .user-name, .date {
+                                        color: #444;
+                                }
+                        }
+
+                        .buttons {
+                                position: absolute;
+                                bottom: 1px;
+                                top: initial !important;
+                                display: none;
+                        }
+                }
+        }
+}

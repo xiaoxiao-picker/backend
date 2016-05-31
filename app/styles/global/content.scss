@@ -1,0 +1,132 @@
+body {
+        overflow: auto;
+
+        &.modal-open {
+                overflow: hidden;
+        }
+}
+
+.section {
+        position: fixed;
+        border: none;
+        border-radius: 0;
+        margin-bottom: 0;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        bottom: 10px;
+
+        .main-container {
+                position: relative;
+                margin: 0 auto;
+                height: 100%;
+                width: 1170px;
+        }
+
+        .container {
+                padding: 0;
+                margin-left: 210px;
+                height: 100%;
+                overflow: auto;
+                background-color: #fff;
+        }
+}
+
+.content-header, .content-body {}
+
+.content-header {
+        position: relative;
+        height: $content-header-height;
+        background-color: #fff;
+        border-bottom: 1px solid $main-background-color;
+        user-select: none;
+
+        h3 {
+                font-size: 14px;
+                line-height: $content-header-height;
+                margin: 0;
+                padding-left: 15px;
+        }
+
+        .nav {
+                &.nav-tabs {
+                        z-index: 1001;
+                        border-bottom: 0;
+                        zoom: 1;
+
+                        > li {
+                                float: left;
+                                height: 100%;
+                                min-width: 120px;
+                                text-align: center;
+                                border-bottom: 1px solid $main-background-color;
+                                position: relative;
+                                margin-top: -1px;
+
+                                .bubble {
+                                        position: absolute;
+                                        top: 0;
+                                        right: 2px;
+                                        width: 20px;
+                                        height: 20px;
+                                        line-height: 20px;
+                                        text-align: center;
+                                        display: inline-block;
+                                        border-radius: 50%;
+                                        background-color: #FF5959;
+                                        color: #fff;
+                                        font-size: 12px;
+                                        overflow: hidden;
+                                        cursor: default;
+                                }
+
+                                > a {
+                                        border-radius: 0;
+                                        margin-right: 0;
+                                        border: none;
+                                        padding: 0 15px;
+                                        background-color: #fff;
+                                        line-height: 36px;
+                                        font-size: 14px;
+
+                                        &:hover, &:focus {
+                                                background-color: #fff;
+                                        }
+                                }
+
+                                &.active {
+                                        border-color: $xx-theme-color;
+                                }
+                        }
+                }
+        }
+
+        .buttons {
+                position: absolute;
+                right: 30px;
+                top: 0;
+                height: 100%;
+                line-height: $content-header-height;
+
+                .btn {
+                        min-width: 70px;
+                }
+        }
+}
+
+.content-body {
+        background-color: #fff;
+        padding-bottom: 15px;
+}
+
+.relation-list {
+        .xx-inner-title {
+                position: relative;
+
+                .buttons {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                }
+        }
+}

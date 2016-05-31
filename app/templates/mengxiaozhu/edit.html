@@ -1,0 +1,38 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">查课表/查成绩</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addSchools">
+		<span class="inside-loading">
+			<i class="fa fa-spinner rolling"></i>
+		</span>
+		<span class="inside-text">添加学校</span>
+		</button>
+	</div>
+</div>
+<div class="content-body timetable-edit">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<div class="form-group description">
+				<h4 class="xx-inner-title clearfix">
+					<span class="xx-title">功能说明：</span>
+				</h4>
+				<div class="xx-content">
+					<p>1、当前组织可对已添加的学校进行 课表/成绩 查询。</p>
+					<p>2、请管理员确保已添加的学校支持 课表/成绩 查询功能，如果不支持，查询时报错，或希望开通请提交工单至 <a target="_blank" href="https://www.mengxiaozhu.cn/page/workorder">萌小助</a> 。</p>
+					<p>3、统一查询链接为：<a target="_blank" href="{{frontRoot}}/index.html#organization/{{orgId}}/mengxiaozhu/mxzmain">{{frontRoot}}/…/mengxiaozhu/mxzmain</a>（可右键复制）。</p>
+
+				</div>
+			</div>
+			<div class="form-group">
+				<h4 class="xx-inner-title clearfix">
+				<span class="xx-title">已添加的学校列表</span>
+				</h4>
+				<div class="schools-container"></div>
+			</div>
+		</div>
+	</div>
+</div>

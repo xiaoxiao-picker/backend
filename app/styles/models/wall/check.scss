@@ -1,0 +1,200 @@
+.wall-check {
+	.box {
+		
+		width: 420px;
+		position: relative;
+
+		.box-header {
+			position: relative;
+			padding: 10px 5px;
+			border: 1px solid #ddd;
+
+			.buttons {
+				position: absolute;
+				line-height: 40px;
+				right: 5px;
+				top: 0;
+
+				// span {
+				// 	display: inline-block;
+				// }
+				.xx-switch {
+					display: inline-block;
+					top: 5px;
+				}
+			}
+		}
+		.message-list {
+			font-family: "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif, Helvetica, Tahoma, Arial;
+			min-height: 400px;
+			
+			.message-box {
+				border: 1px solid #ddd;
+				border-top: 1px solid transparent;
+				margin-top: -1px;
+				position: relative;
+				padding-top: 10px;
+				cursor: pointer;
+
+				.operation {
+					display: none;
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 340px;
+					height: 100%;
+
+					.danger, .success {
+						float: left;
+						width: 50%;
+						color: #fff;
+						height: 100%;
+						text-align: center;
+						line-height: 70px;
+						cursor: pointer;
+					}
+					.danger {
+						background-color: rgba(244, 66, 66, .8);
+					}
+					.success {
+						background-color: rgba(91, 209, 139, .8);
+					}
+				}
+				&:hover {
+					.operation {
+						display: block;
+					}
+				}
+			}
+			.message {
+				.message-avatar, .message-body, .message-footer {
+					float: left;
+				}
+				.message-avatar {
+					text-align: center;
+					width: 80px;
+				}
+				.message-body {
+					width: 300px;
+
+					p {
+						margin-bottom: 3px;
+					}
+					.nickname {
+						font-weight: bold;
+						font-size: 14px;
+						color: #777;
+					}
+					.content {
+						font-size: 14px;
+					}
+				}
+				.message-footer {
+					width: 38px;
+					text-align: center;
+					line-height: 70px;
+					color: $xx-theme-color;
+					font-size: 18px;
+
+					.checked {
+					}
+				}
+			}
+			.avatar {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				border: 3px solid #fff;
+
+				&:hover {
+					box-shadow: 0px 0px 3px #888;
+				}
+			}
+		}
+		#MESSAGESHADOW {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.8);
+			padding-top: 200px;
+			display: none;
+			color: $xx-theme-color;
+
+			&.active {
+				display: block;
+			}
+			.buttons span {
+				color: #fff;
+			}
+		}
+	}
+	.unchecked {
+		float: left;
+
+		.buttons {
+			span {
+				color: $xx-theme-color;
+			}
+		}
+	}
+	.checked {
+		float: right;
+
+		.box-header {
+			color: $xx-theme-color;
+
+			.buttons {
+				background-color: $xx-theme-color;
+				right: 0;
+				width: 100px;
+				height: 100%;
+				overflow: hidden;
+				line-height: 30px;
+
+				.play, .pause {
+					width: 100%;
+					text-align: center;
+					cursor: pointer;
+					height: 100%;
+					color: #fff;
+
+					.fa {
+						color: $xx-theme-color;
+						width: 25px;
+						height: 25px;
+						background-color: #fff;
+						border-radius: 50%;
+						line-height: 25px;
+					}
+				}
+				.play {
+					display: block;
+				}
+				.pause {
+					display: none;
+				}
+				&.playing {
+					.play {
+						display: none;
+					}
+					.pause {
+						display: block;
+					}
+				}
+			}
+		}
+		.message-box {
+			&:hover {
+				border-color: #fc4141;
+			}
+		}
+	}
+	.page-tips-container {
+		.page-tpis {
+			font-size: 12px;
+			  padding-right: 200px;
+		}
+	}
+}

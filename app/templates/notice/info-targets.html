@@ -1,0 +1,26 @@
+<div id="targetsContainer">
+	<div>
+		<div class="xx-inner-title clearfix">
+			<div class="xx-title">已发送给&nbsp;(&nbsp;{{targets.length}}&nbsp;)</div>
+		</div>
+		<div class="xx-tag-group">
+			{{each targets as target i}}
+			<div class="xx-tag-wrapper xx-blue" data-user-id="{{target.user.id}}" data-xx-action="checkUser">
+				<label class="xx-tag" >{{target.member.remark||target.user.name||target.user.nickname||target.user.tel||"无备注"}}</label>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+	<div>
+		<div class="xx-inner-title clearfix">
+			<div class="xx-title">未回复人数&nbsp;(&nbsp;{{unReplys.length}}&nbsp;)</div>
+		</div>
+		<div class="xx-tag-group">
+			{{each unReplys as target i}}
+			<div class="xx-tag-wrapper xx-red" data-user-id="{{target.user.id}}" data-xx-action="checkUser">
+				<label class="xx-tag" >{{target.member.remark||target.user.name||target.user.nickname||target.user.tel||"无备注"}}</label>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</div>

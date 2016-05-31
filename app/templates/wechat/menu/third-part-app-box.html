@@ -1,0 +1,30 @@
+<!-- 个性化微首页 基础菜单选择编辑 -->
+<div class="xx-inner-title">
+	<span class="xx-title">绑定功能</span>
+</div>
+<ul class="xx-tab-group">
+	<li class="xx-item xx-item-4" data-xx-action="switchToBase">
+		<span>官方功能</span>
+	</li>
+	<li class="xx-item xx-item-4 active">
+		<span>第三方应用</span>
+	</li>
+	<li class="xx-item xx-item-4" data-xx-action="switchToCustom">
+		<span>外部链接</span>
+	</li>
+</ul>
+<!-- models/wechat/personalized/menu_selector_box -->
+<div class="modules-wrapper clearfix">
+	{{each modules as module i}}
+	<div class="module-item">
+		<div data-xx-action="selectThirdPartyApp" data-code="{{module.code}}">
+			<div>
+				<img src="{{module.poster}}" />
+			</div>
+			<div>
+				<span>{{module.name}}</span>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>

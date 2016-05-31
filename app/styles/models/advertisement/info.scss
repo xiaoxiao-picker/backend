@@ -1,0 +1,128 @@
+.advert-text-container {
+	padding: 0 10px;
+	.text-box {
+		float: left;
+		padding: 3px 15px;
+		border: 1px dashed $green-color;
+		color: $green-color;
+	}
+}
+.advert-info-wrapper {
+	height: 100px;
+	img {
+		float: left;
+		width: 200px;
+		height: 100%;
+		border-radius: $default-border-radius;
+		border: 1px solid $default-border-color;
+		margin-right: 20px;
+	}
+	.info-msg {
+		float: left;
+		height: 100%;
+		padding: 10px;
+		margin-right: 20px;
+		border-radius: $default-border-radius;
+		background-color: $green-color;
+		color: #fff;
+		.margin-bottom {
+			margin-bottom: 10px;
+		}
+	}
+	.surplus {
+		float: left;
+		height: 100%;
+		padding: 10px;
+		border-radius: $default-border-radius;
+		background-color: $red-color;
+		color: #fff;
+		text-align: center;
+		line-height: 20px;
+		.time {
+			line-height: 60px;
+			font-size: 60px;
+		}
+	}
+}
+.total-container {
+	.item {
+		float: left;
+		width: 20%;
+		height: 70px;
+		text-align: center;
+		padding: 10px;
+		&.yellow-bg {
+			background-color: #fffbe5;
+			border-top: 2px solid $yellow-color;
+			color: $yellow-color;
+		}
+		&.green-bg {
+			background-color: #eefaf3;
+			border-top: 2px solid $green-color;
+			color: $green-color;
+		}
+		&.blue-bg {
+			background-color: #eef6fd;
+			border-top: 2px solid $blue-color;
+			color: $blue-color;
+		}
+		&.purple-bg {
+			background-color: #f2eefa;
+			border-top: 2px solid $purple-color;
+			color: $purple-color;
+		}
+		&.red-bg {
+			background-color: #fff1f1;
+			border-top: 2px solid $red-color;
+			color: $red-color;
+		}
+		.count {
+			font-size: 24px;
+		}
+	}
+}
+.chart-container {
+	.chart-header {
+		margin-bottom: 10px;
+		position: relative;
+		.options-group {
+			float: left;
+			span {
+				display: block;
+				float: left;
+				margin-right: 20px;
+
+			}
+		}
+		.advert-search-box{
+			position:absolute;
+			top:0;
+			right:0;
+			width: 480px; 
+		}
+	}
+	.chart-body {
+		border-top: 2px solid $green-color;
+	}
+}
+
+.advert-image{
+	height: 206.5px;
+	background-image: url(./../images/market-bg.png);
+}
+
+.advert-search-box{
+	text-align: right;
+	.btn{
+		margin-right: 10px;
+	}
+	.search-form{
+		display:inline-block;
+		// margin-bottom: -5px;
+		.datetime{
+			width: 100px;
+			padding: 0px 5px 2px;
+			cursor: pointer;
+		}
+	}
+}

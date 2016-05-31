@@ -1,0 +1,17 @@
+/* 阴影层样式 */
+.shadow-box {
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:1100;
+	.inner-box{
+		position:relative;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		background-color:#000;
+		background-color: rgba(0,0,0,.4);
+	}
+}

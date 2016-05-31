@@ -1,0 +1,122 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">个人信息</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<form>
+				<div class="form-group form-org-logo">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">用户头像</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="avatar-wrapper">
+							<img id="UserAvatar" class="logo user-avatar-{{id}}" src="{{portraitUrl | imageUrl:'@150w_150h_1e_1c'}}" onerror="this.src='./images/default/avatar.jpg';"/>
+							<div class="upload" tooltip title="建议上传比例 300*300！">
+								<a href="javascript:void(0);" data-xx-action="openImageSelector">
+									<span>选择头像</span>
+								</a>
+								&nbsp;
+								<a class="btn-cut {{if !portraitUrl}}hide{{/if}}" href="javascript:void(0);" data-xx-action="openImageCrop">
+									<span>剪切</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>
+						<h4 class="xx-inner-title">
+						<span class="xx-title">昵称</span>
+						</h4>
+						<input class="xx-input-text xx-text-bounds" type="text" placeholder="请填写你的昵称" name ="nickname" value="{{nickname}}"/>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<h4 class="xx-inner-title">
+						<span class="xx-title">真实姓名</span>
+						</h4>
+						<input class="xx-input-text xx-text-bounds" type="text" placeholder="请填写你的真实姓名" name="name" value="{{name}}"/>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<h4 class="xx-inner-title">
+						<span class="xx-title">现居地</span>
+						</h4>
+						<input class="xx-input-text xx-text-bounds" type="text" name="address" value="{{address}}" placeholder="请填写你现在的居住地"/>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<h4 class="xx-inner-title">
+						<span class="xx-title">家乡</span>
+						</h4>
+						<input class="xx-input-text xx-text-bounds" type="text" name="hometown" value="{{hometown}}" placeholder="请填写你的家乡"/>
+					</label>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">性别</span>
+					</h4>
+					<div class="xx-option-input-group">
+						<label class="label-input">
+							<input type="radio" class="xx-option-input xx-radio" name="gender" value="0" {{if gender==0}}checked{{/if}}/>
+							保密
+						</label>
+						<label class="label-input">
+							<input type="radio" class="xx-option-input xx-radio" name="gender" value="1" {{if gender==1}}checked{{/if}}/>
+							男
+						</label>
+						<label class="label-input">
+							<input type="radio" class="xx-option-input xx-radio" name="gender" value="2" {{if gender==2}}checked{{/if}}/>
+							女
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>
+						<h4 class="xx-inner-title">
+						<span class="xx-title">入学时间</span>
+						</h4>
+						<input class="xx-input-text xx-text-bounds datetimepicker" type="text" name ="grade" value="{{grade | makedate:'yyyy/MM/dd'}}" placeholder="请选择你的入学时间" readonly/>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<h4 class="xx-inner-title">
+						<span class="xx-title">学号</span>
+						</h4>
+						<input class="xx-input-text xx-text-bounds" type="text" name ="studentId" value="{{studentId}}" placeholder="请填写你的学号"/>
+					</label>
+				</div>
+				<div class="form-group">
+					<label>
+						<h4 class="xx-inner-title">
+						<span class="xx-title">学校</span>
+						</h4>
+					<input id="SchoolText" class="xx-input-text xx-text-bounds" type="text" name="school" value="{{school}}" placeholder="请选择您所在的学校！" data-xx-action="showSchools" readonly></label>
+				</div>
+				<div class="form-group">
+					<label>
+						<div class="xx-inner-title clearfix">
+							<div class="xx-title">学院</div>
+						</div>
+						<input class="xx-input-text xx-text-bounds" type="text" name="campus" value="{{campus}}" placeholder="请填写你所在的学院"></label>
+					</div>
+					<p class="btn-xx-group left">
+						<button class="btn btn-xx-green" data-xx-action="update">
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+						</button>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>

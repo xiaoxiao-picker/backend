@@ -1,0 +1,13 @@
+{{each users as user i}}
+<li class="user-row {{if i==0}}actived{{/if}}">
+    <a class="clearfix" href="javascript:void(0);" data-value="{{user.id}}" data-xx-action="checkReply">
+        <img src="{{user.portraitUrl | imageUrl:'@50w_50h_1e_1c'}}" onerror="this.src='./images/default/avatar.jpg'">
+        <span class="nick ellipsis">
+			{{user.name||user.nickname||user.phoneNumber||'匿名用户'}}
+		</span>
+        <span class="label label-xx-green label-gender">
+			{{["密","男","女"][user.gender||0]}}
+		</span>
+    </a>
+</li>
+{{/each}}

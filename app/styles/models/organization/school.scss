@@ -1,0 +1,84 @@
+#SchoolForm {
+	.avatar-wrapper {
+		margin-bottom: 10px;
+	}
+	.qrcode-img {
+		height: 150px;
+		width: 150px;
+	}
+}
+
+.vote-target-group {
+        margin: 0 10px;
+        .vote-target-wrapper {
+                margin-right: 20px;
+                margin-bottom: 15px;
+        }
+}
+
+.vote-target-wrapper {
+        position: relative;
+        display: inline-block;
+        background-color: #fff;
+        height: 95px;
+        width: 70px;
+        border: 1px solid $default-border-color;
+        &:hover {
+                .target-btn {
+                        display: inline-block;
+                }
+        }
+        .target {
+                cursor: pointer;
+                margin: 0;
+                color: $default-gray-color;
+                text-align: center;
+                // line-height: 20px;
+                font-size: 12px;
+                .avatar {
+                        width: 100%;
+                        height: 70px;
+                        background-size: 100%;
+                        overflow: hidden;
+                        background-color: $main-background-color;
+                }
+                .title {
+                        padding: 0 3px;
+                        overflow: hidden;
+                }
+        }
+        .target-btn {
+                border-radius: 50%;
+                position: absolute;
+                cursor: pointer;
+                display: none;
+                width: 16px;
+                height: 16px;
+                text-align: center;
+                font-size: 16px;
+                background-color: #fff;
+        }
+        .target-del {
+                right: -8px;
+                top: -12px;
+                color: $red-color;
+                &:hover {
+                        color: $deep-red-color;
+                }
+        }
+}
+
+.organization-edit-wrapper {
+        width: 280px;
+        margin: auto;
+        .avatar-wrapper {
+                height: 120px;
+                width: 120px;
+                margin-bottom: 15px;
+                >img {
+                        height: 100%;
+                        width: 100%;
+                }
+        }
+        
+}

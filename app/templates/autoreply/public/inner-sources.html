@@ -1,0 +1,16 @@
+{{each sources as source i}}
+<div class="appmsg-option">
+	<label class="label-option {{if i==sources.length-1}}xx-border-bottom{{/if}}" for="Option_{{(page-1)*limit+i+1}}">
+		<div class="title ellipsis">{{(page-1)*limit+i+1}}.{{source.title}}</div>
+		<input type="radio" id="Option_{{(page-1)*limit+i+1}}" class="xx-option-input xx-radio" name="option" value="{{i}}" data-xx-change-action="selectArticle" {{if curSource.type==curType&&curSource.id==source.id}}checked{{/if}}/>
+	</label>
+</div>
+{{/each}}
+<div class="footer">
+	<!-- 分页 -->
+</div>
+{{if sources.length==0}}
+<div class="list-empty">
+	<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+</div>
+{{/if}}

@@ -1,0 +1,293 @@
+$icon-height: 50px;
+$icon-height: 50px;
+.temp-rotate {
+	position: relative;
+	.menu-add-container{
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		z-index: 9;
+		.menu-add{
+			width: 50px;
+			height: 50px;
+			font-size: 18px;
+			cursor: pointer;
+			background-color:#f2f2f2;
+			border-radius:50px;
+			text-align: center;
+			line-height:50px;
+			&:hover{
+				background-color:#ffffff;
+			}
+		}
+	}
+	.temp-footer {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		height: 70px;
+		background-color: #fff;
+		background-color: transparent;
+		.footer-tabs {
+			padding: 0;
+			margin: 0;
+			>li {
+				float: left;
+				width: 33.333%;
+				text-align: center;
+				list-style-type: none;
+				.nav-icon {
+					display: block;
+					height: $icon-height;
+					width: $icon-height;
+					border-radius: 50%;
+					overflow: hidden;
+					margin: 0 auto;
+					border: 1px solid rgba(255,255,255,.7);
+					img {
+						height: 30px;
+						width: 30px;
+						margin: 10px auto;
+					}
+				}
+				.title {
+					line-height: 20px;
+					color: #fff;
+				}
+			}
+		}
+	}
+	
+	/** * 天女散花 */
+	.temp-body {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0px;
+		top: 0;
+		width: 100%;
+		&.open {
+			.wrapper {
+				background-color: rgba(0, 0, 0, .05);
+				border-top: 1px solid #333;
+				// background-image: url(./../images/shadow_02.png);
+				// background-repeat: repeat no-repeat;
+				// background-size: 100%;
+				// background-position: center;
+			}
+			.ring {
+				opacity: 1;
+				-webkit-transform: scale(1) rotate(0);
+				-moz-transform: scale(1) rotate(0);
+				transform: scale(1) rotate(0);
+			}
+			.tips {
+				display: none;
+			}
+			.name {
+				display: none;
+			}
+		}
+		.wrapper {
+			width: 100%;
+			height: 100%;
+			// overflow: auto;
+			padding-bottom: 70px;
+		}
+		.circle, .ring {
+			position: relative;
+			height: 230px;
+			width: 230px;
+		}
+		.circle {
+			margin: 0px auto 0 auto;
+		}
+		.ring {
+			//background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 50%;
+			opacity: 0;
+			-webkit-transform-origin: 50% 50%;
+			-moz-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			-webkit-transform: scale(0.1) rotate(-270deg);
+			-moz-transform: scale(0.1) rotate(-270deg);
+			-transform: scale(0.1) rotate(-270deg);
+			-webkit-transition: all 0.4s ease-out;
+			-moz-transition: all 0.4s ease-out;
+			transition: all 0.4s ease-out;
+		}
+		.center {
+			border-radius: 50%;
+			border: 0px solid #ffffff;
+			bottom: 0;
+			color: white;
+			left: 0;
+			margin: auto;
+			position: absolute;
+			right: 0;
+			text-align: center;
+			top: 0;
+			width: 70px;
+			height: 70px;
+			-webkit-transition: all 0.4s ease-out;
+			-moz-transition: all 0.4s ease-out;
+			transition: all 0.4s ease-out;
+			overflow: hidden;
+			img {
+				background-color: #fff;
+				background-color: rgba(255, 255, 255, .3);
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.name {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			bottom: 50px;
+			left: 0;
+			font-size: 16px;
+			color: #fff;
+		}
+		.open .center {
+			border-color: #aaaaaa;
+		}
+		.menuItem {
+			// border-radius: 50%;
+			display: block;
+			height: 70px;
+			width: 70px;
+			margin-left: -35px;
+			margin-top: -35px;
+			position: absolute;
+			text-align: center;
+			overflow: hidden;
+			dl {
+				line-height: normal;
+				margin: 0;
+				padding: 0;
+				dt {
+					text-align: center;
+					position: relative;
+					&:hover{
+						.buttons{
+							display: block;
+						}
+					}
+					.icon {
+						width: $icon-height;
+						height: $icon-height;
+						border-radius: 50%;
+						margin: 0 auto;
+						overflow: hidden;
+						border: 1px solid rgba(255,255,255,.7);
+						img {
+							height: 30px;
+							width: 30px;
+							margin: 10px auto;
+						}
+					}
+					.buttons {
+						line-height: 0;
+						display: none;
+						position: absolute;
+						top: 0px;
+						right: 0px;
+						button.btn-minus-circle {
+							.fa-minus-circle {
+								width: 17px;
+								height: 17px;
+								background-color: #fff;
+								border-radius: 50%;
+							}
+						}
+					}
+				}
+				dd {
+					text-align: center;
+					line-height: 20px;
+					font-size: 14px;
+					color: #fff;
+					margin:0;
+				}
+			}
+		}
+		.tips {
+			position: absolute;
+			bottom: 75px;
+			left: 0;
+			width: 100%;
+			line-height: 30px;
+			color: #fff;
+			text-align: center;
+			font-size: 12px;
+			display: block;
+		}
+	}
+}
+.rolling3 {
+	-webkit-animation: rolling3 10s infinite linear;
+	-moz-animation: rolling3 10s infinite linear;
+	-o-animation: rolling3 10s infinite linear;
+	-ms-animation: rolling3 10s infinite linear;
+	animation: rolling3 10s infinite linear; /* Prevent first frame from flickering when animation starts */
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+	-o-animation-fill-mode: both;
+	-ms-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+@-webkit-keyframes rolling3 {
+	0% {
+		-webkit-transform: rotate(0deg)
+	}
+	30% {
+		-webkit-transform: rotate(250deg)
+	}
+	70% {
+		-webkit-transform: rotate(180deg)
+	}
+	100% {
+		-webkit-transform: rotate(360deg)
+	}
+}
+@-moz-keyframes rolling3 {
+	0% {
+		-moz-transform: rotate(0deg)
+	}
+	100% {
+		-moz-transform: rotate(360deg)
+	}
+}
+@-o-keyframes rolling3 {
+	0% {
+		-o-transform: rotate(0deg)
+	}
+	100% {
+		-o-transform: rotate(360deg)
+	}
+}
+@-ms-keyframes rolling3 {
+	0% {
+		-ms-transform: rotate(0deg)
+	}
+	100% {
+		-ms-transform: rotate(360deg)
+	}
+}
+@keyframes rolling3 {
+	0% {
+		transform: rotate(0deg)
+	}
+	30% {
+		transform: rotate(250deg)
+	}
+	70% {
+		transform: rotate(180deg)
+	}
+	100% {
+		transform: rotate(180deg)
+	}
+}

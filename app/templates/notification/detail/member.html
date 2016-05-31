@@ -1,0 +1,22 @@
+<div class="detail-container">
+	<div class="avatar-header">
+		<img class="avatar-img" data-xx-action="checkUser" data-user-id="{{notification.source.id}}" src="{{notification.source.portraitUrl | imageUrl:'@100w_100h_1c_1e'}}" onerror='this.src="/images/default/avatar.jpg"'>
+		<h4>{{notification.source.name||notification.source.nickname||notification.source.phoneNumber}}</h4>
+		<span class="label label-xx-green">成员管理</span>
+	</div>
+	<div class="content-wrapper">
+		<div>
+			<p>用户【{{notification.source.name||notification.source.nickname||notification.source.phoneNumber}}】申请加入组织</p>
+		</div>
+		<p>
+			{{if rank==1}}
+			<span class="text-green">已是管理员</span>
+			{{else if rank==0}}
+			<span class="text-green">已是成员</span>
+			{{else if rank==-200}}
+			<span class="text-red">已拒绝</span>
+			{{/if}}
+		</p>
+	</div>
+	<div class="detail-body"></div>
+</div>

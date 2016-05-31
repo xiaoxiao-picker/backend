@@ -1,0 +1,66 @@
+<!-- 申请加入组织成员信息 -->
+<div class="member-header-wrapper">
+	<div class="content-wrapper">
+		<img class="member-avatar" src="{{user.portraitUrl | imageUrl:'@100w_100h_1e_1c'}}" onerror="this.src='images/default/avatar.jpg';">
+		<div class="member-info">
+			<div class="user-name">{{user.name||user.nickname||"无昵称"}}</div>
+			<div>手机：{{user.phoneNumber||"暂无"}}</div>
+			<div>邮箱：{{user.email||"暂无"}}</div>
+		</div>
+	</div>
+</div>
+<div class="member-info-wrapper" style="padding:20px;padding-right:3px;">
+	<div class="row">
+		<h3 class="xx-inner-title">
+		<span class="xx-title">申请时间</span>
+		<span>{{date | makedate:'yyyy-MM-dd hh:mm'}}</span>
+		</h3>
+	</div>
+	<div class="row">
+		<h3 class="xx-inner-title">
+		<span class="xx-title">申请人资料</span>
+		</h3>
+		<ul class="xx-inner-content" style="max-height: 400px;overflow: auto; padding-right: 25px;">
+			{{each fields as field i}}
+			<div class="info-row {{field.type}} clearfix">
+				<span class="info-title" style="float: left;">
+					{{field.title | questionNameFilter}}
+				</span>
+				<span class="info-content" style="float: right;">
+					{{if field.type=="TEXT"}}
+					{{field.answer}}
+					{{else if field.type=="DATE"}}
+					{{field.answer | makedate:'yyyy-MM-dd hh:mm'}}
+					{{else if field.type=="TEXTAREA"}}
+					{{field.answer}}
+					{{else if field.type=="SINGLETON"||field.type=="MULTIPLE"}}
+					{{each field.options as option i}}
+					{{if option.selected}}
+					{{option.name+" "}}
+					{{/if}}
+					{{/each}}
+					{{else if field.type=="IMAGE"}}
+					<img src="{{field.answer}}" style="max-width: 100%;" />
+					{{/if}}
+				</span>
+			</div>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+{{if !readonly}}
+<div class="modal-footer member-info-footer">
+	<div class="buttons">
+		<button class="btn btn-xx-green btnAgree">
+		<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">同意</span>
+		</button>
+		<button class="btn btn-xx-red btnReject">
+		<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">拒绝</span>
+		</button>
+	</div>
+</div>
+{{/if}}

@@ -1,0 +1,85 @@
+.xx-table {
+	display: table;
+	width: 100%;
+	.xx-table-row {
+		display: table-row;
+		//min-height: 45px;
+		.xx-table-cell {
+			display: table-cell;
+			&.middle {
+				vertical-align: middle;
+			}
+			&.top {
+				vertical-align: top;
+			}
+			&.padding-10 {
+				padding: 10px 0;
+			}
+			&.padding-20 {
+				padding: 20px 0;
+			}
+		}
+		&.middle {
+			.xx-table-cell {
+				vertical-align: middle;
+			}
+		}
+		&.top {
+			.xx-table-cell {
+				vertical-align: top;
+			}
+		}
+		
+	}
+	.xx-table-header {
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		height: 40px;
+		.xx-table-cell {
+			border-top: 2px solid $xx-theme-color;
+			border-bottom: 1px solid $default-border-color;
+			border-left: 1px solid $default-border-color;
+			&.xx-border-right {
+				border-right: 1px solid $default-border-color;
+			}
+			&.xx-border-top-green {
+				border-top: 2px solid $green-color;
+			}
+		}
+	}
+	.xx-table-body {
+		font-size: 14px;
+		//height: 50px;
+		.xx-table-cell {
+			border-bottom: 1px solid $default-border-color;
+			.button-right {
+				float: right;
+			}
+		}
+	}
+	&.middle {
+		.xx-table-row {
+			.xx-table-cell {
+				vertical-align: middle;
+				//padding: 10px 0;
+				&.top {
+					vertical-align: top;
+				}
+			}
+		}
+	}
+	&.top {
+		.xx-table-row {
+			.xx-table-cell {
+				vertical-align: top;
+				//padding: 10px;
+			}
+		}
+	}
+	&.padding-top-15 {
+		padding-top: 15px;
+	}
+}
+
+

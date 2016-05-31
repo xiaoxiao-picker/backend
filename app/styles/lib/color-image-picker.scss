@@ -1,0 +1,41 @@
+//
+.modal-backdrop .modal-dialog.color-image-selector {
+        width: 490px;
+        .buttons {
+                text-align: center;
+        }
+}
+
+.color-image-selector {
+        .background-box {
+                text-align: left;
+                margin-bottom: 20px;
+                .image-box {
+                        position: relative;
+                        border: 1px solid #e4e4e4;
+                        background-color: #f2f2f2;
+                        height: 400px;
+                        width: 240px;
+                        margin: 0 auto;
+                        .tips {
+                                text-align: center;
+                                background-color: #ffffff;
+                                background-color: rgba(255, 255, 255, 0.8);
+                                color: $xx-theme-color;
+                        }
+                        .buttons {
+                                position: absolute;
+                                top: 190px;
+                                left: 0;
+                                width: 100%;
+                                text-align: center;
+                        }
+                        .uploadify {
+                                margin: 0 auto;
+                        }
+                }
+                .color-box {
+                        height: 300px;
+                }
+        }
+}

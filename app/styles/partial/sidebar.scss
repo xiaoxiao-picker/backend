@@ -1,0 +1,142 @@
+.sidebar-box {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: $sidebar-width;
+        height: 100%;
+        background-color: #fff;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .sidebar {
+                width: 220px;
+                height: 100%;
+                overflow: auto;
+
+                .sidebar-neck {
+                        text-align: center;
+                        padding: 0 30px 0 10px;
+
+                        .neck-header {
+                                position: relative;
+                                height: $content-header-height;
+                                text-align: center;
+                                border-bottom: 1px solid $main-background-color;
+
+                                .neck-label {
+                                        display: inline-block;
+                                        margin-top: 8px;
+                                }
+                        }
+
+                        .neck-body {
+                                .neck-avatar {
+                                        width: 70px;
+                                        height: 70px;
+                                        border-radius: 50%;
+                                        margin: 15px auto 10px;
+                                }
+                        }
+
+                        .neck-footer {
+                                word-break: break-all;
+                                white-space: pre;
+                        }
+                }
+
+                ul.sidebar-nav {
+                        margin-top: 10px;
+                        padding: 0;
+                        padding-bottom: 20px;
+                        list-style: none;
+                        width: 100%;
+
+                        > li {
+                                list-style: none;
+
+                                a {
+                                        color: #000;
+
+                                        &:hover {
+                                                color: #000;
+                                        }
+                                }
+
+                                .menu-title {
+                                        padding-left: 30px;
+                                        line-height: 50px;
+                                        font-size: 14px;
+
+                                        // font-weight: bold;
+                                        cursor: pointer;
+
+                                        &:hover {
+                                                .fa {
+                                                        display: inline;
+                                                }
+                                        }
+
+                                        .pk {
+                                                margin-bottom: -4px;
+                                                margin-right: 10px;
+                                        }
+
+                                        .fa {
+                                                font-size: 16px;
+                                                color: $green-color;
+                                                display: none;
+                                        }
+                                }
+
+                                ul.level2 {
+                                        max-height: 0;
+                                        overflow: hidden;
+                                        padding-left: 0;
+                                        transition: all .3s;
+                                        -webkit-transition: all .3s;
+                                        -moz-transition: all .3s;
+                                        -o-transition: all .3s;
+                                        -ms-transition: all .3s;
+
+                                        > li {
+                                                &.active {
+                                                        border-right: 10px solid $xx-theme-color;
+                                                        background-color: #f1f1f1;
+
+                                                        &:hover, &:focus, &:active {
+                                                                border-right: 10px solid $xx-theme-color;
+                                                                background-color: #f7f7f7;
+                                                        }
+                                                }
+
+                                                > a {
+                                                        display: block;
+                                                        font-size: 14px;
+                                                        line-height: 50px;
+                                                        text-indent: 60px;
+                                                        color: $xx-title-color;
+
+                                                        &:hover, &:focus, &:active {
+                                                                background-color: #f7f7f7;
+                                                        }
+                                                }
+                                        }
+                                }
+
+                                &.active {
+                                        ul.level2 {
+                                                max-height: 1000px;
+                                        }
+                                }
+                        }
+                }
+        }
+
+        .label-advert {
+                font-size: 12px;
+                display: inline;
+                background-color: #5bd18b;
+                padding: 0 1px;
+                margin-left: 3px;
+        }
+}

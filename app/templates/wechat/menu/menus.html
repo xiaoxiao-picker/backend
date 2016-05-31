@@ -1,0 +1,55 @@
+<!-- 菜单列表显示模板 -->
+<!-- 手机样式定义在 global/phone.scss 中 -->
+<div class="menus-box-wrapper phone-box">
+	<div class="menus-inner-box inner-phone-box">
+		<div class="phone">
+			<div class="phone-header center">自定义菜单预览</div>
+			<div class="phone-body">
+				<div class="inner-body">
+					<div class="chat-box">
+						<div class="row-box left clearfix">
+							<div class="avatar-wrapper">
+								<img src="{{organization.logoUrl | imageUrl:'@80w_80h'}}" onerror="this.src='./images/default/org.jpg';" />
+							</div>
+							<div class="info-wrapper">
+								<h5 class="ellipsis" title="{{organization.name}}">{{organization.name}}</h5>
+								<p>欢迎使用校校自定义菜单功能，在这里你可以选择绑定我们现有的功能和您自己的链接，让你的微信公众号变得丰富多彩！</p>
+							</div>
+						</div>
+						<div class="row-box right clearfix">
+							<div class="avatar-wrapper">
+								<img src="{{user.portraitUrl | imageUrl:'@80w_80h'}}" onerror="this.src='./images/default/avatar.jpg';" />
+							</div>
+							<div class="info-wrapper">
+								<h5>{{user.name||user.nickname||user.phoneNumber}}</h5>
+								<p><span class="text-xx-green">点击绿色Home键发布</span>，成功后多久能显示新菜单呢？</p>
+							</div>
+						</div>
+						<div class="row-box left clearfix">
+							<div class="avatar-wrapper">
+								<img src="{{organization.logoUrl | imageUrl:'@80w_80h'}}" onerror="this.src='./images/default/org.jpg';" />
+							</div>
+							<div class="info-wrapper">
+								<h5 class="ellipsis" title="{{organization.name}}">{{organization.name}}</h5>
+								<p><span class="text-xx-green">重新关注</span>微信公众号即可显示新菜单 或者 <span class="text-xx-green">24小时后</span>自动更新菜单。</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="phone-footer">
+				<!-- app/templates/wechat/menu/inner-menus.html -->
+			</div>
+			<div class="phone-submit">
+				<button class="submit" data-xx-action="publishCustomMenu" tooltip title="点击发布，之后重新关注微信公众号即可显示新菜单">
+				<span class="inside-loading font-30">
+					<i class="fa fa-spinner rolling"></i>
+				</span>
+				<span class="inside-text">
+					<i class="pk pk-submit"></i>
+				</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

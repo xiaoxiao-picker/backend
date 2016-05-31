@@ -1,0 +1,102 @@
+.temp-huali {
+	position: relative;
+
+	.front {
+		overflow: auto;
+		height: 100%;
+		background-attachment: fixed;
+		background-position: center;
+		background-size: auto 100%;
+
+		&.blur {
+			filter: blur(10px);
+		}
+	}
+	.temp-header {
+		width: 100%;
+		height: 159px;
+		padding-top: 1px;
+		text-align: center;
+		color: #fff;
+		background-color: #fff;
+		background-color: rgba(0, 0, 0, .05);
+
+		img {
+			display: block;
+			width: 70px;
+			height: 70px;
+			margin: 30px auto 0;
+			opacity: .8;
+			border: 2px solid #fff;
+			border-radius: 50%;
+		}
+		p {
+			font-size: 16px;
+			line-height: 30px;
+		}
+	}
+	.temp-body {
+		.menus {
+			min-height: 260px;
+			padding-bottom: 5px;
+			background-color: rgba(204, 223, 255, .2);
+			box-shadow: 0 -2px 3px 1px rgba(0, 0, 0, .2);
+
+			.menu {
+				position: relative;
+				float: left;
+				width: 33.333%;
+				margin-top: 20px;
+				text-align: center;
+				color: #fff;
+
+				&:hover {
+					.buttons {
+						display: block;
+					}
+				}
+				.icon {
+					line-height: 56px;
+					overflow: hidden;
+					width: 60px;
+					height: 60px;
+					margin: auto;
+					text-align: center;
+					border: 1px solid rgba(255, 255, 255, .7);
+					border-radius: 50%;
+					background-color: #fff;
+					background-color: transparent;
+					box-shadow: 0 3px 2px -1px rgba(0, 0, 0, .2);
+
+					img {
+						width: 30px;
+						height: 30px;
+						margin: 10px auto;
+					}
+				}
+				.name {
+					font-size: 14px;
+					line-height: 30px;
+					display: block;
+					overflow: hidden;
+					height: 30px;
+				}
+				.buttons {
+					position: absolute;
+					top: -5px;
+					right: 6px;
+					display: none;
+
+					button.btn-minus-circle {
+						.fa-minus-circle {
+							width: 17px;
+							height: 17px;
+							border-radius: 50%;
+							background-color: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+}

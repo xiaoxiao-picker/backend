@@ -1,0 +1,48 @@
+<!-- SWIPERSUDOKU 风格的 个性化微首页模板 -->
+{{include './header'}}
+<div class="phone-body">
+	<div id="TemplateContainer">
+		<div id="Template" class="template back-image temp-swiper temp-swiper-sudoku" style="{{if page.json.backColor}}background-color:{{page.json.backColor}};{{else if page.json.backImage}}background-image:url({{page.json.backImage}}){{/if}}">
+			<header class="temp-header clearfix">
+				{{include './swiper-container'}}
+				<div class="add-buttons">
+					<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addCarousel"  title="添加轮播图"><span class="fa fa-plus"></span></button>
+				</div>
+			</header>
+			<section class="temp-body">
+				<div class="menus clearfix">
+					{{each menus as menu i}}
+					<div class="menu back-image" style="{{if menu.backImage}}background-image:url({{menu.backImage}});{{/if}}">
+						<div class="wrapper" data-xx-action="checkMenu" data-index="{{i}}" title="{{menu.name}}" >
+							<div class="menu-wrapper" >
+								<div class="ico-wrapper" style="{{if menu.backColor}}background-color:{{menu.backColor}}{{/if}};">
+									<img class="menu-icon" src="{{menu.icon}}" alt="{{menu.name}}" />
+								</div>
+								
+								<p class="menu-name ellipsis">{{menu.name}}</p>
+							</div>
+
+							<div class="buttons">
+								<button class=" btn-minus-circle" data-xx-action="removeMenu" data-index="{{i}}">
+									<span class="fa fa-minus-circle"></span>
+								</button>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+					<div class="menu add">
+						<div class="wrapper" data-xx-action="createMenu" title="创建菜单">
+							<div class="menu-wrapper" >
+								<div class="ico-wrapper" style="background-color:rgba(255, 255, 255, .7);">
+									<i class="menu-icon fa fa-plus"></i>
+								</div>
+								
+								<p class="menu-name">创建菜单</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

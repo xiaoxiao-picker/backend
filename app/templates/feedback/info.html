@@ -1,0 +1,40 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">反馈详情</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body feedback-info-container">
+			
+			<div id="RepliesContainer">
+				<!-- app/templates/feedback/info-replies -->
+			</div>
+			<form>
+				<div class="form-group">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">回复</div>
+					</div>
+					<div class="feedback-text xx-inner-body">
+						<textarea id="ReplyContext" class="xx-textarea xx-textarea-bounds" name="text" data-tips="意见反馈不能为空" data-xx-change-action="textModify" data-xx-keyup-action="textModify"></textarea>
+						<p class="bottom-tips">
+							还可以输入
+							<span id="TerseRemain">{{text?100-text.length:100}}</span>
+							字。
+						</p>
+					</div>
+				</div>
+				<div class="xx-btn-group left">
+					<button class="btn btn-xx-green" data-xx-action="reply">
+						<span class="inside-loading"> 
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">发送</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

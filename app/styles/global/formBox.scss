@@ -1,0 +1,181 @@
+.form-editor-container {
+	user-select:none;
+	.media-preview-area {
+		float: left;
+		width: 280px;
+
+		.form-rows-box {
+			padding: 20px;
+			background-color: $default-background-color;
+			border: 1px solid $default-border-color;
+			border-radius: $default-border-radius;
+
+			.box-row {
+				position: relative;
+				cursor: pointer;
+				text-align: center;
+				margin-bottom: 20px;
+				border: 1px solid $default-border-color;
+
+				.row-header {
+					background-color: $green-color;
+					color: #fff;
+					padding: 0 10px;
+					line-height: 35px;
+					height: 35px;
+				}
+				.row-body {
+					&.height-35 {
+						line-height: 35px;
+					}
+					&.height-150 {
+						line-height: 150px;
+					}
+					.images-wrapper {
+						margin: 0 5px;
+
+						.wrapper {
+							float: left;
+							width: 33.333%;
+							padding: 10px 5px;
+
+							.image-add {
+								width: 100%;
+								height: 80px;
+								line-height: 80px;
+								border: 1px dashed $default-border-color;
+							}
+						}
+					}
+					.option{
+						height: 28px;
+						line-height: 28px;
+						border-bottom:1px solid #f2f2f2;
+					}
+				}
+				.row-edit-mask {
+					display: none;
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					text-align: center;
+					background-color: rgba(210, 210, 210, .8);
+
+					button {
+						.fa {
+							color: #7c7a7a;
+						}
+						&:hover {
+							.fa {
+								color: #000;
+							}
+						}
+					}
+					&.height-70 {
+						line-height: 70px;
+					}
+					&.height-185 {
+						line-height: 185px;
+					}
+					&.height-135 {
+						line-height: 135px;
+					}
+				}
+				&:hover {
+					.row-edit-mask {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	.box-add {
+		cursor: pointer;
+		line-height: 35px;
+		border: 1px dashed $green-btn-background-color;
+		text-align: center;
+		color: $green-btn-background-color;
+		background-color: #fff;
+
+		&:hover {
+			border: 1px dashed $green-btn-background-color-deep;
+			color: $green-btn-background-color-deep;
+		}
+	}
+	.media-editor-area {
+		margin-left: 325px;
+		width: 400px;
+
+		.form-editor-box {
+			position: relative;
+			padding: 20px;
+			background-color: #f4f5f9;
+			border: 1px solid #e7e7eb;
+			border-radius: $default-border-radius;
+
+			.arrow {
+				position: absolute;
+
+				&.arrow-out {
+					display: block;
+					width: 0;
+					height: 0;
+					border-width: 12px;
+					border-style: dashed;
+					border-color: transparent;
+					border-left-width: 0;
+					border-right-color: #e7e7eb;
+					border-right-style: solid;
+					top: 44px;
+					left: -11px;
+				}
+				&.arrow-in {
+					display: block;
+					width: 0;
+					height: 0;
+					border-width: 12px;
+					border-style: dashed;
+					border-color: transparent;
+					border-left-width: 0;
+					border-right-color: #f4f5f9;
+					border-right-style: solid;
+					top: 44px;
+					left: -10px;
+				}
+			}
+			.xx-input-text {
+				width: 100%;
+			}
+		}
+	}
+	.buttons {
+		margin: 30px 0;
+	}
+	.options {
+		.option-wrapper {
+			width: 80%;
+
+			.option-row {
+				margin-bottom: 5px;
+				position: relative;
+
+				&:hover {
+					.buttons {
+						display: block;
+					}
+				}
+			}
+			.buttons {
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: 100%;
+				line-height: 30px;
+				margin: 0;
+				display: none;
+			}
+		}
+	}
+}

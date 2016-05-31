@@ -1,0 +1,29 @@
+
+    {{each comments as comment i}}
+    <li class="comment">
+        <header class="user-info">
+            <img class="avatar user-avatar user-{{comment.user.id}}-avatar" src="{{comment.user.portraitUrl}}"  data-xx-action="checkUser" data-user-id="{{comment.user.id}}"/>
+            <span class="user-name" data-xx-action="checkUser" data-user-id="{{comment.user.id}}">{{comment.user.name||comment.user.nickname||"未命名"}}（{{comment.user.phoneNumber}}）</span>
+            <span class="date">{{comment.createDate | makedateSpan:'MM-dd hh:mm','yyyy-MM-dd hh:mm:ss'}}</span>
+
+            {{if comment.targetUser && comment.targetUser.id}}
+            <span title="回复" class="at">@</span>
+            <img class="avatar user-avatar user-{{comment.user.id}}-avatar target" src="{{comment.targetUser.portraitUrl}}"  data-xx-action="checkUser" data-user-id="{{comment.targetUser.id}}"/>
+            <span class="user-name target" data-xx-action="checkUser" data-user-id="{{comment.targetUser.id}}">{{comment.targetUser.name||comment.targetUser.nickname||"未命名"}}（{{comment.targetUser.phoneNumber}}）</span>
+            {{/if}}
+        </header>
+        <section class="comment-context">
+            {{#comment.text}}
+        </section>
+        <footer class="comment-ops">
+            <button class="btn btn-xx-sm btn-xx-green btnCommentReply" data-comment-id={{comment.id}}>
+                <span class="inside-loading"> <i class="fa fa-spinner rolling"></i></span>
+                <span class="inside-text">回复</span>
+            </button>
+            <button class="btn btn-xx-sm btn-xx-danger btnCommentRemove" data-comment-id={{comment.id}}> 
+                <span class="inside-loading"> <i class="fa fa-spinner rolling"></i></span>
+                <span class="inside-text">删除</span>
+            </button>
+        </footer>
+    </li>
+    {{/each}}

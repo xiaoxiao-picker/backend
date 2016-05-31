@@ -1,0 +1,13 @@
+<section class="textarea-modal">
+	<section class="content">
+		<textarea class="textarea xx-textarea" id="Context" rows="{{rows}}" placeholder="{{placeholder}}">{{text}}</textarea>
+		{{if maxLength >0 }}
+		<p class="bottom-tips">
+			还可以输入<span class="remain">{{maxLength}}</span>字。
+		</p>
+		{{/if}}
+	</section>
+	<footer class="footer">
+		<button class="btn btn-xx-green btn-submit">确定</button>
+	</footer>
+</section>

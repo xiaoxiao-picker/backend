@@ -1,0 +1,37 @@
+<div class="xx-inner-title clearfix">
+	<span class="xx-title">搜索结果&nbsp;(&nbsp;{{count||0}}&nbsp;)</span>
+</div>
+<div id="ResultOptions">
+	{{if orgs && orgs.length > 0}}
+	<div class="result-options clearfix">
+		{{each orgs as org i}}
+		<div class="option-wrapper clearfix">
+			<a href="javascript:void(0);" data-xx-action="showOrgInfo" data-value="{{org.id}}">
+				<img src="{{org.logoUrl | imageUrl:'@60w_60h_1e_1c'}}" onerror="this.src='./images/default/org.jpg';" />
+			</a>
+			<div class="org-info">
+				<div class="title ellipsis" >
+					<a href="javascript:void(0);" data-xx-action="showOrgInfo" data-value="{{org.id}}" title="{{org.name}}" tooltip>
+						{{org.name||"未命名"}}
+					</a>
+				</div>
+				<button class="btn btn-xx-sm btn-xx-green {{if org.relation == true}}hide{{/if}}" data-value="{{org.id}}" data-xx-action="add">
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-14"></i>
+				</span>
+				<span class="inside-text">添加</span>
+				</button>
+				<span class="remark text-green {{if org.relation == false}} hide {{/if}}">已添加</span>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	{{else}}
+	<div class="list-empty">
+		<span class="msg">暂无搜索结果</span>
+	</div>
+	{{/if}}
+</div>
+<div class="footer">
+	<!-- 分页 -->
+</div>

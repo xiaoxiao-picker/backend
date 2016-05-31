@@ -1,0 +1,28 @@
+<!-- 绑定帮助 模板 -->
+<div class="modal-header xx-modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+	<span aria-hidden="true">&times;</span>
+	<span class="sr-only">Close</span>
+	</button>
+	<h4>{{title}}</h4>
+</div>
+<div class="modal-body bind-help-container">
+	<div class="form-group">
+		<div class="xx-inner-title">
+			<span class="xx-title">第一步</span>
+		</div>
+		<div>
+			<img src="{{firstStep.img}}">
+			<div class="title">{{#firstStep.desc}}</div>
+		</div>
+	</div>
+	<div>
+		<div class="xx-inner-title">
+			<span class="xx-title">第二步</span>
+		</div>
+		<div>
+			<img src="{{secondStep.img}}">
+			<div class="title">{{#secondStep.desc}}</div>
+		</div>
+	</div>
+</div>

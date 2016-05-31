@@ -1,0 +1,21 @@
+// 弹出层二维码样式
+.qrcode {
+    .url-qrcode {
+        img {
+            width: 180px;
+            height: 180px;
+        }
+    }
+    .url-info {
+        padding: 20px 0;
+        text-align: left;
+        .url {
+            padding-bottom: 10px;
+            height: 130px;
+            overflow: auto;
+        }
+        .buttons {
+            
+        }
+    }
+}

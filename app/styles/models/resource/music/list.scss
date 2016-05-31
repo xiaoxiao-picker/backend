@@ -1,0 +1,54 @@
+.content-header.resource-header {
+	.buttons {
+		line-height: normal;
+		top: 8px;
+
+		.tooltip {
+			display: none;
+		}
+		&:hover {
+			.tooltip {
+				display: block;
+			}
+		}
+
+		.btn-cancel{
+			min-width: 0;
+			padding: 0 4px;
+		}
+	}
+	// 隐藏进度条
+	.uploadify-queue {
+		display: none;
+	}
+	.uploadify{
+		display: inline-block;
+	}
+}
+.music-list {
+	.audiojs {
+		margin-top: -2px;
+	}
+	tr {
+		.fa-music, .btn-pause {
+			display: none;
+		}
+		.fa-music {
+			margin-top: 2px;
+			color: $xx-theme-color;
+			position: absolute;
+			left: 0;
+		}
+		&.playing {
+			.fa-music, .btn-pause {
+				display: inline-block;
+			}
+			.btn-play {
+				display: none;
+			}
+		}
+		.index {
+			position: relative;
+		}
+	}
+}

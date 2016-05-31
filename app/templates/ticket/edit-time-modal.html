@@ -1,0 +1,31 @@
+<div class="xx-modal-body">
+	<form class="modal-form">
+		<div class="datetimepicker-group">
+			<div class="form-group">
+				<div class="xx-inner-title">
+					<span class="xx-title">开始时间</span>
+				</div>
+				<input type="text" id="START_TIME" class="form-control datetimepicker min" value="{{timeInfo.startDate | makedate:'yyyy/MM/dd hh:mm'}}" placeholder="请选择开始时间"  readonly/>
+			</div>
+			<div class="form-group">
+				<div class="xx-inner-title">
+					<span class="xx-title">结束时间</span>
+				</div>
+				<input type="text" id="END_TIME" class="form-control datetimepicker max" value="{{timeInfo.endDate | makedate:'yyyy/MM/dd hh:mm'}}" placeholder="请选择结束时间" readonly/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="xx-inner-title">
+				<span class="xx-title">电子票数量</span>
+			</div>
+			<input type="text" class="form-control source-limit" value="{{timeInfo.numberOfLimit}}" placeholder="请输入电子票数量"/>
+		</div>
+		<div class="center">
+			<button class="btn btn-xx-green btn-save">
+				<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">确定</span>
+			</button>
+		</div>
+	</form>
+</div>

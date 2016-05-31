@@ -1,0 +1,66 @@
+// 所有轮播图样式
+.temp-swiper {
+	.temp-header {
+		position: relative;
+
+		.buttons, .add-buttons {
+			position: absolute;
+			top: 10px;
+			z-index: 100;
+
+			.btn-xx-sm {
+				padding: 3px 7px 2px;
+			}
+		}
+		.buttons {
+			right: 10px;
+		}
+		.add-buttons {
+			left: 10px;
+		}
+	}
+	.swiper-wrapper {
+		height: 160px;
+	}
+	.poster {
+		display: block;
+		width: 100%;
+		height: 160px;
+	}
+	.name {
+		font-size: 12px;
+		line-height: 25px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		width: 100%;
+		height: 25px;
+		margin: 0;
+		padding: 0 10px;
+		color: #fff;
+		background-color: rgba(0, 0, 0, .5);
+
+		span {
+			font-size: 12px;
+		}
+	}
+	.swiper-pagination-bullet {
+		width: 10px !important;
+		height: 10px !important;
+		margin: 0 3px !important;
+		border: 2px solid #fff;
+		background-color: transparent !important;
+
+		&.swiper-pagination-bullet-active {
+			background-color: #fff !important;
+		}
+	}
+	.swiper-container-horizontal {
+		> .swiper-pagination {
+			bottom: 3px !important;
+			padding: 0 5px;
+			text-align: right;
+		}
+	}
+}

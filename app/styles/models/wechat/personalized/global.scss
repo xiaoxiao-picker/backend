@@ -1,0 +1,16 @@
+.personalized-wrapper {
+	//
+	.personalized {
+		width: 100%;
+		min-height: 650px;
+		padding:10px;
+		position: relative;
+		background-size: 100%;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: repeat;
+		background-image: url('./../images/bg_03.jpg');
+		// 兼容IE678不支持background-size:100%;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/bg_03.jpg', sizingMethod='scale');
+	}
+}

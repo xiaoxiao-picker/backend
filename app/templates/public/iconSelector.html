@@ -1,0 +1,27 @@
+<!-- 图标选择模板 -->
+
+<div class="modal-header xx-modal-header Icon-selector-header">
+	<button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true">&times;</span>
+		<span class="sr-only">Close</span>
+	</button>
+	<h4>
+		<span>选择图标</span>
+	</h4>
+</div>
+<div class="modal-body xx-modal-body Icon-selector-body">
+	<div class="form-group">
+		<!-- modal/public/iconSelector.scss -->
+		<div id="IconContainer" >
+		</div>
+	</div>
+</div>
+<div class="modal-footer xx-modal-footer Icon-selector-footer">
+	<div class="buttons center">
+		<button class="btn btn-xx-white"  data-xx-action="{{action||"saveMenuIcon"}}" data-index="{{index}}" data-baseMenuIndex="{{baseIndex}}">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+			</span>
+			<span class="inside-text">确定</span>
+		</button>
+	</div>
+</div>

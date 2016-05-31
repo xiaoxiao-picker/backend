@@ -1,0 +1,30 @@
+<div class="content-header">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="javascript:void(0);">问卷详情</a>
+        </li>
+    </ul>
+    <div class="buttons btn-xx-group right">
+        <a href="" class="btn btn-xx-green btn-xx-sm hide" title="导出问卷调查结果">导出结果</a>
+    </div>
+</div>
+<div class="content-body form-info">
+    <div class="panel clearfix">
+        <div class="panel-body clearfix">
+            <div id="QuestionnaireReplyUsers" class="users-box width-230 unselect">
+                <div class="header center text-green">{{questionnaire.title}}（<span id="Total">{{count}}</span>）</div>
+                {{if count == 0}}
+                <div class="list-empty">
+                    <span class="msg">暂无人员回复</span>
+                </div>
+                {{/if}}
+                <ul class="user-list">
+                </ul>
+                <div class="footer">
+                    <!-- 分页 -->
+                </div>
+            </div>
+            <div id="QuestionnaireReplyInfo" class="detail-box clearfix"></div>
+        </div>
+    </div>
+</div>

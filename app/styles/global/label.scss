@@ -1,0 +1,95 @@
+label {
+        color: $default-gray-color;
+        font-weight: normal;
+}
+
+.labels {
+        margin-bottom: 20px;
+}
+
+.label-input {
+        cursor: pointer;
+        margin-right: 15px;
+        user-select: none;
+        >input,>span {
+                display: inline-block;
+                vertical-align: middle;
+        }
+}
+
+.label {
+        border-radius: $default-border-radius !important;
+        display: inline-block;
+        border: none;
+        padding: 6px 10px;
+        color: #fff;
+}
+
+.label-xx-sm,.label-sm {
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        padding: 0 6px;
+}
+
+.label-xx-large {
+        font-size: 14px;
+        padding: 10px;
+}
+
+.label-xx-green, .label-xx-success {
+        background-color: $green-color;
+}
+
+.label-xx-primary {
+        background-color: $primary-color;
+}
+
+.label-xx-red, .label-xx-danger {
+        background-color: $red-btn-background-color;
+}
+
+.label-xx-blue {
+        background-color: $blue-color;
+}
+
+.label-xx-yellow {
+        background-color: $yellow-color;
+}
+
+.label-xx-orange {
+        background-color: $orange-color;
+}
+
+.label-xx-gray {
+        background-color: #b3b3b3;
+}
+
+.label-primary {
+        background-color: $primary-color;
+}
+
+.label-success {
+        background-color: $green-color;
+}
+
+.label-info {
+        background-color: #1dace6;
+}
+
+.label-warning {
+        background-color: $warning-color;
+}
+
+.label-danger {
+        background-color: $danger-color;
+}
+
+.label-vip {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        background-image: url(./../images/label/vip.png);
+        background-position: 0 0;
+        background-repeat: no-repeat;
+}

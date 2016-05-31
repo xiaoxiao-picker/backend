@@ -1,0 +1,43 @@
+<div class="phone-body">
+	<div class="event-preview">
+		<div class="info-header">
+			<div id="BackImage" style="position: absolute; height:100%; width:100%;"> 
+				<img src="{{eventInfo.thumbnailUrl}}@90w_130h_1e_1c" height="340" class="blur" width="150%" style="position: absolute;top: -30px;left:-25%;" /> 
+			</div>
+			<div class="front"> 
+				<img id="Poster" class="poster" src="{{eventInfo.thumbnailUrl}}" /> 
+			</div>
+		</div>
+		<div class="info-body">
+			<h4>{{eventInfo.name}}</h4>
+			<div class="event-selector">
+				<div class="event-buttons">
+					<div class="btn-option left">
+						<img src="/images/buttons/circle-heart-red-big.png" />
+						<div class="title text-xx-red">{{eventInfo.praiseCount}}</div>
+					</div>
+					<div class="btn-option right">
+						<img src="/images/buttons/circle-chat-blue-big.png" />
+						<div class="title text-xx-blue">{{eventInfo.totalComments}}</div>
+					</div>
+					<div class="btn-option center">
+						<img src="/images/buttons/circle-users-purple-big.png" />
+						<div class="title text-xx-purple">{{eventInfo.signupCount}}</div>
+					</div>
+				</div>
+				<table class="ticket-container table-main" id="TicketContainer">
+				
+				</table>
+				<table class="vote-container table-main" id="VoteContainer">
+					
+				</table>
+			</div>
+			<div class="event-msg">
+				<div>时间：{{eventInfo.date}}</div>
+				<div>地址：{{eventInfo.address}}</div>
+				<div>主办：{{eventInfo.org?eventInfo.org.name:""}}</div>
+			</div>
+			<div class="event-info-desc">{{#eventInfo.text}}</div>
+		</div>
+	</div>
+</div>

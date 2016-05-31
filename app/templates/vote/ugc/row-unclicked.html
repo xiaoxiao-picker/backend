@@ -1,0 +1,49 @@
+{{if count > 0}}
+<div class="box-header clearfix">
+    <img class="avatar" src="{{option.user.portraitUrl | imageUrl:'@65w_65h_1e_1c'}}" onerror="this.src='images/default/avatar.jpg';" />
+    <h4 class="ellipsis">{{option.realName}}({{option.phoneNumber}})</h4>
+    <span class="date text-xx-gray">{{option.createDate | makedate:'yyyy-MM-dd hh:mm'}}</span>
+</div>
+<div class="box-content">
+    <img src="{{option.imageUrls}}" onerror="this.src='./images/default/event.jpg'"/>
+    <h3>{{option.name}}<span>（{{["未知","男","女"][option.gender||0]}}）</span></h3>
+    <div>
+        {{each option.description&&option.description.split('\n') as desc i}}
+        <p class="text-xx-gray">
+            {{desc}}
+        </p>
+        {{/each}}
+    </div>
+</div>
+<div class="box-footer">
+    <ul class="buttons clearfix">
+        <li>
+            <button class="btn btn-xx-green btn-large" data-value="{{option.id}}" data-xx-action="approve">
+                <span class="inside-loading">
+                    <i class="fa fa-spinner rolling font-18"></i>
+                </span>
+                <span class="inside-text">
+                    通过
+                </span>
+            </button>
+        </li>
+        <li>
+            <button class="btn btn-xx-red btn-large" data-value="{{option.id}}" data-xx-action="refuse">
+                <span class="inside-loading">
+                    <i class="fa fa-spinner rolling font-18"></i>
+                </span>
+                <span class="inside-text">
+                    拒绝
+                </span>
+            </button>
+        </li>
+    </ul>
+    <div class="center">
+        <a class="underline" href="javascript:void(0);" data-value="{{option.id}}" data-xx-action="ignore">不确定，先跳过</a>
+    </div>
+</div>
+{{else}}
+<div class="list-empty">
+    <img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+</div>
+{{/if}}

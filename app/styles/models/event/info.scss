@@ -1,0 +1,294 @@
+// 活动预览
+.event-preview {
+	.preview-wrapper {
+		width: 100%;
+		height: 650px;
+		position: relative;
+		background-size: 100%;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: repeat;
+		background-image: url('./../images/bg_03.jpg');
+		// 兼容IE678不支持background-size: 100%;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/bg_03.jpg', sizingMethod='scale');
+
+		.box {
+			position: absolute;
+			top: 20px;
+
+			&.box1 {
+				left: 30px;
+				width: 210px;
+
+				.qrcode-box {
+					color: #fff;
+
+					.xx-inner-title {
+						color: #fff;
+						font-size: 14px;
+
+						.xx-title {
+							border-left: 4px solid #fff;
+						}
+					}
+					.qrcode-wrapper {
+						width: 200px;
+						height: 200px;
+						border-radius: 3px;
+						background-color: #fff;
+						overflow: hidden;
+						box-shadow: 0px 4px 4px rgba(0, 0, 0, .1);
+					}
+					.addr {
+						padding-left: 10px;
+						word-break: break-all;
+					}
+					.buttons {
+						padding-top: 15px;
+					}
+				}
+			}
+			&.box2 {
+				left: 300px;
+
+				.phone-overlay {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					width: 100%;
+					height: 100%;
+					background-color: #000;
+					background-color: rgba(0, 0, 0, .7);
+
+					.btn-wrapper {
+						text-align: center;
+						margin-top: 200px;
+						line-height: 30px;
+					}
+				}
+				.publish-btn-fixed {
+					position: absolute;
+					right: 20px;
+					bottom: 90px;
+					height: 50px;
+					width: 50px;
+					border-radius: 50%;
+					background-color: $green-color;
+					box-shadow: 0px 3px 3px rgba(0, 0, 0, .2);
+					cursor: pointer;
+
+					.pk {
+						margin: 15px;
+					}
+				}
+				.phone-header {
+					position: relative;
+
+					.buttons {
+						position: absolute;
+						top: 0px;
+
+						&.left {
+							left: 2px;
+						}
+						&.right {
+							right: 2px;
+						}
+					}
+				}
+				.phone-body {
+					position: absolute;
+					top: 50px;
+					height: 418px;
+					width: 100%;
+					overflow: auto;
+					background-color: #f2f5f8;
+
+					.info-header {
+						position: relative;
+						height: 180px;
+						overflow: hidden;
+
+						.back, .front {
+							position: absolute;
+							top: 0;
+							left: 0;
+							height: 100%;
+							width: 100%;
+						}
+						.front {
+							line-height: 180px;
+							text-align: center;
+						}
+						.poster {
+							max-height: 140px;
+							max-width: 80%;
+							text-align: center;
+							vertical-align: middle;
+							border: 1px solid rgba(255, 255, 255, .1);
+							box-shadow: 0 3px 2px -1px rgba(0, 0, 0, .2);
+						}
+					}
+					.info-body {
+						padding: 0 10px;
+
+						h4 {
+							font-size: 16px;
+							padding: 5px;
+							border-bottom: 1px solid $default-border-color;
+						}
+						.event-selector {
+							padding-bottom: 5px;
+							border-bottom: 1px solid $default-border-color;
+
+							.event-buttons {
+								padding: 0 5px;
+								height: 80px;
+
+								.btn-option {
+									width: 50px;
+
+									img {
+										height: 50px;
+										width: 50px;
+									}
+									.title {
+										text-align: center;
+									}
+									&.left {
+										float: left;
+									}
+									&.right {
+										float: right;
+									}
+									&.center {
+										margin: auto;
+									}
+								}
+							}
+							.ticket-option {
+								display: block;
+								padding: 0 5px;
+								margin-bottom: 5px;
+								width: 100%;
+								background-color: #fff;
+								border-radius: 2px;
+								box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.4);
+
+								td {
+									height: 100%;
+									border: none;
+								}
+							}
+						}
+						.event-msg {
+							padding: 10px 5px;
+
+							div {
+								font-size: 12px;
+								line-height: 15px;
+								color: #b3b3b3;
+							}
+						}
+					}
+					.event-info-desc {
+						padding: 5px;
+						font-size: 12px;
+						line-height: 18px;
+
+						img {
+							max-width: 100%;
+						}
+					}
+				}
+			}
+			&.box3 {
+				right: 30px;
+				width: 255px;
+				height: 590px;
+				border-radius: 2px;
+				background-color: #fff;
+				background-color: rgba(255, 255, 255, .8);
+				padding: 20px 20px 0;
+
+				.xx-title-wrapper {
+					font-weight: normal;
+					font-size: 16px;
+				}
+				.members {
+					height: 480px;
+					overflow: auto;
+
+					.member {
+						width: 100%;
+						position: relative;
+						margin-bottom: 10px;
+						cursor: pointer;
+
+						.avatar {
+							float: left;
+							width: 50px;
+							text-align: center;
+
+							img {
+								background-color: #fff;
+								width: 50px;
+								height: 50px;
+								border-radius: 50%;
+
+								&:hover {
+									box-shadow: 1px 2px 2px #888;
+								}
+							}
+						}
+						.info {
+							width: auto;
+							margin-left: 60px;
+							line-height: 50px;
+
+							.name {
+								//display: inline-block;
+								max-width: 200px;
+								overflow: hidden;
+								line-height: 20px;
+								height: 20px;
+							}
+							.sex {
+								width: 20px;
+								height: 20px;
+								text-align: center;
+								line-height: 20px;
+								background-color: #5bd18b;
+								border-radius: 50%;
+								display: inline-block;
+								font-size: 12px;
+								color: #fff;
+							}
+						}
+					}
+				}
+				.page-container {
+					width: 100%;
+					padding: 8px 0;
+					border-top: 1px solid $default-border-color;
+
+					.left {
+						float: left;
+					}
+					.right {
+						float: right;
+					}
+					.center {
+						display: block;
+						margin: auto;
+						font-size: 14px;
+					}
+					button {
+						border: none;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}

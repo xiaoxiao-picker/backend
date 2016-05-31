@@ -1,0 +1,18 @@
+<div class="form-group" id="voteMembersContainer">
+	<h4 class="xx-inner-title">
+		<span class="xx-title">投票选项&nbsp;(&nbsp;{{count||"0"}}&nbsp;)</span>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addOption">+投票选项</button>
+	</h4>
+	<div class="vote-target-group">
+		{{each options as option i}}
+		<div class="vote-target-wrapper">
+			<div class="target" data-value="{{option.id}}" data-xx-action="editOption">
+				<img class="avatar" src="{{option.imgUrl}}" onerror="this.src='images/default/3.png';"/>
+				<div class="title ellipsis">{{option.name}}</div>
+			</div>
+			<span class="target-btn target-del" data-value="{{option.id}}" data-xx-action="removeOption"> <i class="fa fa-minus-circle"></i>
+			</span>
+		</div>
+		{{/each}}
+	</div>
+</div>

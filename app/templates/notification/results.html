@@ -1,0 +1,80 @@
+{{if notifications.length > 0}}
+{{each notifications as notification i}}
+<div class="noti-box clearfix">
+	<a class="content-wrapper" href="javascript:void(0);" data-type="{{notification.type}}" data-value="{{notification.id}}" data-index="{{i}}">
+		<div class="content-box clearfix">
+			{{if notification.type.indexOf("SYSTEM")>-1}}
+			<div class="org-wrapper">
+				<img class="avatar-img" src="{{notification.source&&notification.source.avatarUrl}}" onerror='this.src="./images/default/avatar.jpg"'>
+			</div>
+			<div class="messge-wrapper">
+				<div>
+					<span class="name">{{notification.source&&notification.source.name}}</span>
+					<span class="date">{{notification.createDate | makedate:'MM-dd hh:mm'}}</span>
+				</div>
+				<div class="content ellipsis">
+					<span class="label label-xx-sm label-xx-red">系统公告</span>&nbsp;{{notification.text}}
+				</div>
+			</div>
+			{{else if notification.type.indexOf("USER_FEEDBACK")>-1}}
+			<div class="org-wrapper">
+				<img class="avatar-img" src="{{notification.source.source.portraitUrl}}" onerror='this.src="./images/default/avatar.jpg"'>
+			</div>
+			<div class="messge-wrapper">
+				<div>
+					<span class="name">{{notification.source.source.name||notification.source.source.nickname||notification.source.source.phoneNumber||"未知"}}</span>
+					<span class="date">{{notification.createDate | makedate:'MM-dd hh:mm'}}</span>
+				</div>
+				<div class="content ellipsis">
+					<span class="label label-xx-sm label-xx-orange">意见反馈</span>&nbsp;{{notification.source.reply.text}}
+				</div>
+			</div>
+			{{else if notification.type=="USER_JOIN"}}
+			<div class="org-wrapper">
+				<img class="avatar-img" src="{{notification.source.portraitUrl}}" onerror='this.src="./images/default/avatar.jpg"'>
+			</div>
+			<div class="messge-wrapper">
+				<div>
+					<span class="name">{{notification.source.name||notification.source.nickname||notification.source.phoneNumber||"未知"}}</span>
+					<span class="date">{{notification.createDate | makedate:'MM-dd hh:mm'}}</span>
+				</div>
+				<div class="content ellipsis">
+					<span class="label label-xx-sm label-xx-green">成员管理</span>&nbsp;用户【{{notification.source.name||notification.source.nickname||notification.source.phoneNumber}}】申请加入组织
+				</div>
+			</div>
+			{{else}}
+			<div class="org-wrapper">
+				<img class="avatar-img" src="{{notification.source.portraitUrl}}" onerror='this.src="./images/default/avatar.jpg"'>
+			</div>
+			<div class="messge-wrapper">
+				<div>
+					<span class="name">{{notification.source.name}}</span>
+					<span class="date">{{notification.createDate | makedate:'MM-dd hh:mm'}}</span>
+				</div>
+				<div class="content ellipsis">
+					<span class="label label-xx-sm label-xx-gray">其他</span>&nbsp;{{notification.text}}
+				</div>
+			</div>
+			{{/if}}
+		</div>
+	</a>
+	<div class="buttons">
+		<button class="btn btn-remove" data-value="{{notification.id}}">
+		<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">
+			<i class="fa fa-times font-18"></i>
+		</span>
+		</button>
+	</div>
+	{{if !notification.readed}}
+	<span class="mark"></span>
+	{{/if}}
+</div>
+{{/each}}
+{{else}}
+<div class="list-empty">
+	<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+</div>
+{{/if}}

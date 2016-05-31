@@ -1,0 +1,37 @@
+<!-- 广告选择器 lib/advert-selector -->
+<div class="advert-selector-container">
+	<div class="box-header back-image"></div>
+	<div class="box-body">
+		<div class="form-group">
+			<div class="xx-inner-title">
+				<span class="xx-title text-xx-green">广告商城</span>
+			</div>
+			{{include './selector'}}
+		</div>
+		<div>
+			<div class="xx-inner-title">
+				<span class="xx-title text-xx-green">已选广告</span>
+			</div>
+			<div id="TextContainer" class="option-container clearfix {{if !advertText.length}}hide{{/if}}">
+				<div class="advert-option-box">
+					<span id="AdvertText" class="text">{{advertText}}</span>
+					<span class="advert-del"><i class="fa fa-times"></i></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="box-footer">
+		<button id="SaveBtn" class="btn btn-xx-green">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling font-14"></i>
+			</span>
+			<span class="inside-text">保存</span>
+		</button>
+		<button id="CancelBtn" class="btn btn-xx-red">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling font-14"></i>
+			</span>
+			<span class="inside-text">取消</span>
+		</button>
+	</div>
+</div>

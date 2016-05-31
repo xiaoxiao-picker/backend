@@ -1,0 +1,67 @@
+<div class="content-header">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="javascript:void(0);">中奖情况</a>
+    </ul>
+    <div class="buttons btn-xx-group right">
+        <button class="btn btn-xx-sm btn-xx-green" data-source-type="LOTTERY" data-source-id="{{lotteryId}}" data-export-file-name="中奖结果" data-xx-action="exportReport">
+            <span class="inside-loading">
+                <i class="fa fa-spinner rolling font-14"></i>
+            </span>
+            <span class="inside-text">
+                下载名单
+            </span>
+        </button>
+    </div>
+</div>
+<div class="content-body">
+    <div class="panel clearfix">
+        <div class="panel-body">
+            <div class="xx-inner-title">
+                <div class="xx-title">总数（<span id="Count">{{total||0}}</span>）</div>
+            </div>
+            <table class="table middle center">
+                <thead class="xx-table-header">
+                    <tr>
+                        <th class="width-60">编号</th>
+                        <th class="width-200">奖品等级</th>
+                        <th class="width-300">奖品名称</th>
+                        <th class="width-200">中奖人数／奖品数</th>
+                        <th class="xx-border-right">概率</th>
+                    </tr>
+                </thead>
+                <tbody class="xx-table-body">
+                    {{each awards as award i}}
+                    <tr>
+                        <td>
+                            {{i | index:pagination.page,pagination.limit}}
+                        </td>
+                        <td>
+                            <div class="width-200 ellipsis">
+                                {{award.name}}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="width-300 ellipsis">
+                                {{award.description}}
+                            </div>
+                        </td>
+                        <td>
+                            {{award.numberOfWinner}}／{{award.max||'无上限'}}
+                        </td>
+                        <td>
+                            {{award.probability}}%
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{if count==0}}
+            <div class="list-empty">
+                <img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+            </div>
+            {{/if}}
+        </div>
+        <footer class="panel-footer"></footer>
+    </div>
+</div>

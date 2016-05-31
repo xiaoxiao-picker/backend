@@ -1,0 +1,61 @@
+<!-- global/inner.scss -->
+<div class="xx-inner-title member-title-wrapper clearfix">
+	<span class="xx-title"><strong>{{groupName}}</strong>&nbsp;(&nbsp;{{members.length}}&nbsp;)</span>
+	<div class="xx-right">
+		{{if groupId=="SYSTEM_ADMIN"}}
+		<button class="btn btn-xx-hollow-green-border btn-xx-sm" data-xx-action="openAdminSettingModal"> 
+			<i class="fa fa-plus"></i>
+			管理员
+		</button>
+		{{else if groupId=="SYSTEM_NOGROUP"}}
+		<!-- 未分组成员不显示添加按钮 -->
+		{{else}}
+		<button class="btn btn-xx-hollow-green-border btn-xx-sm" data-xx-action="openGroupSettingModal" data-group-id="{{groupId}}" data-group-name="{{groupName}}"> 
+			<i class="fa fa-plus"></i>
+			组员
+		</button>
+		{{/if}}
+	</div>
+</div>
+<!-- global/options.scss -->
+<div class="options clearfix">
+	{{if members.length==0}}
+	<div class="center tips">该分组暂无成员</div>
+	{{/if}}
+	{{each members as member i}}
+	<!-- modules/member/list.scss -->
+	<div class="option member-option">
+		<div class="member-info user-{{member.user.id}} clearfix" data-xx-action="checkMember" data-user-id="{{member.user.id}}" data-member-id="{{member.id}}">
+			<img class="avatar user-avatar user-avatar-{{member.user.id}}" src="{{member.user.portraitUrl | imageUrl:'@60w_60h_1e_1c'}}" onerror="this.src='./images/default/avatar.jpg';" />
+			<div class="remark ellipsis" >
+				<span tooltip title="{{member.user.phoneNumber}}">
+					{{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber}}
+				</span>
+			</div>
+		</div>
+		<div class="buttons">
+			{{if groupId=="SYSTEM_ADMIN"}}
+			<button class="" data-xx-action="removeMemberFromAdmin" data-member-id="{{member.id}}" data-user-id="{{member.user.id}}" title="删除成员的管理员权限">
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling"></i>
+				</span>
+				<span class="inside-text">
+					<i class="fa fa-times"></i>
+				</span>
+			</button>
+			{{else if groupId=="SYSTEM_NOGROUP"}}
+			<!-- 未分组成员不显示删除按钮 -->
+			{{else}}
+			<button class="" data-xx-action="removeMemberFromGroup" data-group-id="{{groupId}}" data-member-id="{{member.id}}" data-user-id="{{member.user.id}}" title="将成员移出 '{{groupName}}' 分组">
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling"></i>
+				</span>
+				<span class="inside-text">
+					<i class="fa fa-times"></i>
+				</span>
+			</button>
+			{{/if}}
+		</div>
+	</div>
+	{{/each}}
+</div>

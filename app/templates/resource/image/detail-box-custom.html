@@ -1,0 +1,50 @@
+<div class="detail-box">
+	<div class="box-header">
+		<div class="title-box clearfix">
+			<span class="title ellipsis">{{group.name}}</span>
+			{{if group.type=="ORG"}}
+			<div class="buttons">
+				<a class="link-blue" href="javascript:void(0);" data-id="{{group.id}}" data-name="{{group.name}}" data-xx-action="modalForRenameGroup">重命名</a>
+				<a class="link-red" href="javascript:void(0);" data-id="{{group.id}}" data-xx-action="removeGroup">删除分组</a>
+			</div>
+			{{/if}}
+			<div class="right" style="width:auto; float:right;" tooltip tooltip-zIndex="1050" title="上传大小不超过2MB（格式：bmp，png，jpeg，jpg，gif）">
+				<input type="file" class="button-upload" id="Resource_ImageUpload" />
+			</div>
+		</div>
+		<div id="OptionBox" class="option-box">
+			<label class="label-input">
+				<input type="checkbox" class="xx-option-input xx-checkbox" name="AllImage" value="" data-xx-change-action="selectAll"/>
+				全选
+			</label>
+			<button class="btn btn-xx-green btn-sm" data-xx-action="modalForMoveImages" disabled>
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-14"></i>
+				</span>
+				<span class="inside-text">移动分组</span>
+			</button>
+			<button class="btn btn-xx-red btn-sm" data-xx-action="removeImages" disabled>
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-14"></i>
+				</span>
+				<span class="inside-text">删除</span>
+			</button>
+		</div>
+	</div>
+	<div class="box-body">
+		<div class="images-wrapper clearfix">
+			
+		</div>
+		<div class="more-wrapper hide">
+			<button class="btn btn-lg btn-large btn-xx-green" data-xx-action="loadMore">
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-14"></i>
+				</span>
+				<span class="inside-text">加载更多图片</span>
+			</button>
+		</div>
+		<div class="list-empty hide">
+			<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+		</div>
+	</div>
+</div>

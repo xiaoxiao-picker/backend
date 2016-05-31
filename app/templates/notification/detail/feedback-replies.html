@@ -1,0 +1,18 @@
+<div class="xx-inner-title">
+	<span class="xx-title">当前反馈（{{count}}）</span>
+</div>
+<div class="replies-container">
+	{{each replies as reply i}}
+	<div class="reply-box">
+		<h5 class="user-name">
+			<a href="javascript:void(0);" data-user-id="{{user.id}}" data-xx-action="checkUser">{{user.nickname||user.tel}}</a>
+		</h5>
+		<div class="reply-context">
+			{{reply.text}}
+		</div>
+		<div class="reply-extend-info">
+			<span class="date">{{reply.createDate | makedate:'yyyy-MM-dd hh:mm'}}</span>
+		</div>
+	</div>
+	{{/each}}
+</div>

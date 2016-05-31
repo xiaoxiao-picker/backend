@@ -1,0 +1,43 @@
+<!-- 华理 风格的 个性化微首页模板 -->
+{{include './header'}}
+
+<div class="phone-body">
+	<div id="TemplateContainer">
+		<div id="Template" class="template temp-huali">
+			<div class="front back-image" style="{{if page.json.backColor}}background-color:{{page.json.backColor}};{{else if page.json.backImage}}background-image:url({{page.json.backImage}}){{/if}}">
+				<div class="temp-header">
+					<img src="{{orgInfo.logoUrl | imageUrl:'@80w_80h_1e_1c'}}" alt="{{orgInfo.name}}" onerror="this.src='./images/default/org.jpg';" />
+					<p class="title">{{orgInfo.name}}</p>
+				</div>
+				<div class="temp-body">
+					<div class="menus clearfix">
+						{{each menus as menu i}}
+						<div class="menu">
+							<div class="back-image">
+								<div class="icon back-image" style="{{if menu.backImage}}background-image:url({{menu.backImage}});{{/if}}" data-xx-action="checkMenu" data-index="{{i}}">
+									<div style="{{if menu.backColor}}background-color:{{menu.backColor}}{{/if}};">
+										<img src="{{menu.icon}}" alt="{{menu.name}}" />
+									</div>
+								</div>
+								<p class="name">{{menu.name}}</p>
+							</div>
+							<div class="buttons">
+								<button class=" btn-minus-circle" data-xx-action="removeMenu" data-index="{{i}}">
+									<span class="fa fa-minus-circle"></span>
+								</button>
+							</div>
+						</div>
+						{{/each}}
+						<!-- add button -->
+						<div class="menu">
+							<div class="icon add" data-xx-action="createMenu">
+								<i class="fa fa-plus"></i>
+							</div>
+							<p class="name">添加菜单</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

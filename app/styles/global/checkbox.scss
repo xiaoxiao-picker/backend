@@ -1,0 +1,43 @@
+/**
+ *      <label class="checkbox">
+ *              <input type="checkbox" />
+ *              <span class="context"></span>
+ *      </label>
+ * 
+ */
+.checkbox {
+        display: inline-block;
+        user-select: none;
+        position: relative;
+        cursor: pointer;
+
+        > input, > span {
+                display: inline-block;
+                vertical-align: middle;
+        }
+
+        > input {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                top: 1px;
+                width: 18px;
+                height: 18px;
+                background: #e3e3e3;
+                border: none;
+                color: #fff;
+                cursor: pointer;
+                display: inline-block;
+                outline: none;
+                font-size: 12px;
+                transition: all 0.5s;
+                border-radius: 2px;
+
+                &:checked {
+                        background: $green-color;
+                }
+        }
+}

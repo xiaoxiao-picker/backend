@@ -1,0 +1,151 @@
+$advert-background-color: #edfaf4;
+$advert-border-color: #9fe3c1;
+
+.advert-selector {
+	.modal-header {
+		display: none;
+	}
+	.modal-content {
+		padding: 0;
+	}
+}
+.advert-selector-container {
+	.box-header {
+		height: 216px;
+		background-image: url(./../images/market-bg.png);
+	}
+	.box-body {
+		padding: 20px 20px 0;
+	}
+	.box-footer {
+		padding: 20px;
+		text-align: center;
+	}
+	.advert-selector-box {
+		position: relative;
+		border: 1px solid $advert-border-color;
+		border-bottom: none;
+
+		tbody tr td {
+			border-top: none;
+			border-bottom: 1px solid $advert-border-color;
+		}
+		.advert-label {
+			padding: 20px 10px;
+			vertical-align: middle;
+			background-color: $advert-background-color;
+			text-align: center;
+			color: $green-color;
+		}
+		.advert-wrapper {
+			position: relative;
+			padding: 0;
+
+			&.hot {
+				vertical-align: middle;
+			}
+			.search-container {
+				padding: 10px;
+				border-bottom: 1px solid $advert-background-color;
+
+				.search-input-group {
+					.input-icon, input {
+						float: left;
+						border: 1px solid $advert-border-color;
+						background-color: $advert-background-color;
+						height: 25px;
+						line-height: 25px;
+					}
+					input {
+						padding: 0 5px;
+						border-right: none;
+						font-size: 12px;
+						width: 130px;
+						border-radius: 2px 0 0 2px;
+					}
+					.input-icon {
+						cursor: pointer;
+						width: 30px;
+						text-align: center;
+						border-left: none;
+						color: $green-color;
+						line-height: 20px;
+						border-radius: 0 2px 2px 0;
+
+						&:hover, &:focus {
+							color: $deep-green-color;
+						}
+					}
+				}
+			}
+			.advert-options {
+				max-height: 224px;
+				overflow: auto;
+				padding: 0 5px;
+
+				.option {
+					float: left;
+					position: relative;
+					width: 94px;
+					padding: 0 5px;
+					line-height: 30px;
+					height: 32px;
+					cursor: pointer;
+					overflow: hidden;
+					border: 1px dashed #fff;
+					color: $green-color;
+
+					&:hover {
+						color: $red-color;
+						border: 1px dashed $red-color;
+					}
+				}
+			}
+			.buttons {
+				position: absolute;
+				top: 5px;
+				right: 15px;
+				line-height: 25px;
+
+				.more-btn, .packup-btn {
+					float: right;
+					cursor: pointer;
+
+					&:hover {
+						color: #666;
+					}
+				}
+				.packup-btn {
+					display: none;
+				}
+			}
+		}
+	}
+	.option-container {
+		.advert-option-box {
+			position: relative;
+			float: left;
+			cursor: pointer;
+			padding: 0px 30px 0 5px;
+			line-height: 30px;
+			border: 1px dashed $red-color;
+			color: $red-color;
+			min-width: 100px;
+
+			.advert-del {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 25px;
+				text-align: center;
+
+				&:hover {
+					color: $red-btn-background-color-deep;
+				}
+			}
+			&:hover {
+				border: 1px solid $red-color;
+			}
+		}
+	}
+}

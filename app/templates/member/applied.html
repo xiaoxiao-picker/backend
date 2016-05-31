@@ -1,0 +1,69 @@
+<!-- 新申请加入成员 -->
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation">
+			<a href="#members">现有成员</a>
+		</li>
+		<li role="presentation" class="active">
+			<a href="#members/applied" >新申请成员</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-sm btn-xx-green" data-source-type="APPLIEDUSERS" data-source-id="{{'organizationId' | application}}" data-export-file-name="申请加入组织成员列表" data-xx-action="exportReport">
+			<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-14"></i>
+			</span>
+			<span class="inside-text">
+				导出列表
+			</span>
+		</button>
+	</div>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body applied-members" style="padding: 0 !important;">
+			<div class="panel-body">
+				<div class="xx-inner-title">
+					<div class="xx-title">总数&nbsp;(&nbsp;{{count||"0"}}&nbsp;)</div>
+				</div>
+				{{if members.length==0}}
+				<div class="list-empty">
+					<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+				</div>
+				{{else}}
+				<div class="member-list clearfix">
+					{{each members as member i}}
+					<div class="member-item clearfix">
+						<div class="avatar-wrapper">
+							<a class="member-item-avatar" href="javascript:void(0);" title="{{member.user.name||member.user.nickname||member.user.phoneNumber||'无昵称'}}"  data-apply-id="{{member.id}}" data-user-id="{{member.user.id}}" data-xx-action="check">
+								<img class="avatar" alt="{{member.user.name||member.user.nickname}}" src="{{member.user.portraitUrl | imageUrl:'@60w_60h_1e_1c'}}" onerror="this.src='images/default/avatar.jpg';" />
+							</a>
+						</div>
+						<div class="member-item-content">
+							<div class="member-name">
+								<a href="javascript:void(0);" title="{{member.user.name||member.user.nickname||member.user.phoneNumber||'无昵称'}}" data-apply-id="{{member.id}}" data-user-id="{{member.user.id}}" data-xx-action="check">
+								{{member.user.name||member.user.nickname||member.user.phoneNumber||'无昵称'}}
+								</a>
+							</div>
+							<div class="buttons">
+								<button class="btn btn-xx-green btn-xx-sm" data-apply-id="{{member.id}}" data-user-id="{{member.user.id}}" data-xx-action="agreeMemberApply">
+								<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+								</span>
+								<span class="inside-text">同意</span>
+								</button>
+								<button class="btn btn-xx-red btn-xx-sm"  data-apply-id="{{member.id}}" data-user-id="{{member.user.id}}" data-xx-action="refuseMemberApply">
+								<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+								</span>
+								<span class="inside-text">拒绝</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				{{/if}}
+			</div>
+			<footer class="panel-footer"></footer>
+		</div>
+	</div>
+</div>

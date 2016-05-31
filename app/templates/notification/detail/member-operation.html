@@ -1,0 +1,28 @@
+<div class="xx-inner-title">
+	<span class="xx-title">快速操作</span>
+</div>
+<table class="table middle">
+	<tbody class="xx-table-body">
+		{{each requests as request i}}
+		<tr>
+			<td>
+				<a class="member underline" href="javascript:void(0);" data-xx-action="checkUser" data-user-id="{{request.user.id}}">{{request.user.name||request.user.nickname||request.user.phoneNumber}}</a>
+			</td>
+			<td class="width-170">
+				<button class="btn btn-xx-green btn-xx-sm btn-agree" data-request-id="{{request.id}}">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">同意</span>
+				</button>
+				<button class="btn btn-xx-red btn-xx-sm btn-reject" data-request-id="{{request.id}}">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">拒绝</span>
+				</button>
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

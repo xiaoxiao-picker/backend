@@ -1,0 +1,32 @@
+<!-- 个性化微首页模板选择 -->
+
+<div class="modules-selector-box">
+	<div class="modules-box clearfix">
+		{{each templates as template i}}
+		<div class="module">
+			<img src="{{template.img}}" />
+			<div class="module-overlay {{if template.limit}}top2{{else}}top1{{/if}}">
+				<div class="title">
+					<span>{{template.title}}</span>
+					{{if template.limit}}
+					<div>(最多模块数：{{template.limit.max}})</div>
+					{{/if}}
+				</div>
+				<div class="content">
+					<span>{{template.message}}</span>
+				</div>
+				<div class="buttons">
+					<button class="btn btn-xx-sm btn-xx-white btn-select-template" data-value="{{template.name}}">立即体验</button>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+		<div class="module">
+			<img class="fighter-img" src="./images/homepage/more.png" />
+			<div class="message">
+				<div>更多模板开发中</div>
+				<div>敬请期待</div>
+			</div>
+		</div>
+	</div>
+</div>

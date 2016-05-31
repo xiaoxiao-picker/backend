@@ -1,0 +1,23 @@
+<!-- 微信素材=>图片库 -->
+<!-- styles/resource/weixin/image.scss -->
+{{each images as image i}}
+
+	<section class="image-containner" data-image-id="{{image.id}}">
+		<div class="image-box" data-xx-action="checkImage" data-image-src="{{image.url}}">
+			<img class="image" alt="{{image.filename}}" src="{{image.url}}" />
+			<img class="load-img" src="./images/spinner.gif"/>
+		</div>
+		<div class="image-message-box ellipsis">
+			<label>
+				<input type="checkbox" class="image-checkbox xx-option-input" name="weixin-resource-image" data-xx-change-action="makeSelectRange" />{{image.filename}}
+			</label>
+			<button class="btn btn-remove" data-xx-action="remove" title="删除" tooltip>
+				<span class="inside-text fa fa-trash"></span>
+				<span class="inside-loading">
+					<i class="fa fa-spinner rolling"></i>
+				</span>
+			</button>
+		</div>
+	</section>
+
+{{/each}}

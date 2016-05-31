@@ -1,0 +1,30 @@
+<!-- 图片上传裁剪 -->
+<!-- Modal -->
+<div class="modal fade" id="MusicUploader" tabindex="-1" role="dialog" aria-labelledby="{{modalName}}Label" aria-hidden="true">
+	<div class="modal-dialog  image-box-modal">
+		<div class="modal-content">
+			<div class="modal-header xx-modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</button>
+				<h4>{{title||"音乐素材管理"}}</h4>
+			</div>
+			<div class="modal-body xx-modal-body">
+				
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-xx-green save" data-xx-action="{{action}}" data-value1="{{value1}}" data-value2="{{value2}}" data-value3="{{value3}}">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">确定</span>
+				</button>
+				<button class="btn btn-xx-green btn-xx-danger" data-xx-action="close" data-value1="{{value1}}" data-value2="{{value2}}" data-value3="{{value3}}">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">确定</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,71 @@
+.audiojs {
+	.play-pause {
+		width: 40px;
+	}
+	.play, .pause, .loading, .error {
+		background-image: url(./../plugins/audiojs/audiojs/player-graphics.gif);
+	}
+}
+.music-selector-box {
+	.player {
+		margin-top: -10px;
+		padding-bottom: 10px;
+		margin-bottom: 10px;
+		position: relative;
+		height: 40px;
+		border-bottom:dashed 1px $default-border-color;
+
+		.buttons {
+			position: absolute;
+			right: 0;
+			bottom: 10px;
+
+			#MusicUploadInput {
+				display: inline-block;
+			}
+			.tooltip {
+				display: none;
+			}
+			&:hover {
+				.tooltip {
+					display: block;
+				}
+			}
+			.btn-cancel {
+				min-width: 0;
+				padding: 0 4px;
+			}
+		}
+	}
+	.music-container {
+		max-height: 400px;
+		overflow: auto;
+	}
+	>.buttons{
+		margin-top: 20px;
+	}
+	table {
+		tr {
+			line-height: 24px;
+			td.index {
+				position: relative;
+			}
+			.fa-music {
+				display: none;
+				position: absolute;
+				left: -3px;
+				margin-top: 3px;
+				color: $xx-theme-color;
+			}
+			&.playing {
+				.fa-music {
+					display: inline-block;
+				}
+			}
+		}
+	}
+	// 隐藏上传进度条
+	.uploadify-queue {
+		display: none;
+	}
+}

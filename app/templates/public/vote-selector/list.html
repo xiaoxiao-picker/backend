@@ -1,0 +1,19 @@
+{{if votes.length==0}}
+<tr>
+	<td colspan="3" class="center">
+		暂无投票
+	</td>
+</tr>
+{{/if}}
+{{each votes as vote i}}
+<tr>
+	<td>
+		<label>
+			<input type="checkbox" class="xx-checkbox" name="vote" value="{{vote.id}}" {{if vote.checked}}checked{{/if}} />
+			{{(skip+i+1)>9?(skip+i+1):"0"+(skip+i+1)}}
+		</label>
+	</td>
+	<td>{{vote.name}}</td>
+	<td>{{vote.startDate | makedate:'MM月dd日 hh:mm'}} - {{vote.endDate | makedate:'MM月dd日 hh:mm'}}</td>
+</tr>
+{{/each}}

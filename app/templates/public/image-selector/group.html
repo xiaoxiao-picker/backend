@@ -1,0 +1,24 @@
+<ul class="group-box">
+	<li>
+		<h4>系统图库</h4>
+		<ul class="sub-group">
+			{{each systemGroups as group i}}
+			<li {{if group.id==curGroupId}}class="active"{{/if}} data-value="{{group.id}}" data-type="{{group.type}}" data-code="{{group.code}}">
+				<span>{{group.name}}</span>
+				(<span>{{group.total}}</span>)
+			</li>
+			{{/each}}
+		</ul>
+	</li>
+	<li>
+		<h4>自定义图库</h4>
+		<ul class="sub-group">
+			{{each customGroups as group i}}
+			<li  id="Modal_Group_{{group.id}}" {{if group.id==curGroupId}}class="active"{{/if}} data-value="{{group.id}}" data-type="{{group.type}}" data-code="{{group.code}}">
+				<span>{{group.name}}</span>
+				(<span class="group-count">{{group.total}}</span>)
+			</li>
+			{{/each}}
+		</ul>
+	</li>
+</ul>

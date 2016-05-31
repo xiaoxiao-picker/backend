@@ -1,0 +1,234 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">编辑投票</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body xx-border-bottom">
+			<form id="voteform" style="width:600px;">
+				<div class="form-group post-img-container">
+					<h4 class="xx-inner-title clearfix">
+					<span class="xx-title">投票海报</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="avatar-wrapper">
+							<img id="VoteAvatar" class="vote-avatar"  src="{{vote.thumbnailUrl}}" onerror="this.src='images/default/event.jpg';"/>
+						</div>
+						<div class="buttons">
+							<button class="btn btn-xx-green" data-xx-action="openImageSelector" data-toggle="tooltip" data-placement="right" title="建议上传海报比例 300*200！">
+							<span>选择海报</span>
+							</button>
+							<button class="btn btn-xx-green btn-cut {{if !vote.thumbnailUrl}}hide{{/if}}" data-xx-action="openImageCrop">
+							<span>剪切</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">投票名称</span>
+					</h4>
+					<div class="xx-inner-content">
+						<input name="name" class="xx-input-text xx-text-bounds" type="text" placeholder="投票名称" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" value="{{vote.name}}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">投票简介</span>
+					</h4>
+					<label class="xx-inner-body" style="padding:0;">
+						<textarea class="xx-textarea xx-textarea-bounds-o" placeholder="简介不得超过200个字" data-xx-change-action="terseModify" data-xx-keyup-action="terseModify">{{vote.terse}}</textarea>
+						<p class="bottom-tips">
+							还可以输入<span id="TerseRemain">{{vote.terse?200-vote.terse.length:200}}</span>字。
+						</p>
+					</label>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">投票时间</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="datetimepicker-group xx-inputs clearfix">
+							<div class="xx-input-group">
+								<span class="xx-input-group-addon">从</span>
+								<input name="startDate" type="text" class="datetimepicker min" data-type="DATETIME" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" placeholder="投票开始时间" value="{{vote.startDate | makedate:'yyyy/MM/dd hh:mm'}}"  readonly/>
+							</div>
+							<div class="xx-input-group">
+								<span class="xx-input-group-addon">至</span>
+								<input name="endDate" type="text" class="datetimepicker max" data-type="DATETIME" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" placeholder="投票结束时间" value="{{vote.endDate | makedate:'yyyy/MM/dd hh:mm'}}"   readonly/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">投票频率（每人每&nbsp;<span class="text-xx-red">/天</span>&nbsp;能投&nbsp;<span class="text-xx-red">/张</span>，若天数为投票持续天数则表示总共能投x票）</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-inputs clearfix">
+							<div class="xx-input-group">
+								<input type="text" class="first" name="cycle" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" data-type="INT" value="{{vote.cycle}}" placeholder="投票周期" />
+								<div class="xx-input-group-addon">天</div>
+							</div>
+							<div class="xx-input-group">
+								<input type="text" class="first" name="tickets" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" data-type="INT" value="{{vote.tickets}}" placeholder="投票张数" />
+								<div class="xx-input-group-addon">张</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">是否允许对同一选项重复投票</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="Repeatable" name="repeatable" data-xx-change-action="checkboxModify" {{if vote && vote.repeatable}}checked{{/if}} />
+							<label class="xx-switch-label" for="Repeatable">
+								<div class="xx-switch-inner">
+									<div class="xx-active">是</div>
+									<div class="xx-inactive">否</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">是否开启强制投票（所有票必须一次性投完）</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="Compulsory" name="compulsory" data-xx-change-action="checkboxModify" {{if vote.compulsory}}checked{{/if}} />
+							<label class="xx-switch-label" for="Compulsory">
+								<div class="xx-switch-inner">
+									<div class="xx-active">是</div>
+									<div class="xx-inactive">否</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">允许投票评论</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="AllowComment" name="permitComment" data-xx-change-action="checkboxModify" {{if vote.permitComment}}checked{{/if}}>
+							<label class="xx-switch-label" for="AllowComment">
+								<div class="xx-switch-inner">
+									<div class="xx-active">是</div>
+									<div class="xx-inactive">否</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">{{if bindWechat}}是否开启关注后才能投票{{else}}是否开启关注后才能投票（需要绑定微信公众号）{{/if}}</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="NeedAttention" name="permitAttentionComment" data-xx-change-action="needAttentionModify" data-xx-keyup-action="needAttentionModify"  {{if vote.permitAttentionComment}}checked{{/if}} {{if !bindWechat}}disabled{{/if}} />
+							<label class="xx-switch-label" for="NeedAttention">
+								<div class="xx-switch-inner">
+									<div class="xx-active" tooltip title="需要关注公众号才能参与投票">是</div>
+									<div class="xx-inactive" tooltip title="不需要关注公众号就能参与投票">否</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">是否需要投票人员绑定手机号码（开启可有效防止刷票）</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="CompulsivelyBindPhoneNumber" name="compulsivelyBindPhoneNumber" data-xx-change-action="checkboxModify" {{if vote.compulsivelyBindPhoneNumber}}checked{{/if}}>
+							<label class="xx-switch-label" for="CompulsivelyBindPhoneNumber">
+								<div class="xx-switch-inner">
+									<div class="xx-active" tooltip title="需要投票人员绑定手机号码">是</div>
+									<div class="xx-inactive" tooltip title="不需要投票人员绑定手机号码">否</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">是否只能在微信浏览器中打开（开启可有效防止刷票）</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="CompulsivelyInWechat" name="compulsivelyInWechat" data-xx-change-action="checkboxModify" {{if vote.compulsivelyInWechat}}checked{{/if}}>
+							<label class="xx-switch-label" for="CompulsivelyInWechat">
+								<div class="xx-switch-inner">
+									<div class="xx-active" tooltip title="只能在微信浏览器中打开，可防止刷票！">是</div>
+									<div class="xx-inactive" tooltip title="不限制浏览器">否</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+					<span class="xx-title">投票选项排序</span>
+					</h4>
+					<div>
+						<label><input type="radio" name="sortType" value="BY_TIME" data-xx-change-action="inputModify" checked  />按添加顺序</label>
+						<label><input type="radio" name="sortType" value="BY_RESULT" data-xx-change-action="inputModify" {{if vote.sortType=="BY_RESULT"}}checked{{/if}} />按得票排名</label>
+						<label><input type="radio" name="sortType" value="BY_RANDOM" data-xx-change-action="inputModify" {{if vote.sortType=="BY_RANDOM"}}checked{{/if}} />随机排序</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<h4 class="xx-inner-title">
+						<span class="xx-title">是否显示选项得票数</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="xx-switch">
+							<input type="checkbox" class="xx-switch-checkbox" id="ShowOptionVote" name="hideVotes" data-xx-change-action="checkboxModify" {{if vote && !vote.hideVotes}}checked{{/if}} />
+							<label class="xx-switch-label" for="ShowOptionVote">
+								<div class="xx-switch-inner">
+									<div class="xx-active">是</div>
+									<div class="xx-inactive">否</div>
+								</div>
+								<div class="xx-switching"></div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div id="voteMembersContainer">
+				<!-- app/templates/event/vote/members -->
+			</div>
+		</div>
+		<div class="panel-footer">
+			{{if vote.isHistory}}
+			<button class="btn btn-xx-green" disabled>保存</button>
+			<span class="text-xx-green">该投票为历史投票，不可进行编辑操作！</span>
+			{{else}}
+			<button class="btn btn-xx-green btn-save" data-xx-action="save" disabled>
+				<span class="inside-loading">正在保存
+					<i class="fa fa-spinner rolling font-18"></i>
+				</span>
+				<span class="inside-text">
+					保存
+				</span>
+			</button>
+			{{/if}}
+		</div>
+	</div>
+</div>

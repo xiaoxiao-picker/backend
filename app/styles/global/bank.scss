@@ -1,0 +1,42 @@
+.bank {
+        height: 36px;
+        border: 1px solid #ddd;
+        padding: 2px 5px 2px;
+        transition: all 0.4s;
+
+        &:hover {
+                border-color: #999;
+        }
+
+        &.active {
+                border-color: #5bd18b;
+                background-color: #d6f1e1;
+        }
+}
+
+.bank-logo {
+        background-image: url("./../images/bank/bank-logo.png");
+        background-repeat: no-repeat;
+        width: 125px;
+        height: 28px;
+        overflow: hidden;
+        text-indent: -9999px;
+        display: block;
+        margin: 0 auto;
+
+        &.bank-icbc{
+                 background-position: 0 -140px;
+        }
+
+        &.bank-abc{
+                background-position: 0 -531px;
+        }
+
+        &.bank-boc {
+                background-position: 0 -840px;
+        }
+
+        &.bank-ccb {
+                background-position: 0 -336px;
+        }
+}

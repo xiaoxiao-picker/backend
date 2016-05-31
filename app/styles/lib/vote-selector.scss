@@ -1,0 +1,59 @@
+.vote-selector, .lottery-selector {
+	text-align: left;
+
+	.vote-count, .lottery-count {
+		float: left;
+		display: inline-block;
+		// line-height: 28px;
+		color: #5bd18b;
+	}
+	.votes, .lotteries {
+		border: 1px solid #f2f2f2;
+		min-height: 300px;
+		max-height: 500px;
+		overflow: auto;
+	}
+	.table {
+		.xx-table-header {
+			tr {
+				th {
+					padding: 5px;
+				}
+			}
+		}
+		.xx-table-body {
+			tr {
+				background-color: transparent;
+
+				&:hover {
+					// background-color: #70D89A;
+				}
+				td {
+					padding: 6px 5px;
+					color: #444;
+
+					label {
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+	.footer {
+		padding-top: 10px;
+		padding-right: 0px;
+
+		&.complate {
+			.btn-more {
+				display: none;
+			}
+		}
+		.btn-more {
+			float: right;
+		}
+
+		.buttons {
+			padding-top: 15px;
+		}
+	}
+}

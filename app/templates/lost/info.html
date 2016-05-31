@@ -1,0 +1,34 @@
+<!-- lost info modal begin -->
+<header class="lostInfo-header-wrapper">
+	<h4>{{lost.title}}</h4>
+	{{if lost.picUrls&&lost.picUrls.length}}
+	<div class="content-wrapper">
+		{{include './info-images-box'}}
+	</div>
+	{{/if}}
+</header>
+<section class="lostInfo-body-wrapper">
+	<div class="content">{{lost.text}}</div>
+	<div class="text-xx-gray"><span class="">事发日期：</span>{{lost.eventDate | makedate:'yyyy-MM-dd hh:mm'}}</div>
+	<div class="text-xx-gray"><span class="">事发地点：</span>{{lost.location}}</div>
+	<div class="text-xx-gray"><span class="">联系人：</span>{{lost.contactInfo.name}}</div>
+	<div class="text-xx-gray"><span class="">联系电话：</span>{{lost.contactInfo.phone}}</div>
+	{{if lost.contactInfo.QQ&&lost.contactInfo.QQ.length}}
+	<div class="text-xx-gray"><span class="">联系QQ：</span>{{lost.contactInfo.QQ}}</div>
+	{{/if}}
+</section>
+<footer class="lostInfo-footer-wrapper center">
+	{{if lost.isCompleted}}
+	<div class="lost-result unselect">
+		{{{FIND:"已找到",LOST:"已归还"}[lost.type]}}
+	</div>
+	{{else}}
+	<button class="btn btn-xx-green btn-change-status">
+		<span class="inside-loading">
+			<i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">{{lost.type=="LOST" ? "确认归还" : "确认找到"}}</span>
+	</button>
+	{{/if}}
+</footer>
+<!-- lost info modal end -->

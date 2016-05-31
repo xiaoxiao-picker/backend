@@ -1,0 +1,11 @@
+<!-- 成员列表按分组显示 -->
+{{each groups as group i}}
+<div id="{{group.id}}" class="xx-group" data-group-id="{{group.id}}" data-group-name="{{group.name}}">
+	<!-- global/inner.scss -->
+	<div class="xx-inner-title clearfix">
+		<span class="xx-title"><strong>{{group.name}}</strong></span>
+	</div>
+	<div>{{include '../partial/loading'}}</div>
+	<!-- app/templates/member/groupMembersInner -->
+</div>
+{{/each}}

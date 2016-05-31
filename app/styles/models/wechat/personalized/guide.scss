@@ -1,0 +1,22 @@
+.personalized-guide {
+        .guide {
+                position: absolute;
+                top: 250px;
+                width: 100px;
+                &.guide-0 {
+                        left: 250px;
+                }
+                &.guide-1 {
+                        right: 250px;
+                }
+                dl {
+                        color: #fff;
+                        text-align: center;
+                        dd {
+                                text-align: center;
+                                padding: 5px 0;
+                                margin: 0;
+                        }
+                }
+        }
+}

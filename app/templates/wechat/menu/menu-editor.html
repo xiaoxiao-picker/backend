@@ -1,0 +1,17 @@
+<form class="personalized-form" data-menu-id="{{menu.info.guid}}">
+	<div id="MenuNameBox">
+		<div class="form-row">
+			<h4 class="xx-inner-title">
+				<span class="xx-title">菜单名称</span>
+			</h4>
+			<div class="xx-content">
+				<input type="text" class="form-control" value="{{menu.name}}" data-xx-keyup-action="updateMenuName"  placeholder="{{menu.info.parentId?'子菜单长度不能超过7位':'主菜单长度不能超过4位'}}" />
+			</div>
+		</div>
+	</div>
+	<div id="MenuEditorBox">
+		<!-- app/templates/wechat/personalized/menu/innerModules -->
+		<!-- app/templates/wechat/personalized/menu/innerCustom -->
+		<!-- app/templates/wechat/personalized/menu/innerModule -->	
+	</div>
+</form>

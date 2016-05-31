@@ -1,0 +1,53 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#searchOrgs">添加组织</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<div class="search-condition-wrapper clearfix">
+				<div class="col-md-3">
+					<div class="xx-inner-title clearfix">
+						<span class="xx-title">选择组织类型</span>
+					</div>
+					<select id="OrgTypeContainer" class="form-control" name="" >
+						<option value="不限" selected>不限</option>
+						{{each groups as group i}}
+						<option value="{{group}}">{{group}}</option>
+						{{/each}}
+					</select>
+				</div>
+				<div class="col-md-3">
+					<div class="xx-inner-title clearfix">
+						<span class="xx-title">选择学校</span>
+					</div>
+					<input id="SchoolText" class="form-control" type="text" data-value="0" value="不限" placeholder="" data-xx-action="showSchools" readonly style="cursor: auto;">
+				</div>
+				<div class="col-md-3">
+					<div class="xx-inner-title clearfix">
+						<span class="xx-title">组织名称</span>
+					</div>
+					<input id="OrgText" class="form-control" type="text" name="" value="" placeholder="">
+				</div>
+				<div class="col-md-3" style="margin-top: 30px;">
+					<button class="btn btn-xx-green" data-xx-action="search">
+					<span class="inside-loading">
+					<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+					<span class="inside-text">搜索</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div id="ResultsContainer" class="search-results">
+			{{include './search-orgs'}}
+		</div>
+		<!--/global/main.scss-->
+		<div class="list-back">
+			<a class="btn btn-xx-green btn-xx-sm" href="#list"><span class="fa fa-angle-double-left">&nbsp;</span>现有组织</a>
+		</div>
+	</div>
+</div>

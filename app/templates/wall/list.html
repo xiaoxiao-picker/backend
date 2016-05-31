@@ -1,0 +1,121 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#walls">微信上墙</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="#wall/add/edit">新建上墙</a>
+	</div>
+</div>
+<div class="content-body  wall-list">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+			<span class="xx-title">总数（{{count||0}}）</span>
+			</h3>
+			<div class="buttons search-group">
+				<form class="search-box ">
+					<input type="text" class="input-search keyword-name" placeholder="请输入关键字" value="{{keyword}}" />
+					<button class="btn-search" data-xx-action="search">
+					<span class="inside-loading">
+						<i class="fa fa-spinner rolling"></i>
+					</span>
+					<span class="inside-text">
+						<i class="fa fa-search"></i>
+					</span>
+					</button>
+				</form>
+			</div>
+		</header>
+		<section class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th>标题</th>
+						<th class="width-200">时间</th>
+						<th class="width-100">消息上墙</th>
+						<th class="width-100">状态</th>
+						<th class="width-280 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each walls as wall i}}
+					<tr>
+						<td>
+							{{i | index:pagination.page,pagination.limit}}
+						</td>
+						<td class="left">
+							<a href="#wall/{{wall.id}}/check" title="{{wall.title}}">{{wall.title}}</a>
+						</td>
+						<td>
+							{{#wall.startDate | makedateSpan}} 至 {{#wall.endDate | makedateSpan}}
+						</td>
+						<td>
+							<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{wall.title}}" data-source-name="{{wall.title}}" data-source-id="{{wall.id}}" data-source-type="WALL">
+								<span class="fa fa-qrcode"></span>
+								<span></span>
+							</a>
+						</td>
+						<td>
+							<div class="xx-switch">
+								<input type="checkbox" id="Wall{{wall.id}}" class="xx-switch-checkbox" data-value="{{wall.id}}" data-xx-action="switchState" {{if wall.wallState=="OPEN"}} checked {{/if}}>
+								<label class="xx-switch-label" for="Wall{{wall.id}}">
+									<div class="xx-switch-inner">
+										<div class="xx-active">开启</div>
+										<div class="xx-inactive">关闭</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</td>
+						<td>
+							<a class="btn btn-xx-green btn-xx-sm" href="#wall/{{wall.id}}/check">审核</a>
+							<a class="btn btn-xx-green btn-xx-sm" href="#wall/{{wall.id}}/edit">编辑</a>
+							<a class="btn btn-xx-green btn-xx-sm" href="#wall/{{wall.id}}/lottery">大屏幕互动</a>
+							<button class="btn btn-xx-danger btn-xx-sm" data-value="{{wall.id}}" data-xx-action="remove">
+							<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+							</span>
+							<span class="inside-text">删除</span>
+							</button>
+							
+							<!-- <div class="btn-group">
+									<div class="dropdown-group" dropdown tabindex="-1" style="padding-top: 6px;">
+											<button class="btn btn-xx-green btn-xx-sm dropdown-toggle">
+												更多操作
+												<span class="fa fa-caret-down"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+													<li>
+															<a class="" href="#wall/{{wall.id}}/edit">编辑</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+															<a class="" href="#wall/{{wall.id}}/lottery">抽奖结果</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+															<button class="btn-remove" data-value="{{wall.id}}" data-xx-action="remove">
+																<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+																</span>
+																<span class="inside-text">删除</span>
+															</button>
+													</li>
+											</ul>
+									</div>
+							</div> -->
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</section>
+		<footer class="panel-footer"></footer>
+	</div>
+</div>

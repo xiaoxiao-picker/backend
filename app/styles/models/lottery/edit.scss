@@ -1,0 +1,195 @@
+.lottery-edit-container {
+        .form-control {
+                width: 260px;
+        }
+
+        .btn-xx-group {
+                border-top: 1px solid $default-border-color;
+                padding: 20px 0;
+        }
+
+        .tips {
+                margin: 0 10px 10px;
+                padding: 10px;
+                border: 1px dashed $red-color;
+                color: $red-color;
+        }
+
+        .awards-wrapper {
+                min-height: 50px;
+
+                .wrapper {
+                        position: relative;
+                        float: left;
+                        width: 25%;
+                        padding: 10px;
+
+                        &.disabled {
+                                .award-box {
+                                        opacity: 0.6;
+                                }
+
+                                .remark {
+                                        display: inline-block;
+                                }
+                        }
+
+                        .remark {
+                                position: absolute;
+                                top: 10px;
+                                left: 10px;
+                                background: $red-color;
+                                color: #fff;
+                                padding: 3px 6px;
+                                display: none;
+                                z-index: 1;
+                        }
+
+                        &:hover {
+                                .btn-remove {
+                                        display: block;
+                                }
+                        }
+                }
+
+                .btn-remove {
+                        position: absolute;
+                        top: -2px;
+                        right: -2px;
+                        height: 24px;
+                        width: 24px;
+                        font-size: 24px;
+                        color: $red-color;
+                        background: #fff;
+                        border-radius: 12px;
+                        display: none;
+
+                        &:hover {
+                                color: $deep-red-color;
+                        }
+                }
+        }
+
+        .award-box {
+                width: 100%;
+                background: #f8f8f8;
+
+                .img-wrapper {
+                        height: 120px;
+                        background: #e3e3e3;
+                        overflow: hidden;
+                        text-align: center;
+
+                        &::before {
+                                content: "1";
+                                height: 0;
+                                width: 0;
+                                opacity: 0;
+                                visibility: hidden;
+                                line-height: 120px;
+                                white-space: nowrap;
+                                display: inline-block;
+                                margin-left: -5px;
+                        }
+
+                        > img {
+                                display: inline-block;
+                                max-width: 100%;
+                                max-height: 100%;
+                                vertical-align: middle;
+                        }
+                }
+
+                .content {
+                        padding: 5px 10px;
+                        line-height: 20px;
+
+                        h4 {
+                                margin-bottom: 10px;
+                                font-weight: normal;
+                        }
+
+                        span {
+                                font-size: 12px;
+                                color: $default-gray-color;
+                        }
+                }
+        }
+}
+
+.lottery-award-modal {
+        .images-wrapper,
+        .content-wrapper {
+                float: left;
+        }
+
+        .unlottery-text {
+                font-weight: normal;
+                font-size: 13px;
+        }
+
+        .images-wrapper {
+                width: 30%;
+                text-align: center;
+
+                .logo {
+                        height: 120px;
+                        width: 120px;
+                        overflow: hidden;
+                        margin: 0 auto 5px;
+                        background: $main-background-color;
+                        text-align: center;
+
+                        &::before {
+                                content: "1";
+                                height: 0;
+                                width: 0;
+                                opacity: 0;
+                                visibility: hidden;
+                                line-height: 120px;
+                                white-space: nowrap;
+                                display: inline-block;
+                                margin-left: -5px;
+                        }
+
+                        > img {
+                                display: inline-block;
+                                max-width: 100%;
+                                max-height: 100%;
+                                vertical-align: middle;
+                        }
+                }
+        }
+
+        .content-wrapper {
+                width: 70%;
+                padding-left: 15px;
+        }
+
+        .probability {
+                input {
+                        float: left;
+                        width: 120px;
+                        margin-right: 10px;
+                }
+
+                span {
+                        line-height: 30px;
+                }
+        }
+
+        .tips {
+                color: $red-color;
+                border: 1px dashed $red-color;
+                padding: 10px;
+
+                p {
+                        margin-bottom: 5px;
+                }
+        }
+
+        .text-tips {
+                font-size: 12px;
+                color: #888;
+        }
+}

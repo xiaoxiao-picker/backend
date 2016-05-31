@@ -1,0 +1,52 @@
+<!-- global/formBox.scss -->
+<div class="form-rows-box">
+	{{each forms as form i}}
+		<div class="box-row">
+			<div class="row-header ellipsis">
+				<span class="requied">{{if form.required}}(必填){{else}}(选填){{/if}}</span>
+				<span class="title">{{form.title}}</span>
+			</div>
+			<div class="row-body text-xx-gray" style="{{form.box.contentStyle}}">
+				{{if form.type=="TEXT"||form.type=="TEXTAREA"}}
+				内容填写区域
+				{{else if form.type=="DATE"}}
+				时间选择
+				{{else if form.type=="IMAGE"}}
+				<div class="images-wrapper clearfix">
+					<div class="wrapper">
+						<div class="image-add">
+							<span class="fa fa-plus text-xx-gray"></span>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="image-add">
+							<span class="fa fa-plus text-xx-gray"></span>
+						</div>
+					</div>
+					<div class="wrapper">
+						<div class="image-add">
+							<span class="fa fa-plus text-xx-gray"></span>
+						</div>
+					</div>
+				</div>
+				{{else if form.type=="RADIO"||form.type=="CHECKBOX"}}
+					{{each form.options as option i}}
+					<div class="option ellipsis">{{option.name}}</div>
+					{{/each}}
+				{{/if}}
+			</div>
+			<div class="row-edit-mask" style="{{form.box.maskStyle}}" data-value="{{i}}" data-xx-action="checkForm">
+				<button data-value="{{i}}" data-xx-action="checkForm">
+					<i class="fa fa-pencil"></i>
+				</button>
+				<button data-value="{{i}}" data-xx-action="removeForm">
+					<i class="fa fa-times"></i>
+				</button>
+			</div>
+		</div>
+	{{/each}}
+	<div class="box-add" data-xx-action="addForm">
+		<span class="fa fa-plus"></span>
+		添加{{title}}选项
+	</div>	
+</div>

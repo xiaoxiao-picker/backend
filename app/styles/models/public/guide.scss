@@ -1,0 +1,215 @@
+#GuideContent {
+        min-height: 650px;
+
+        .guide {
+                position: relative;
+                width: 100%;
+                height: 650px;
+
+                img {
+                        display: inline-block;
+                }
+
+                .guide-img {
+                        margin: 200px auto 0;
+                }
+
+                .guide-icon {
+                        margin-left: 15px;
+                }
+
+                &.guide1 {
+                        .guide-icon {
+                                margin-top: 10px;
+                        }
+                }
+
+                &.guide2 {
+                        .guide-icon {
+                                margin-top: 80px;
+                        }
+                }
+
+                &.guide3 {
+                        .guide-icon {
+                                margin-top: 180px;
+                        }
+                }
+
+                .buttons {
+                        position: absolute;
+                        width: 100%;
+                        left: 0;
+                        bottom: 0;
+                }
+        }
+}
+
+.func-guide-container {
+        position: relative;
+        user-select: none;
+        padding: 30px;
+
+        .options {
+                margin-bottom: 50px;
+
+                &.len-1 {
+                        .option {
+                                width: 100%;
+                                border-right: none;
+                        }
+
+                        margin-top: 100px;
+                }
+
+                &.len-2 {
+                        margin-top: 100px;
+
+                        .option {
+                                width: 50%;
+                        }
+                }
+
+                &.len-3 {
+                        margin-top: 100px;
+
+                        .option {
+                                width: 50%;
+
+                                &.option-3 {
+                                        width: 100%;
+
+                                        // padding-left: 200px;
+                                        // padding-right: 200px;
+                               
+                                }
+                        }
+                }
+
+                &.len-4 {
+                        margin-top: 100px;
+
+                        .option {
+                                width: 33.333%;
+                        }
+                }
+
+                &.len-5 {
+                        margin-top: 100px;
+
+                        .option {
+                                width: 33.333%;
+                        }
+                }
+
+                &.len-6 {
+                        margin-top: 100px;
+
+                        .option {
+                                width: 33.333%;
+                        }
+                }
+
+                &.len-7 {
+                        margin-top: 100px;
+
+                        .option {
+                                width: 33.333%;
+                        }
+                }
+
+                &.len-8 {
+                        margin-top: 10px;
+
+                        .option {
+                                width: 50%;
+                        }
+                }
+
+                .option {
+                        float: left;
+                        padding: 10px 30px;
+                        height: 100px;
+                        border-right: 1px dotted $default-border-color;
+                        border-bottom: 1px dotted $default-border-color;
+                        overflow: hidden;
+
+                        .index {
+                                float: left;
+                                width: 60px;
+                                height: 60px;
+                                line-height: 60px;
+                                text-align: center;
+                                color: #fff;
+                                border-radius: 50%;
+                                display: block;
+                                font-size: 20px;
+                        }
+
+                        &.option-1 {
+                                .index {
+                                        background-color: #000;
+                                }
+                        }
+
+                        &.option-2 {
+                                .index {
+                                        background-color: #E18D24;
+                                }
+                        }
+
+                        &.option-3 {
+                                .index {
+                                        background-color: #7188D9;
+                                }
+                        }
+
+                        &.option-4 {
+                                .index {
+                                        background-color: #BF09A0;
+                                }
+                        }
+
+                        &.option-5 {
+                                .index {
+                                        background-color: #B4B4B4;
+                                }
+                        }
+
+                        &.option-6 {
+                                .index {
+                                        background-color: #F2E113;
+                                }
+                        }
+
+                        &.option-7 {
+                                .index {
+                                        background-color: #87DF76;
+                                }
+                        }
+
+                        &.option-8 {
+                                .index {
+                                        background-color: #FF5E00;
+                                }
+                        }
+
+                        .info {
+                                margin-left: 80px;
+                        }
+
+                        .title {
+                                font-size: 16px;
+                                font-weight: normal;
+                                color: $xx-title-color;
+                                line-height: 30px;
+                        }
+
+                        .content {
+                                text-align: left;
+                                color: $default-gray-color;
+                                font-size: 12px;
+                        }
+                }
+        }
+}

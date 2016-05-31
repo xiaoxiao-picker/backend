@@ -1,0 +1,36 @@
+<!-- 图片裁剪 -->
+<div class="xx-modal-body image-crop-modal">
+	<div class="clearfix {{options.orientation}}">
+		<div class="image-box">
+			<div class="xx-inner-title">
+				<span class="xx-title">原始图片</span>
+				<i class="text-xx-green">{{options.tips}}</i>
+			</div>
+			<div class="image">
+				<img id="ImageCrop_Image" src="{{imageUrl}}" />
+			</div>
+		</div>
+		{{if options.preview}}
+		<div class="preview-box">
+			<div class="xx-inner-title">
+				<span class="xx-title">预览</span>
+			</div>
+			<div class="preview">
+				<div id="Preview_Pane" class="{{if options.jcrop.borderRadius}}radius{{/if}}">
+					<div class="preview-container {{if options.jcrop.borderRadius}}radius{{/if}}" border="0" style="width:{{options.jcrop.previewWidth}}px; height:{{options.jcrop.previewHeight}}px; line-height:{{options.jcrop.previewHeight}}px;">
+						<img id="ImageCrop_Image_Preview" class="jcrop-preview" src="{{imageUrl}}" />
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+	</div>
+	<div class="buttons center">
+		<button id="ImageCrop_Btn" class="btn btn-xx-green btn-save" data-xx-action="{{options.action}}" data-value1="{{options.value1}}" data-value2="{{options.value2}}" data-value3="{{options.value3}}">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling font-18"></i>
+			</span>
+			<span class="inside-text">确定</span>
+		</button>
+	</div>
+</div>

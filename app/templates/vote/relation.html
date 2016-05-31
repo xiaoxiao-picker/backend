@@ -1,0 +1,117 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		{{if sourceType=="WALL"}}
+		<li role="presentation">
+			<a href="#wall/{{sourceId}}/lottery">上墙幸运星</a>
+		</li>
+		{{/if}}
+		<li role="presentation" class="active">
+			{{if sourceType=='EVENT'}}
+			<a href="javascript:void(0);" data-xx-action="refresh">活动投票管理</a>
+			{{else if sourceType=="WALL"}}
+			<a href="javascript:void(0);" data-xx-action="refresh">上墙投票</a>
+			{{/if}}
+		</li>
+		{{if sourceType=="WALL"}}
+		<li role="presentation">
+			<a href="#lottery/relation/Wall/{{sourceId}}/list?from=vote">上墙抽奖</a>
+		</li>
+		{{/if}}
+	</ul>
+	{{if sourceType!="WALL"}}
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addVote" title="新建投票，需要手动关联" tooltip>新建投票</button>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="bindVote" title="关联已有投票" tooltip>关联已有投票</button>	
+	</div>
+	{{/if}}
+</div>
+<div class="content-body relation-list">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				{{if sourceType=="WALL"}}
+				<span class="xx-title">已绑定投票（微信上墙最多只能绑定一个投票）</span>
+				{{else}}
+				<span class="xx-title">总数（{{votes.length||0}}）</span>
+				{{/if}}
+			</h3>
+
+			{{if sourceType=="WALL"}}
+			<div class="buttons ">
+				<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addVote" title="新建投票，需要手动关联" tooltip>新建投票</button>
+				<button class="btn btn-xx-green btn-xx-sm" data-xx-action="bindVote" title="关联已有投票" tooltip>关联已有投票</button>	
+			</div>
+			{{/if}}
+		</header>
+		<div class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th>名称</th>
+						<th class="width-240">投票时间</th>
+						<th class="width-100">当前状态</th>
+						<th class="width-100">投票人员</th>
+						<th class="width-100 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each votes as vote i}}
+					<tr>
+						<td>
+							{{(i+1) < 10 ? "0"+(i+1) : (i+1)}}
+						</td>
+						<td class="left">
+							{{vote.name}}
+						</td>
+						<td>
+							{{vote.startDate | makedate:'MM月dd日 hh:mm'}} - {{vote.endDate | makedate:'MM月dd日 hh:mm'}}
+						</td>
+						<td class="center">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" name="{{vote.id}}" id="Vote{{vote.id}}" data-value="{{vote.id}}" data-xx-change-action="switch" {{if vote.state=="OPEN"}} checked {{/if}}>
+								<label class="xx-switch-label" for="Vote{{vote.id}}">
+									<div class="xx-switch-inner">
+										<div class="xx-active">开启</div>
+										<div class="xx-inactive">关闭</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</td>
+						<td>
+							<button class="btn btn-xx-sm btn-xx-green" data-source-type="VOTE" data-source-id="{{vote.id}}" data-export-file-name="投票-{{vote.name}}-结果" data-xx-action="exportReport">
+								<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">
+									下载名单
+								</span>
+							</button>
+						</td>
+						<td>
+							<button class="btn btn-xx-red btn-xx-sm" data-value="{{vote.id}}" data-xx-action="remove">
+								<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-14"></i>
+								</span>
+								<span class="inside-text">
+									解除关联
+								</span>
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if votes.length==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+			<!--/global/main.scss-->
+			<div class="list-back">
+				<a class="btn btn-xx-green btn-xx-sm" data-xx-action="goBack" title="返回" tooltip>返回</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="xx-tag-group clearfix">
+	{{if schools.length==0}}
+	<p class="text-gray">暂未添加任何学校</p>
+	{{/if}}
+	{{each schools as school i}}
+	<div class="xx-tag-wrapper xx-blue">
+		<label class="xx-tag">{{school.name}}</label>
+		<span class="xx-tag-btn xx-tag-del" data-value="{{school.id}}" data-xx-action="removeSchool">
+			<i class="fa fa-minus-circle"></i>
+		</span>
+	</div>
+	{{/each}}
+</div>

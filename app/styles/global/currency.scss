@@ -1,0 +1,11 @@
+.currency {
+        position: relative;
+
+        &:before {
+                content: "￥";
+                display: block;
+                position: absolute;
+                right: 100%;
+                top: 0;
+        }
+}

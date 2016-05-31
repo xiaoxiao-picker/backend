@@ -1,0 +1,44 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#wall/{{wallId}}/lottery">上墙幸运星</a>
+		</li>
+		<li role="presentation">
+			<a href="#vote/relation/Wall/{{wallId}}/list?from=lucky">上墙投票</a>
+		</li>
+		<li role="presentation">
+			<a href="#lottery/relation/Wall/{{wallId}}/list?from=lucky">上墙抽奖</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body wall-lottery">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			{{if count > 0}}
+			<ul class="lottery-list">
+				{{each groups as group i}}
+				<li class="lottery-result">
+					<div class="time">
+						<i class="fa fa-circle-o"></i>
+						<span>{{group.date | makedate:'yyyy-MM-dd hh:mm:ss'}}</span>
+					</div>
+					<ul class="lottery-men">
+						{{each group.users as user j}}
+						<li class="lottery-man" data-xx-action="checkUser" data-user-id="{{user.user&&user.user.id}}">
+							<span class="index">{{j+1}}.</span>
+							<img class="user-avatar user-avatar-{{j}}" src="{{user.user&&user.user.portraitUrl}}" onerror="this.src='/images/default/avatar.jpg'" />
+							<span>{{user.user.name||user.user.nickname||"匿名"}}（{{user.user&&user.user.phoneNumber}}）</span>
+						</li>
+						{{/each}}
+					</ul>
+				</li>
+				{{/each}}
+			</ul>
+			{{else}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</div>

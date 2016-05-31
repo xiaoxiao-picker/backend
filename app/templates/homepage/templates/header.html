@@ -1,0 +1,18 @@
+<!-- 模板头部结构 -->
+<h4 class="phone-header ellipsis">
+	<span>{{if page.isActive}} (已启用){{/if}}</span>
+	<span id="TemplateName">{{page.name||"未命名模板"}}</span>
+	<div class="buttons">
+		<button class="btn-edit" data-xx-action="openTemplateNameEditor" title="修改名称">
+			<i class="fa fa-pencil"></i>
+		</button>
+		<div class="btn-nav">
+			<img src="./images/icons/line/cothse.svg" />
+			<ul class="inner-nav">
+				<li data-xx-action="openBackgroundSetting">背景图片</li>
+				<li class="divider"></li> 
+				<li data-xx-action="openMusicBox">背景音乐</li>
+			</ul>
+		</div>
+	</div>
+</h4>

@@ -1,0 +1,300 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:(0);">编辑活动</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">	
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="classficationManage">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">分类管理</span>
+		</button>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="voteManage">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">投票管理</span>
+		</button>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="ticketManage">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">电子票管理</span>
+		</button>
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="lotteryManage">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling"></i>
+			</span>
+			<span class="inside-text">抽奖管理</span>
+		</button>
+	</div>
+</div>
+<div class="content-body event-edit-body">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<form id="EventEditForm" class="form-editor">
+				<div class="form-group post-img-container">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">活动海报</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="avatar-wrapper">
+							<img id="EventAvatar" class="event-avatar"  src="{{event.thumbnailUrl}}" onerror="this.src='images/default/event.jpg';"/>
+						</div>
+						<div class="buttons">
+							<button class="btn btn-xx-green" data-xx-action="openImageSelector" data-toggle="tooltip" data-placement="right" title="建议上传海报比例 300*200！">
+								<span>选择海报</span>
+							</button>
+							<button class="btn btn-xx-green btn-cut {{if !event.thumbnailUrl}}hide{{/if}}" data-xx-action="openImageCrop">
+								<span>剪切</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">活动名称</span>
+					</h4>
+					<input name="name" class="form-control" type="text" placeholder="" value="{{event.name}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify"  />
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">活动地点</span>
+					</h4>
+					<input name="address" class="form-control" type="text" value="{{event.address}}" placeholder="" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify"  />
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix terse-container">
+						<span class="xx-title">活动简介（简要概括活动主题，100字以内）</span>
+					</h4>
+					<div class="xx-inner-body">
+						<textarea class="xx-textarea xx-textarea-bounds-o" name="terse" data-validate-rule="require" data-tips="活动简介不能为空" data-xx-change-action="terseModify" data-xx-keyup-action="terseModify">{{event.terse}}</textarea>
+						<p class="bottom-tips">
+							还可以输入
+							<span id="TerseRemain">{{event.terse?100 - event.terse.length : 100}}</span>
+							字。
+						</p>
+					</div>
+				</div>
+				<div class="form-group" style="height:70px;">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">活动时间</span>
+					</h4>
+					<div class="datetimepicker-group xx-inputs clearfix">
+						<div class="xx-input-group">
+							<span class="xx-input-group-addon">从</span>
+							<input  name="startDate" type="text" class="datetimepicker min" placeholder="开始日期" value="{{event.startDate | makedate:'yyyy/MM/dd hh:mm'}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" readonly/>
+						</div>
+						<div class="xx-input-group">
+							<span class="xx-input-group-addon">至</span>
+							<input name="endDate" type="text" class="datetimepicker max" placeholder="结束日期" value="{{event.endDate | makedate:'yyyy/MM/dd hh:mm'}}" data-xx-change-action="inputModify" data-xx-keyup-action="inputModify" readonly/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">活动分类</span>
+						<button class="btn btn-xx-green btn-xx-sm" data-xx-action="addCategory">添加分类</button>
+					</h4>
+					<div>
+						<select style="width: 280px;" name="category.id" id="EventCategories" data-xx-change-action="inputModify">
+							<!-- select option 模板  app/templates/public/option -->
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix" style="width: 280px;">
+						<span class="xx-title">是否开启评论</span>
+						<div class="xx-right">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" id="CommentState" name="permitComment" value="" {{if event.permitComment}}checked{{/if}}  data-xx-change-action="modifyCheckBox"/>
+								<label class="xx-switch-label" for="CommentState">
+									<div class="xx-switch-inner">
+										<div class="xx-active">是</div>
+										<div class="xx-inactive">否</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</div>
+					</h4>
+				</div>
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix" style="width: 280px;">
+						<span class="xx-title">线上报名</span>
+						<div class="xx-right">
+							<div class="xx-switch">
+								<input type="checkbox" class="xx-switch-checkbox" id="switch" name="allowToSignUp" value="true" {{if event.allowToSignUp}} checked {{/if}} data-xx-change-action="controllRegister" />
+								<label class="xx-switch-label" for="switch">
+									<div class="xx-switch-inner">
+										<div class="xx-active">开启</div>
+										<div class="xx-inactive">关闭</div>
+									</div>
+									<div class="xx-switching"></div>
+								</label>
+							</div>
+						</div>
+					</h4>
+				</div>
+				<!-- 如果允许线上报名则显示改层 -->	
+				<div id="RegisterInfo" style="margin-left: 10px;" class="form-group {{if !event.allowToSignUp}} hide {{/if}}" >
+					<!-- 是否显示报名人数 -->
+					<div class="form-group">
+						<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px; width:270px;">
+							<span class="xx-title" style="border: none; padding: 0;" title="是否显示报名人数">是否显示报名人数</span>
+							<div class="xx-right">
+								<div class="xx-switch">
+									<input type="checkbox" class="xx-switch-checkbox" id="ShowNumberOfSignUp" name="showNumberOfSignUp" value="" {{if event.showNumberOfSignUp}}checked{{/if}}  data-xx-change-action="modifyCheckBox"/>
+									<label class="xx-switch-label" for="ShowNumberOfSignUp">
+										<div class="xx-switch-inner">
+											<div class="xx-active"  tooltip title="显示报名人数">是</div>
+											<div class="xx-inactive"  tooltip title="不显示报名人数">否</div>
+										</div>
+										<div class="xx-switching"></div>
+									</label>
+								</div>
+							</div>
+						</h4>
+					</div>
+					<!-- 报名成员是否需要绑定手机号 -->
+					<div class="form-group">
+						<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px; width:270px;">
+							<span class="xx-title" style="border: none; padding: 0;"  title="是否需要报名用户绑定手机号码">是否需要报名用户绑定手机号码</span>
+							<div class="xx-right">
+								<div class="xx-switch">
+									<input type="checkbox" class="xx-switch-checkbox" id="CompulsivelyBindPhoneNumber" name="compulsivelyBindPhoneNumber" {{if event.compulsivelyBindPhoneNumber}}checked{{/if}}  data-xx-change-action="modifyCheckBox"/>
+									<label class="xx-switch-label" for="CompulsivelyBindPhoneNumber">
+										<div class="xx-switch-inner">
+											<div class="xx-active" tooltip title="需要报名用户绑定手机号码">是</div>
+											<div class="xx-inactive"  tooltip title="不需要报名用户绑定手机号码">否</div>
+										</div>
+										<div class="xx-switching"></div>
+									</label>
+								</div>
+							</div>
+						</h4>
+					</div>
+					<div class="form-group">
+						<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px;">
+							<span class="xx-title" style="border: none; padding: 0;">所需基础资料</span>
+						</h4>
+						<div id="SignupNeedContainer" class="xx-tag-group unselect clearfix" style="margin: 0;">
+							{{include './../public/require-info/base-infos' event}}
+						</div>
+						<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px;">
+							<span class="xx-title" style="border: none; padding: 0;">所需自定义资料</span>
+						</h4>
+						<div id="RequireElseInfoContainer" class="xx-tag-group unselect clearfix" style="margin: 0;">
+							{{include './../public/require-info/else-infos' event}}
+						</div>
+					</div>
+					<!-- 报名时间段 -->
+					<div class="form-group">
+						<h4 class="xx-inner-title clearfix">
+							<span class="xx-title" style="border: none; padding: 0;">报名时间段</span>
+							<button class="btn btn-xx-sm btn-xx-green" data-xx-action="addSignUpTime">
+								<span>+时间段</span>
+							</button>
+						</h4>
+						<div class="times-container">
+							
+						</div>
+					</div>					
+				</div>
+				<div class="form-group rich-container">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">活动详情</span>
+					</h4>
+					<textarea id="Context">{{event.detail}}</textarea>
+				</div>
+				<p class="btn-xx-group left" style="padding: 15px 0;">
+					{{if event.id}}
+					{{if event.state=="UNPUBLISHED"}}
+					<!-- 发布 -->
+					<button class="btn btn-xx-green" data-xx-action="publish">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">发布</span>
+					</button>
+					<!-- 保存 -->
+					<button class="btn btn-xx-green btn-save" data-xx-action="save">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+					</button>
+					<!-- 加入回收箱 -->
+					<button class="btn btn-xx-red" data-xx-action="moveToDustbin">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{else if event.state=="PUBLISHED"}}
+					<!-- 保存 -->
+					<button class="btn btn-xx-green btn-save" data-xx-action="save">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+					</button>
+					<!-- 下线 -->
+					<button class="btn btn-xx-red" data-xx-action="archive">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">下线</span>
+					</button>
+					{{else if event.state=="ARCHIVED"}}
+					<!-- 发布 -->
+					<button class="btn btn-xx-green" data-xx-action="publish">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">重新发布</span>
+					</button>
+					<!-- 保存 -->
+					<button class="btn btn-xx-green btn-save" data-xx-action="save">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+					</button>
+					<!-- 加入回收箱 -->
+					<button class="btn btn-xx-red" data-xx-action="moveToDustbin">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{else if event.state=="RUBBISH"}}
+					<!-- 彻底删除 -->
+					<button class="btn btn-xx-red" data-xx-action="remove">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">删除</span>
+					</button>
+					{{/if}}
+				{{else}}
+					<!-- 发布 -->
+					<button class="btn btn-xx-green btn-save" data-xx-action="publish" disabled>
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">发布</span>
+					</button>
+					<!-- ID为0 表示活动还不存在 需要先创建再保存 -->
+					<button class="btn btn-xx-hollow-gray-border btn-save" data-xx-action="save" disabled>
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">存草稿</span>
+					</button>
+					{{/if}}
+				</p>
+			</form>
+		</div>
+	</div>
+</div>

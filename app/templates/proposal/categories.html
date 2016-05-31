@@ -1,0 +1,81 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#proposal/categories">
+				分类管理
+			</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<button class="btn btn-xx-green btn-xx-sm" data-xx-action="create">新建分类</button>
+	</div>
+</div>
+<div class="content-body category-list">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{categories.length||0}}）</span>
+			</h3>
+		</header>
+		<div class="panel-body">
+			<table class="table middle center">
+				<thead class="xx-table-header">
+					<tr>
+						<th class="width-60">编号</th>
+						<th>
+							分类名
+						</th>
+						<th class="width-80">二维码</th>
+						<th class="width-150">
+							创建时间
+						</th>
+						<th class="width-160 xx-border-right">操作</th>
+					</tr>
+				</thead>
+				<tbody class="xx-table-body">
+					{{each categories as category i}}
+					<tr class="">
+						<td>
+							{{(i+1) < 10 ? "0"+(i+1) : (i+1)}}
+						</td>
+						<td class="left">
+							{{category.name}}
+						</td>
+						<td>
+							<a href="javascript:void(0);" data-xx-action="checkQRCode" title="扫描二维码进入 {{category.name}}" data-source-name="{{category.name}}" data-source-id="{{category.id}}" data-source-type="PROPOSAL_CATEGORY">
+								<span class="fa fa-qrcode"></span>
+							</a>
+						</td>
+						<td>
+							{{category.createDate | makedateSpan:'MM-dd','yyyy-MM-dd hh:mm'}}
+						</td>
+						<td class="center width-160">
+							<button class="btn btn-xx-green btn-xx-sm" data-value="{{category.id}}" data-name="{{category.name}}" data-xx-action="update">
+							编辑
+							</button>
+							<button class="btn btn-xx-red btn-xx-sm" data-value="{{category.id}}" data-name="{{category.name}}" data-xx-action="remove">
+							<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-14"></i>
+							</span>
+							<span class="inside-text">
+								删除
+							</span>
+							</button>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if !categories.length}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+			
+			<!--/global/main.scss-->
+			<div class="list-back">
+				<a class="btn btn-xx-green btn-xx-sm" href="javascript:void(0);" data-xx-action="goBack">返回</a>	
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<div class="xx-tag-group clearfix">
+	{{each members as member i}}
+	<div class="xx-tag-wrapper xx-blue">
+		<label class="xx-tag" data-value="">{{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber||"未知"}}</label>
+		<span class="xx-tag-btn xx-tag-del" data-value="{{member.id}}" data-xx-action="removeMember">
+			<i class="fa fa-minus-circle"></i>
+		</span>
+	</div>
+	{{/each}}
+</div>

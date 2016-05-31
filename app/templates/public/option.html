@@ -1,0 +1,4 @@
+<!-- select 标签 选项 模板 -->
+{{each options as option i}}
+<option value="{{option.value}}" {{if option.selected}}selected{{/if}}>{{option.name}}</option>
+{{/each}}

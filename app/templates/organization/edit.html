@@ -1,0 +1,155 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">编辑信息</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body organization-edit">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<form class="form-editor">
+				<div class="form-group">
+					<h4 class="xx-inner-title clearfix">
+						<span class="xx-title">组织Logo</span>
+					</h4>
+					<div class="xx-inner-content">
+						<div class="avatar-wrapper">
+							<img class="logo org-avatar-{{org.id}}" src="{{org.logoUrl | imageUrl:'@100w_100h_1e_1c'}}" id="OrgLogo" onerror="this.src='images/default/org.jpg';"/>
+							<div class="upload" tooltip title="建议上传比例 300*300！">
+								<a href="javascript:void(0);" data-xx-action="openImageSelector">
+									<span>选择Logo</span>
+								</a>
+								&nbsp;
+								<a class="btn-cut {{if !org.logoUrl}}hide{{/if}}" href="javascript:void(0);" data-xx-action="openImageCrop">
+									<span>剪切</span>
+								</a>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">组织名称</div>
+					</div>
+					<input name="name" class="form-control" type="text" placeholder="组织名称" value="{{org.name}}" data-xx-change-action="nameModify" data-xx-keyup-action="nameModify" />
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">联系人<i class="xx-title-tips">（联系人必须为组织成员）</i></div>
+					</div>
+					<div class="input-group">
+						<input name="directorId" class="form-control" type="text" placeholder="选择联系人" value="{{org.director.user?org.director.remark||org.director.user.name||org.director.user.nickname||org.director.user.phoneNumber:''}}" readonly />
+						<span class="inupt-group-addon" data-xx-action="selectorDirector">
+							<i class="fa fa-search"></i>
+						</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">联系邮箱</div>
+					</div>
+					<input name="email" class="form-control" type="text" placeholder="输入联系邮箱" value="{{org.email}}" data-xx-change-action="emailModify" data-xx-keyup-action="emailModify" />
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">组织类型</div>
+					</div>
+					<select name="orgType" style="width: 280px;" data-xx-change-action="orgTypeModify">
+						<option {{if org.orgType=="管理"}}selected{{/if}}>管理</option>
+						<option {{if org.orgType=="学校官方"}}selected{{/if}}>学校官方</option>
+						<option {{if org.orgType=="学术"}}selected{{/if}}>学术</option>
+						<option {{if org.orgType=="艺术"}}selected{{/if}}>艺术</option>
+						<option {{if org.orgType=="体育"}}selected{{/if}}>体育</option>
+						<option {{if org.orgType=="实践"}}selected{{/if}}>实践</option>
+						<option {{if org.orgType=="公益"}}selected{{/if}}>公益</option>
+						<option {{if org.orgType=="社团联"}}selected{{/if}}>社团联</option>
+						<option {{if org.orgType=="学生会"}}selected{{/if}}>学生会</option>
+						<option {{if org.orgType=="部门"}}selected{{/if}}>部门</option>
+						<option {{if org.orgType=="其他"}}selected{{/if}}>其他</option>
+					</select>
+				</div>
+				<div style="margin-bottom: 15px;">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">是否为学校组织</div>
+					</div>
+					<div>
+						<label class="label-input">
+						     <input type="radio" class="xx-option-input xx-radio" name="isSchool" value="true" data-xx-change-action="schoolState" {{if org.isSchool}} checked {{/if}}/>
+							<!-- <input type="radio" class="xx-option-input xx-radio" name="isSchool" value="true" {{if org.isSchool}} checked {{/if}}/> -->
+							是
+						</label>
+						<label class="label-input">
+							<input type="radio" class="xx-option-input xx-radio" name="isSchool" value="false" data-xx-change-action="schoolState" {{if !org.isSchool}} checked {{/if}}/>
+							<!-- <input type="radio" class="xx-option-input xx-radio" name="isSchool" value="false" {{if !org.isSchool}} checked {{/if}}/> -->
+							否
+						</label>
+					</div>
+				</div>
+				<div id="SchoolContainer" class="form-group {{if !org.isSchool}}hide{{/if}}">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">所属学校</div>
+					</div>
+					<div class="input-group">
+						<input id="SchoolText" name="schoolId" class="form-control" type="text" placeholder="选择学校" data-value="{{org.school && org.school.id}}" value="{{org.school && org.school.name}}" readonly/>
+						<span class="inupt-group-addon" data-xx-action="selectSchool">
+							<i class="fa fa-search"></i>
+						</span>
+					</div>
+					
+				</div>
+				<div style="margin-bottom: 15px;">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">是否允许申请加入</div>
+					</div>
+					<div>
+						<label class="label-input">
+						     <input type="radio" class="xx-option-input xx-radio" name="permit" value="true" data-xx-change-action="permitModify" {{if org.permit}} checked {{/if}}/>
+							是
+						</label>
+						<label class="label-input">
+							<input type="radio" class="xx-option-input xx-radio" name="permit" value="false" data-xx-change-action="permitModify" {{if !org.permit}} checked {{/if}}/>
+							否
+						</label>
+					</div>
+				</div>
+				<div id="PermitContainer" class="form-group {{if !org.permit}}hide{{/if}}">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">申请加入所需资料</div>
+					</div>
+					<div id="JoinRequireInfoContainer" class="">
+						<div class="form-group">
+							<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px;">
+								<span class="xx-title" style="border: none; padding: 0;">所需基础资料</span>
+							</h4>
+							<div id="SignupNeedContainer" class="xx-tag-group unselect clearfix" style="margin: 0;">
+								{{include './../public/require-info/base-infos' org}}
+							</div>
+							<h4 class="xx-inner-title clearfix" style="margin: 0 0 10px;">
+								<span class="xx-title" style="border: none; padding: 0;">所需自定义资料</span>
+							</h4>
+							<div id="RequireElseInfoContainer" class="xx-tag-group unselect clearfix" style="margin: 0;">
+								{{include './../public/require-info/else-infos' org}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="xx-inner-title clearfix">
+						<div class="xx-title">组织简介</div>
+					</div>
+					<textarea id="Context">{{org.description}}</textarea>
+				</div>
+				<p class="btn-xx-group left">
+					<button class="btn btn-xx-green btn-save" data-xx-action="save" disabled>
+						<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+						</span>
+						<span class="inside-text">保存</span>
+					</button>
+				</p>
+			</form>
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="appmsg">
+	{{if articles.length == 1}}
+	{{each articles as article i}}
+	<div class="appmsg-content">
+		<h4 class="appmsg-title ellipsis">
+			<a onclick="return false;" href="javascript:void(0);">{{article.title}}</a>
+		</h4>
+		<div class="appmsg-info">
+			{{if article.xiaoxiaoUrl}}
+			<img class="appmsg-thumb default" src="{{article.xiaoxiaoUrl |imageUrl:'@300w_160h_1e_1c'}}" /> 
+			{{else}}
+			<i class="appmsg-thumb default">封面图片</i>
+			{{/if}}
+		</div>
+		<p class="appmsg-desc">{{article.digest}}</p>
+	</div>
+	{{/each}}
+	{{else}}
+	{{each articles as article i}}
+	<div class="mul-appmsg-content content-{{i}}">
+		<h4 class="appmsg-title">{{article.title}}</h4>
+		<div class="appmsg-info">
+			{{if article.xiaoxiaoUrl}}
+			{{if i==0}}
+			<img class="appmsg-thumb default" src="{{article.xiaoxiaoUrl |imageUrl:'@300w_160h_1e_1c'}}" />
+			{{else}}
+			<img class="appmsg-thumb default" src="{{article.xiaoxiaoUrl |imageUrl:'@100w_100h_1e_1c'}}" />
+			{{/if}}
+			{{else}}
+			<i class="appmsg-thumb default">封面图片</i>
+			{{/if}}
+		</div>
+		<div class="appmsg-edit-mask mask-{{i}}">
+			<div class="back" data-index="{{i}}" data-xx-action="switchIndex"></div>
+			<div class="buttons">
+				<button data-index="{{i}}" data-xx-action="switchIndex"> 
+					<i class="fa fa-pencil"></i>
+				</button>
+				{{if i > 0}}
+				<button data-index="{{i}}" data-xx-action="removeItem">
+					<i class="fa fa-times"></i>
+				</button>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+	{{/each}}
+	{{/if}}
+</div>
+{{if articles.length < 8}}
+<div class="appmsg-add" data-xx-action="addItem">
+	<i class="fa fa-plus"></i>
+</div>
+{{/if}}

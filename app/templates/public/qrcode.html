@@ -1,0 +1,27 @@
+<!-- URL 地址二维码 模板 -->
+<div class="modal-header xx-modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true">&times;</span>
+		<span class="sr-only">Close</span>
+	</button>
+	<h4>{{title}}</h4>
+</div>
+
+<!-- styles/models/public/qrcode -->
+<div class="modal-body xx-modal-body qrcode">
+	<div class="row">
+		<div class="col-xs-5">
+			<div class="url-qrcode">
+				<img src="{{urlQRCode}}" alt="{{urlName}}" onerror="this.src='./images/empty.png';" />
+			</div>
+		</div>
+		<div class="col-xs-7">
+			<div class="url-info">
+				<div class="url">{{url}}</div>
+				<div class="buttons">
+					<button id="CopyUrl" class="btn btn-xx-green btn-xx-sm" data-clipboard-text="{{url}}">复制</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,57 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#feedbacks">
+				意见反馈
+			</a>
+		</li>
+	</ul>
+	<!-- <div class="buttons btn-xx-group right">
+		<a class="btn btn-xx-green btn-xx-sm" href="javascript:void(0);">导出反馈</a>
+	</div> -->
+</div>
+<div class="content-body">
+	<div class="panel clearfix">
+		<header class="panel-header">
+			<h3 class="xx-inner-title clearfix">
+				<span class="xx-title">总数（{{count||0}}）</span>
+			</h3>
+		</header>
+		<section class="panel-body">
+			<table class="table-main feedback-container">
+				<tbody>
+					{{each feedbacks as feedback i}}
+					<tr>
+						<td class="width-70">
+							<a href="javascript:void(0);" data-xx-action="checkUser" data-user-id="{{feedback.user.id}}" title="{{feedback.user.name||feedback.user.nickname||feedback.user.phoneNumber||'匿名'}}">
+								<img class="avatar-img" src="{{feedback.user.portraitUrl | imageUrl:'@60w_60h_1e_1c'}}" alt="{{feedback.user.name||feedback.user.nickname||feedback.user.phoneNumber||'匿名'}}" title="{{feedback.user.name||feedback.user.nickname||feedback.user.phoneNumber||'匿名'}}" onerror="this.src='./images/default/avatar.jpg';" />
+							</a>
+						</td>
+						<td>
+							<div class="inner-content">
+								<a class="name" href="javascript:void(0);" data-xx-action="checkUser" data-user-id="{{feedback.user.id}}" title="{{feedback.user.name||feedback.user.nickname||feedback.user.phoneNumber||'匿名'}}">
+								{{feedback.user.nickname||feedback.user.name||feedback.user.phoneNumber||'匿名'}}
+								</a>
+							</div>
+							<div class="inner-content text-xx-gray ellipsis">
+								<a class="text underline" href="#feedback/{{feedback.id}}/info">
+									{{feedback.lastReply&&feedback.lastReply.text||feedback.text||"未知意见反馈"}}
+								</a>
+							</div>
+						</td>
+						<td class="width-90">
+							<span class="date">{{#(feedback.lastReply&&feedback.lastReply.createDate) | makedateSpan:'MM-dd hh:mm','yyyy-MM-dd hh:mm'}}</span>
+						</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			{{if count==0}}
+			<div class="list-empty">
+				<img src="./images/empty.png" alt="哎呀！啥都没有呢！" />
+			</div>
+			{{/if}}
+		</section>
+		<footer class="panel-footer"></footer>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+
+.atm-box{
+	.tips-box{
+		  color: #76d29b;
+		  margin-bottom: 20px;
+		  >li{
+		  	margin-bottom: 10px;
+		  }
+	}
+
+	.account-container{
+		margin-bottom: 20px;
+	}
+
+	.account-box{
+		>li{
+			margin-bottom: 5px;
+			border-bottom: 1px solid #eee;
+			padding:5px;
+			>label{
+				cursor: pointer;
+				display: block;
+			}
+			.type,.name,.account,.state{
+				float: left;
+				color: #888;
+			}
+			.type{
+				width: 20%;
+			}
+			.name{
+				width: 20%;
+			}
+			.account{
+				width: 45%;	
+			}
+			.state{
+				width: 15%;
+			}
+		}
+	}
+}

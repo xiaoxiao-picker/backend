@@ -1,0 +1,21 @@
+<div class="music-selector-box">
+	<!-- models/lib/musicbox.scss -->
+	<div class="player">
+		<audio id="Audio" src="" preload="true" loop></audio>
+		<div class="buttons" tooltip title="音乐文件最大不能超过5M" tooltip-zindex="1100">
+			<input type="file" id="MusicUploadInput" />
+			<button class="btn btn-xx-danger btn-xx-sm btn-cancel hide" id="BtnUploadCancel">取消</button>
+		</div>
+	</div>
+	<div id="MusicContainer" class="music-container">
+		
+	</div>
+	<div class="buttons center">
+		<button class="btn btn-xx-green btn-save">
+		<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+		</span>
+		<span class="inside-text">确定</span>
+		</button>
+		<button class="btn btn-xx-danger btn-cancel">取消</button>
+	</div>
+</div>

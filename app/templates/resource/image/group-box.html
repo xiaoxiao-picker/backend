@@ -1,0 +1,34 @@
+<ul class="group-box">
+	<li>
+		<h4 data-xx-action="packup" class="group-name">
+			系统图库
+		</h4>
+		<ul class="sub-group">
+			{{each systemGroups as group i}}
+			<li {{if curGroupId==group.id}}class="active"{{/if}} data-type="{{group.type}}" data-value="{{group.id}}" data-xx-action="selectGroup">
+				<span>{{group.name}}</span>
+				(<span>{{group.total}}</span>)
+			</li>
+			{{/each}}
+		</ul>
+	</li>
+	<li> 
+		<h4 data-xx-action="packup" class="group-name">
+			自定义图库
+		</h4>
+		<ul class="sub-group">
+			{{each customGroups as group i}}
+			<li id="Group_{{group.id}}" {{if curGroupId==group.id}}class="active"{{/if}} data-type="{{group.type}}" data-value="{{group.id}}" data-xx-action="selectGroup">
+				<span>{{group.name}}</span>
+				(<span class="group-count">{{group.total}}</span>)
+			</li>
+			{{/each}}
+			<li data-xx-action="modalForAddGroup">
+				<span class="text-xx-red">
+					<i class="fa fa-plus"></i>
+					新建分组
+				</span>
+			</li>
+		</ul>
+	</li>
+</ul>

@@ -1,0 +1,78 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">编辑公告</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body notice-edit">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<form id="NoticeEditForm">
+				<div class="xx-border-bottom">
+					<div class="form-group">
+						<div class="xx-inner-title clearfix">
+							<div class="xx-title">公告标题</div>
+							<div class="xx-right">
+								本周剩余短信数：
+								<span class="text-red">{{smsCount}}</span>
+								&nbsp;条
+							</div>
+						</div>
+						<label>
+							<input class="form-control" type="text" name="title" value ="{{notice.title}}" placeholder="请填写公告标题" data-xx-change-action="titleModify" data-xx-keyup-action="titleModify"/>
+						</label>
+					</div>
+					<div class="form-group">
+						<div class="xx-inner-title clearfix">
+							<div class="xx-title">公告内容</div>
+						</div>
+						<label class="xx-inner-body">
+							<textarea class="xx-textarea xx-textarea-bounds" name="text" value="{{notice.text}}" data-xx-change-action="terseValidate" data-xx-keyup-action="terseValidate">{{notice.text}}</textarea>
+							<p class="bottom-tips">
+							还可以输入<span id="TerseRemain">{{notice.text?100-notice.text.length:100}}</span>字。
+							</p>
+						</label>
+					</div>
+					<!-- 公告投票 -->
+					<!-- <div class="form-group">
+						<h4 class="xx-inner-title clearfix">
+							<span class="xx-title">公告回复选项</span>
+							<button class="btn btn-xx-green btn-xx-sm" data-xx-action="checkNoticeVote">+自定义</button>
+						</h4>
+						<div id="NoticeVotesContainer"></div>
+					</div> -->
+					<div class="form-group">
+						<h4 class="xx-inner-title clearfix">
+							<span class="xx-title">发送对象</span>
+							<button class="btn btn-xx-green btn-xx-sm" data-xx-action="openUserSelector">+联系人</button>
+						</h4>
+						<div id="MembersBox" class="targets-container"></div>
+					</div>
+				</div>
+				<div class="xx-inner-footer">
+					<div class="btn-xx-group left">
+						<button class="btn btn-xx-green" data-xx-action="saveAndSend">
+							<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+							</span>
+							<span class="inside-text">发送</span>
+						</button>
+						<button class="btn btn-xx-hollow-gray-border" data-xx-action="save">
+							<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+							</span>
+							<span class="inside-text">存草稿</span>
+						</button>
+						{{if noticeId != "add"}}
+						<button class="btn btn-xx-red" data-xx-action="remove">
+							<span class="inside-loading">
+								<i class="fa fa-spinner rolling font-18"></i>
+							</span>
+							<span class="inside-text">删除</span>
+						</button>
+						{{/if}}
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

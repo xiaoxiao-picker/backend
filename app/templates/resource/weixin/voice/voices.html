@@ -1,0 +1,24 @@
+{{each voices as resource i}}
+<tr>
+	<td class="index"> <i class="fa fa-music"></i>
+		{{i | index:pagination.page,pagination.limit}}
+	</td>
+	<td class="left">
+		<a class="" target="_blank" href="{{'frontRoot' | application}}/posters/music-player/index.html?oid={{'organizationId' | application}}&musicURL={{resource.url | encode}}" data-value="{{resource.url}}" title="{{resource.filename}}">{{resource.filename}}</a>
+	</td>
+	<td class="">{{#resource.createDate | makedateSpan:'MM-dd hh:mm','yyyy-MM-dd hh:mm'}}</td>
+	<td class="">
+		<button class="btn btn-xx-green btn-xx-sm btn-play" data-value="{{resource.url}}" data-xx-action="play">
+			<i class="fa fa-play"></i>
+		</button>
+		<button class="btn btn-xx-green btn-xx-sm btn-pause" data-value="{{resource.url}}" data-xx-action="pause">
+			<i class="fa fa-pause"></i>
+		</button>
+		<button class="btn btn-xx-red btn-xx-sm" data-value="{{resource.id}}" data-xx-action="remove">
+			<span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+			</span>
+			<span class="inside-text">删除</span>
+		</button>
+	</td>
+</tr>
+{{/each}}

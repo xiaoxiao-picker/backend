@@ -1,0 +1,28 @@
+<div class="navbar navbar-xx nav-fixed-top unselect" role="navigation">
+	<div class="main-container clearfix">
+		<div class="pull-left">
+			<div class="inner-logo">
+				<a href="/index.html">
+					<img src="./images/logo.png?_=2015-01-29" alt="OA系统" />
+				</a>
+			</div>
+		</div>
+		<div class="nav-right clearfix">
+			<div class="pull-right clearfix">
+				<div id="MailBox" class="nav-handler nav-mailbox" data-xx-action="showNotificationCenter">
+					<span class="fa fa-bell-o gray font-16"></span>
+					通知中心
+					<span class="remark hide">0</span>
+				</div>
+				<a href="javascript:void(0);" class="nav-handler nav-user" data-xx-action="userEdit">
+					<img class="nav-avatar user-avatar-{{user.id}}" src="{{user.info.portraitUrl | imageUrl:'@100w_100h_1e_1c'}}" onerror="this.src='./images/default/avatar.jpg';" />
+					<span class="user-name-{{user.id}}">{{user.info.name||user.info.nickname||user.info.phoneNumber}}</span>
+				</a>
+				<div class="nav-handler nav-logout">
+					<span class="fa fa-power-off red" data-xx-action="logout"></span>
+				</div>
+			</div>
+		</div>
+		{{include './loading'}}
+	</div>
+</div>

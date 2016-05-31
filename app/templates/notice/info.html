@@ -1,0 +1,46 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active">
+			<a href="javascript:void(0);">公告详情</a>
+		</li>
+	</ul>
+</div>
+<div class="content-body notice-info">
+	<div class="panel clearfix">
+		<div class="panel-body">
+			<div class="xx-inner-body-o xx-border-bottom">
+				<div class="xx-inner-title">
+					<div class="xx-title">公告详情</div>
+					<div class="xx-right">
+						本周剩余短信数：
+						<span class="text-red">{{smsCount}}</span>
+						&nbsp;条
+					</div>
+				</div>
+				<div class="notice-body clearfix">
+					<img src="{{notice.orgData.logoUrl | imageUrl:'@60w_60h_1e_1c'}}" onerror="this.src='./images/default/org.jpg';" alt="{{notice.orgData.name}}" />
+					<div class="notice-info">
+						<div> <strong>{{notice.title}}</strong>
+						</div>
+						<div>{{notice.text}}</div>
+						<div class="date">{{notice.createDate | makedate:'yyyy/MM/dd hh:mm'}}</div>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top:15px;">
+				<div class="xx-inner-title">
+					<span class="xx-title">发送对象</span>
+				</div>
+				<section class="xx-inner-body">
+					<div class="xx-tag-group clearfix">
+						{{each members as member i}}
+						<div class="xx-tag-wrapper xx-blue">
+							<label class="xx-tag" data-user-id="{{member.user.id}}" data-xx-action="checkUser">{{member.remark||member.user.name||member.user.nickname||member.user.phoneNumber||"未知"}}</label>
+						</div>
+						{{/each}}
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>

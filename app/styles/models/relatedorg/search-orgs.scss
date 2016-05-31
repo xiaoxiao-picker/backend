@@ -1,0 +1,61 @@
+.search-condition-wrapper {
+        margin-bottom: 30px;
+
+        .col-md-3 {
+                width: 25%;
+                float: left;
+                padding: 0 5px;
+        }
+
+        input, select {
+                background-color: #eee;
+                border: 1px solid $default-border-color;
+                box-shadow: none;
+                height: 34px;
+                font-size: 14px;
+        }
+}
+
+.search-results {
+        .result-options {
+                .option-wrapper {
+                        width: 25%;
+                        float: left;
+                        margin: 15px 0;
+                        height: 50px;
+                        overflow: hidden;
+
+                        img {
+                                float: left;
+                                height: 50px;
+                                width: 50px;
+                                border-radius: 50%;
+                                border: 1px solid $default-border-color;
+                        }
+
+                        .org-info {
+                                margin-left: 60px;
+                                margin-right: 10px;
+
+                                .title {
+                                        font-size: 14px;
+                                        line-height: 30px;
+                                        height: 30px;
+                                        overflow: hidden;
+                                }
+
+                                .btn {
+                                        min-width: 50px !important;
+                                }
+                        }
+                }
+        }
+}
+
+.manual-addorg {
+        margin-top: 20px;
+
+        span {
+                color: #b9b9b9;
+        }
+}

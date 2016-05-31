@@ -1,0 +1,78 @@
+.modules-selector-box {
+        height: 515px;
+        overflow: auto;
+        .modal-content {
+                padding: 20px 10px;
+        }
+        .modules-box {
+                .module {
+                        float: left;
+                        position: relative;
+                        height: 227px;
+                        width: 128px;
+                        overflow: hidden;
+                        margin: 0 10px 20px;
+                        cursor: pointer;
+                        background-color: #f7f7f7;
+                        text-align: center;
+                        &:hover {
+                                .module-overlay {
+                                        &.top1, &.top2 {
+                                                top: 0;
+                                                transition: top .5s;
+                                        }
+                                }
+                        }
+                        .module-overlay {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                width: 100%;
+                                text-align: center;
+                                color: #fff;
+                                background-color: rgba(91, 209, 139, 0.9);
+                                padding: 5px;
+                                transition: top .5s;
+                                /* Opera */
+                                &.top1 {
+                                        top: 190px;
+                                }
+                                &.top2 {
+                                        top: 170px;
+                                }
+                                .title {
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                        padding: 5px 0 10px;
+                                }
+                                .content {
+                                        text-align: left;
+                                        font-size: 12px;
+                                        height: 120px;
+                                        overflow: auto;
+                                }
+                                .buttons {
+                                        position: absolute;
+                                        bottom: 20px;
+                                        left: 0;
+                                        width: 100%;
+                                }
+                        }
+                        .fighter-img {
+                                margin-top: 50px;
+                                width: auto;
+                                height: auto;
+                        }
+                        .message {
+                                font-size: 14px;
+                                color: $default-gray-color;
+                                padding: 10px 0;
+                        }
+                        img {
+                                width: 128px;
+                                height: 228px;
+                        }
+                }
+        }
+}

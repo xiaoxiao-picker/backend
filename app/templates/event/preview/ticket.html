@@ -1,0 +1,12 @@
+<tbody>
+	{{each tickets as ticket i}}
+	<tr class="ticket-option">
+		<td class="option-label">
+			<span class="pk pk-green-ticket"></span>
+		</td>
+		<td class="option-name">
+			<span class="text-xx-green">{{ticket.name||""}}</span>
+		</td>
+	</tr>
+	{{/each}}
+</tbody>

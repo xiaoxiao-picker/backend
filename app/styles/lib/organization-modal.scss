@@ -1,0 +1,70 @@
+.organization-modal {
+	.modal-header {
+        display: none;
+    }
+    .modal-content {
+        padding: 0;
+    }
+}
+
+.orgInfo-header-wrapper {
+	height: 150px;
+	background-color: $success-color;
+	border-radius: 2px 2px 0 0;
+	padding: 10px;
+	.content-wrapper {
+		position: relative;
+		height: 100%;
+		width: 95%;
+		.orgInfo-avatar {
+			position: absolute;
+			top: 10px;
+			left: 40px;
+			height: 100px;
+			width: 100px;
+			border-radius: 50%;
+			border: 2px solid #fff;
+			background-color: #fff;
+		}
+		.orgInfo-info {
+			position: absolute;
+			top: 15px;
+			color: #fff;
+			margin-left: 160px;
+			line-height: 16px;
+			font-size: 12px;
+			.org-name {
+				font-size: 16px;
+				line-height: 25px;
+			}
+		}
+		.btn {
+			position: absolute;
+			right: 0px;
+  			bottom: 10px;
+		}
+	}
+}
+.orgInfo-body-wrapper {
+	padding: 20px;
+	.desc {
+		color: $xx-title-color;
+	}
+	.extend-info {
+		padding-top: 20px;
+		margin-top: 20px;
+		border-top: 1px solid $default-border-color;
+		.xx-table-cell {
+		text-align: center;
+		.title {
+			font-size: 14px;
+			color: $xx-title-color;
+		}
+		.count {
+			font-size: 22px;
+			color: $default-gray-color;
+		}
+	}
+	}
+	
+}

@@ -1,0 +1,8 @@
+{{each lost.picUrls as picUrl i}}
+<div class="photo-wrapper">
+	<img src="{{picUrl}}@100w_120h_1e_1c" alt="">
+	<span class="btn-del" data-index="{{i}}" data-xx-action="removeImage">
+		<i class="fa fa-minus-circle"></i>
+	</span>
+</div>
+{{/each}}

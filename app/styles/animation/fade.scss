@@ -1,0 +1,11 @@
+// 渐变动画
+
+
+@keyframes opacityFadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

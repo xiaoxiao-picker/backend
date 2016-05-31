@@ -1,0 +1,72 @@
+.input-group, .form-control {
+        width: 100%;
+        display: block;
+        padding: 6px 12px;
+        border-radius: 4px;
+        line-height: 1.42857143;
+        border: 1px solid $default-border-color;
+        background-color: transparent;
+        color: #666;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+        &:focus {
+                outline: 0;
+                border-color: #66afe9;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+}
+
+.input-group {
+        position: relative;
+
+        .form-control {
+                border: none;
+                padding: 0;
+                box-shadow: none;
+
+                &:focus {
+                        box-shadow: none;
+                }
+        }
+
+        .inupt-group-addon {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                padding: 5px;
+
+                &:hover {
+                        color: #444;
+                }
+        }
+}
+
+.post-img-container {
+        .avatar-wrapper {
+                height: auto;
+                width: 100%;
+                margin-bottom: 5px;
+
+                img {
+                        max-height: 200px;
+                        max-width: 600px;
+                        border: 1px solid #e3e3e3;
+                }
+        }
+
+        .buttons {
+                padding: 0;
+                margin: 0;
+        }
+}
+
+.terse-container {
+        .xx-inner-body {
+                padding: 0;
+        }
+}
+
+.rich-container {
+        width: 600px;
+}

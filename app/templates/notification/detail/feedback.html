@@ -1,0 +1,29 @@
+<div class="detail-container" style="padding-bottom: 60px;">
+	<div class="avatar-header">
+		<img class="avatar-img" data-xx-action="checkUser" data-user-id="{{notification.source.source.id}}" src="{{notification.source.source&&notification.source.source.portraitUrl}}" onerror='this.src="/images/default/avatar.jpg"'>
+		<h4>{{notification.source.source.nickname||notification.source.source.name||notification.source.source.phoneNumber}}</h4>
+		<span class="label label-xx-orange">意见反馈</span>
+	</div>
+	<div class="content-wrapper">
+		<div>
+			{{each notification.source.reply.text.split('\n') as desc i}}
+			<p>{{desc}}</p>
+			{{/each}}
+		</div>
+		<a class="link-green underline btn-jump" href="javascript:void(0);">查看详细</a>
+	</div>
+	<div class="detail-body"></div>
+</div>
+<div class="reply-input-container clearfix">
+	<div class="input-wrapper">
+		<input id="ReplyInput" type="text" class="xx-input-text" name="text" value="" placeholder="回复意见反馈">
+	</div>
+	<div class="buttons">
+		<button class="btn btn-xx-green btn-reply">
+			<span class="inside-loading">
+				<i class="fa fa-spinner rolling font-14"></i>
+			</span>
+			<span class="inside-text">回复</span>
+		</button>
+	</div>
+</div>

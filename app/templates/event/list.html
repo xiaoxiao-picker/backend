@@ -1,0 +1,47 @@
+<div class="content-header">
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" {{if state=="PUBLISHED"}} class="active" {{/if}}>
+			<a href="#events?state=PUBLISHED">已发布</a>
+		</li>
+		<li role="presentation" {{if state=="ARCHIVED"}} class="active" {{/if}}>
+			<a href="#events?state=ARCHIVED">已下线</a>
+		</li>
+		<li role="presentation" {{if state=="UNPUBLISHED"}} class="active" {{/if}}>
+			<a href="#events?state=UNPUBLISHED">草稿箱</a>
+		</li>
+	</ul>
+	<div class="buttons btn-xx-group right">
+		<!-- <a class="btn btn-xx-hollow-green-border btn-xx-sm" href="#events?state=RUBBISH" title="回收站">回收站</a> -->
+		<a class="btn btn-xx-green btn-xx-sm" href="#event/categories?from=list">分类管理</a>
+		<a class="btn btn-xx-green btn-xx-sm" href="#event/0/edit">新建活动</a>
+	</div>
+</div>
+<div class="content-body event-list">
+	<div  class="panel">
+		<header class="panel-header">
+			<h3 class="xx-inner-title">
+				<span class="xx-title">总数（<span id="Count">{{total||0}}</span>）</span>	
+			</h3>
+			<div class="search-group buttons">
+				<form class="search-box ">
+					<input type="text" class="input-search dropdown" data-xx-action="selectCategory" placeholder="活动分类" readonly="true" />
+					<input type="text" class="input-search keyword-name" placeholder="活动名称" />
+					<button class="btn-search" data-xx-action="search">
+						<span class="inside-loading">
+							<i class="fa fa-spinner rolling"></i>
+						</span>
+						<span class="inside-text">
+							<i class="fa fa-search"></i>
+						</span>
+					</button>
+				</form>
+			</div>	
+		</header>
+		<section class="panel-body">
+			<div class="event-list" id="EventsContainer">
+				<!-- app/templates/event/list-option -->
+			</div>
+		</section>
+		<footer class="panel-footer"></footer>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+<div class="replies-container">
+    {{each replies as reply i}}
+    <div class="reply-wrapper">
+        <h5 class="user-name">
+			<a href="javascript:void(0);" data-user-id="{{reply.user&&reply.user.id}}" data-xx-action="checkUser">{{reply.user.nickname||reply.user.phoneNumber}}</a>
+			{{if reply.priority=="ADMIN"}}
+			<span class="label label-xx-sm label-xx-red" title="官方回复">官方</span>
+			{{/if}}
+		</h5>
+        <div class="reply-context">
+            {{if reply.targetUser}}
+            <a class="text-xx-blue" href="javascript:void(0);" data-user-id="{{reply.targetUser.id}}" data-xx-action="checkUser">@{{reply.targetUser.nickname||reply.targetUser.phoneNumber}}：</a> {{/if}} {{reply.text}}
+        </div>
+        <div class="reply-extend-info">
+            <span class="date">{{reply.createDate | makedate:'yyyy-MM-dd hh:mm'}}</span>
+            <div class="buttons btn-xx-group right">
+                <button class="btn btn-xx-green btn-xx-sm" data-value="{{reply.user&&reply.user.id}}" data-name="{{reply.user.nickname||reply.user.phoneNumber}}" data-xx-action="targetReply">
+                    <span class="inside-loading"> 
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+                    <span class="inside-text">回复</span>
+                </button>
+                <button class="btn btn-xx-red btn-xx-sm" data-value="{{reply.id}}" data-xx-action="removeComment">
+                    <span class="inside-loading"> 
+						<i class="fa fa-spinner rolling font-14"></i>
+					</span>
+                    <span class="inside-text">删除</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{if hasMore}}
+<div class="replies-footer">
+    <button class="btn btn-xx-green" data-xx-action="more">
+        <span class="inside-loading"> <i class="fa fa-spinner rolling font-14"></i>
+		</span>
+        <span class="inside-text">查看更多</span>
+    </button>
+</div>
+{{/if}}

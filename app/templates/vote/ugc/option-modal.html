@@ -1,0 +1,36 @@
+<section class="option-box">
+    <div class="box-header clearfix">
+        <img class="avatar" src="{{option.user.portraitUrl | imageUrl:'@65w_65h_1e_1c'}}" onerror="this.src='images/default/avatar.jpg';" />
+        <h4 class="ellipsis">{{option.realName}}({{option.phoneNumber}})</h4>
+        <span class="date text-xx-gray">{{option.createDate | makedate:'yyyy-MM-dd hh:mm'}}</span>
+    </div>
+    <div class="box-content">
+        <img src="{{option.imageUrls}}" onerror="this.src='./images/default/event.jpg'"/>
+        <h3>{{option.name}}<span class="gender">（{{["未知","男","女"][option.gender||0]}}）</span></h3>
+        <div class="description">
+            {{each option.description&&option.description.split('\n') as desc i}}
+            <p class="text-xx-gray">
+                {{desc}}
+            </p>
+            {{/each}}
+        </div>
+    </div>
+    <div class="buttons clearfix">
+        <button class="btn btn-xx-green btn-update">
+            <span class="inside-loading">
+				<i class="fa fa-spinner rolling font-18"></i>
+			</span>
+            <span class="inside-text">
+				修改
+			</span>
+        </button>
+        <button class="btn btn-xx-red btn-remove">
+            <span class="inside-loading">
+				<i class="fa fa-spinner rolling font-18"></i>
+			</span>
+            <span class="inside-text">
+				删除
+			</span>
+        </button>
+    </div>
+</section>

@@ -1,0 +1,162 @@
+/**
+ *  分页控件样式
+ *  [DEFAULT、SIMPLE]两种样式
+ */
+.xx-pagination {
+    display: inline-block;
+    padding-left: 0;
+    >li {
+        line-height: 30px;
+        text-align: center;
+        float: left;
+        >a,
+        >span {
+            position: relative;
+            display: block;
+            font-size: 14px;
+            min-width: 35px;
+            line-height: 30px;
+            padding: 0 8px;
+            margin: 0 2px;
+            color: $default-gray-color;
+            border: 2px solid #fff;
+            border: 2px solid transparent;
+            text-decoration: none;
+            background-color: #fff;
+            background-color: transparent;
+            border-radius: 20px;
+            &:hover,
+            &:focus {
+                border: 2px solid #c6ccd2;
+            }
+        }
+        >input {
+            text-align: center;
+            padding: 0 3px;
+            width: 35px;
+            line-height: 20px;
+        }
+        >.btn.btn-xx-sm {
+            padding: 3px 7px;
+        }
+        &.page-pre,
+        &.page-next {
+            >a,
+            >span {
+                font-size: 14px;
+                padding: 0 20px;
+                margin: 0 5px;
+                border: 1px solid $xx-theme-color;
+                color: $xx-theme-color;
+                background-color: #fff;
+                &:hover,
+                &:focus {
+                    border: 1px solid $xx-theme-deep-color;
+                    color: $xx-theme-deep-color;
+                }
+            }
+        }
+    }
+    >.active {
+        >a,
+        >span,
+        >a:hover,
+        >span:focus {
+            color: #fff;
+            cursor: default;
+            background-color: $xx-theme-color;
+            border: 2px solid $xx-theme-color;
+        }
+    }
+    >.disabled {
+        >a,
+        >span,
+        >a:hover,
+        >span:focus {
+            color: $default-gray-color;
+            cursor: not-allowed;
+            background-color: #fff;
+            background-color: transparent;
+            border: 2px solid #fff;
+            border: 2px solid transparent;
+        }
+        &.page-pre,
+        &.page-next {
+            >a,
+            >span,
+            >a:hover,
+            >a:link,
+            >a:visited,
+            >span:focus {
+                border: 1px solid #c6ccd2;
+                color: #c6ccd2;
+                background-color: #fff;
+            }
+        }
+    }
+    .page-go {
+        padding: 0 15px;
+        color: $default-gray-color;
+        .btn-go {
+            font-size: 14px;
+            margin-left: 8px;
+            line-height: 30px;
+            padding: 0px 20px;
+            border: 1px solid $xx-theme-color;
+            color: $xx-theme-color;
+            border-radius: 15px;
+            &:hover,
+            &:focus {
+                border: 1px solid $xx-theme-deep-color;
+                color: $xx-theme-deep-color;
+            }
+        }
+    }
+    &.SIMPLE {
+        >li {
+            >a,
+            >span {
+                line-height: 25px;
+                &:hover,
+                &:focus {
+                    border: 2px solid #fff;
+                    border: 2px solid transparent;
+                }
+            }
+            &.page-pre,
+            &.page-next {
+                >a,
+                >span {
+                    font-size: 12px;
+                    padding: 0 15px;
+                    &:hover,
+                    &:focus {
+                        border: 1px solid $xx-theme-deep-color;
+                        color: $xx-theme-deep-color;
+                    }
+                }
+            }
+            .page-select {
+                width: auto;
+                height: 25px;
+                margin: 0 5px;
+                background-color: #fff;
+            }
+        }
+        >.disabled {
+            &.page-pre,
+            &.page-next {
+                >a,
+                >span,
+                >a:hover,
+                >a:link,
+                >a:visited,
+                >span:focus {
+                    border: 1px solid #c6ccd2;
+                    color: #c6ccd2;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<!-- 加入组织所需资料模板 -->
+{{each requireBaseInfos as option i}}
+	<div class="xx-tag-wrapper TagBox  {{if option.selected}}xx-blue{{else}}{{/if}}" data-value="{{option.value}}"  data-xx-action="{{if !option.must}}switchBaseInfo{{/if}}">
+		<label class="xx-tag" >{{option.name}}</label>
+	</div>
+{{/each}}

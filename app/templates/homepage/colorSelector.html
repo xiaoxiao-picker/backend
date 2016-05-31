@@ -1,0 +1,53 @@
+<!-- 颜色背景选择器 -->
+
+<div class="modal-header xx-modal-header">
+	<button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true">&times;</span>
+		<span class="sr-only">Close</span>
+	</button>
+	<h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body xx-modal-body">
+	<div id="BackgroundSettingBox" class="xx-groups">
+		<div class="xx-group">
+			<h5 class="xx-inner-title">
+				<span class="xx-title">选择颜色</span>
+			</h5>
+			<div class="colors-box">
+				{{each groups as group i}}
+				<div class="color-row clearfix">
+					{{each group.colors as color j}}
+					<div class="color {{if color.r==currentColor.R&&color.g==currentColor.G&&color.b==currentColor.B}}active{{/if}}" style="background-color:rgb({{color.r}},{{color.g}},{{color.b}});" data-xx-action="selectColor" data-r="{{color.r}}" data-g="{{color.g}}" data-b="{{color.b}}"></div>
+					{{/each}}
+				</div>
+				{{/each}}
+			</div>
+
+		</div>
+		<div class="xx-group">
+			<h5 class="xx-inner-title">
+				<span class="xx-title">背景不透明度</span>
+				<span>（</span>
+				<span id="LabelOpacity">{{currentColor.O}}%</span>
+				<span>）</span>
+			</h5>
+			<div class="opacity-box">
+				<input type="range" id="BackColorOpacity" data-xx-change-action="changeOpacity" value="{{currentColor.O}}" name="opacity" min="0" max="100" placeholder="请输入0-100之间的数字"  />
+			</div>
+		</div>
+		<div class="xx-group">
+			<div class="buttons">
+				<button class="btn btn-xx-green" data-xx-action="{{action||"saveMenuBackground"}}" data-index="{{index}}" data-baseMenuIndex="{{baseIndex}}">
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">确定</span>
+				</button>
+				<button class="btn btn-xx-danger" data-xx-action="closeModal" >
+					<span class="inside-loading"> <i class="fa fa-spinner rolling font-18"></i>
+					</span>
+					<span class="inside-text">取消</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

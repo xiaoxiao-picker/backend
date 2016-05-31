@@ -1,0 +1,13 @@
+
+<div class=" school-selector-box">
+	<div class="form-group clearfix">
+		<input id="SearchInput" type="search" class="form-control" placeholder="快速查找学校"/>
+		<select id="ProvinceContainer" class="form-control" name="province">
+			{{each provinces as province i}}
+			<option value="{{province}}">{{province}}</option>
+			{{/each}}
+		</select>
+	</div>
+	<ul id="SchoolsBox" class="shools-box"></ul>
+	<ul id="SearchResults" class="search-results-box hide"></ul>
+</div>

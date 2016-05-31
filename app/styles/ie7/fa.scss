@@ -1,0 +1,23 @@
+.fa {
+	width: 20px;
+	height: 20px;
+	background-size: 100%;
+	background-size: cover;
+	background-position: 0 0;
+	background-repeat: repeat;
+}
+.fa-minus-circle {
+	background-image: url('./../images/fa/minus.png');
+	// 兼容IE678不支持background-size: 100%;
+	//filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../images/fa/minus.png', sizingMethod='scale');
+}
+.fa-times {
+	background-image: url('./../images/fa/minus.png');
+	// 兼容IE678不支持background-size: 100%;
+	//filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../images/fa/minus.png', sizingMethod='scale');
+}
+.fa-spinner{
+	background-image: url('./../images/fa/spinner.gif');
+	// 兼容IE678不支持background-size: 100%;
+	//filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./../images/fa/spinner.gif', sizingMethod='scale');
+}

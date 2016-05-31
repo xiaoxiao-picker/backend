@@ -1,0 +1,51 @@
+<table class="table middle">
+	<thead class="xx-table-header">
+		<tr>
+			<th class="width-1-5">
+				日期
+			</th>
+			<th class="width-1-5">
+				支出类型
+			</th>
+			<th class="width-1-5">
+				支出方式
+			</th>
+			<th class="width-1-5">
+				支出金额/元
+			</th>
+			<th class="xx-border-right width-1-5">
+				状态
+			</th>
+		</tr>
+	</thead>
+	<tbody class="xx-table-body center">
+		{{each logs as log i}}
+		<tr>
+			<td>
+				{{log.createDate | makedate:'yyyy-MM-dd hh:mm'}}
+			</td>
+			<td>
+				取款
+			</td>
+			<td>
+				校校人工服务
+			</td>
+			<td>
+				<span class="text-xx-red currency">{{log.money | formatCurrency}}</span>
+			</td>
+			<td>
+				{{if log.state=="UNDEALED"}}
+				<span>审核中</span>
+				{{else if log.state=="APPROVED"}}
+				<span class="text-xx-green">成功</span>
+				{{else if log.state=="REJECTED"}}
+				<span class="text-xx-red">失败</span>
+				{{/if}}
+			</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+{{if logs.length == 0}}
+ <p class="center text-gray" style="padding:30px 0;">暂无数据！</p>
+{{/if}}
